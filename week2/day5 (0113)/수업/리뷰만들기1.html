@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>리뷰만들기0</title>
+  <style>
+    .wrap{
+      width: 750px;
+      border: 1px solid black;
+    }
+
+    /* .wrap > div {
+      border: 1px solid red; 
+       height: 200px;
+    } */
+
+        /*line1 style*/
+        h1{
+      margin: 0;
+      letter-spacing: 5px;
+    }
+
+    .line1{
+      height: 60px;
+      /*높이 만큼의 크기를 주면 라인 가운데로 정렬하게 됨*/
+      line-height: 60px;
+      text-align: center;
+    }
+
+    /*liner2 style*/
+
+    .line2{
+      display: flex;
+      text-align: center;
+    }
+
+    .line2_col1{
+      width: 50%;
+      height: 200px;
+      /* border: 1px solid black; */
+    }
+    .line2_col2{
+      width: 50%;
+      height: 200px;
+      /* border: 1px solid black; */
+    }
+
+    /* .line2_col1 img{
+      width: 100%;
+      height: 100%;
+
+      부모가 있고 크기를 100%로 설정했을 떄 사용할 수 있다
+      img 단독으로 있을 때는 사용 불가
+      object-fit: contain;
+
+    } */
+
+    .line2_col2 textarea{
+      width: 90%;
+      height: 130px;
+      box-sizing: border-box;
+    }
+
+    .line2_col1 img{
+      width: 80%;
+      height: 130PX;
+    }
+
+        /*line3 style*/
+
+        .line3{
+      display: flex;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .line3_col{
+      width: 33.3%;
+      /* border: 1px solid black; */
+    }
+
+    .line3 h4{
+      margin: 0;
+    }
+
+    .line3 input{
+      box-sizing: border-box;
+      width: 100%;
+      height: 40px;
+    }
+
+        /*line4 style*/
+        .line4{
+      padding: 10px;
+      box-sizing: border-box;
+
+    }
+
+    .line4 h4{
+      margin-top: 0;
+    }
+
+    .line4 textarea{
+      width: 100%;
+      height: 150px;
+      box-sizing: border-box;
+    }
+
+
+  </style>
+</head>
+<body>
+   <div class="wrap">
+
+    <div class="line1">
+      <h1>REVIEW </h1>
+    </div>
+
+    <div class="line2">
+      <!--이미지-->
+      <div class="line2_col1">
+        <h3>이미지</h3>
+        <img src="https://static.cdn.kmong.com/gigs/fPoZ31584321311.jpg" alt="food">
+      </div>
+
+      <!--내용-->
+      <div class="line2_col2">
+        <h3>맛평가</h3>
+        <textarea></textarea>
+      </div>
+    </div>
+
+
+    <div class="line3">
+      <div class="line3_col">
+        <h4>연령대</h4>
+        <input type="text">
+      </div>
+      <div class="line3_col">
+        <h4>만족도</h4>
+        <input type="text">
+      </div>
+      <div class="line3_col">
+        <h4>성별</h4>
+        <input type="text">
+      </div>
+    </div>
+
+
+    <div class="line4">
+      <h4>판매점 정보</h4>
+      <textarea></textarea>
+
+    </div>
+    <div class="line4">
+      <h4>더 나누고 싶은 내용과</h4>
+      <textarea></textarea>
+    </div>
+
+   </div>
+</body>
+</html>

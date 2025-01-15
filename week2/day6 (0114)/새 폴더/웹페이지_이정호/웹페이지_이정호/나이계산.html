@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나이계산</title>
+    <style>
+        /*헤더*/
+        header{
+            height: 100px;
+            background-color: coral;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        header h1{
+            margin: 0px;
+            text-align: center;
+            line-height: 100px;
+            letter-spacing: 20px;
+        }
+        .search{
+            background-color: white;
+            height: 50px;
+            display: flex;
+        }
+        .search input{
+            border: none;
+            outline: none;
+        }
+        .search img{
+            width: 60px;
+        }
+
+        /*내비*/
+        nav{
+            height: 60px;
+            background-color: wheat;
+        }
+        ul{
+            margin: 0px;
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            line-height: 60px;
+        }
+        a{
+            color: brown;
+            font-weight: bold;
+        }
+        a:hover{
+            color:cornflowerblue;
+        }
+
+        /*세션*/
+        section{
+            padding: 50px;
+        }
+        .wrap{
+            border: 1px solid rgb(227, 216, 216);
+            border-radius: 20px;
+            width: 400px;
+            margin: 0 auto;
+            text-align: center;
+            height: 320px;
+            padding: 20px;
+        }
+        .title{
+            width: 90%;
+            border-bottom: 1px solid black;
+            margin: 0 auto;
+        }
+        .form{
+            width: 90%;
+            border-bottom: 1px solid black;
+            margin: 0 auto;
+            margin-top: 15px;
+        }
+        .form input{
+            width: 90%;
+            box-sizing: border-box;
+            height: 40px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .form button{
+            width: 90%;
+            height: 40px;
+            margin-bottom: 30px;
+        }
+
+        /*푸터*/
+        footer{
+            height: 100px;
+            background-color: antiquewhite;
+            line-height: 50px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <!--헤더-->
+    <header>
+        <div>
+            <h1>STUDY SITE</h1>
+        </div>
+        <div class="search">
+            <input>
+            <img src="./image/검색.png">
+        </div>
+    </header>
+
+    <!--내비-->
+    <nav>
+        <ul>
+            <li><a href="./수맞추기게임.html">수 맞추기</a></li>
+            <li><a href="./물나르기.html">물 나르기</a></li>
+            <li><a href="./가위바위보.html">가위바위보</a></li>
+            <li><a href="./나이계산.html">나이 계산</a></li>
+            <li><a href="./테이블.html">테이블</a></li>
+        </ul>
+    </nav>
+
+    <!--세션-->
+    <section>
+        <div class="wrap">
+            <div class="title">
+                <h2>나이 계산하기</h2>
+            </div>
+            <div class="form">
+                <p>당신의 나이를 알려드립니다.</p>
+                <input id="yearInput" type="text" placeholder="출생년도를 입력하세요">
+                <button id="checkAge">확인</button>
+            </div>
+            <h2 id="yourAge"></h2>
+        </div>
+    </section>
+
+    <!--푸터-->
+    <footer>
+        <img src="./image/logo.png">
+        <p>
+            (주)에이콘이즈 에이콘아카데미(홍대)
+        </p>
+        <p>
+            COPYRIGHT(C) HBILAB ALL RIGHTS RESERVED.
+        </p>
+     </footer>
+
+    <script>
+        const year = new Date().getFullYear() //현재 년도
+
+        const yearInput = document.querySelector('#yearInput') //출생 년도 입력칸 지정
+        const checkAge = document.querySelector('#checkAge') //확인 버튼 지정
+        const yourAge = document.querySelector("#yourAge") //나이 표시 구역 지정
+
+        //확인 버튼 클릭 이벤트
+        checkAge.addEventListener("click", function(){
+            //출생연도를 입력하지 않았을 경우
+            if(yearInput.value === ''){
+                yourAge.innerText = `연도를 입력해주세요.` //경고문 출력
+            }else{
+                const birth = year - yearInput.value + 1 //나이 계산
+                yourAge.innerText = `${birth}살` //나이 표시
+                yourAge.style.color = "red"
+                yearInput.value = '' //input 초기화
+            }
+        })
+    </script>
+</body>
+</html>

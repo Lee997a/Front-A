@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    header{
+      height: 100px;
+      background-color: rgb(245, 248, 248);
+      position: relative;
+    }
+    .title{
+      position: absolute;
+      left: 1px;
+      top: 20px;
+    }
+    .search{
+      display: flex;
+      position: absolute;
+      right: 10px;
+      bottom: 20px;
+    }
+
+    .search img{
+      width: 25px;
+      height: 25px;
+    }
+
+    nav{
+      height: 40px;
+      padding: 20px;
+      background-color: rgb(232, 243, 243);
+      position: relative;
+    }
+
+    .info_wrap{
+      list-style: none;
+      display: flex;
+
+      position: absolute;
+      left: 0;
+      margin: 0;
+    }
+    .info_wrap a{
+      color: black;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+
+    section{
+      height: 600px;
+
+    }
+
+    section ul{
+      list-style: none;
+      display: flex;
+      justify-content: center;
+
+    }
+
+    section ul li{
+      width: 300px;
+      padding: 20px;
+      border: 1px solid black;
+      text-align: center;
+      position: relative;
+
+    }
+
+    section ul li img{
+      width: 200px;
+      height: 220px;
+    }
+    section ul li span{
+      width: 130px;
+      padding: 10px;
+      color: red;
+      background-color: black;
+      position: absolute;
+      top: -5px;
+      left: 10px;
+    }
+
+    section ul li p{
+      font-size: 12px;
+    }
+    
+
+    footer{
+      height: 60px;
+      background-color: rgb(233, 239, 239);
+      display: flex;
+      justify-content: space-between;
+      
+    }
+
+    footer .item{
+      width: 33%;
+      height: 60px;
+
+    }
+
+    footer .item img{
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">
+        <img src="/시험연습_샘플/images/logo.png">
+      </div>
+      <div class="search">
+        <input type="text">
+        <img src="/시험연습_샘플/images/검색.png">
+      </div>
+    </header>
+    <nav>
+      <ul class="info_wrap">
+        <li><a href="./lonin.html">로그인</a>
+          </li>
+        <li><a href="./joinus.html">회원가입</a></li>
+        <li><a href="./index.html">홈으로</a></li>
+      </ul>
+    </nav>
+
+    <section>
+      <ul>
+        <li><span class="font1">bigdata</span><img src="/시험연습_샘플/images/img01.png">
+        <p>
+          프로젝트 기반 빅데이터분석 과정
+        </p></li>
+        <li><span class="font2">andorid</span><img src="/시험연습_샘플/images/img01.png">
+        <p>
+          자바(JAVA) & 안드로이드 개발자 양성과정
+        </p></li>
+        <li><span class="font3">front</span><img src="/시험연습_샘플/images/img01.png">
+        <p>
+          Web기반 프론트엔드 자바개발자 양성과정
+        </p></li>
+      </ul>
+
+    </section>
+
+    <footer>
+      <div class="item">
+        <img src="/시험연습_샘플/images/footer_acorn.png">
+      </div>
+      <div class="item">
+        <p>(주)에이콘이즈 에이콘아카데미(홍대)</p>
+      </div>
+      <div class="item">
+        <p>COPYRIGHT(C) HBILAB ALL RIGHTS RESERVED.</p>
+      </div>
+
+    </footer>
+  </div>
+</body>
+</html>

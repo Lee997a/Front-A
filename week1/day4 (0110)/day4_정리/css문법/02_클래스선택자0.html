@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스 선택자 예시</title>
+    <style>
+        /* 기본 버튼 스타일 */
+        .button {
+            padding: 15px 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer; 
+        }
+
+        /* 기본 색상 */
+        /* .button 과 .default 클래스를 모두 가진 태그가 선택됨  */
+        .button.default {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* 클릭했을 때 색상과 효과 변경 */
+        .button.clicked {
+            background-color: #28a745;
+            
+        }
+
+        /* 비활성 버튼 */
+        .button.disabled {
+            background-color: #cccccc;
+            color: #666666;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <h1>클래스 선택자와 재미있는 버튼</h1>
+
+    <!-- 기본 버튼, 클릭 시 색상 변경 -->
+    <button class="button default" onclick="toggleClick(this)">기본 버튼</button>
+    
+    <!-- 비활성화된 버튼 -->
+    <button class="button disabled">비활성화된 버튼</button>
+
+    <!-- 일반 버튼 -->
+    <button class="button" onclick="toggleClick(this)">버튼</button>
+
+    <script>
+        // 클릭 시 'clicked' 클래스 토글 함수
+        // clicked라는 클래스가 추가되고 제거된다 한번씩 
+        function toggleClick(button) {
+            button.classList.toggle('clicked');
+        }
+    </script>
+</body>
+</html>

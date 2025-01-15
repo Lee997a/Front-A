@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            /* border: 1px solid black; */
+            /* height: 800px; */
+            width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .related-documents {
+            height: 200px;
+            border: 1px solid black;
+            background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/255px-Flag_of_Argentina.svg.png);
+            background-position: center;
+            background-size: contain;
+            text-align: center;
+            position: relative;
+        }
+
+        .related-documents p {
+            margin-top: 10px;
+            line-height: px;
+        }
+
+        .related-documents img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .more-info {
+            list-style: none;
+            position: absolute;
+            bottom: 10px;
+            left: 40%;
+        }
+
+        .more-info:hover .hidden-menu {
+            display: block;
+            cursor: pointer;
+        }
+
+        .hidden-menu {
+            list-style: none;
+            display: none;
+            color: rgb(0, 0, 0);
+            background-color: rgb(118, 211, 248);
+            position: absolute;
+            left: 55px;
+            top: 20px;
+            line-height: 30px;
+            margin: 0px;
+            padding: 0px;
+            border-radius: 7px;
+            z-index: 2;
+        }
+
+        .hidden-menu:hover {
+            background-color: rgb(149, 200, 245);
+        }
+
+        .under {
+            display: flex;
+            gap: 280px;
+            justify-content: center;
+            padding-top: 50px;
+            /* height: 800px; */
+        }
+
+        .index {
+            border: 1px solid black;
+            width: 250px;
+            height: 400px;
+        }
+
+        .index a{
+            text-decoration: none;
+            color: rgb(80, 149, 245);
+        }
+
+        .messi-info {
+            border: 2px solid black;
+            width: 400px;
+            /* height: 500px; */
+            text-align: center;
+        }
+
+        .messi-info img {
+            width: 100%;
+        }
+
+        .messi-info p {
+            color: pink;
+            font-weight: bold;
+            background-color: black;
+            margin: 0px;
+        }
+
+        p:nth-child(2) {
+            background-color: pink;
+            color: black;
+            margin: 0px;
+        }
+
+        .about {
+            /* border: 1px solid black; */
+            border-collapse: collapse;
+        }
+
+        tr {
+            border: 1px solid black;
+        }
+
+        th {
+            border: 1px solid black;
+            width: 50px;
+            background-color: pink;
+            color: black;
+        }
+
+        td {
+            border: 1px solid black;
+        }
+
+        .about img {
+            width: 30px;
+        }
+
+        /* .outline{
+            border: 1px solid black;
+
+        } */
+
+        .outline p {
+            background-color: white;
+        }
+
+        .outline a{
+            text-decoration: none;
+            color: rgb(80, 149, 245);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="related-documents">
+            <p>Lionel Messi <img src="https://i.namu.wiki/i/1Yl7wISbO114rLXQGBnFLa6g4QbysOurzdAhKHQ2Nc1j9zkjyPxHUhIgewamGUVO2Gc9yjkhdyITGiS6J1e_7l01HG3mE74DsfvRdzFj87-L9pBMeX4MdyUt-n6tE5kLRiDeo0NgMaLD70PT5Wd2-g.svg"
+                    alt=""></p>
+            <ul class="more-info">
+                <li>[펼치기 접기]
+                    <ul class="hidden-menu">
+                        <li>클럽</li>
+                        <li>국가대표</li>
+                        <li>기록</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="under">
+            <div class="index">
+                <ol>
+                    <li><a href="#outline-letsgo">개요</a></li>
+                    <li><a href="#junior-letsgo">유년기</a></li>
+                    <li><a href="#career-letsgo">선수 경력</a>
+                        <ol>
+                            <li>클럽 경력</li>
+                            <li>국가대표 경력</li>
+                        </ol>
+                    </li>
+                    <li><a href="#playstyle-letsgo">플레이 스타일</a></li>
+                    <li>기록</li>
+                    <li>평가 <ol>
+                            <li>매체</li>
+                        </ol>
+                    </li>
+                    <li>관련 언사</li>
+                    <li>별명</li>
+                    <li>논란 및 사건사고</li>
+                </ol>
+            </div>
+
+            <div class="messi-info">
+                <img src="https://i.namu.wiki/i/jdx4qa9wbplX0XeKRaATro5eUlifE-n6sSGHhvpk8gGvM9zlT6x123k7Q-MVIALu7rho1rR05QqmrUvfOWZyWsjcEc0C0y0NM6697E1UUc49SId1xKFMvTOfGLM73MI-tYooG9kgfG-CimzSEw8ILA.webp"
+                    alt="">
+                <p>인터 마이애미 CF No. 10 <span
+                        style="background-color: black; font-weight: bold; color: pink; border-radius: 10px; padding: 2px;">C</span>
+                </p>
+                <p> 리오넬 메시 <br>Lionel Messi</span></p>
+                <table class="about">
+                    <tr>
+                        <th>본명</th>
+                        <td>리오넬 안드레스 메시 쿠치티니
+                            Lionel Andrés Messi Cuccittini</td>
+                    </tr>
+                    <tr>
+                        <th>출생</th>
+                        <td>1987년 6월 24일 (37세)
+                            산타페주 로사리오</td>
+                    </tr>
+                    <tr>
+                        <th>국적</th>
+                        <td><img src="https://i.namu.wiki/i/70T-ztOs5Cjfkmzhp5ulIMI-C9Vx5-hv_WfwO0yQiL0EbnqzDspkwoGTPwZTZP8wgU5VF-G6I9Ys02-yByH1H49zT4mFdSl8EXV5G6B-h26MjVnXb8zqJ7_ueDX5oa2mC26XZv--M6_wXEnZA986YQ.svg"
+                                alt="">아르헨티나｜
+                            <img src="https://i.namu.wiki/i/YWFMuGCMa_SAnUO36XQvKPcV5NTsP8Lt3_loQIybuFvnM7jjPCqVGWEKxfVoNT6ud37QLPBw11tveLrWRk8nMXtK2qTJJYoyMZikdyezwKEteBWwx_T9S9Z--w-sZGtnOwmgiUCdVbj9N08-79LAPQ.svg"
+                                alt="">
+                            스페인｜
+                            <img src="https://i.namu.wiki/i/EwQ7O3ehlbYdgS_6XiNx5Cvw0T0X5xrylXyDnHpqB_DqG4YORWm9fRAnoML3LqEkWuEEmZdIW0Mj2jv69CL2LVmk54SBTICOiFGdWusGnmCDAA2x7mOF8sRIcrDl_CjVmdTlaVHtdrDl9hsi3M1p4w.svg"
+                                alt="">
+                            이탈리아
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>신체</th>
+                        <td>키 170cm / 체중 67kg</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="outline">
+            <h2 id="outline-letsgo"><a href="#">1.</a> 개요</h2>
+            <hr>
+            <p>아르헨티나의 인터 마이애미 CF 소속 축구 선수. 포지션은 공격수. 현재 마이애미와 아르헨티나 대표팀의 주장을 역임하고 있다. <br>
+
+                발롱도르, FIFA 올해의 선수, 월드컵 골든볼, 대륙컵 MVP, 유러피언 골든슈 최다 수상자이자 역대 최다 공격포인트, 최다 우승 기록자이다.</p>
+            <h2 id="junior-letsgo"><a href="#">2.</a> 유년기</h2>
+            <hr>
+            <p>1987년 6월 24일, 아르헨티나 산타페주 로사리오에서 3남 1녀 중 셋째로 태어났다. 이탈리아계 후손이 가장 많은 아르헨티나에서 리오넬 메시 역시 혈통적으로 주로 이탈리아인의 후손으로
+                태어났다. <br>
+                이탈리아인이었던 고조할아버지 안젤로 메시(1866년생)가 1893년 아르헨티나로 이주하면서 집안이 아르헨티나 사람이 되었다. 아버지 호르헤 오라시오 메시는 철강 노동자였다.</p>
+            <h2 id="career-letsgo"><a href="#">3.</a> 선수 경력</h2>
+            <hr>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus tempora odit voluptatum distinctio
+                repellat, eius cum ut modi placeat nihil dolorem, hic quo suscipit nulla sunt, molestias quibusdam alias
+                amet?
+                Aliquid, totam facilis voluptatum magnam tenetur iusto unde vero quam accusamus voluptate vitae
+                perspiciatis, veritatis optio officia. Porro perspiciatis adipisci nobis quae, repellendus eius! Aliquid
+                amet fugit possimus odio laborum.
+                Amet laudantium est vel facere laborum, odit enim numquam corporis porro eius minus, minima in ut
+                officiis quae voluptatem praesentium itaque, necessitatibus tempore. Nisi nesciunt at natus ex dolores
+                velit?
+                Minus dolore qui quam modi dicta distinctio eius excepturi omnis reiciendis. Quis, quas fuga, amet sunt
+                corrupti cumque aperiam perferendis facilis ut magni sequi? Totam, esse. Reprehenderit expedita vitae
+                illum?
+                Est dolor, in vero doloremque libero debitis sint odio expedita perferendis optio totam vitae tenetur
+                similique, necessitatibus commodi blanditiis. Perferendis ex nam nihil recusandae aut ipsam unde, esse
+                corrupti ullam.</p>
+            <h2 id="playstyle-letsgo"><a href="#">4.</a> 플레이 스타일</h2>
+            <hr>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio similique explicabo ipsam alias adipisci,
+                maxime amet architecto magnam doloremque nostrum ducimus magni earum id ad quis incidunt culpa quas.
+                Officia.
+                Esse, nostrum tempora? Harum, accusantium exercitationem ea soluta molestiae quia maxime sed possimus
+                sapiente natus id odio ipsam, aspernatur repellendus corporis sequi odit dolorem, nemo temporibus sint
+                iste quae porro.
+                Maiores quasi architecto magnam, quia expedita delectus cupiditate commodi praesentium ea officia! Minus
+                tempora deleniti odio dolorem corporis quos sapiente quis officiis reprehenderit aut necessitatibus ut,
+                iste rem, quod laborum.
+                Quae similique ea repellat maiores exercitationem consequuntur et nam error architecto, voluptatem
+                quisquam dolor, itaque optio corporis quas quia praesentium officia possimus, provident ab. Pariatur
+                delectus quibusdam dignissimos omnis ab!
+                Veniam modi saepe nihil doloremque vero incidunt corrupti ducimus? Ex quae voluptatem, distinctio
+                necessitatibus, iusto repellat tenetur provident quas animi rerum numquam fuga dignissimos debitis neque
+                natus ratione! Voluptates, rem?</p>
+        </div>
+    </div>
+</body>
+
+</html>

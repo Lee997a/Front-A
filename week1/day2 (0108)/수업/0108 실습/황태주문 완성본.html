@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>황태주문 페이지</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+
+  <style>
+     *{
+            font-family: 'Nanum Pen Script', cursive;
+        }
+  
+  .box{
+    width: 500px;
+    padding: 10px;
+    border:  0.5px solid rgb(235, 231, 231);
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+
+  .info_box{
+    width: 400px;
+    margin: 0 auto;
+  }
+
+  .img_box{
+    width: 350px;
+    height: 350px;
+    background-image: url(https://www.shinailbo.co.kr/news/photo/201101/205179_130352_369.jpg);
+    background-position: center;
+    background-size: cover;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+
+  .order_info{
+    width: 80%;
+    margin: 0 auto;
+  }
+  input[type="text"]{
+    width: 95%;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+
+  select{
+    width: 95%;
+    padding: 5px;
+  }
+
+  button{
+    width: 95%;
+    padding: 10px;
+    margin: 10px 0px;
+    background-color: #97BBEB;
+    border-radius: 20px;
+  }
+  </style>
+  
+</head>
+<body>
+  <!--전체 영역-->
+ <div class="box">
+
+  <!--상품정보 영역-->
+  <div class="info_box">
+    <!--상품이미지-->
+    <div class="img_box"></div>
+    <!--상품정보-->
+    <div class="ex_box">
+      <h2>대관령 황태</h2>
+      <p>겨울 내내 녹았다 얼었다를 반복한 맛 좋은 대관령 황태입니다.</p>
+      <p>가격: 30000원 / 10마리</p>
+    </div>
+  </div>
+
+  <!--주문자정보 영역-->
+  <form action="#" method="get">
+    <div class="order_info">
+      <div>--주문내역--</div>
+      <div>주문자 이름<input type="text"></div>
+      <div>수량
+        <select>
+          <option>선택하세요</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select>
+        </div>
+        <div>주문금액 <input type="text"></div>
+        <div>전화번호 <input type="text"></div>
+        <div><button class="order_btn">order</button></div>
+      </div>
+
+    </div>
+  </form>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /*부모의 자식의 홀수의 숫자를 선택
+         그래서 p태그도 자식
+        */
+        li:nth-child(odd){
+            background-color: blue;
+        }
+        /*부모의 자식의 짝수의 숫자를 선택*/
+        li:nth-child(even){
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+
+    
+    
+    <ul>
+        <li>아이템 1</li>
+        <p>문단 1</p>
+        <li>아이템 2</li>
+        <p>문단 2</p>
+        <li>아이템 3</li>
+    </ul>
+
+
+    
+    <h2>li </h2>
+        
+    <ul>
+        <li>아이템 1</li>       
+        <li>아이템 2</li>       
+        <li>아이템 3</li>
+    </ul>
+    
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리뷰</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+
+        *{
+            font-family: "Black Han Sans", serif;
+            font-weight: 400;
+            font-style: normal;
+            letter-spacing: 3px;
+        }
+
+        /*전체*/
+        .container{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        /*작성지*/
+        .wrap{
+            border: 2px solid black;
+            width: 650px;
+        }
+        h3{
+            text-align: center;
+            margin-top: 30px;
+        }
+        textarea{
+            resize: none;
+            outline: none;
+        }
+
+        /*1층*/
+        .floor_1{
+            display: flex;
+            text-align: center;
+        }
+        .floor_1 div{
+            width: 50%;
+        }
+        .floor_1 img{
+            width: 70%;
+        }
+
+        /*2층*/
+        .floor_2{
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .floor_2 h5{
+            margin-bottom: 5px;
+        }
+        .floor_2 input{
+            border: 1px solid rgb(73, 73, 73);
+            outline: none;
+        }
+
+        /*3층, 4층*/
+        .floor_3, .floor_4{
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            margin: 0 auto;
+            margin-top: 40px;
+        }
+        .floor_3 h5, .floor_4 h5{
+            margin-bottom: 5px;
+        }
+        .floor_4 textarea{
+            margin-bottom: 50px;
+        }
+
+        /*good*/
+        .good h5{
+            margin-bottom: 5px;
+        }
+        .good img{
+            width: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!--작성지 구역-->
+        <div class="wrap">
+            <h3>REVIEW DETAIL</h3>
+            <!--1층-->
+            <div class="floor_1">
+                <div>
+                    <h5>이미지</h5>
+                    <img src='https://upload.wikimedia.org/wikipedia/commons/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg'>
+                </div>
+                <div>
+                    <h5>맛평가(후기)</h5>
+                    <textarea cols="31" rows="5"></textarea>
+                </div>
+            </div>
+            <!--2층-->
+            <div class="floor_2">
+                <div>
+                    <h5>연령대</h5>
+                    <input type="text">
+                </div>
+                <div>
+                    <h5>만족도</h5>
+                    <input type="text">
+                </div>
+                <div>
+                    <h5>성별</h5>
+                    <input type="text">
+                </div>
+            </div>
+            <!--3층-->
+            <div class="floor_3">
+                <h5>판매점 정보</h5>
+                <textarea cols="80" rows="5"></textarea>
+            </div>
+            <!--4층-->
+            <div class="floor_4">
+                <h5>더 나누고 싶은 정보</h5>
+                <textarea cols="80" rows="5"></textarea>
+            </div>
+        </div>
+        <!--추천 구역-->
+        <div class="good">
+            <h5>좋다고 생각하시면 꾹~~~</h5>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT282tSRLl7sYSqk2Cb9QqGPhNG4OHPPeb_Tw&s">
+        </div>
+    </div>
+</body>
+</html>

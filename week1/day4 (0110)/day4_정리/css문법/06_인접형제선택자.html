@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox Style Change Example</title>
+    <style>
+        /* 기본 라벨 스타일 */
+        label {
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* 체크박스가 선택되었을 때 라벨에 스타일 적용 */
+        input[type="checkbox"]:checked + label {
+            color: green;
+            font-weight: bold;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="checkbox1">
+    <label for="checkbox1"> 동의 체크</label>
+</body>
+</html>

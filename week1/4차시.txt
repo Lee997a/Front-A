@@ -1,0 +1,35 @@
+
+4차시   position학습   ( 부모를 기준으로 내 맘대로 배치하기) 
+
+  1) 부모를 기준으로 원하는 위치에 배치하기 (중요함 ) 
+      부모 position:relative
+      자식 position:absolute
+  2) 고정 배치하기 
+      position:fixed  
+
+  3) css 선택자 정리하기
+ 
+
+  
+  
+ 만들기)
+
+ 검색바만들기 
+ 예쁜(이미지)버튼 만들기
+ 구글페이지 만들기
+ 리뷰만들기 - 1층,2층,3층,4층
+
+
+
+ <중요함 >
+ position변경하기  ( absolute알기   !!!)
+
+  top, bottom, left, right 속성은  position:static에서는 적용되지 않는다.
+
+ - static  : 기본값 ( 요소를 만들면 만든 순서대로 쌓인다)
+ - absolute ( 문서나, 지정한 부모를 기준으로 원하는 위치에 둘 수 있음)
+ - fixed   :  고정하기
+ - sticky  :  특정위치에서 고정하기
+
+
+ 

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보</title>
+    <style>
+         /*헤더*/
+        header{
+            height: 100px;
+            background-color: coral;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        header h1{
+            margin: 0px;
+            text-align: center;
+            line-height: 100px;
+            letter-spacing: 20px;
+        }
+        .search{
+            background-color: white;
+            height: 50px;
+            display: flex;
+        }
+        .search input{
+            border: none;
+            outline: none;
+        }
+        .search img{
+            width: 60px;
+        }
+
+        /*내비*/
+        nav{
+            height: 60px;
+            background-color: wheat;
+        }
+        ul{
+            margin: 0px;
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            line-height: 60px;
+        }
+        a{
+            color: brown;
+            font-weight: bold;
+        }
+        a:hover{
+            color:cornflowerblue;
+        }
+
+        /*세션*/
+        section{
+            padding: 50px
+        }
+        .wrap{
+            width: 650px;
+            border: 1px solid rgb(227, 216, 216);
+            border-radius: 20px;
+            margin: 0 auto;
+            height: 700px;
+            padding: 20px;
+        }
+        .title{
+            width: 90%;
+            border-bottom: 1px solid black;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .user{
+            width: 100%;
+            height: 250px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .user p{
+            margin-bottom: 30px;
+        }
+        .user button{
+            width: 200px;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border: none;
+        }
+        .user button:hover{
+            border: 5px solid black;
+        }
+        .user button:focus{
+            border: 5px solid red;
+        }
+        #rock{
+            background-image: url("./image/rock.png");
+        }
+        #scissors{
+            background-image: url("./image/scissors.png");
+        }
+        #paper{
+            background-image: url("./image/paper.png");
+        }
+        #computer{
+            width: 200px;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            margin: 0 auto;
+            visibility: hidden; /*처음에는 컴퓨터가 정한 수 가리기*/
+        }
+        #check{
+            text-align: center;
+            height: 40px;
+        }
+        .reset{
+            width: 90%;
+            box-sizing: border-box;
+            height: 40px;
+            margin: 0px 0px 10px 15px;
+        }
+
+        /*푸터*/
+        footer{
+            height: 100px;
+            background-color: antiquewhite;
+            line-height: 50px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <!--헤더-->
+    <header>
+        <div>
+            <h1>STUDY SITE</h1>
+        </div>
+        <div class="search">
+            <input>
+            <img src="./image/검색.png">
+        </div>
+    </header>
+
+    <!--내비-->
+    <nav>
+        <ul>
+            <li><a href="./수맞추기게임.html">수 맞추기</a></li>
+            <li><a href="./물나르기.html">물 나르기</a></li>
+            <li><a href="./가위바위보.html">가위바위보</a></li>
+            <li><a href="./나이계산.html">나이 계산</a></li>
+            <li><a href="./테이블.html">테이블</a></li>
+        </ul>
+    </nav>
+
+    <!--세션-->
+    <section>
+        <div class="wrap">
+            <div class="title">
+                <h2>가위바위보</h2>
+            </div>
+            <div class="user">
+                <p>컴퓨터와의 가위바위보에서 이기세요.</p>
+                <button id="rock"></button>
+                <button id="scissors"></button>
+                <button id="paper"></button>
+            </div>
+            <div id="computer"></div>
+            <h2 id="check"></h2>
+            
+            <di class="reset">
+                <button class="reset" onclick="window.location.reload()">다시하기</button>
+            </di>
+        </div>
+    </section>
+
+    <!--푸터-->
+    <footer>
+        <img src="./image/logo.png">
+        <p>
+            (주)에이콘이즈 에이콘아카데미(홍대)
+        </p>
+        <p>
+            COPYRIGHT(C) HBILAB ALL RIGHTS RESERVED.
+        </p>
+     </footer>
+
+    <script>
+        const randomNum = Math.floor(Math.random() * 3 + 1) //랜덤 수 생성
+
+        const computer = document.querySelector("#computer") //상대 컴퓨터 지정
+        const check = document.querySelector('#check') //승패 여부 표시 구역 지정
+
+        const rock = document.querySelector("#rock") //바위 버튼 지정
+        const scissor = document.querySelector("#scissors") //가위 버튼 지정
+        const paper = document.querySelector("#paper") //보 버튼 지정
+
+        //랜덤 수가 1일 경우 컴퓨터는 바위 지정
+        if(randomNum === 1){
+            computer.style.backgroundImage = "url('./image/rock.png')"
+        }
+        //랜덤 수가 2일 경우 컴퓨터는 가위 지정 
+        else if(randomNum === 2){
+            computer.style.backgroundImage = "url('./image/scissors.png')"
+        }
+        //랜덤 수가 3일 경우 컴퓨터는 보 지정
+        else if(randomNum === 3){
+            computer.style.backgroundImage = "url('./image/paper.png')"
+        }
+
+        //바위 버튼 클릭 이벤트
+        rock.addEventListener("click", function(){
+            if(randomNum === 1){
+                check.innerText = "무승부"
+            }else if(randomNum === 2){
+                check.innerText = "사용자 승리"
+                check.style.color = "blue"
+            }else if(randomNum === 3){
+                check.innerText = "사용자 패배"
+                check.style.color = "red"
+            }
+            computer.style.visibility = "visible" //컴퓨터가 선택한 가위/바위/보 표시
+            scissor.disabled = true //가위 버튼 비활성화
+            paper.disabled = true //보 버튼 비활성화
+        })
+
+        //가위 버튼 클릭 이벤트
+        scissor.addEventListener("click", function(){
+            if(randomNum === 1){
+                check.innerText = "사용자 패배"
+                check.style.color = "red"
+            }else if(randomNum === 2){
+                check.innerText = "무승부"
+            }else if(randomNum === 3){
+                check.innerText = "사용자 승리"
+                check.style.color = "blue"
+            }
+            computer.style.visibility = "visible" //컴퓨터가 선택한 가위/바위/보 표시
+            rock.disabled = true //바위 버튼 비활성화
+            paper.disabled = true //보 버튼 비활성화
+        })
+
+        //보 버튼 클릭 이벤트
+        paper.addEventListener("click", function(){
+            if(randomNum === 1){
+                check.innerText = "사용자 승리"
+                check.style.color = "blue"
+            }else if(randomNum === 2){
+                check.innerText = "사용자 패배"
+                check.style.color = "red"
+            }else if(randomNum === 3){
+                check.innerText = "무승부"
+            }
+            computer.style.visibility = "visible" //컴퓨터가 선택한 가위/바위/보 표시
+            rock.disabled = true //바위 버튼 비활성화
+            scissor.disabled = true //가위 버튼 비활성화
+        })
+    </script>
+</body>
+</html>

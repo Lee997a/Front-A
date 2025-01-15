@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+
+    *{
+      font-family: "Do Hyeon", serif;
+      font-weight: 400;
+  font-style: normal;
+    }
+
+    .box{
+      width: 450px;
+      border: 1px solid black;
+      margin: 0 auto;
+    }
+
+    hr{
+      width: 90%;
+    }
+
+    label {
+      display: inline-block;
+      width: 60px;
+    }
+
+    li{
+      margin-bottom: 10px;
+    }
+
+    h2{
+      margin-bottom: 10px;
+    }
+
+    ul{
+      margin-top: 10px;
+      list-style-type: none;
+      padding-left: 20px;
+    }
+
+    .info_box{
+      margin-left: 30px;
+    }
+
+    .head_info{
+      text-align: center;
+    }
+
+    .btn{
+      text-align: center;
+      margin: 10px;
+    }
+    </style>
+  
+</head>
+<body>
+  <div class="box">
+    <!--지원서 헤드-->
+    <div class="head_info">
+      <h1>프런트엔드 개발자 지원서</h1>
+      <p>HTML, CSS, JavaScript에 대한 기술적 이해와 경험이 있는 분을 찾습니다.</p>
+    <hr>
+    </div>
+    <div class="info_box">
+    <!--개인정보-->
+    <div class="user_info">
+      <h2>개인정보</h2>
+      <ul>
+        <li>
+          <label for="username">이름</label>
+          <input type="text" id="username" placeholder="공백없이 입력하세요">
+        </li>
+        <li>
+          <label for="usercal">연락처</label>
+          <input type="text" id="usercal">
+        </li>
+      </ul>
+    </div>
+    <!--지원분야-->
+    <div class="sf_box">
+      <h2>지원분야</h2>
+      <ul>
+        <li>
+      <input type="radio" name="field">웹 퍼블리싱
+    </li>
+     <li>
+      <input type="radio" name="field">웹 애플리케이션 개발
+     </li>
+     <li>
+      <input type="radio" name="field">개발 환경 개선
+    </li>
+    </ul>
+    </div>
+    <!--지원동기-->
+    <div>
+      <h2>지원동기</h2>
+      <textarea  cols="55" rows="5" placeholder="본사 지원 동기를 간략히 써주세요"></textarea>
+    </div>
+  </div>
+  <div class="btn">
+    <button>접수하기</button>
+    <button>다시쓰기</button>
+  </div>
+
+  </div>
+</body>
+</html>

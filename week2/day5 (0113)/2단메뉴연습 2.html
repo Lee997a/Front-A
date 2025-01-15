@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2단 메뉴 연습</title>
+  <style>
+    ul{
+      margin: 0;
+      padding: 0;
+      list-style:none;
+    }
+
+    .menu{
+      display: flex;
+    }
+
+    .menu_item{
+      width: 25%;
+      height: 40px;
+      /* border: 1px solid black; */
+
+      text-align: center;
+      line-height: 40px;
+
+      background-color: #67b0d1;
+      color: white;
+
+      font-size: 12px;
+
+      position: relative;
+    }
+
+    .menu_item:hover{
+      background-color: #7bbbd7;
+    }
+
+    .hidden_menu{
+      width: 40%;
+      border: 1px solid beige;
+      background-color: #7bbbd7;
+      color: #fcfcfc;
+      display: none;
+
+      position: absolute;
+      top: 40px;
+      left: 0;
+    }
+
+    .menu_item:hover .hidden_menu{
+      display: block;
+    }
+
+
+  </style>
+</head>
+<body>
+  <ul class="menu">
+    <li class="menu_item">상위메뉴1
+      <!--하위메뉴-->
+      <ul class="hidden_menu">
+        <li>하위메뉴1</li>
+        <li>하위메뉴2</li>
+        <li>하위메뉴3</li>
+      </ul>
+    </li>
+    <li class="menu_item">상위메뉴2
+            <!--하위메뉴-->
+            <ul class="hidden_menu">
+              <li>하위메뉴1</li>
+              <li>하위메뉴2</li>
+              <li>하위메뉴3</li>
+            </ul>
+    </li>
+    <li class="menu_item">상위메뉴3
+            <!--하위메뉴-->
+            <ul class="hidden_menu">
+              <li>하위메뉴1</li>
+              <li>하위메뉴2</li>
+              <li>하위메뉴3</li>
+            </ul>
+    </li>
+    <li class="menu_item">상위메뉴4
+            <!--하위메뉴-->
+            <ul class="hidden_menu">
+              <li>하위메뉴1</li>
+              <li>하위메뉴2</li>
+              <li>하위메뉴3</li>
+            </ul>
+    </li>
+  </ul>
+
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus debitis ipsum quidem laboriosam facere voluptatem est. Facere voluptate ea laudantium perspiciatis laboriosam unde, tempore odio iste a eligendi excepturi minima.
+    Doloremque dignissimos, maiores accusantium omnis nesciunt quasi, consequatur dicta dolores praesentium modi mollitia sit eaque temporibus aliquid eligendi sed et nihil ipsa corporis. Quidem nesciunt delectus autem veritatis! Accusantium, cupiditate.
+    Odio aut ea nostrum molestiae quos velit cum molestias nemo nulla voluptatem dolores quae nesciunt unde, accusantium dolorem quisquam eveniet, quidem sint voluptatibus dicta itaque a omnis repudiandae tenetur! Hic.
+    Nostrum voluptatibus doloremque aliquid illum mollitia quis totam aspernatur voluptas inventore error, cum quo vero assumenda nemo fugit, tempore nobis ad voluptatum provident saepe hic minima, minus culpa! Eos, aspernatur.
+    Atque nemo, vero quod cupiditate illum nobis quidem numquam dignissimos saepe non iure illo aspernatur porro explicabo possimus, exercitationem tenetur? Est placeat, adipisci maxime ipsam enim quis id quaerat natus.
+    Reiciendis nihil veritatis ex rerum qui. Adipisci cupiditate amet beatae provident consequatur vero, accusantium vel dolorem quidem sed molestias? Odit ex sequi dolorum enim id accusantium voluptas dolores debitis cupiditate.
+    Quisquam vitae laborum modi commodi ut deserunt praesentium eum minima voluptatibus perspiciatis ipsam, quasi recusandae excepturi consectetur repudiandae voluptate dignissimos delectus! Numquam quae maiores nihil quam excepturi commodi, recusandae perspiciatis?
+    Animi eum totam nesciunt ducimus impedit error quo est illo neque enim, suscipit reprehenderit amet ipsa corrupti quisquam, aperiam dolorem eos quasi fuga ullam? Qui aliquam deleniti mollitia ipsam consequatur?
+    Iusto eos molestiae necessitatibus repellendus, officia dolores facere excepturi cupiditate! Sapiente soluta perspiciatis aspernatur unde odio, consequuntur dignissimos assumenda vel tempora dolores accusamus fugiat temporibus modi eaque provident quia nulla!
+    Obcaecati id praesentium alias perspiciatis, pariatur minima natus! At, est dolore facilis nobis rerum reprehenderit ratione asperiores et explicabo nesciunt nemo quam, sed ullam eligendi aspernatur a, odio dignissimos. Neque?
+  </p>
+</body>
+</html>

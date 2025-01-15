@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 방문하지 않은 링크 */
+        a:link {
+            color: red;
+            text-decoration: none;
+        }
+
+        /* 방문한 링크 */
+        a:visited {
+            color: blue;
+            text-decoration: underline;
+        }
+
+        /* 마우스 커서를 올려놓을 때 */
+        a:hover {
+            color: green;
+            font-weight: bold;
+        }
+
+        /* 활성화 상태 (클릭 중) => a태그를 누르고 있을 때  */
+        a:active {
+            color: rgb(238, 161, 18);
+        }
+
+        
+        /* 초점이 맞춰졌을 때 */
+        input:focus {
+            outline: 2px solid blue;
+            background-color: rgb(235, 235, 25);
+        }
+
+        /* 체크된 상태 */
+        input:checked {
+            border: 2px solid green;
+            background-color: lightgreen;
+        }
+
+        /* 활성화된 요소 */
+        input:enabled {
+            border: 2px solid rgb(228, 11, 11);
+        }
+
+        /* 비활성화된 요소 */
+
+      
+        input:disabled {
+            background-color: rgb(151, 137, 137);
+            
+        }
+
+        
+
+        /* 자식 요소의 위치에 따라 */
+        /* 요소의 모든 자식 요소를 기준으로 순서를 매깁니다. 이때, 모든 자식 요소를 포함한 전체 순서가 기준이 됩니다.*/
+        li:nth-child(odd) {
+            background-color: #f0f0f0;
+        }
+
+        li:nth-child(even) {
+            background-color: #d0d0d0;
+        }
+
+        /* 부모 요소의 모든 자식 중 특정 타입에 해당하는 요소의 순서를 기준으로 작동  */
+        /* 특정 타입의 위치에 따라 */
+        p:nth-of-type(2) {
+            color: purple;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>가상 클래스 선택자</h2>
+    <ul>
+        <li>:link 방문하지 않은 링크에 스타일 적용</li>
+        <li>:visited 방문한 링크에 스타일 적용</li>
+        <li>:hover 마우스 커서를 올려놓을 때 스타일</li>
+        <li>:active 클릭 중일 때 스타일</li>
+        <li>:focus 초점이 맞춰졌을 때 스타일</li>
+        <li>:checked 라디오 버튼이나 체크박스가 선택되었을 때 스타일</li>
+        <li>:enabled, :disabled 요소를 활성화 및 비활성화 상태에 따라 스타일</li>
+        <li>:nth-child(n) 자식 요소의 위치에 따라 스타일 적용</li>
+        <li>:nth-of-type(n) 특정 타입의 자식 요소의 위치에 따라 스타일 적용</li>
+    </ul>
+
+    <h3>링크 예제</h3>
+    <a href="https://www.naver.com">네이버</a>
+    <a href="https://www.daum.net">다음</a>
+
+    <h3>포커스 예제</h3>
+    <input type="text" placeholder="여기에 입력하세요">
+    <br>
+
+    <h3>체크박스 예제</h3>
+
+    <input type="checkbox"  > 체크박스1
+    
+    <br>
+
+    <input type="checkbox"  > 체크박스2
+   
+
+    <h3>활성화/비활성화 예제</h3>
+    <input type="text" placeholder="활성화 상태">
+    <br>
+    <input type="text" placeholder="비활성화 상태" disabled>
+
+    <h3>nth-child/nth-of-type 예제</h3>
+    <ul>  
+        <span>무언가 있다</span>     
+        <li>첫 번째 아이템</li>
+        <li>두 번째 아이템</li>
+        <li>세 번째 아이템</li>
+        <li>네 번째 아이템 </li>
+    </ul>
+
+
+    <div>
+        <p>첫 번째 문단</p>
+        <span>무언가 있다</span>
+        <p>두 번째 문단</p>
+        <p>세 번째 문단</p>
+    </div>
+
+ 
+    
+</body>
+</html>

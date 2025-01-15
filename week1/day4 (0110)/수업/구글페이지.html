@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    nav{
+      height: 100px;
+      background-color: rgb(162, 192, 218);
+      margin-top: 100px;
+
+      /*ul의 부모요소*/
+      position: relative;
+    }
+
+    .menu{
+      /* border: 1px solid black; */
+      list-style: none;
+
+      /*li들의 부모에 flex를 주면 자식들이 flex가 됨*/
+      display: flex;
+      align-items: center;
+
+      position: absolute;
+      right: 0;
+      bottom: 0;
+
+      margin: 0;
+    }
+
+    .item1{
+      width: 60px;
+      height: 60px;
+      border: 1px solid whitesmoke;
+      border-radius: 50%;
+
+      /*글씨를 가운데로 정렬하기*/
+      text-align: center;
+      line-height: 60px;
+      font-size: 12px;
+    }
+
+    .item2{
+      width: 40px;
+      height: 40px;
+
+      background-image: url(https://lh3.googleusercontent.com/ogw/ADGmqu_sKQ74r14XW5bWUAIRoXn7hut8HTvtMAAH_iD3EA=s64-c-mo);
+      background-position: center;
+      background-size: cover;
+
+      border-radius: 50%;
+    }
+
+    .item1:hover{
+      background-color: green;
+    }
+
+        /*
+             수평, 좌우     음수(좌)  양수(우)
+             수직, 상하     음수(상)  양수(하)
+             흐림 : 그림자 테두리를 흐리게
+             번짐 : 그림자의 크기
+            */
+    .item2:hover{
+      box-shadow:  0px   0px   10px   0px rgb(83, 173, 106);
+    }
+
+    .title{
+      text-align: center;
+    }
+
+    img{
+      width: 280px;
+      height: 100px;
+      margin-top: 100px;
+    }
+
+    /*검색바 스타일*/
+    .search_bar{
+      width: 600px;
+      height: 60px;
+      border: 2px solid rgb(199, 190, 190);
+
+      margin: 0 auto;
+      margin-top: 100px;
+      border-radius: 40px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      
+    }
+
+    .search_bar:hover{
+      box-shadow:  0px   0px   10px   0px rgb(156, 170, 159);
+    }
+
+    .search{
+      /* border: 1px solid black; */
+      
+    }
+
+    .search_bar input{
+      width: 70%;
+      padding: 10px;
+      border: none;
+      outline: none;
+
+      
+    }
+
+
+
+  </style>
+
+</head>
+<body>
+  
+  <!--div와 같은 속성-->
+  <nav>
+    <!--메뉴-->
+    <ul class="menu">
+      <li class="item1">Gmail</li>
+      <li class="item1">로그인</li>
+      <li class="item1">이미지</li>
+      <li class="item2"></li>
+    </ul>
+  </nav>
+
+  <!--google title 영역-->
+  <div class="title">
+    <img src="https://www.google.co.kr/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png">
+  </div>
+
+  <!--검색바 영역-->
+  <div class="search">
+    <!--검색어-->
+    <div class="search_bar">
+      <input type="text">
+    </div>
+  </div>
+</body>
+</html>
+
+

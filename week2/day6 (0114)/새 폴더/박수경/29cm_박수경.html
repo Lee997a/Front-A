@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>감도 얉은 취향 셀렉트샵 29CM</title>
+
+    <style>
+
+        .wrap{
+            width: 1900px;
+            /* border: 1px solid black; */
+            margin: 0 auto;
+        }
+
+        .wrap > div{
+            margin: 0 auto;
+        }
+
+        /*box1*/
+        .box1{
+            width:1800px;
+            height:50px;
+            /* border: 1px solid black; */
+            margin: 0 auto;
+            display: flex;
+            position: relative;
+        }
+
+        .box1-1 img{
+            height: 50px;
+            /* border: 1px solid red; */
+        }
+        
+        .box1-2{
+            width: 550px;
+            height: 50px;
+            /* border: 1px solid red; */
+            display: flex;
+            position: absolute;
+            right : 0px;
+            align-items: center;
+            justify-content: left;
+        }
+
+        .box1-2 div{
+            /* border: 1px solid greenyellow; */
+            width: 550px;
+            text-align: center;
+        }
+        
+        .box1-2-1:hover{
+            border-bottom:3px solid grey;
+        }
+
+        /*box2*/
+        .box2{
+            /* border: 1px solid black; */
+            width: 1800px;
+            height: 80px;
+            display: flex;
+            position:relative;
+        }
+
+        .box2-1{
+            display: flex;
+            /* border: 1px solid rgb(13, 201, 54); */
+            width: 50%;
+            height: 80px;
+            align-items: center;
+            position: absolute;
+            line-height: 0px;
+        }
+
+        .box2-1-1{
+           
+            height: 80px;
+            font-size: 42px;
+            /* border: 1px solid greenyellow; */
+            font-weight: bold;
+            margin: 0px 25px 0px 5px;
+        }
+
+        .box2-1-1:hover{
+            border-bottom: 7px solid black;
+        }
+
+        .box2-2{
+            width: 30%;
+            height: 80px;
+            /* border: 1px solid green; */
+            display: flex;
+            align-items: center;
+            justify-content: right;
+            position: absolute;
+            right: 10px;
+        }
+        .box2-2-1{
+            /* border: 1px solid blue; */
+            width: 80%;
+            height: 75px;
+        }
+
+
+        /* 이미지 누르면 textarea 나오는거 못하겠습니다.. */
+        .box2-2-1 textarea{
+            display: none;
+            width: 95%;
+            height: 90%;
+            font-size: 30px;
+            text-align: center;
+            
+
+        }
+        .box2-2-2{
+            /* border: 1px solid red; */
+
+        }
+        
+        
+        .box2-2-2:hover .hidden_menu{
+            display: block;
+        }
+
+        /*box3*/
+        .box3{
+            /* border: 1px solid black; */
+            width: 1800px;
+            height: 130px;
+        }
+
+        .box3-1{
+            /* border: 1px solid red; */
+            width: 1800px;
+            height: 130px;
+            display: flex;
+            width: 65%;
+            align-items: center;
+        }
+        
+        
+        .box3-1 > div{
+            /* border: 1px solid greenyellow; */
+            text-align: center;
+        }
+
+
+        .box3-1-1:hover{
+            font-weight: bold;
+            z-index:1;
+        }
+
+        .box3-1-1{
+            width: 20%;
+            height: 40px;
+            font-size: 25px;
+            position: relative;
+            z-index: 3;
+           
+        }
+
+        .hidden_menu{
+            display: none; 
+            padding-top: 100px;
+            position: absolute;
+            top: -10px;
+            left: 30px;
+            border: 1px solid black;
+            width: 100%;
+            list-style: none;
+            text-align: center;
+            width: 170px;
+            height: 230px;
+            background-color: rgba(255,255,255,0.7);
+            z-index: 2;
+            line-height: 45px;
+
+        }
+
+        .box3-1-1:hover .hidden_menu{
+            display: block;
+        }
+
+        ul{
+
+            padding: 0px;
+            margin: 0px;
+
+        }
+
+        /*box4*/
+        .box4{
+            width: 1900px;
+            height: 680px;
+            /* border: 5px solid yellow; */
+            background-image: url(https://buly.kr/1RDbQw0);
+            display: flex;
+            position: relative;
+            
+        }
+        .box4-1{
+            background-color: rgba(255, 255, 255, 0.7);
+            width: 250px;
+            height: 500px;
+            position: absolute;
+            top: 80px;
+            left: 50px;
+            font-size: 25px;
+            text-align: center;
+            line-height: 60px;
+            
+
+        }
+        .box4-1 ul{
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .box4-2{
+            /* border:1px solid black; */
+            width: 680px;
+            height: 680px;
+            position: absolute;
+            top: 60px;
+            right: 400px;
+            color: rgba(255,255,255,0.8);
+            line-height: 90px;
+            
+        }
+
+        .p-1{font-size: 85px;}
+        .p-2{font-size: 55px;}
+        
+    </style>
+
+
+
+</head>
+<body>
+    <div class="wrap">
+        <!-- box1 -->
+        <div class="box1">
+            <div class="box1-1"><a href="https://www.29cm.co.kr/"><img src="./29cm.png" alt="29cm image"></a></div>
+            <div class="box1-2">
+                <div class="box1-2-1">MY PAGE</div>
+                <div class="box1-2-1">MY LIKE</div>
+                <div class="box1-2-1">SHOPPING BAG</div>
+                <div class="box1-2-1">LOGIN</div>
+            </div>
+        </div>
+        
+        <!-- box2 -->
+        <div class="box2">
+            <div class="box2-1">
+                <div class="box2-1-1"><p>Special-Order</p></div>
+                <div class="box2-1-1"><p>Showcase</p></div>
+                <div class="box2-1-1"><p>PT</p></div>
+                <div class="box2-1-1"><p>29Magazine</p></div>
+            </div>
+    
+            
+    
+            <div class="box2-2">
+                <div class="box2-2-1">
+                    <textarea class="hh"></textarea>
+                </div>
+                <div class="box2-2-2">
+                    <img src="./search.png" alt="29cm image">
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- box3 -->
+        <div class="box3">
+            <div class="box3-1">
+                <div class="box3-1-1">
+                    <a href="https://buly.kr/GkrWku6">BEST</a>
+                </div>
+                <div class="box3-1-1">WOMEN
+                    <ul class="hidden_menu">
+                        <li><a href="https://buly.kr/5JMGzrl">EXCLUSIVE</a></li>
+                        <li><a href="https://buly.kr/BTOnL1k">상의</a></li>
+                        <li><a href="https://buly.kr/8ekfdyo">바지</a></li>
+                        <li><a href="https://buly.kr/uTKU5e">원피스</a></li>
+                        <li><a href="https://buly.kr/B7ZHNPc">스커트</a></li>
+                    </ul>
+                </div>
+    
+                <div class="box3-1-1">MEN
+                    <ul class="hidden_menu">
+                        <li><a href="https://buly.kr/4xWl2s8">EXCLUSIVE</a></li>
+                        <li><a href="https://buly.kr/AljlPoY">아우터</a></li>
+                        <li><a href="https://buly.kr/BpEJIiF">상의</a></li>
+                        <li><a href="https://buly.kr/GkrWlYi">하의</a></li>
+                        <li><a href="https://buly.kr/31SQFvf">홈웨어</a></li>
+                    </ul>
+                </div>
+    
+                <div class="box3-1-1">BEAUTY
+                    <ul class="hidden_menu">
+                        <li><a href="https://buly.kr/CWtLE1t">ALL</a></li>
+                        <li><a href="https://buly.kr/5q6Xx28">NEW</a></li>
+                        <li><a href="https://buly.kr/DlIe5kY">선물세트</a></li>
+                        <li><a href="https://buly.kr/6XlZsJ1">스킨케어</a></li>
+                        <li><a href="https://buly.kr/6igKr9D">EXCLUSIVE</a></li>
+                    </ul>
+                </div>
+    
+                <div class="box3-1-1">INTERIOR
+                    <ul class="hidden_menu">
+                        <li><a href="https://buly.kr/880Ohgm">ALL</a></li>
+                        <li><a href="https://buly.kr/2qXfHDZ">NEW</a></li>
+                        <li><a href="https://buly.kr/Cho6CuN">EXCLUSIVE</a></li>
+                        <li><a href="https://buly.kr/FWSDtyA">가구</a></li>
+                        <li><a href="https://buly.kr/8ekfe9i">홈데코</a></li>
+                    </ul>
+                </div>
+    
+               
+    
+            </div>
+        </div>
+
+        <!-- box4 -->
+        <div class="box4">
+            <div class="box4-1">
+                <h3>여성의류</h3>
+                <ul>
+                    <li>ALL</li>
+                    <li>NEW</li>
+                    <li>EXCLUSIVE</li>
+                    <li>상의</li>
+                    <li>바지</li>
+                    <li>원피스</li>
+                </ul>
+            </div>
+            <div class="box4-2">    
+                <p class="p-1">도시와<br> 산의<br> 아우터<br></p>
+                <p class="p-2">THE NORTH FACE</p>
+        </div>
+
+    </div>
+</body>
+</html>

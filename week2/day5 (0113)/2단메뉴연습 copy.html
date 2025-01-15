@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2단 메뉴 연습</title>
+  <style>
+    ul{
+      margin: 0;
+      padding: 0;
+      list-style:none;
+    }
+
+    .menu{
+      display: flex;
+      width: 300px;
+    }
+
+    .menu_item{
+      width: 25%;
+      height: 40px;
+      /* border: 1px solid black; */
+
+      text-align: center;
+      line-height: 40px;
+
+      background-color: #67b0d1;
+      color: white;
+
+      font-size: 12px;
+
+      position: relative;
+    }
+
+    .menu_item:hover{
+      background-color: #7bbbd7;
+    }
+
+    .hidden_menu{
+      width: 300px;
+      border: 1px solid beige;
+      background-color: #7bbbd7;
+      color: #fcfcfc;
+      display: none;
+
+      position: absolute;
+      top: 40px;
+      left: 0;
+    }
+
+    .menu_item:hover .hidden_menu{
+      display: block;
+    }
+    .menu_item2 .hidden_menu2{
+      position: absolute;
+      /* left: -76px; */
+      left: -100%;
+      
+    }
+
+    .menu_item .hidden_menu3{
+      position: absolute;
+      left: -200%;
+    }
+    .menu_item .hidden_menu4{
+      position: absolute;
+      left: -300%;
+    }
+
+  </style>
+</head>
+<body>
+  <ul class="menu">
+    <li class="menu_item menu_item1">상위메뉴1
+      <!--하위메뉴-->
+      <ul class="hidden_menu">
+        <li>하위메뉴1</li>
+        <li>하위메뉴2</li>
+        <li>하위메뉴3</li>
+      </ul>
+    </li>
+    <li class="menu_item menu_item2">상위메뉴2
+            <!--하위메뉴-->
+            <ul class="hidden_menu hidden_menu2">
+              <li>하위메뉴1</li>
+              <li>하위메뉴2</li>
+              <li>하위메뉴3</li>
+            </ul>
+    </li>
+    <li class="menu_item">상위메뉴3
+            <!--하위메뉴-->
+            <ul class="hidden_menu hidden_menu3">
+              <li>하위메뉴1</li>
+              <li>하위메뉴2</li>
+              <li>하위메뉴3</li>
+            </ul>
+    </li>
+    <li class="menu_item">상위메뉴4
+            <!--하위메뉴-->
+            <ul class="hidden_menu hidden_menu4">
+              <li>하위메뉴1</li>
+              <li>하위메뉴2</li>
+              <li>하위메뉴3</li>
+            </ul>
+    </li>
+  </ul>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex 가운데 정렬</title>
+  <style>
+    .wrap{
+      height: 200px;
+      background-color: pink;
+      display: flex;
+      justify-content: center; /*수평 정렬(가운데)*/
+      align-items: center; /*수직 정렬(가운데)*/
+    }
+
+    .item{
+      width: 50px;
+      height: 50px;
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <h2>flex 이용하여 정가운데 배치하기</h2>
+
+  <p>부모요소에 flex 지정해야함. - 수평정렬, 수직정렬을 둘 다 가운데 지정</p>
+  <div class="wrap">
+    <div class="item"></div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Box</title>
+    <style>
+        #toggleButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: #4caf50;
+            margin-top: 20px;
+
+            /* 사각형의 초기 위치를 화면 밖으로 설정 */
+            position: absolute;
+            right: 0;
+            transform: translateX(200px); /* 화면 밖으로 숨김 */
+
+            /* 애니메이션 초기 설정 */
+            transition: transform 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <button id="toggleButton">클릭</button>
+    <div id="box"></div>
+
+    <script>
+        const toggleButton = document.getElementById('toggleButton');
+        const box = document.getElementById('box');
+
+        let isHidden = true;
+
+        toggleButton.addEventListener('click', () => {
+            if (isHidden) {
+                // 사각형을 화면 안으로 이동
+                box.style.transform = 'translateX(0)';
+            } else {
+                // 사각형을 화면 밖으로 이동
+                box.style.transform = 'translateX(200px)';
+            }
+            isHidden = !isHidden; // 상태 토글
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<need>
+    <meta charaset="UFT-8">
+    <meta name="viewport" content="width=device-eidth, initel-scale=1. 0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Nanum+Gothic:wght@400;700;800&family=Nanum+Myeongjo&display=swap'); /* 글꼴 */
+
+        .footer
+        {
+            padding: 20px;
+
+            background-color: rgb(50, 50, 50);
+
+            font-family: "Nanum Gothic", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+        .footer_item
+        {
+            display: flex;
+
+            width: 100%;
+
+            color: white;
+        }
+        .footer_item1 /* 큰 셀 */
+        {
+            width: 60%;
+            height: 200px;
+            padding: 10px;
+        }
+        .footer_item2, .footer_item3, .footer_item4 /* 작은 셀 */
+        {
+            width: 20%;
+            height: 200px;
+            padding: 10px;
+        }
+        .footer_item2, .footer_item3 /* 정보 셀 & 이미지 셀 */
+        {
+            padding: 10px;
+        }
+        .footer_item3 /* 이미지 셀 */
+        {
+            background-image: url(https://pbs.twimg.com/media/Gg0jgZhaMAE-prK?format=png&name=small);
+            background-size: cover;
+            background-position: center;
+        }
+        .footer_item4 /* 문의 정보 셀 */
+        {
+            text-align: center;
+            padding: 0 auto;
+        }
+
+        button
+        {
+            width: 80%;
+            height: 20%;
+        }
+        .twt, .blg /* SNS */
+        {
+            margin-top: 10px;
+
+            font-family: "DM Serif Text", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 22px;
+        }
+        .twt /* 트위터 */
+        {
+            background-color: #03a9f4;
+            border: 1px solid #03a9f4;
+        }
+        .blg /* 블로그 */
+        {
+            background-color: yellowgreen;
+            border: 1px solid yellowgreen;
+        }
+        .tel /* 문의 */
+        {
+            background-color: rgb(50, 50, 50);
+            color: white;
+
+            border: 1px solid white;
+        }
+    </style>
+</need>
+<body>
+    <!-- 푸터 영역 --> 
+    <div class="footer">
+        <!-- 윗줄 --> 
+        <div class="footer_item">
+            <div class="footer_item1">
+                <h2>공지사항</h2>
+                <p>황금붕어빵 CF 영상 (2024-01-01)</p>
+                <p>황금붕어빵 개점 비용 (2024-01-01)</p>
+                <p>황금붕어빵 예상 수입 분석표 (2024-01-01)</p>
+            </div>
+            <hr>
+            <div class="footer_item2">
+                <h2>신규 오픈 매장</h2>
+                <p>홍대입구점 | 02-1111-2222</p>
+                <p>디지털미디어시티역점 | 02-2222-3333</p>
+            </div>
+            <hr>
+            <div class="footer_item4">
+                <h1>SNS</h1>
+                <button class="twt">Tweeter</button><br>
+                <button class="blg">Blog</button>
+            </div>
+        </div>
+        <hr>
+        <!-- 아랫줄 --> 
+        <div class="footer_item">
+            <div class="footer_item3">
+                <!-- 이미지 -->
+            </div>
+            <hr>
+            <div class="footer_item1">
+                <p>(주)황금붕어빵</p>
+                <br>
+                <p>본사: 서울특별시 강남구 푸터1로 11 아이템빌딩 301호<br>
+                대표자: 박예린 | 사업자등록번호 123-45-67890 | 전화번호 02-1234-5678</p>
+            </div>
+            <hr>
+            <div class="footer_item4">
+                <h2>대표 전화 / 창업 문의</h2>
+                <h1>1234-5678</h1>
+                <button class="tel">온라인 문의</button>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

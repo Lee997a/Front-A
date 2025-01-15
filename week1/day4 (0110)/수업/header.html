@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .wrap{
+      height: 200px;
+      border: 1px solid black;
+
+      display: flex;
+    }
+
+    .wrap > div{
+      width: 33.3%;
+      height: 200px;
+      border: 1px solid black;
+    }
+
+    /* 검색바 스타일*/
+    .search-bar{
+      width: 300px;
+      height: 50px;
+      border:3px solid rgb(112, 166, 211);
+      border-radius: 50px;
+
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      /*배치*/
+      position: absolute;
+      top:60px; 
+      left: 140px;
+    }
+    
+    .search-btn{
+      width: 40px;
+      height: 40px;
+      /* background-color: blue; */
+      background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6JO-CB3HSZIPWlJl_5K9T2kEUfyo0qtYE3Q&s);
+      background-position: center;
+      background-size: cover;
+    }
+
+    .search-bar input{
+      border: none;
+      outline: none; /*클릭시 박스가 보이는 것을 없앰*/
+      padding-left: 20px;
+    }
+
+    .search_wrap{
+      position: relative;
+    }
+
+    /*메뉴만들기*/
+    .menu_bar{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      /* width: 310px; */
+      list-style: none;
+      display: flex;
+
+      font-size: 11px;
+
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+    }
+
+    .menu_bar li{
+      padding: 3px;
+    }
+
+    .menu_bar img{
+      display: block;
+      margin: 0  auto;
+    }
+
+    .menu_wrap{
+      /*부모 정하기*/
+      position: relative;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div>로고</div>
+    
+    <!--검색바 영역-->
+    <div class="search_wrap">
+        <!--검색바-->
+      <div class="search-bar">
+       <input type="text">
+      <div class="search-btn">
+    </div>
+  </div>
+  </div>
+
+    <!--메뉴 영역-->
+    <div class="menu_wrap">
+      <ul class="menu_bar">
+        <li>
+          <img src="../자료/image/btn_header_utill1.png">
+          <span>로그인</span>
+        </li>
+        <li>
+          <img src="../자료/image/btn_header_utill2.png">
+          <span>마이페이지</span>
+        </li>
+        <li>
+          <img src="../자료/image/btn_header_utill3.png">
+          <span>장바구니</span>
+        </li>
+      </ul>
+    </div>
+
+
+
+  </div>
+</body>
+</html>

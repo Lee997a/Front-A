@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    
+
+    @import url('https://fonts.googleapis.com/css2?family=Orbit&display=swap');
+
+
+    *{
+      font-family: "Orbit", serif;
+  font-weight: 400;
+  font-style: normal;
+    }
+
+
+    .wrap{
+      width: 80%;
+      height: 1000px;
+      border: 1px solid black;
+      margin: 0 auto;
+    }
+    header{
+      height: 120px;
+      padding-right: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+    }
+
+    .logo{
+      width: 300px;
+      height: 120px;
+      background-image: url(https://static.vecteezy.com/system/resources/previews/007/646/186/non_2x/travel-agency-logo-template-vector.jpg);
+      background-position: center;
+      background-size: cover;
+    }
+
+    .search{
+      display: flex;
+      width: 320px;
+      height: 50px;
+      border: 3px solid rgb(95, 92, 92);
+      justify-content: center;
+      align-items: center;
+      border-radius: 20px;
+    }
+
+    .search img{
+      width: 40px;
+      height: 40px;
+    }
+
+    .search input{
+      width: 70%;
+      height: 70%;
+      border: none;
+      outline: none;
+    }
+
+    header .login_button button{
+      width: 210px;
+      padding: 15px;
+      font-size: 20px;
+      background-color: rgb(101, 183, 238);
+      border-radius: 15px;
+      border: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    nav{
+      height: 30px;
+      border: 0.5px solid rgb(199, 195, 195);
+      
+    }
+    .menu{
+      margin: 0;
+      padding: 0;
+    }
+    
+    .menu_item a{
+      text-decoration: none;
+      color: inherit;
+    }
+    .menu_item:hover a{
+      color: rgb(101, 183, 238);
+    }
+    
+    nav .menu{
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      font-size: 20px;
+      line-height: 30px;
+      justify-content: space-evenly;
+    }
+
+
+    nav .menu .hidden_menu{
+      display: none;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+    }
+    
+    .hidden_menu{
+      width: 900px;
+      position: absolute;
+      display: flex;
+      justify-content: space-around;
+      left: -300px;
+    }
+
+    .menu_item1{
+      position: relative;
+    }
+
+    .menu_item1:hover span{
+      color: rgb(101, 183, 238);
+    
+    }
+
+    .menu_item1:hover .hidden_menu{
+      display: flex;
+    }
+
+    .menu_item1 .hidden_menu{
+      list-style: none;
+      position: absolute;
+      width: 900px;
+      display: flex;
+      justify-content: space-around;
+    }
+    
+    .menu_item1 .li2{
+      position: absolute;
+      left: -500px;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo"></div>
+
+
+      <div class="search_wrap">
+      <div class="search">
+        <input type="text">
+        <img src="https://cdn.icon-icons.com/icons2/2406/PNG/512/search_magnifier_icon_145939.png" alt="검색로고">
+      </div>
+    </div>
+    <div class="login_button">
+      <button>로그인 및 회원가입</button>
+    </div>
+    </header>
+
+    <nav>
+      <!-- 베스트 해외여행, 국내여행, 호텔 항공-->
+       <!--2단 메뉴로 작성-->
+       <ul class="menu">
+        <li class="menu_item">
+          <a href="#"><span>BEST</span></a>
+        </li>
+
+        <li class="menu_item1"><span>해외여행</span>
+          <ul class="hidden_menu">
+            <li>동남아시아 / 대만</li>
+
+
+            <li>일본</li>
+            <li>유럽 / 아프리카</li>
+            <li>괌 / 사이판 / 호주 / 뉴질랜드</li>
+          </ul>
+        </li>
+
+
+
+
+        <li class="menu_item1"><span>국내여행</span>
+          <ul class="hidden_menu li2">
+            <li>제주 여행</li>
+            <li>내륙 여행</li>
+            <li>울릉도</li>
+          </ul>
+        </li>
+
+        </li>
+
+        <li class="menu_item"><a href="#"><span>항공 호텔</span></a></li>
+       </ul>
+    </nav>
+
+
+
+
+
+  </div>
+</body>
+</html>

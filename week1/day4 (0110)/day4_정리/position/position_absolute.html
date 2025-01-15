@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .box{
+             width: 100px;
+             height: 100px;
+             background-color: blue;
+
+             position: absolute;             
+             right: 0px;
+             bottom:0px;     /* html 문서를 기준으로 바닥에서 0px  위치에 배치함  */
+        }
+    </style>
+
+</head>
+<body>
+
+    <h2> 문서상에서 요소 배치방법  position: absolute</h2>
+    <p>
+         - 문서를 기준으로  배치함  <br>
+         - 문서상의 원래 흐름을 벗어남 <br>
+         - 부모를  relative로 정하지 않으면  문서 html을 기준으로 한다
+    </p>
+
+    <div class="box">
+    </div>
+    
+
+</body>
+</html>

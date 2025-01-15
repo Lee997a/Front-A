@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    
+
+    @import url('https://fonts.googleapis.com/css2?family=Orbit&display=swap');
+
+
+    *{
+      font-family: "Orbit", serif;
+  font-weight: 400;
+  font-style: normal;
+
+  scroll-behavior: smooth;
+    }
+
+
+    .wrap{
+      width: 75%;
+      margin: 0 auto;
+    }
+
+    /*header 영역 style */
+    header{
+      height: 120px;
+      padding-right: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+    }
+
+    .logo{
+      width: 300px;
+      height: 120px;
+      background-image: url(https://static.vecteezy.com/system/resources/previews/007/646/186/non_2x/travel-agency-logo-template-vector.jpg);
+      background-position: center;
+      background-size: cover;
+    }
+
+    .search{
+      display: flex;
+      width: 360px;
+      height: 50px;
+      border: 3px solid rgb(95, 92, 92);
+      justify-content: center;
+      align-items: center;
+      border-radius: 20px;
+    }
+
+    .search img{
+      width: 40px;
+      height: 40px;
+    }
+
+    .search input{
+      width: 80%;
+      height: 70%;
+      border: none;
+      outline: none;
+    }
+
+    header .login_button button{
+      width: 200px;
+      padding: 10px;
+      font-size: 20px;
+      background-color: rgb(0, 153, 255);
+      border-radius: 15px;
+      border: none;
+
+      font-weight: bold;
+    }
+    .login_button a{
+      text-decoration: none;
+      color: white;
+    }
+
+    /*nav 영역 style*/
+
+    nav{
+      height: 40px;
+      border-bottom: 0.3px solid rgb(240, 237, 237); 
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+
+      
+    }
+
+
+    .menu{
+      margin: 0;
+      padding: 0;
+    }
+    
+    .menu_item a{
+      text-decoration: none;
+      color: inherit;
+    }
+    .menu_item:hover a{
+      color: rgb(101, 183, 238);
+    }
+    
+    nav .menu{
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      font-size: 20px;
+      line-height: 40px;
+      justify-content: space-evenly;
+      position: relative;
+      font-weight: bold;
+    }
+
+
+    nav .menu .hidden_menu{
+      display: none;
+      list-style: none;
+      margin: 0;
+      padding: 10px;
+      font-size: 16px;
+      background-color: white;
+      z-index: 999;
+      border-radius: 5px;
+
+    }
+    
+    .hidden_menu{
+      width: 900px;
+      position: absolute;
+      display: flex;
+      justify-content: space-around;
+      left: -300px;
+      top: 40px;
+    }
+
+    .menu_item1{
+      position: relative;
+    }
+
+    .menu_item1:hover span{
+      color: rgb(101, 183, 238);
+      cursor: pointer;
+    }
+
+    .menu_item1:hover .hidden_menu{
+      display: flex;
+    }
+
+    .menu_item1 .hidden_menu{
+      list-style: none;
+      position: absolute;
+      justify-content: space-around;
+
+    }
+    
+    .menu_item1 .li2{
+      position: absolute;
+      left: -500px;
+    }
+
+    /*section*/
+
+    .section_img_wrap{
+      display: flex;
+      justify-content: space-evenly;
+      padding: 20px;
+      margin-top: 20px;
+      box-sizing: border-box;
+    }
+
+    .section_img_wrap > .section_img{
+      width: 320px;
+      height: 380px;
+      margin-top: 20px;
+
+    }
+
+    .section_img img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .section_img{
+      position: relative;
+    }
+
+    .section_img h2{
+      position: absolute;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+      margin: 0;
+
+    }
+
+    .section_img:hover{
+      transform: scale(1.1);
+    }
+
+
+    .best_travel ul{
+      display: flex;
+      justify-content: space-evenly;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .best_travel ul li{
+      width: 270px;
+      height: 400px;
+      list-style: none;
+    }
+
+    .best_travel img{
+      width: 100%;
+      height: 70%;
+      border-radius: 20px;
+    }
+    .travel_title{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top:50px;
+      margin-bottom: 20px;
+    }
+
+    .travel_title h2 img{
+      width: 45px;
+      height: 45px;
+      
+    }
+    
+    .travel_title h2{
+      display: flex;
+      margin: 0;
+      align-items: center;
+      font-weight: bold;
+      font-size: 25px;
+    }
+
+    .best_travel p{
+      margin: 5px;
+      margin-bottom: 30px;
+    }
+    
+    .best_travel span{
+      color: red;
+      font-weight: bold;
+    }
+
+
+    
+    .big_img{
+      position: relative;
+    }
+
+    .big_img img{
+      width: 100%;
+      height: 500px;
+    }
+
+    .big_img .big_img_info{
+      width: 400px;
+      height: 500px;
+      background-color: rgba(131, 127, 127, 0.5);
+      position: absolute;
+      top: 0px;
+      left: 200px;
+    }
+    .big_img .big_img_info h2, p{
+      text-align: center;
+      /* color: white;  */
+      margin-top: 70px;
+    }
+    .big_img_info_text h2{
+      color: white; 
+    }
+    .big_img_info_text p{
+      color: white; 
+    }
+
+    .big_img .big_img_info h2{
+      font-size: 50px;
+      font-weight: bold;
+    }
+
+    .weekly_travel_wrap{
+      display: flex;
+      justify-content: center;
+    }
+
+    .weekly_travel h2{
+      font-size: 30px;
+      font-weight: bold;
+      margin-left: 60px;
+      margin-top: 50px;
+      margin-bottom: 20px;
+    }
+    
+    .weekly_travel_wrap .weekly_item1, .weekly_item2, .weekly_item3{
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      margin-right: 50px;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .weekly_item1 {
+      position: relative;
+    }
+
+    .weekly_item1 p{
+      position: relative;
+      top: 50px;
+    }
+    .weekly_item2{
+      position: relative;
+    }
+
+    .weekly_item2 p{
+      position: relative;
+      top: 50px;
+    }
+    .weekly_item3{
+      position: relative;
+    }
+
+    .weekly_item3 p{
+      position: relative;
+      top: 50px;
+    }
+
+    .weekly_travel_wrap p{
+      margin-top: 30px;
+     
+    }
+
+    .weekly_travel_wrap .weekly_item1 {
+      background-image: url("https://image.hanatour.com/usr/manual/md/2024/10/PM0066F431BE/bnr/bnr_co_a.jpg");
+      background-position: center;
+      background-size: cover;
+    }
+
+    .weekly_travel_wrap .weekly_item2{
+      background-image: url("https://image.hanatour.com/usr/manual/md/2024/11/PM00670D3691/bnr/bnr_co.jpg");
+      background-position: center;
+      background-size: cover;
+    }
+    .weekly_travel_wrap .weekly_item3{
+      background-image: url("https://image.hanatour.com/usr/manual/md/2024/09/PM0066F2E6EC/bnr_co_a.jpg");
+      background-position: center;
+      background-size: cover;
+    }
+
+    .weekly_travel h2{
+      margin-left: 50px;
+    }
+
+    .small_font{
+      font-size: 13px;
+    }
+
+    .best_hotel h2{
+      font-size: 30px;
+      font-weight: bold;
+      margin-left: 30px;
+    }
+
+    .hotel_img{
+      display: flex;
+      list-style: none;
+      justify-content: space-around;
+      padding-left: 20px;
+      padding-right: 20px;
+      
+    }
+
+    .hotel_img li{
+      width: 250px;
+      height: 300px;
+      position: relative;
+    }
+
+    .hotel_img li img{
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+
+    .hotel_img span{
+      color: white;
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-size: 20px;
+    }
+
+    .best_hotel button{
+      border: none;
+      background-color: transparent;
+    }
+
+    .best_hotel button img{
+      width: 40px;
+      height: 50px;
+    }
+
+    .best_hotel{
+      position: relative;
+    }
+
+    .best_hotel h2{
+      letter-spacing: -3px  ;
+      margin-top: 60px;
+      margin-left: 55px;
+    }
+
+    .best_hotel button{
+      display: none;
+    }
+
+    .best_hotel:hover button{
+      display: block;
+    }
+
+    .best_hotel .btn_right{
+      position: absolute;
+      right: -120px;
+      top: 200px;
+    }
+    .best_hotel .btn_left{
+      position: absolute; 
+      left: -120px;
+      top: 200px;
+    }
+
+    .hotel_img li:hover{
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+    }
+
+    .recom_search{
+      margin: 0 auto;
+      width: 85%;
+    }
+
+    .recom_search input, button, select{
+      width: 250px;
+      height: 60px;
+      text-align: center;
+      font-size: 20px;
+      border: none;
+      padding: 0;
+    }
+
+    .recom_search select{
+      appearance:none /* 화살표 없애기 */
+    }
+
+    .recom_air{
+      background-color: rgb(248, 243, 243, 0.7);
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      height: 160px;
+
+    }
+
+    .recom_search{
+      line-height: 120px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+
+    }
+
+    .recom_search input, select{
+      margin-right: 5px;
+    }
+
+    .recom_search input:nth-child(1){
+      border-radius: 10px 0 0 10px;
+    }
+   
+    .recom_search button{
+      border: none;
+      color: white;
+      background-color: rgb(134, 134, 255);
+      font-size: 25px;
+      border-radius: 0 10px 10px 0;
+    }
+
+    .big_img2{
+      width: 100%;
+      height: 500px;
+      background-image: url("https://contents.verygoodtour.com/Images/pc/package/main/np_main_14252.jpg");
+      background-position: center;
+      background-size: cover;
+      position: relative;
+      margin-top: 50px;
+    }
+
+    .section_bottom{
+      position: relative;
+    }
+    
+
+    .bottom_info{
+      display: flex;
+      text-align: center;
+      border: 1px solid rgba(231, 231, 231, 0.863);
+      background-color: rgb(233, 233, 233);
+      justify-content: center;
+      margin-left: 70px;
+      margin-right: 70px;
+      border-radius: 10px;
+    }
+
+    .bottom_info p{
+      margin: 0;
+      margin-top: 20px;
+      box-sizing: border-box;
+      font-size: 15px;
+    }
+
+    .bottom_info_item{
+      padding: 30px;
+      width: 33.3%;
+      box-sizing: border-box;
+    }
+
+
+    .section_bottom h2{
+      font-size: 30px;
+      font-weight: bold;
+      margin-left: 30px;
+      margin-top: 100px;
+    }
+
+
+   
+    .img_flex{
+      display: flex;
+      justify-content: center;
+    }
+
+    .img_flex img{
+      margin-right: 10px;
+    }
+
+    .img_flex a{
+      font-size: 18px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+
+
+
+
+
+    footer{
+      margin-top: 80px;
+      border-top: 0.3px solid rgb(233, 224, 224); 
+    }
+
+    .footer_info{
+      display: flex;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .footer_info .cusm_info{
+      width: 50%;
+    }
+
+    .cusm_info{
+      padding-left: 20px;
+    }
+
+    .footer_info .cusm_info p{
+      margin: 0;
+      text-align: left;
+    }
+
+    .footer_info .cusm_info button{
+      margin-top: 10px;
+      border: 1px solid black;
+      width: 170px;
+      height: 50px;
+      background-color: white;
+      margin: 10px;
+    }
+
+    .cusm_info_item{
+      display: flex;
+      justify-content: center;
+    }
+
+    .cusm_info_item ul{
+      list-style: none;
+    }
+
+    .cusm_info_item .bottom_mar{
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo"></div>
+
+      <div class="search_wrap">
+      <div class="search">
+        <input type="text">
+        <img src="https://cdn.icon-icons.com/icons2/2406/PNG/512/search_magnifier_icon_145939.png" alt="검색로고">
+      </div>
+    </div>
+    <div class="login_button">
+      <button type="submit"><a href="./login.html">로그인 및 회원가입</a></button>
+    </div>
+    </header>
+
+    <nav>
+      <!-- 베스트 해외여행, 국내여행, 호텔 항공-->
+       <!--2단 메뉴로 작성-->
+       <ul class="menu">
+        <li class="menu_item">
+          <a href="#best"><span>BEST</span></a>
+        </li>
+
+        <li class="menu_item1"><span>해외여행</span>
+          <ul class="hidden_menu">
+            <li>동남아시아 / 대만</li>
+
+
+            <li>일본</li>
+            <li>유럽 / 아프리카</li>
+            <li>괌 / 사이판 / 호주 / 뉴질랜드</li>
+          </ul>
+        </li>
+
+        <li class="menu_item1"><span>국내여행</span>
+          <ul class="hidden_menu li2">
+            <li>제주 여행</li>
+            <li>내륙 여행</li>
+            <li>울릉도</li>
+          </ul>
+        </li>
+
+        </li>
+
+        <li class="menu_item"><a href="#best_hotel1"><span>항공 호텔</span></a></li>
+       </ul>
+    </nav>
+
+    <!--section 영역 1 -->
+
+      <section class="big_img">
+        <img src="https://contents.verygoodtour.com/Images/pc/package/main/np_main_13266.jpg">
+        <div class="big_img_info">
+          <div class="big_img_info_text">
+            <h2>훗카이도도 <br>
+              겨울은<br>
+              따뜻합니다.</h2>
+              <p>소복히 눈 쌓인 삿포로 축제,<br>
+              겨울 온천의 묘미도 느껴보아요~.
+              </p>
+          </div>
+        </div>
+ 
+      
+      </section>
+
+
+
+
+
+   <!--section 영역 2 -->
+      <section class="section_img_wrap">
+        <div class="section_img">
+          <h2>베트남</h2>
+          <img src="https://image.vovworld.vn/w730/uploaded/vovworld/cqdhprjwp/2021_05_28/kinh-nghiem-vui-choi-pha-dao-sun-world-ha-long-khong-thieu-thu-gi-5d9bfd4d60d89_wxta.jpg" alt="베트남">
+        </div>
+        <div class="section_img">
+          <h2>일본</h2>
+            <img src="https://img.freepik.com/free-photo/holiday-street-sign-osaka-shopping_1203-6198.jpg" alt="일본">
+
+        </div>
+        <div class="section_img">
+          <h2>유럽</h2>
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/25/6d/ef/27/caption.jpg?w=1200&h=-1&s=1&cx=1920&cy=1080&chk=v1_9cf3de15fd3c34a7250c" alt="유럽">
+        </div>
+
+        <div class="section_img">
+          <h2>괌</h2>
+            <img src="https://www.ttlnews.com/upload/editor_content_images/1533065295663_editor_image.jpg" alt="괌괌">
+        </div>
+
+      </section>
+
+         <!--section 영역 3 -->
+
+      <section class="section_best_wrap">
+
+        <div class="best_travel">
+          <div class="travel_title">
+            <h2 id="best">이번주 베스트 여행지
+              <img src="https://cdn-icons-png.flaticon.com/512/5889/5889195.png">
+            </h2>
+        </div>
+
+          <ul>
+            <li>
+              <img src="https://contents.verygoodtour.com/content/210/AT/0000/AT1/image/1928007_2.jpg">
+              <p>[아드리아해 낭만 로드] 발칸 동유럽 6개국 12일 #크슬체헝오독</p>
+              <span> 2,570,000원~</span>
+            </li>
+            <li>
+              <img src="https://contents.verygoodtour.com/content/310/JP/J12/CTS/image/2006830_2.jpg">
+              <p class="">[최단 코스, 최적의 일정] 비에이/조잔케이/아사히카와</p>
+              <span> 849,000원~</span>
+            </li>
+            <li>
+              <img src="https://contents.verygoodtour.com/content/110/US/NV/LAS/image/1926788_2.jpg">
+              <p>[효율적인동선/이지트레킹] 5대캐년+3대도시 미서부 9일</p>
+              <span> 3,110,000원~</span>
+            </li>   
+            <li>
+              <img src="https://contents.verygoodtour.com/content/210/ES/0000/000/image/2000594_2.jpg">
+              <p>[마음산책, 함께보다] 스페인+포르투갈 9일</p>
+              <span> 1,890,000원~</span>
+            </li>
+          </ul>
+
+        </div>
+
+      </section>
+
+   <!--section 영역 4 -->
+      <section class="section_weekly_wrap">
+        <div class="weekly_travel">
+          <h2>WEEKLY 추천테마</h2>
+          <div class="weekly_travel_wrap">
+            <div class="weekly_item1">
+              <p>일본 얼리버드 할인</p>
+              <p class="small_font">인당 최대 10만원 사전예약 할인!</p>
+            </div>
+            <div class="weekly_item2">
+              <p>중국 온천 여행</p>
+              <p class="small_font">색다른 매력, 중국 온천</p>
+            </div>
+            <div class="weekly_item3">
+              <p>웅장한 대자연, 북유럽</p>
+              <p class="small_font">빠지면 섭섭한 구석구석까지</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+         <!--section 영역 5 -->
+
+      <section class="section_hotel">
+        <div class="best_hotel">
+          <h2 id="best_hotel1">마음에 꼭 맞는 숙소 찾기</h2>
+          <ul class="hotel_img">
+            <li>
+              <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/5e/28/12/caption.jpg?w=500&h=500&s=1">
+              <span>스파</span>
+            </li>
+            <li>
+              <img src="https://media-cdn.tripadvisor.com/media/photo-s/17/fa/50/b6/outdoor-pool.jpg">
+              <span>리조트</span>
+            </li>
+            <li>
+              <img src="https://condogo.co.kr/file/condo/2019.03.13_ZCA84r">
+              <span>콘도</span>
+            </li>
+            <li>
+              <img src="https://content.skyscnr.com/available/1319402316/1319402316_WxH.jpg">
+              <span>아파트식 호텔</span>
+            </li>
+            <li>
+              <img src="https://www.marketresearchintellect.com/images/blogs/beyond-the-traditional-hotel-exploring-the-growth-of-the-capsule-hotel-market.webp">
+              <span>캡슐 호텔</span>
+            </li>
+          </ul>
+          <button class="btn_right"><img src="/pngwing.com.png"></button>
+          <button class="btn_left"><img src="/pngwindddddddddg.com.png"></button>
+        </div>
+
+        
+      </section>
+
+         <!--section 영역 6 -->
+
+      <section class="section_air">
+        <div class="big_img2">
+        
+        <div class="recom_air">
+          <div class="recom_search">
+            <input type="text" placeholder="어디로 떠나세요?">
+            <select>
+              <option>어디서 출발하시나요?</option>
+              <option>인천 / 김포</option>
+              <option>부산</option>
+              <option>대구</option>
+              <option>제주</option>
+            </select>
+            <input type="date">
+            <button>검색</button>
+          </div>
+        </div>
+      </div>
+
+      </section>
+
+         <!--section 영역 7 -->
+
+      <section class="section_bottom">
+        <h2>여행 정보 알아보기</h2>
+        <div class="bottom_info">
+          <div class="bottom_info_item">
+            <div class="img_flex">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCI+CiAgICA8ZGVmcz4KICAgICAgICA8cGF0aCBpZD0iYSIgZD0iTTE0Ljk5NCAzMGgxNC45OTRWLjAxMkgwVjMwaDE0Ljk5NHoiLz4KICAgIDwvZGVmcz4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGc+CiAgICAgICAgICAgIDxtYXNrIGlkPSJiIiBmaWxsPSIjZmZmIj4KICAgICAgICAgICAgICAgIDx1c2UgeGxpbms6aHJlZj0iI2EiLz4KICAgICAgICAgICAgPC9tYXNrPgogICAgICAgICAgICA8cGF0aCBmaWxsPSIjM0M1QTk5IiBkPSJNMjguMzMzIDMwYy45MTQgMCAxLjY1NS0uNzQxIDEuNjU1LTEuNjU1VjEuNjY3YzAtLjkxNC0uNzQxLTEuNjU1LTEuNjU1LTEuNjU1SDEuNjU1Qy43NDEuMDEyIDAgLjc1MiAwIDEuNjY3djI2LjY3OEMwIDI5LjI1OS43NCAzMCAxLjY1NSAzMGgyNi42Nzh6IiBtYXNrPSJ1cmwoI2IpIi8+CiAgICAgICAgPC9nPgogICAgICAgIDxwYXRoIGZpbGw9IiNGRUZFRkUiIGQ9Ik0yMC41ODMgMzBWMTguNTM1aDMuODI1bC41NzItNC40NjloLTQuMzk3di0yLjg1MmMwLTEuMjk0LjM1Ny0yLjE3NiAyLjItMi4xNzZoMi4zNTJWNS4wNGMtLjQwNy0uMDU0LTEuODAzLS4xNzYtMy40MjctLjE3Ni0zLjM5IDAtNS43MTEgMi4wODItNS43MTEgNS45MDZ2My4yOTVoLTMuODM1djQuNDY5aDMuODM1VjMwaDQuNTg2eiIvPgogICAgPC9nPgo8L3N2Zz4K">
+            <a href="#"> 페이스북 페이지</a>
+          </div>
+            <p>페이스북 페이지에서 각 여행지별로 정리된 유용한 정보와 여행자분들을 위한 이벤트를 확인해보세요.</p>
+          </div>
+          <div class="bottom_info_item">
+            <div class="img_flex">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCI+CiAgICA8ZGVmcz4KICAgICAgICA8cGF0aCBpZD0iYSIgZD0iTTAgMjkuOTk2aDI5Ljk5Vi4wMUgweiIvPgogICAgPC9kZWZzPgogICAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8Zz4KICAgICAgICAgICAgPG1hc2sgaWQ9ImIiIGZpbGw9IiNmZmYiPgogICAgICAgICAgICAgICAgPHVzZSB4bGluazpocmVmPSIjYSIvPgogICAgICAgICAgICA8L21hc2s+CiAgICAgICAgICAgIDxwYXRoIGZpbGw9IiMwQTBCMDkiIGQ9Ik0xNC45OTUuMDFjLTQuMDcyIDAtNC41ODMuMDE3LTYuMTgyLjA5LTEuNTk2LjA3Mi0yLjY4Ni4zMjYtMy42NC42OTdhNy4zNSA3LjM1IDAgMCAwLTIuNjU2IDEuNzMgNy4zNSA3LjM1IDAgMCAwLTEuNzMgMi42NTVjLS4zNy45NTQtLjYyNCAyLjA0NC0uNjk3IDMuNjQtLjA3MyAxLjYtLjA5IDIuMTEtLjA5IDYuMTgzIDAgNC4wNzIuMDE3IDQuNTgzLjA5IDYuMTgyLjA3MyAxLjU5Ni4zMjcgMi42ODYuNjk3IDMuNjRhNy4zNSA3LjM1IDAgMCAwIDEuNzMgMi42NTYgNy4zNTEgNy4zNTEgMCAwIDAgMi42NTYgMS43M2MuOTU0LjM3IDIuMDQ0LjYyNCAzLjY0LjY5NyAxLjYuMDczIDIuMTEuMDkgNi4xODIuMDkgNC4wNzMgMCA0LjU4My0uMDE3IDYuMTgzLS4wOSAxLjU5Ni0uMDczIDIuNjg2LS4zMjcgMy42NC0uNjk3YTcuMzUxIDcuMzUxIDAgMCAwIDIuNjU2LTEuNzMgNy4zNTEgNy4zNTEgMCAwIDAgMS43My0yLjY1NmMuMzctLjk1NC42MjMtMi4wNDQuNjk2LTMuNjQuMDczLTEuNi4wOS0yLjExLjA5LTYuMTgyIDAtNC4wNzMtLjAxNy00LjU4My0uMDktNi4xODMtLjA3Mi0xLjU5Ni0uMzI2LTIuNjg2LS42OTctMy42NGE3LjM1MSA3LjM1MSAwIDAgMC0xLjczLTIuNjU2IDcuMzUgNy4zNSAwIDAgMC0yLjY1NS0xLjczYy0uOTU0LS4zNy0yLjA0NC0uNjI0LTMuNjQtLjY5Ni0xLjYtLjA3My0yLjExLS4wOS02LjE4My0uMDl6bTAgMi43MDFjNC4wMDQgMCA0LjQ3OC4wMTYgNi4wNi4wODggMS40NjIuMDY2IDIuMjU2LjMxIDIuNzg0LjUxNi43LjI3MiAxLjIuNTk3IDEuNzI0IDEuMTIyLjUyNS41MjQuODUgMS4wMjQgMS4xMjIgMS43MjQuMjA1LjUyOC40NSAxLjMyMi41MTYgMi43ODQuMDcyIDEuNTgyLjA4OCAyLjA1Ni4wODggNi4wNnMtLjAxNiA0LjQ3OC0uMDg4IDYuMDZjLS4wNjYgMS40NjEtLjMxIDIuMjU1LS41MTYgMi43ODQtLjI3Mi43LS41OTcgMS4xOTktMS4xMjIgMS43MjRhNC42NDUgNC42NDUgMCAwIDEtMS43MjQgMS4xMjFjLS41MjguMjA2LTEuMzIyLjQ1LTIuNzg0LjUxNy0xLjU4MS4wNzItMi4wNTYuMDg3LTYuMDYuMDg3cy00LjQ3OC0uMDE1LTYuMDYtLjA4N2MtMS40NjEtLjA2Ny0yLjI1NS0uMzExLTIuNzg0LS41MTctLjctLjI3Mi0xLjE5OS0uNTk3LTEuNzI0LTEuMTIxYTQuNjQ2IDQuNjQ2IDAgMCAxLTEuMTIxLTEuNzI0Yy0uMjA2LS41MjktLjQ1LTEuMzIzLS41MTctMi43ODUtLjA3Mi0xLjU4MS0uMDg3LTIuMDU1LS4wODctNi4wNiAwLTQuMDAzLjAxNS00LjQ3Ny4wODctNi4wNTkuMDY3LTEuNDYyLjMxMS0yLjI1Ni41MTctMi43ODQuMjcyLS43LjU5Ny0xLjIgMS4xMjEtMS43MjRhNC42NDUgNC42NDUgMCAwIDEgMS43MjQtMS4xMjJjLjUyOS0uMjA1IDEuMzIzLS40NSAyLjc4NS0uNTE2IDEuNTgxLS4wNzIgMi4wNTUtLjA4OCA2LjA2LS4wODh6IiBtYXNrPSJ1cmwoI2IpIi8+CiAgICAgICAgPC9nPgogICAgICAgIDxwYXRoIGZpbGw9IiMwQTBCMDkiIGQ9Ik0xNC45OTUgMjAuMDAzYTQuOTk4IDQuOTk4IDAgMSAxIDAtOS45OTcgNC45OTggNC45OTggMCAwIDEgMCA5Ljk5N3ptMC0xMi42OTlhNy43IDcuNyAwIDEgMCAwIDE1LjQwMSA3LjcgNy43IDAgMCAwIDAtMTUuNHpNMjQuOCA3YTEuOCAxLjggMCAxIDEtMy42IDAgMS44IDEuOCAwIDAgMSAzLjYgMCIvPgogICAgPC9nPgo8L3N2Zz4K">
+            <a href="#">인스타그램 페이지</a>
+            </div>
+            <p>세계 곳곳에서 활동중인 가이드님과 여행자분들이 보내주신 아름다운 사진을 감상해보세요.</p>
+          </div>
+          <div class="bottom_info_item">
+            <div class="img_flex">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDMwIDMwIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iIzAwQzczQyIgZD0iTTAgMzBoMzBWMEgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiNGRkYiIGQ9Ik0xNy4zODUgMjEuODdsLTQuODMtNy4xMXY3LjExSDcuNVY4LjE0NWg1LjEzbDQuODMgNy4wOTVWOC4xNDVoNS4wNFYyMS44N3oiLz4KICAgIDwvZz4KPC9zdmc+Cg==">
+            <a href="#">네이버 페이지</a>
+            </div>
+            <p> 네이버 블로그에서 리얼생생 여행정보, 여행 후기, 추천 가이드 정보를 확인해보세요.</p>
+          </div>
+        </div>
+
+      </section>
+
+         <!--footer 영역 1 -->
+
+      <footer>
+        <div class="footer_info">
+          <div class="cusm_info">
+          <h3>고객지원실 운영안내</h3>
+          <p>채팅상담 연중무휴 24시간 <br>
+            유선상담 연중무휴 09:00-18:00<br>
+            대표번호 1670-8208<br>
+            ※ 항공권 환불 - 연중무휴 09:00-17:00 접수 가능<br>
+            ※ 항공권 변경 - 평일 09:00-17:00 접수 가능</p>
+            <button>1:1 채팅상담</button>
+        </div>
+        <div class="cusm_info">
+          <div class="cusm_info_item">
+          <ul>
+            <li class="bottom_mar">소개</li>
+            <li>회사소개</li>
+            <li>채용</li>
+            <li>공고</li>
+          </ul>
+          <ul>
+            <li class="bottom_mar">파트너</li>
+            <li>파트너 홈</li>
+            <li>제휴 문의</li>
+            <li>광고 문의</li>
+          </ul>
+          <ul>
+            <li class="bottom_mar">지원</li>
+            <li>공지사항/FAQ</li>
+          </ul>
+        </div>
+      </div>
+
+      </div>
+
+
+
+      </footer>
+
+
+
+  </div>
+</body>
+</html>

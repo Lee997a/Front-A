@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .header{
+            height: 200px;
+            background-color: rgb(206, 198, 187);
+            position: relative;
+        }
+
+        .menu{
+            width: 300px;
+            height: 80px;
+            /* border:1px solid black;*/
+
+            /* 메뉴 박스 안의  박스들을 수평으로 배치하고  정가운데 배치하기 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+            /*  헤더 부모를 기준으로  메뉴를 오른쪽 끝에 붙이기*/
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+        }
+
+        .item1{
+            width:60px;
+            height: 60px;
+            border:0.1px solid rgb(230, 227, 227);  
+            border-radius: 50%;
+
+            text-align: center;
+            line-height: 60px;
+            margin-left: 5px;
+        }
+
+        .item1:hover{
+            background-color: antiquewhite;
+        }
+
+
+        .item2{
+            width: 40px;
+            height: 40px;
+           /* border:1px solid black;*/
+            border-radius: 50%;
+
+            text-align: center;
+            line-height: 40px;
+            margin-left: 5px;
+            background-color: green;
+        }
+
+        .item2:hover{             
+            box-shadow: 0px 0px  10px 0px green;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        
+        <!-- 메뉴영역-->
+        <div  class="menu">
+            <div class="item1">Gmail</div>
+            <div class="item1">로그인</div>
+            <div class="item1">이미지</div>
+            <div class="item2">J</div>
+        </div>
+
+    </div>    
+</body>
+</html>

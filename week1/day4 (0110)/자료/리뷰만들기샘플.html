@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=JetBrains+Mono:wght@100&family=Righteous&display=swap" rel="stylesheet">
+
+    <style>
+        body{  font-family: 'Black Han Sans', sans-serif }	 
+       	 
+
+        .wrap{
+            width: 820px;
+            border:1px solid black;
+            padding: 20px;
+            box-sizing: border-box;
+            height: 700px;
+            margin: 0 auto;
+
+
+            /* 부모로 정하기*/
+            position: relative;
+        }
+
+        /* 리뷰타이틀 영역*/
+        .review_title{
+            text-align: center;
+        }
+        
+        /* 리뷰 첫번재 행*/
+
+        .review_row1{
+            display: flex;
+        }
+
+        .review_row1 > div{
+            border:1px solid black;
+            width: 50%;     
+            text-align: center;       
+        }
+
+        .content_col textarea{
+            width: 90%;
+            height: 150px;
+        }
+
+        /* 좋아요 영역 배치하기*/
+        .like{
+            /* 부모크기를 기준으로 위치 정하기*/
+            position: absolute;
+            right: -70px;
+            bottom: 60px;
+
+        }
+        .like img{
+            width: 50px;
+            height: 50px;
+        } 
+    </style>
+</head>
+<body>
+    
+
+    <div class="wrap">
+        <!-- 첫번째 층-->
+        <div class="review_title">
+            <h1>REVIEW DETAIL</h1>
+        </div>
+        <!-- 두번째 층-->
+
+        <div class="review_row1">
+            <div class="img_col">
+                 <h4>이미지</h4>
+                 <img src="https://via.placeholder.com/150.jpg" alt="300 * 300 size image">
+            </div>
+            <div class="content_col">
+                <h4>맛평가</h4>
+                <textarea>....</textarea>
+            </div>
+        </div>
+
+
+        <!--세번째 층-->
+        <div></div>
+
+        <!--네번째 층-->
+        <div></div>
+        <!--다섯번재 층-->
+        <div></div>
+
+          <!-- like 층 :리뷰박스를 기준으로 원하는 곳에 배치하기 -->
+        <div class="like">
+             <p>좋아요! </p>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Bot%C3%B3n_Me_gusta.svg/1200px-Bot%C3%B3n_Me_gusta.svg.png" alt="">
+        </div>
+
+    </div>
+</body>
+</html>

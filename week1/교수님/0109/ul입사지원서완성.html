@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap');
+
+        .wrap{
+            border: 1px solid black;
+            width: 550px;
+            margin: 0 auto;
+            padding: 20px 40px;
+
+            font-family: "Sunflower", serif;
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        ul{
+           /*  list-style: none;*/
+        }
+        
+
+        /* inline = > 크기를 가질 수 없으므로  display  속성변경   */
+        label{
+            display: inline-block;
+            width: 60px;
+            padding: 10px;
+        }
+
+
+        .info li{
+            margin-bottom: 10px;
+        }
+
+        .info li input{
+            margin-left: 5px;
+            height: 20px;
+        }
+
+        h3{
+            margin-top: 30px;
+            margin-bottom: 25px;
+        }
+
+        .support_field{
+            
+            font-size: 18px;
+             
+        }
+        .support_field li{
+            margin-top: 5px;
+        }
+       
+
+        textarea{
+            width: 100%;
+            height: 100px;          
+            margin-bottom: 15px;
+             
+        }
+
+     
+        /* 버튼 가운데 배치치*/
+
+        .btn_wrap{
+            text-align: center;
+        }
+
+        .btn_wrap button{
+            padding: 10px;
+            border: none;
+            background-color: rgb(216, 213, 210);
+            font-size: 12px;
+        }
+
+
+        .wrap > div{
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- 전체영역-->
+    <div class="wrap">
+
+        <!--제목 영역 -->
+        <div class="title_wrap">
+            <h1>프런트엔드 개발자 지원서</h1>
+            <p>HTML, CSS, Javascript에 대한 기술적 이해와 경험이 있는 분을 찾습니다.</p>
+            <hr>
+        </div>
+  
+
+        <!--개인정보 영역-->
+        <div class="info_wrap">
+            <h3>개인정보</h3>
+            <ul class="info">
+                <li><label>이름</label>  <input type="text" placeholder="공백없이 입력하세요"></li>
+                <li><label>연락처</label><input type="text"></li>
+            </ul>
+        </div>
+ 
+
+        <!-- 지원 분야 영역-->
+        <div class="field_wrap">
+            <h3>지원 분야</h3>
+            <ul class="support_field">
+                <li> <input type="radio"  name="field"  value="웹 퍼블리싱"> 웹 퍼블리싱</li>
+                <li> <input type="radio"  name="field"  value="웹 퍼블리싱"> 웹 애플리케이션 개발</li>
+                <li> <input type="radio"  name="field"  value=" 개발 환경 개선"> 개발 환경 개선</li>
+            </ul>
+        </div>
+  
+
+        <!-- 지원 동기 영역-->
+        <div class="text_wrap">            
+            <h3>지원 동기</h3>
+            <div>
+                <textarea placeholder="본사 지원 동기를 간략히 써 주세요."></textarea>           
+            </div>
+        </div>
+
+        <!--버튼 영역-->
+        <div class="btn_wrap">
+            <button>접수하기</button>
+            <button>다시쓰기</button>
+        </div>
+    </div>
+
+</body>
+</html>

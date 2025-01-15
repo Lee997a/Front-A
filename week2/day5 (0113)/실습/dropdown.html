@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dropdown menu</title>
+  <style>
+
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    ul li{
+      list-style: none;
+    }
+
+    a{
+      text-decoration: none;
+      color: black;
+    }
+
+    .menu{
+      width: 700px;
+      height: 50px;
+      border: 1px solid black;
+
+      line-height: 50px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .menu > ul > li{
+      /*float - li 태그들이 왼쪽으로 흐르게 설정*/
+      float: left;
+      width: 140px;
+      position: relative;
+    }
+
+    .menu > ul > li > ul{
+      width: 130px;
+      /*display li의 하위 li가 숨겨짐*/
+      display: none;
+      position: absolute;
+      font-size:14px;
+      background: skyblue;
+    }
+
+    /*hover시 내부 menu 생성*/
+    .menu > ul > li:hover > ul {
+		display:block;
+		
+	}
+  .menu > ul > li > ul > li:hover {
+		background: orange;
+		transition: ease 1s;
+		}
+
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <!--큰 틀 안의 ul-->
+    <ul>
+      <!--ul 내부의 큰 li 1-->
+      <li><a href="#">menu1</a>
+        <!--작은 목록메뉴 만들기-->
+        <ul>
+          <li><a href="#">submenu1</a></li>
+          <li><a href="#">submenu2</a></li>
+          <li><a href="#">submenu3</a></li>
+        </ul>
+      </li>
+
+      <!--ul 내부의 큰 li 2-->
+      <li><a href="#">menu2</a>
+        <!--작은 목록메뉴 만들기-->
+        <ul>
+          <li><a href="#">submenu1</a></li>
+          <li><a href="#">submenu2</a></li>
+          <li><a href="#">submenu3</a></li>
+        </ul>
+      </li>
+
+      <!--ul 내부의 큰 li 3-->
+      <li><a href="#">menu3</a>
+        <!--작은 목록메뉴 만들기-->
+        <ul>
+          <li><a href="#">submenu1</a></li>
+          <li><a href="#">submenu2</a></li>
+          <li><a href="#">submenu3</a></li>
+        </ul>
+      </li>
+
+      <!--ul 내부의 큰 li 4-->
+      <li><a href="#">menu4</a>
+        <!--작은 목록메뉴 만들기-->
+        <ul>
+          <li><a href="#">submenu1</a></li>
+          <li><a href="#">submenu2</a></li>
+          <li><a href="#">submenu3</a></li>
+        </ul>
+      </li>      
+
+      <!--ul 내부의 큰 li 5-->
+      <li><a href="#">menu5</a>
+        <!--작은 목록메뉴 만들기-->
+        <ul>
+          <li><a href="#">submenu1</a></li>
+          <li><a href="#">submenu2</a></li>
+          <li><a href="#">submenu3</a></li>
+        </ul>
+      </li>  
+
+    </ul>
+  </div>
+</body>
+</html>

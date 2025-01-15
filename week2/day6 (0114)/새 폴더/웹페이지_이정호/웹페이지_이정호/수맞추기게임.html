@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수맞추기게임</title>
+    <style>
+        /*헤더*/
+        header{
+            height: 100px;
+            background-color: coral;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        header h1{
+            margin: 0px;
+            text-align: center;
+            line-height: 100px;
+            letter-spacing: 20px;
+        }
+        .search{
+            background-color: white;
+            height: 50px;
+            display: flex;
+        }
+        .search input{
+            border: none;
+            outline: none;
+        }
+        .search img{
+            width: 60px;
+        }
+
+        /*내비*/
+        nav{
+            height: 60px;
+            background-color: wheat;
+        }
+        ul{
+            margin: 0px;
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            line-height: 60px;
+        }
+        a{
+            color: brown;
+            font-weight: bold;
+        }
+        a:hover{
+            color:cornflowerblue;
+        }
+
+        /*세션*/
+        section{
+            padding: 50px;
+        }
+        .wrap{
+            border: 1px solid rgb(227, 216, 216);
+            border-radius: 20px;
+            width: 400px;
+            margin: 0 auto;
+            text-align: center;
+            height: 470px;
+            padding: 20px;
+        }
+        .title{
+            width: 90%;
+            border-bottom: 1px solid black;
+            margin: 0 auto;
+        }
+        .form{
+            width: 90%;
+            border-bottom: 1px solid black;
+            margin: 0 auto;
+        }
+        .form input{
+            width: 90%;
+            box-sizing: border-box;
+            height: 40px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .form button{
+            width: 90%;
+            height: 40px;
+            margin-bottom: 30px;
+        }
+        .see{
+            height: 130px;
+        }
+        .reset{
+            width: 90%;
+            box-sizing: border-box;
+            height: 40px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        /*푸터*/
+        footer{
+            height: 100px;
+            background-color: antiquewhite;
+            line-height: 50px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <!--헤더-->
+    <header>
+        <div>
+            <h1>STUDY SITE</h1>
+        </div>
+        <div class="search">
+            <input>
+            <img src="./image/검색.png">
+        </div>
+    </header>
+
+    <!--내비-->
+    <nav>
+        <ul>
+            <li><a href="./수맞추기게임.html">수 맞추기</a></li>
+            <li><a href="./물나르기.html">물 나르기</a></li>
+            <li><a href="./가위바위보.html">가위바위보</a></li>
+            <li><a href="./나이계산.html">나이 계산</a></li>
+            <li><a href="./테이블.html">테이블</a></li>
+        </ul>
+    </nav>
+
+    <!--세션-->
+    <section>
+        <div class="wrap">
+            <div class="title">
+                <h2>수 맞추기 게임</h2>
+            </div>
+            <div class="form">
+                <p>3번 안에 맞추면 간식이 제공됩니다.</p>
+                <input id="numValue" type="text" placeholder="1 ~ 100 이내의 숫자를 입력하세요">
+                <button id="checkNum">확인</button>
+            </div>
+            <div class="see">
+                <p id="count"></p>
+                <h3 id="check"></h3>
+                <p id="present"></p>
+            </div>
+            <div>
+                <button class="reset" onclick="window.location.reload()">다시하기</button>
+            </div>
+        </div>
+    </section>
+
+    <!--푸터-->
+    <footer>
+        <img src="./image/logo.png">
+        <p>
+            (주)에이콘이즈 에이콘아카데미(홍대)
+        </p>
+        <p>
+            COPYRIGHT(C) HBILAB ALL RIGHTS RESERVED.
+        </p>
+     </footer>
+
+    <script>
+        const randomNum = Math.floor(Math.random() * 100 + 1) //랜덤 수 생성
+
+        const numValue = document.querySelector("#numValue") //숫자 입력 값 지정
+        const checkNum = document.querySelector("#checkNum") //확인 버튼 지정
+
+        let countValue = 0 //시도 횟수 초기값
+        const count = document.querySelector("#count") //시도 횟수 표시 구역 지정
+        count.innerText = `시도 횟수 : ${countValue}` //시도 횟수 표시
+
+        const check = document.querySelector("#check") //정답 표시 구간 지정
+        const present = document.querySelector("#present") //상품 제공 구간 지정
+
+        //확인 버튼 클릭 이벤트
+        checkNum.addEventListener("click", function(){
+            if(numValue.value == ''){
+                check.innerText = `값을 입력해주세요.`
+            }
+            //오답일 경우
+            else if(numValue.value != randomNum){
+                //입력 값이 랜덤 수보다 작은 경우
+                if(numValue.value < randomNum) {
+                    check.innerText = `더 큰 수입니다.`
+                }
+                //입력 값이 랜덤 수보다 큰 경우
+                else if(numValue.value > randomNum) {
+                    check.innerText = `더 작은 수입니다.`
+                }
+                countValue++ //시도 획수 1 증가
+                count.innerText = `시도 횟수 : ${countValue}` //시도 횟수 증가 후 구역에 표시
+            }
+            //정답인 경우
+            else if(numValue.value == randomNum) {
+                countValue++ //시도 획수 1 증가
+                count.innerText = `시도 횟수 : ${countValue}` //최종 시도 횟수 표시
+                count.style.color = "red" //최종 시도 횟수 빨간색으로 변경
+                check.innerText = `정답입니다. (${randomNum})` //정답 표시 구간에 '정답입니다.' 표시
+                //3번 안에 성공했을 경우
+                if(countValue <= 3){
+                    present.innerText = "간식을 제공해드립니다." //상품 제공 구간 표시
+                }
+            }
+            numValue.value = '' //input 초기화
+        })
+    </script>
+</body>
+</html>

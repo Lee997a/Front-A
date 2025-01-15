@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>inline 요소</title>
+  <style>
+    a{
+      /*inline 태그는 상하 마진을 줄 수 없다*/
+      margin-top:10px;
+
+      /*display 속성을 변경하면 (inline-block이나 block으로 변경)가능하다*/
+      display: inline-block;
+
+    }
+
+    .text{
+      color: red;
+
+      /* display: inline-block; */
+
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+    }
+
+    .naver{
+      padding: 20px;
+    }
+
+  </style>
+</head>
+<body>
+  <h2>inline 태그</h2>
+
+  <p>
+    한 라인안에 배치함 <br>
+    크기를 갖지 않음 width, height 속성을 지정할 수 없음 <br>
+    공간이 부족하면 다음 줄로 배치됨
+    padding 적용됨 <br>
+    margin-top, bottom은 적용이 안됨
+    margin-left, right은 적용이 됨
+  </p>
+    <ul>
+      <li>a 태그</li>
+      <li>span</li>
+    </ul>
+
+    <h2>a 태그 위쪽 마진은 안됨</h2>
+    <a href="http://www.naver.com">네이버</a>
+
+    <p>html <span class="text">css</span> javascript</p>
+
+    <p>
+      <a class="naver" href="http://www.naver.com">네이버</a>로 이동합니다.
+      </p>
+</body>
+</html>

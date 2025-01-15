@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입</title>
+  <style>
+    header{
+      height: 100px;
+      background-color: rgb(245, 248, 248);
+      position: relative;
+    }
+    .title{
+      position: absolute;
+      left: 1px;
+      top: 20px;
+    }
+    .search{
+      display: flex;
+      position: absolute;
+      right: 10px;
+      bottom: 20px;
+    }
+
+    .search img{
+      width: 25px;
+      height: 25px;
+    }
+
+    nav{
+      height: 40px;
+      padding: 20px;
+      background-color: rgb(232, 243, 243);
+      position: relative;
+    }
+
+    .info_wrap{
+      list-style: none;
+      display: flex;
+
+      position: absolute;
+      left: 0;
+      margin: 0;
+    }
+    .info_wrap a{
+      color: black;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+
+    section{
+      height: 600px;
+
+    }
+
+    table{
+      width: 800px;
+      border: 1px solid rgb(227, 216, 216);
+      margin: 0 auto;
+      font-size: 12px;
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+    .signin_wrap tr{
+      height: 40px;
+
+    }
+    .signin_wrap td{
+      border: 1px solid black;
+    }
+
+    .signin_wrap tr:nth-child(3), .signin_wrap tr:nth-child(7){
+      height: 70px;
+    }
+
+    .signin_wrap input, select{
+      width: 150px;
+      height: 30px;
+    }
+
+    .signin_wrap button{
+      width: 150px;
+      height: 40px;
+      border: 0px;
+      margin-right: 20px;
+    }
+
+    .signin_wrap span{
+      display: block;
+      color: red;
+    }
+
+    .signin_wrap td:nth-child(1){
+      text-align: center;
+    }
+
+    .signin_wrap caption{
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    footer{
+      height: 60px;
+      background-color: rgb(233, 239, 239);
+      display: flex;
+      justify-content: space-between;
+      
+    }
+
+    footer .item{
+      width: 33%;
+      height: 60px;
+
+    }
+
+    footer .item img{
+      margin-top: 15px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="signin_wrap">
+    <header>
+      <div class="title">
+        <img src="/시험연습_샘플/images/logo.png">
+      </div>
+      <div class="search">
+        <input type="text">
+        <img src="/시험연습_샘플/images/검색.png">
+      </div>
+    </header>
+    <nav>
+      <ul class="info_wrap">
+        <li><a href="./lonin.html">로그인</a>
+          </li>
+        <li><a href="./joinus.html">회원가입</a></li>
+        <li><a href="./index.html">홈으로</a></li>
+      </ul>
+    </nav>
+  
+    <section>
+    <table>
+      <caption>회원가입</caption>
+      <tr>
+        <td>이름</td>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <td>아이디</td>
+        <td><input type="text">
+        <button>중복확인</button>
+        </td>
+      </tr>
+      <tr>
+        <td>비밀번호</td>
+        <td><input type="password">
+        <span>비밀번호는 숫자나 영문으로 작성해주세요.</span>
+        </td>
+      </tr>
+      <tr>
+        <td>비밀번호 확인</td>
+        <td><input type="password"></td>
+      </tr>
+      <tr>
+        <td>이메일</td>
+        <td><input type="text">@<input type="text">
+          <select>
+            <option>선택하세요</option>
+            <option>naver.com</option>
+            <option>google.com</option>
+          </select>
+          <button>중복확인</button>
+        </td>
+      </tr>
+      <tr>
+        <td>학년/반</td>
+        <td>
+          <select>
+            <option>선택하세요.</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+          학년
+
+          <select>
+            <option>선택하세요.</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+          반
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2"><button>가입</button><button>취소</button></td>
+      </tr>
+    </table>
+  </section>
+
+    
+    <footer>
+      <div class="item">
+        <img src="/시험연습_샘플/images/footer_acorn.png">
+      </div>
+      <div class="item">
+        <p>(주)에이콘이즈 에이콘아카데미(홍대)</p>
+      </div>
+      <div class="item">
+        <p>COPYRIGHT(C) HBILAB ALL RIGHTS RESERVED.</p>
+      </div>
+
+    </footer>
+
+  </div>
+</body>
+</html>

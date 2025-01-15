@@ -1,0 +1,56 @@
+1. 1단 메뉴만들기 순서
+
+1) 큰 틀 하나 만들기 (div or header와 같은)
+
+2) 목록 리스트 만들기 (ul_li 사용)
+
+3) ul 과 li에 class 만들어주기
+    <ul class="menu">
+      <li class="menu_item">메뉴1</li>
+      <li class="menu_item">메뉴2</li>
+      <li class="menu_item">메뉴3</li>
+      <li class="menu_item">메뉴4</li>
+    </ul>
+
+4) style 주기
+
+- header에 높이를 주고 background-color를 준다.
+
+ - ul에 padding과 margin을 없애고 list-style:none; 으로 설정
+
+ - border 넣어주기 (border: 1px solid black)
+
+ - menu 클래스에 너비를 정해주고 display: flex;로 일렬로 맞추기
+
+ - li 클래스(menu_item)
+  - 너비와 높이 정해주기
+  - border 만들어주기
+  - line-height 속성으로 상하 가운데 맞추기
+  - text-align 속성으로 좌우 가운데 맞추기
+
+ - menu_item:hover
+  - hover를 넣어줘서 hover시 background-color 바뀌게 넣어주기
+
+ - 위치를 변경하기 위해
+  - 부모인 header에 position:relative 속성을 주고
+  - 자식인 .menu에 position:absolute 속성을 주어 원하는 위치에 맞추기
+
+
+
+ 2. 2단 메뉴 만들기
+
+ul > li > ul > li
+    >li > ul > li
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>리뷰만들기</title>
+  <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+
+*{
+  font-family: "Do Hyeon", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body{
+  width: 10000px;
+}
+
+
+    .wrap{
+      width: 700px;
+      height: 900px;
+      border: 1px solid black;
+      padding: 20px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .title{
+      /* height: 80px; */
+      /* border: 1px solid black; */
+      text-align: center;
+    }
+
+    .title  h1{
+      margin-bottom: 0;
+    }
+
+    .img_letter{
+      /* border: 1px solid black; */
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+    }
+
+    .img_letter .img_1{
+      width: 300px;
+      height: 300px;
+      background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVuaIe7DCiDB-Luf7KAyNMW1QJ4KpM_H40PA&s);
+      background-position: center;
+      background-size: cover;
+    }
+
+    .img_box p{
+      text-align: center;
+      font-size: 20px;
+      margin: 10px;
+    }
+
+    .review{
+      width: 50%;
+      position: relative;
+    }
+
+    .review label{
+      font-size: 20px;
+      margin: 10px;
+    }
+
+    .review_box{
+      text-align: center;
+      padding: 10px;
+      position: absolute;
+      top: 50px;
+    }
+
+    .review_box textarea{
+      margin-top: 10px;
+    }
+
+    .img_letter .review{
+      height: 300px;
+    }
+
+    .evaluation{
+      width: 88%;
+      height: 100px;
+      /* border: 1px solid black; */
+      display: flex;
+      text-align: center;
+      margin: 0 auto;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    .evaluation input{
+      width: 200px;
+    }
+
+    .info_1{
+      padding: 10px;
+    }
+    
+    .info_1 input{ 
+      width: 95%;
+      height: 100px;
+      margin-top: 10px;
+    }
+    .info_1 label{
+      font-size: 20px;
+    }
+
+    .info_2{
+      padding: 10px;
+    }
+
+    .info_2 textarea{ 
+      width: 95%;
+      height: 100px;
+      margin-top: 10px;
+    }
+    .info_2 label{
+      font-size: 20px;
+    }
+
+
+    .good{
+      position: absolute;
+      right: -400px;
+      bottom: 100px;
+
+      font-size: 20px;
+    }
+
+    .good img{
+      width: 30px;
+      height: 30px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!--리뷰제목-->
+    <div class="title">
+      <h1>REVIEW DETAIL</h1>
+    </div>
+
+    <!--이미지와 후기-->
+    <div class="img_letter">
+      <div class="img_box">
+        <p>이미지</p>
+      <div class="img_1">
+        <!--background로 이미지 삽입-->
+      </div>
+    </div>
+
+      <div class="review">
+        <div class="review_box">
+          <label for="review_item">맛 평가(후기)</label>
+          <textarea id="review_item" cols="45px" rows="8px"></textarea>
+        </div>
+      </div>
+    </div>
+    <!--연령대 /만족도/ 성별-->
+    <div class="evaluation">
+      <div class="evv1">
+      <label for="ev_item1">연령대</label>
+      <input type="text">
+    </div>
+    <div class="evv2">
+      <label for="ev_item2">만족도</label>
+      <input type="text">
+    </div>
+    <div class="evv3">
+      <label for="ev_item3">성별</label>
+      <input type="text">
+    </div>
+      
+    </div>
+    <!--정보-->
+    <div class="info">
+      <div class="info_1">
+        <label for="info_item1">판매점 정보</label>
+        <input type="text">
+      </div>
+      <div class="info_2">
+        <label for="info_item2">더 나누고 싶은 정보</label>
+        <textarea id="info_item2" cols="60px" rows="8px"></textarea>
+      </div>
+    </div>
+
+    <div class="good">
+      <p>좋다고 생각되시면 꾹~~~
+      </p>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ98pnSeeH_qCyfHx7r8vPreElryoOuWy0OQ&s">
+    </div>
+  </div>
+</body>
+</html>

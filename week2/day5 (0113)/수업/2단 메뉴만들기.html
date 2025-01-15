@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메뉴만들기</title>
+  <style>
+    ul{
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .menu{
+      border: 1px solid black;
+      display: flex;
+    }
+
+    .menu_item{
+      width: 25%;
+      height: 40px;
+      line-height: 40px;
+      border: 1px solid black;
+      text-align: center;
+      background-color: skyblue;
+      color: white;
+      position: relative;
+    }
+
+    .menu_item:hover{
+      background-color: rgb(65, 65, 38);
+    }
+
+    .hidden_menu{
+      /*안보이기*/
+      display: none;
+
+      width: 50%;
+      /* background-color: antiquewhite; */
+      color: gray;
+      padding: 5px;
+      box-sizing: border-box;
+      border: 1px solid beige;
+
+      /*상위메뉴를 기준으로 배치*/
+      position: absolute;
+      left: 0;
+      top: 40px;
+
+      /* z-index: 999; */
+
+      background-color: white;
+    }
+
+    .menu_item:hover .hidden_menu{
+      display: block;
+    }
+
+  </style>
+</head>
+<body>
+
+
+  <header>
+    <ul class="menu">
+      <li class="menu_item">메뉴1
+        <!--하위메뉴-->
+        <ul class="hidden_menu">
+          <li>하위메뉴1</li>
+          <li>하위메뉴2</li>
+          <li>하위메뉴3</li>
+        </ul>
+      </li>
+      <li class="menu_item">메뉴2
+        <!--하위메뉴-->
+        <ul class="hidden_menu">
+          <li >하위메뉴1</li>
+          <li>하위메뉴2</li>
+          <li>하위메뉴3</li>
+        </ul>          
+      </li>
+      <li class="menu_item">메뉴3
+        <!--하위메뉴-->
+        <ul class="hidden_menu">
+          <li >하위메뉴1</li>
+          <li>하위메뉴2</li>
+          <li>하위메뉴3</li>
+        </ul>
+      </li>
+      <li class="menu_item">메뉴4
+        <!--하위메뉴-->
+        <ul class="hidden_menu">
+          <li >하위메뉴1</li>
+          <li>하위메뉴2</li>
+          <li>하위메뉴3</li>
+        </ul>
+      </li>
+    </ul>
+
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga, debitis! Accusantium libero, ipsum doloremque culpa hic, commodi ducimus illo deleniti voluptas asperiores tenetur recusandae ab sint impedit cupiditate eius rerum!
+    Architecto, officiis eius? Sed sequi, necessitatibus fugiat cum quia a nihil porro quidem vel officia eligendi labore earum temporibus laboriosam. Excepturi quis similique odit! Molestiae nihil libero consequatur optio vel.
+    Doloremque tempore fugiat adipisci. Consequuntur voluptatum asperiores nostrum tempora aliquam, amet qui eum sapiente. Repellat culpa ipsam recusandae laborum magnam ducimus quibusdam deserunt architecto, aliquam sapiente ex temporibus eligendi eum?
+    Quos repellendus eius placeat consequuntur in eos assumenda hic at, modi suscipit maiores libero voluptatibus fuga optio accusantium doloremque alias perferendis dicta a nemo, eaque sequi adipisci dolore. Tenetur, itaque!
+    Vitae ut consequatur ex nulla, pariatur sint, culpa id, ducimus deleniti exercitationem voluptatem totam unde voluptates atque quis officia maiores porro maxime nihil! Eum delectus nam itaque, animi ex natus!
+    Cupiditate fugiat nisi molestias. Velit dignissimos alias aliquam eum quae autem eligendi, nisi veritatis expedita laborum cum omnis quaerat ad accusantium molestias atque cupiditate totam temporibus quidem perspiciatis impedit? Aliquam?
+    Eius, veritatis. Unde cum numquam amet et sequi nam inventore harum, nisi eaque perspiciatis a doloremque, quisquam, soluta porro! Tenetur aliquid hic qui voluptate illum voluptates distinctio rem nesciunt porro!
+    Neque consequatur sed, a quasi voluptas maxime numquam perspiciatis laudantium dolores repellat nobis minima, aspernatur laboriosam quis aliquam architecto ipsam ad fugit? Odio eaque temporibus accusamus itaque? In, tempora! Hic?
+    Earum libero nulla consectetur incidunt officia soluta neque, debitis asperiores alias animi aut, mollitia voluptas minima quas facilis architecto ducimus similique laboriosam officiis consequuntur tempore iste nisi porro provident! Quaerat?
+    Quod quam cum eveniet ut nulla repellendus dicta itaque perferendis, unde aliquid molestiae a cumque exercitationem? Quidem eveniet eius tenetur. Velit necessitatibus soluta consequuntur ex hic iste tenetur ipsa sit?</p>
+
+  </header>
+
+
+</body>
+</html>

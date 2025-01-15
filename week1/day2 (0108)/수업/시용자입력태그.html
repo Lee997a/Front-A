@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!--인라인 블록-->
+
+  <!--텍스트 입력 필드-->
+  <input type="text" placeholder="내용 입력">
+
+  <!--버튼 -->
+  <button>주문하기</button>
+<br>
+
+  <!--옵션 선택(드롭다운운)-->
+  <select>
+    <option>선택하세요</option>
+    <option value="1">1</option>
+    <option value="2" selected>2</option>
+    <option value="3">3</option>
+  </select>
+<br>
+  <!--
+   option value 속성 : 서버로 전송되는 값
+  -->
+
+  <!--checkbox : 여러개 선택-->
+  <input type="checkbox">짜장면
+  <input type="checkbox">짬뽕
+  <input type="checkbox">간짜장
+
+  <label><input type="checkbox"> 짬뽕 </label>
+
+  <br>
+  <!--여러개 중 한 개 선택 가능 (라디오 버튼)-->
+  <!--3개의 라디오를 그룹으로 묶어야 함: name을 동일하게 한다.-->
+  <input type="radio" name="food">짜장면
+  <input type="radio" name="food">짬뽕
+  <input type="radio" name="food">간짜장
+<br>
+
+  <!--날짜-->
+  <input type="date">
+  <br>
+  <br>
+
+  <!--텍스트 영역역-->
+  <textarea placeholder="상품명 입력하세요"></textarea>
+
+<br>
+<!--cols와 rows는 행과 열을 지정-->
+  <textarea cols="30" rows="10" placeholder="상품명 입력하세요"></textarea>
+<br>
+
+  <!--데이터 목록-->
+  <input type="text" placeholder="과일을 선택하세요" list="choice">
+  <datalist id="choice">
+    <option value="사과"></option>
+    <option value="포도"></option>
+    <option value="딸기"></option>
+  </datalist>
+<br>
+
+<!--fieldset, legend 태그-->
+<fieldset>
+  <legend>개인정보</legend>
+  <input type="text" placeholder="아이디를 입력하세요.">
+  <input type="password" placeholder="비밀번호를 입력하세요">
+</fieldset>
+<br>
+
+<label for="userid">아이디:</label> 
+<input type="text" id="userid">
+<br>
+
+<input type="color">
+<br>
+
+<input type="file">
+
+
+
+</body>
+</html>

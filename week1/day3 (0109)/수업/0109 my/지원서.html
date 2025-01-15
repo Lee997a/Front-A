@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+    
+    *{
+      font-family: "Nanum Pen Script", serif;
+    }
+
+    .box{
+      width: 400px;
+      border: 1px solid black;
+      margin: 0 auto;
+    }
+    hr{
+      width: 380px;
+    }
+
+    .headline{
+      text-align: center;
+    }
+    .headline > h1{
+      margin-bottom: 5px;
+    }
+
+    .headline > p{
+      margin-top: 5px;
+    }
+
+    .info_box{
+      margin-left: 30px;
+    }
+
+    ul{
+      margin-top: 10px;
+    }
+
+    h2{
+      margin-bottom: 10px;
+    }
+
+    textarea{
+      
+      font-size: 15px;
+    }
+    ul{
+      padding-left: 10px;
+    }
+
+    ul > li{
+      list-style-type: none;
+    }
+
+    input{
+      margin-left: 10px;
+      padding: 4px;
+    }
+
+
+    
+    li{
+      margin-bottom: 10px;
+    }
+
+    #username{
+      margin-left: 28px;
+    }
+
+    ::placeholder{
+      font-size: 15px;
+    }
+
+    .user_info > ul > li > input{
+      width: 150px;
+    }
+
+    .btn{
+     text-align: center;
+     margin: 10px;
+    }
+
+    </style>
+</head>
+<body>
+  <div class="box">
+    <!--제목라인-->
+    <div class="headline">
+      <h1>프론트엔드 개발자 지원서</h1>
+      <p>HTML, CSS, JavaScript에 대한 기술적 이해와 경험이 있는 분을 찾습니다.</p>
+      <hr>
+    </div>
+    <!--개인정보-->
+    <div class="info_box">
+    <div>
+      <h2>개인정보</h2>
+      <div class="user_info">
+      <ul>
+        <li>
+          <label for="username">이름</label>
+          <input type="text" id="username" placeholder="공백없이 입력하세요">
+        </li>
+        <li>
+          <label for="usercal">연락처</label>
+          <input type="text" id="usercal">
+        </li>
+      </ul>
+    </div>
+    </div>
+    <!--지원분야-->
+    <div>
+      <h2>지원분야</h2>
+      <ul>
+        <li>
+          <input type="radio" name="field">웹 퍼블리싱
+        </li>
+        <li>
+          <input type="radio" name="field">웹 애플리케이션 개발
+        </li>
+        <li>
+          <input type="radio" name="field">개발 한경 개선
+        </li>
+      </ul>
+    </div>
+    <!--지원동기-->
+    <div>
+      <h2>지원동기</h2>
+      <textarea cols="55" rows="5" placeholder="본사 지원 동기를 간략히 써 주세요."></textarea>
+    </div>
+    <div class="btn">
+      <button>접수하기</button>
+      <button>다시쓰기</button>
+    </div>
+  </div>
+  </div>
+</body>
+</html>

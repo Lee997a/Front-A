@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메뉴만들기</title>
+
+  <style>
+    ul{
+      padding: 0px;
+      margin: 0px;
+      list-style: none;
+    }
+
+    .menu{
+      width: 500px;
+
+      display: flex;
+      border: 1px solid black;
+
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+    /*상위메뉴*/
+    
+    .menu_item{
+      width: 25%;
+      height: 60px;
+      border: 1px solid black;
+      line-height: 60px;
+      text-align: center;
+    }
+
+    .menu_item:hover{
+      background-color: antiquewhite;
+    }
+
+    header{
+      height: 200px;
+      background-color: aquamarine;
+      position: relative;
+    }
+
+
+  </style>
+</head>
+<body>
+
+
+  <header>
+    <ul class="menu">
+      <li class="menu_item">메뉴1</li>
+      <li class="menu_item">메뉴2</li>
+      <li class="menu_item">메뉴3</li>
+      <li class="menu_item">메뉴4</li>
+    </ul>
+
+  </header>
+
+
+</body>
+</html>

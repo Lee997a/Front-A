@@ -1,0 +1,103 @@
+878 8176 1873
+
+0107
+1. 로그인 페이지
+사용한 태그
+- HTML
+div와 class
+input 태그 (text, password)
+button 태그
+
+- CSS
+width / height (크기)
+border (테두리)
+border-radius (테두리 꼭지점의 모양을 바꿈)
+padding (안쪽 여백)
+margin (바깥쪽 여백)
+(margin: o auto; - block 형태의 박스를 가운데로 정렬)
+background img (이미지 삽입)
+background position (center) (이미지 위치)
+baclground size (cover) (이미지 크기)
+text-align (center) (inline 요소의 box를 가운데로 정렬)
+font-size (텍스트(폰트)의 크기를 조절)
+
+2. 자기소개서
+- HTML
+hn 태그 (제목태그로 h1~h6까지 있음)
+p 태그 (문단태그)
+ul / li (목록태그로 순서가 없는 목록을 작성할 때 사용)
+ol / li (순서가 있는 목록을 작성할 때 사용)
+table (표를 작성할 때 사용)
+tr (행을 작성할 때 사용)
+th (표에서 제목을 작성하고자 할 때 사용)
+td (표에서 내용을 작성하고자 할 때 사용)
+
+- CSS
+width
+border
+padding
+border-collapse (테두리 분리 여부를 선택) (collapse - 테두리 없앰)
+background -color (배경 색깔을 정의)
+
+
+0108
+1. 사과주문서
+-HTML
+div /class
+hn태그
+p 태그
+span 태그
+
+-CSS
+width /height
+margin
+padding
+border
+text-align
+background - image / position / size
+background- color
+color (텍스트의 색깔을 정할 때 사용)
+
+
+2. 황태주문서
+- HTML
+form (사용자로부터 입력을 받을 수 있는 HTLM 입력 폼(form)을 정의할 때 사용)
+- fieldset 사용자입력 태그 안의 테두리를 정의
+
+
+
+
+
+3. 회원가이 페이지
+
+0109
+1. 개발자 지원서
+2. 푸터
+
+
+
+
+
+
+a 링크
+img 이미지
+hn 제목
+p 문단
+table 표
+div 그룹
+ul 목록이 없는 리스트
+li 
+ol 목록이 있는 리스트
+dl 정의형 목록
+dd 정의형 목록 제목
+dt 제목 설명
+
+CSS
+margin
+padding
+border
+
+width
+height
+
+background

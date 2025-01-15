@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<style>
+  .box{
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+    position: relative;
+  }
+  .item{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    background-color: rgb(168, 155, 136);
+    position: absolute;
+  }
+
+  .h{
+    top:0;
+  }
+  .e{
+    top: 30px;
+    left: 30px;
+  }
+  .l1{
+    bottom: 30px;
+    right: 30px;
+  }
+  .l2{
+    bottom:0;
+    left: 60px;
+  }
+  .o{
+    top: 60px;
+    left: 60px;
+  }
+
+  /*호버 기능을 사용하여 h의 item을 이동*/
+  .h:hover{
+    position: relative;
+    left:120px;
+  }
+
+  .e:hover{
+    position: relative;
+    left: 90px;
+  }
+</style>
+
+</head>
+<body>
+  <h2>board판을 기준(부모영역을 기준으로)으로 <span>각 box를 마음대로..</span></h2>
+  <div class="box">
+    <div class="item h">h</div>
+    <div class="item e">e</div>
+    <div class="item l1">l1</div>
+    <div class="item l2">l2</div>
+    <div class="item o">o</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ 
+
+    <style>
+        header{
+            width: 1000px;
+            border: 5px solid rgb(245, 25, 25);
+            display: flex;
+            margin: 0 auto;
+            border-radius: 20px;
+
+        }
+        header > div{
+            width: 33.3%;
+            height: 100px;
+            /* border: 1px solid black; */
+        }
+
+        .title_wrap{
+            position: relative;
+        }
+        .title{
+            position: absolute;
+            top: 20px;
+            left: 100px;
+        }
+
+        .search-wrap{
+            position: relative;
+        }
+
+        .search{
+            width: 400px;
+            height: 40px;
+            border: 3px solid rgb(211, 201, 201);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            border-radius: 50px;
+            position: absolute;
+            top: 30px;
+            left: 40px;
+        }
+
+        .search input{
+            border: none;
+            outline: none;
+            
+        }
+
+        .search input[type="button"]{
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6JO-CB3HSZIPWlJl_5K9T2kEUfyo0qtYE3Q&s");
+            background-position: center;
+            background-size: cover;
+            width: 30px;
+        }
+
+        .menu_bar{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            width: 140px;
+            /* height: 50px; */ /*없어도 됨*/
+        
+            position: absolute;
+            right: 5px;
+            bottom: 25px;
+        }
+
+        .menu{
+            position: relative;
+            /*margin 안됨*/
+            text-align: center;
+        }
+
+        .menu_bar img{
+            /*margin으로 가운데 정렬 안됨*/
+            width: 25px;
+            height: 25px;
+            /*한번 더 체크해보기 왜 block요소를 주었는가?*/
+            display: block;
+
+        }
+
+        .menu_bar span{
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .menu_bar li {
+            padding: 3px;
+        }
+        .util_txt{
+            /*글자가 이미지와 flex 형태로 합쳐져서 
+            inline-block이나 block의 형태로 바꿔 줘야 함
+            */
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="title_wrap">  
+            <!--롯데홈쇼핑 로고-->
+            <div  class="title">
+                <a href="https://www.lotteimall.com/main/viewMain.lotte?gad_source=1&gclid=EAIaIQobChMIwtyBpbrqigMV1cVMAh2rOgneEAAYASAAEgL8VPD_BwE#disp_no=5223317">
+                <img src="../day4 (0110)/자료/image/rn_header_homeshopping_v2.gif">
+                <span></span>
+            </a>
+            </div>
+        </div>
+        <!--검색창-->
+        <div class="search-wrap">  
+            <div  class="search">
+                <input type="text">
+                <input type="button">
+            </div>
+        </div>
+        <!--메뉴바-->
+        <div class="menu">  
+              <ul class="menu_bar">
+                <li> 
+                    <a>
+                        <img src="../day4 (0110)/자료/image/btn_header_utill1.png">
+                        <span class="util_txt">로그인</span>
+                    </a>  
+                </li>
+                <li> 
+                    <a>
+                        <img src="../day4 (0110)/자료/image/btn_header_utill2.png">
+                        <span class="util_txt">내정보</span>
+                    </a>
+                </li>
+                <li> 
+                    <a>
+                        <img src="../day4 (0110)/자료/image/btn_header_utill3.png">
+                        <span class="util_txt">장바구니</span>
+                    </a>
+                </li>
+            </ul>
+    </div> 
+
+    </header>
+</body>
+</html>

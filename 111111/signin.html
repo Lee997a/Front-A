@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .signin_wrap table{
+      font-size: 12px;
+      margin: 0 auto;
+      width: 800px;
+      border: 1px solid rgb(227, 216, 216);
+      border-collapse: collapse;
+
+    }
+
+    .signin_wrap td{
+      border: 1px solid rgb(227, 216, 216);
+    }
+
+    .signin_wrap tr{
+      height: 40px;
+    }
+
+    .signin_wrap tr:nth-child(3), .signin_wrap tr:nth-child(7){
+      height: 70px;
+    }
+
+    .signin_wrap input, select{
+      width: 150px;
+      height: 30px;
+    }
+
+    .signin_wrap button{
+      width: 150px;
+      height: 40px;
+      border: 0;
+      cursor: pointer
+    }
+
+    .signin_wrap td:nth-child(1){
+      text-align: center;
+    }
+
+    .signin_wrap caption{
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .signin_wrap span{
+      color: red;
+      display: block;
+    }
+    
+    
+  </style>
+</head>
+<body>
+  <div class="signin_wrap">
+    <table>
+      <caption>회원가입</caption>
+      <tr>
+        <td>이름</td>
+        <td><input type="text">
+        </td>
+      </tr>
+      <tr>
+        <td>아이디</td>
+        <td><input type="text">
+        <button>중복확인</button>
+        </td>
+      </tr>
+      <tr>
+        <td>비밀번호</td>
+        <td><input type="password">
+          <span>※ 비밀번호 입력시 숫자와 영문을 사용하세요.</span>
+        </td>
+      </tr>
+      <tr>
+        <td>비밀번호 확인</td>
+        <td><input type="password">
+        </td>
+      </tr>
+      <tr>
+        <td>이메일</td>
+        <td><input type="text"> @ <input type="text">
+          <select>
+            <option>선택하세요</option>
+            <option>naver.com</option>
+            <option>google.com</option>
+          </select>
+        <button>중복확인</button>
+        </td>
+      </tr>
+      <tr>
+        <td>학년/반</td>
+        <td><select>
+          <option>선택하세요</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+        학년
+        <select>
+          <option>선택하세요</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>반
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2"><button>가입</button>
+        <button>취소</button>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+</body>
+</html>
