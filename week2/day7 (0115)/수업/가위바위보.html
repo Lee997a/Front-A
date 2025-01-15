@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+   //let으로 변수선언
+    let user, computer, result ;
+
+    //while(반복문)이 true면 while문 안으 내용을 수행
+    //flase면 while문을 빠져나옴
+
+    //while 문에 true문을 작성하게 되면 무한 루프가 되기 때문에 break 문을 작성해줘야 한다.
+    while( true){
+      user = prompt( "가위 바위 보 중에서 선택하세오 0 1 2 "); //prompt = 문자열을 입력할 때 사용
+      //Math.flor()은 소수점 이하를 버리기 위해 사용.
+      //Math.random()은 난수를 생성
+      //Math.random()*3 = 0 부터 2까지의 숫자를 랜덤으로 나타내기 위해 사용
+      computer  =  Math.floor(  Math.random() *3 ) ;
+      if( user != computer) break;
+    }
+     
+    if(user==0){  
+         if(computer==1){
+            result="사용자 승";
+         }else{
+            result="사용자  패"
+         }
+     }else if( user ==1){
+         if(computer==2){
+            result="사용자 승";
+         }else{
+            result="사용자  패"
+         }
+      }else  if( user==2){
+         if(computer==0){
+            result="사용자 승";
+         }else{
+            result="사용자  패"
+         }
+      }
+      
+     alert( result);
+  
+  </script>
+</body>
+</html>

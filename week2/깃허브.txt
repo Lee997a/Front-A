@@ -1,0 +1,9 @@
+1. git add .
+
+2. git commit -m "내용"
+
+3. git push orgin main
+
+
+--원격 주소 확인
+git remote -v
