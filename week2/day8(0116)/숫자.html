@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+
+    let user, computer, result;
+
+    while(true) {
+      user = prompt("숫자를 입력해주세요 (1, 2, 3)");
+      computer = Math.floor(Math.random()*3)+1;
+      if(user != computer) break;
+    }
+
+    if(user == 1){
+      if(computer == 1){
+        result = "무승부입니다.";
+      }
+      if(computer == 2){
+        result = "사용자 패입니다.";
+      }else{
+        result = "사용자 승승입니다.";
+      }
+    } else if(user == 2){
+      if(computer == 2){
+        result = "무승부입니다."
+      }
+      if(computer == 1){
+        result = "사용자 패입니다."
+      }else{
+        result = "사용자 승입니다."
+      }
+    }
+
+
+
+    alert(result);
+
+
+
+
+
+
+  </script>
+</body>
+</html>
