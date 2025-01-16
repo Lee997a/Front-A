@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+
+   let ranNum = parseInt(Math.random()*100 + 1);
+   console.log(ranNum);
+
+   while(true){
+    let inputNum = Number(prompt('숫자를 입력'));
+    if(inputNum === ranNum){
+    alert('정답입니다.');
+    break;
+   }else if(inputNum < ranNum){
+    alert('입력한 숫자보다 큰 수 입니다.');
+   }else{
+    alert('입력한 숫자보다 작은 수 입니다.');
+   }
+  }
+
+
+
+
+  </script>
+  
+</body>
+</html>

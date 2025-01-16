@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    let menu = prompt("아이스아메리카노, 라떼, 아이스티 선택하세요");
+    let qty = prompt("수량을 선택하세요");
+    qty = parseInt(qty);
+    
+    //가격
+
+    let price = 0;
+    switch(menu){
+      case "아이스아메리카노":
+        price = 1900;
+        break
+      case "라떼":
+        price = 3800;
+        break
+      case "아이스티":
+        price = 4300;
+        break
+      default:
+        alert("없는 메뉴")
+    }
+
+    //주문금액 구하기
+
+    let amount = qty * price;
+
+    //주문금액 안내
+    if(price !== 0){
+      alert("주문하신 금액" + amount);
+    }
+    
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+입력은  prompt() 사용
+출력     alert() 사용  or  document.write()
+
+1. 자신의 정보를 출력하기 (변수이용하기)
+
+    let name = prompt("이름을 입력해주세요");
+    alert("당심의 이름은" + name);
+
+
+
+				2. 짝수, 홀수 판별
+
+사용자가 입력한 숫자가 짝수인지 홀수인지 판별하는 프로그램을 작성하세요.
+
+1) 짝수
+for문 안의 if문 사용
+    for(i = 0; i <= 20; i++){
+      if(i % 2 == 0){
+        console.log(i);
+      }
+      }
+
+2) 홀수
+   for(i = 0; i <= 20; i++){
+      if(i % 2 == 1){
+        console.log(i);
+      }
+      }
+    ---------------------------------------------------
+2-1)  짝수인지 홀 수 인지?
+
+let num = prompt("숫자를 입력해주세요")
+
+    if(num % 2 ==0){
+      alert("짝수입니다.");
+    }else{
+      alert("홀수입니다.");
+    }
+
+
+
+
+3.  이름 , 국어, 영어, 수학 3과목이 입력될 때   총점과  평균을 출력하기 
+
+방법 1)
+let name = "이름";
+let korean = 70;
+let math = 80;
+let english = 90;
+
+let total = korean + math + english; //3과목의 총점
+let average = total / 3; //3과목의 평균
+
+console.log(total);
+console.log(average);
+
+방법 2) ?????????????
+let book = prompt("국어, 영어, 수학을 입력해 주세요")
+let qty = prompt("점수를 입력해 주세요")
+
+ 
+
+
+
+
+
+
+4. 최대값 구하기    
+  사용자가 입력한 세 개의 숫자 중 가장 큰 숫자를 출력하세요. 
+
+1)
+    let num = 122;
+    let num1 = 85;
+    let num2 = 222;
+
+    if(num > num1 && num > num2){
+      console.log("num이 가장 큰 수 입니다.");
+    } else if(num1 > num && num1 > num2){
+      console.log("num1이 가장 큰 수 입니다.")
+    } else{
+      console.log("num2가 가장 큰 수 입니다.")
+    }
+
+
+2)
+    let score1 = prompt("1번째 숫자를 입력해 주세요");
+    let score2 = prompt("2번째 숫자를 입력해 주세요");
+    let score3 = prompt("3번째 숫자를 입력해주세요");
+
+    if(score1 > score2 && score1 > score3){
+      alert( `${score1}가(이) 가장 큰 수 입니다.`);
+    }else if(score2 > score1 && score2 > score3){
+      alert( `${score2}가(이) 가장 큰 수 입니다.`);
+    }else if(score3 > score1 && score3 > score2){
+      alert( `${score3}가(이) 가장 큰 수 입니다.`);
+    }else{
+      alert("모든 숫자가 입력되지 않았습니다.");
+    }
+
+ 
+
+5.  5단 출력
+
+let gugu = 5;
+    for(i = 1; i <=9; i++){
+      console.log(gugu + 'X' + i + "=" + gugu*i);
+    }
+
+
+6.  7단 출력
+
+let gugu = 7;
+    for(i = 1; i <=9; i++){
+      console.log(gugu + 'X' + i + "=" + gugu*i);
+    }
+
+
+
+
+ 
+7. 3의 배수, 5의 배수  3과5의 배수 출력하기
+1부터 100까지 숫자를 순회하며 다음 조건에 맞게 출력하세요:
+
+1) 3의 배수
+  for(i = 1; i <=100; i++){
+      if( i % 3 == 0){
+        console.log(i);
+      }
+      
+      }
+
+2) 5의 배수
+    for(i = 1; i <=100; i++){
+      if( i % 5 == 0){
+        console.log(i);
+      }
+      
+      }
+
+3) 3과 5의 배수
+    for(i = 1; i <=100; i++){
+      if(i % 3 == 0 ||  i % 5 == 0){
+        console.log(i);
+      }
+      
+      }
+
+
+
+
+3의 배수: "3의배수"
+5의 배수: "5의 배수"
+3과 5의 공배수: "3과 5의 배수"
+나머지 숫자: 해당 숫자
+
+
+
+ 
+			8. 점수에 따른 등급 
+
+사용자가 입력한 점수에 따라 다음 등급을 출력하세요:
+
+90점 이상: "A"
+80점 이상: "B"
+70점 이상: "C"
+60점 이상: "D"
+60점 미만: "F"
+
+    let score = prompt("점수를 입력해주세요");
+
+    if(score >=90){
+      alert("A");
+    }else if(score >=80){
+      alert("B");
+    }else if(score >=70){
+      alert("c")
+    }else if(score >=60){
+      alert("D")
+    }else{
+      alert("F")
+    }
+
+
+
+
+9.   수를 입력 받아 제곱을 구하기
+  
+    let num = prompt("1번째 숫자를 입력해 주세요");
+    let num1 = prompt("2번째 숫자를 입력해 주세요");
+
+    let tol = num ** num1;
+    
+    alert("두 숫자의 제곱은" +tol + "입니다.");
+
+
+ 
+ 
+10 . 숫자 두 개의 합
+사용자가 입력한 두 숫자를 더한 결과를 출력하세요.
+
+
+    let num = +prompt("1번째 숫자를 입력해 주세요");
+    let num1 = +prompt("2번째 숫자를 입력해 주세요");
+
+    let plu = num + num1;
+    
+    alert("두 숫자의 합은" + plu + "입니다.");
+ 
+
+11. 사칙연산 계산기  (if, switch문)
+사용자가 입력한 두 숫자와 연산자(+, -, *, /)를 사용하여 결과를 출력하세요.
+
+  
+ 
+ 
+12. 홀수만 출력
+  사용자가 입력한 숫자 N까지의 숫자 중 홀수만 출력하세요.
+
+
+
+  
+13.  "stop"입력될 때까지 입력한 입력을 출력하기
+   
+
+ let input = prompt();
+    while(input !== "stop"){
+      input = prompt();
+    }
+
+
+14.   9번 3번 반복하기
+
+
+15.   9번을  음수가  입력될 때 까지 반복하기
+
+
+16.  원주(원의 둘레 ) 구하기   : 지름을 입력받아 원주 구하기
+
+
+17.  원의 넓이 구하기 : 지름을 입력받아 원의 넓이 구하기 
+
+
+
+
+
+ 
+ 
+
+🚀

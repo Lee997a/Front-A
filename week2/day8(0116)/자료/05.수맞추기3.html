@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*
+            수맞추기 게임  ver2   
+            컴퓨터가 랜덤수(임의의 수) 를 정합니다. 
+            컴퓨터가 랜덤수를 맞추는 게임입니다.
+            세 개의 변수가  랜덤수를 맞춥니다. 세개 중 한 개가 맞출 때 까지 반복합니다
+            세 개의 변수 중에  어떤 변수가  맞췄는지를 사용자가 선택하는 게임입니다.
+        */
+ 
+
+/*
+
+  입력: 없음 
+  출력: 맞춘 사람의 이름  :  answer
+  처리: 컴퓨터가 정한 문제의 랜덤수 : randomNumber 
+        랜덤하게 답을 맞출 수 :이정재
+        랜덤하게 답을 맞출 수 :이병헌
+        랜덤하게 답을 맞출 수 :박성훈
+        
+        맞춘사람(변수)의 수 :cnt
+
+  1. 컴퓨터가 랜덤수를 정하기
+  2. 반복 
+      - 3개의 변수가 랜덤수를 낸다 
+      - 3개의 변수중 맞춘  수를 카운트한다
+      - 맞춘 수 판단 (맞춘 사람이 한 명이라면 )
+         - 누가 맞췄는지를 구한다
+  3. 맞춘 사람을 출력한다. 
+
+*/
+
+ 
+ 
+    // 1. 컴퓨터가 랜덤 수를 정한다다
+    const randomNumber = Math.floor(Math.random() * 100) + 1; // 1부터 100까지의 수
+    console.log("컴퓨터가 설정한 랜덤 수:", randomNumber); // 디버깅용
+
+    // 2. 사용자에게 게임시작 알린다 
+    confirm("게임을 시작합니다  !! 1~100사이의 수 가 랜덤으로 정해집니다  \n  (이정재 , 이병헌 , 박성훈이 수를 맞추기 시작합니다  )  \n 누가 맞추는지 고르는 문제입니다");
+
+
+    // 2. 세 개의 변수   문제의 랜덤수를 맞출 변수 선언
+    let 이정재 ;
+    let 이병헌 ;
+    let 박성훈 ;
+
+    // 3. 정확히 하나의 변수만 랜덤 수를 맞추도록 설정
+    let answer; // 맞춘 변수를 저장할 변수
+
+    while (true) {  // 
+
+      // 변수들이 랜덤한 값을 선택
+        이정재  = Math.floor(Math.random() * 100) + 1;
+        이병헌  = Math.floor(Math.random() * 100) + 1;
+        박성훈  = Math.floor(Math.random() * 100) + 1;
+
+        // 정확히 하나의 변수만 랜덤 수를 맞추기 위한 조건
+        let cnt = 0;
+        if (이정재  === randomNumber) cnt++;
+        if (이병헌  === randomNumber) cnt++;
+        if (박성훈  === randomNumber) cnt++;
+
+        // 만약 정확히 하나의 변수만 랜덤 수를 맞췄다면
+        if (cnt === 1) {
+          // 맞춘 변수를 설정
+          if (이정재  === randomNumber) answer = '이정재';
+          else if (이병헌  === randomNumber) answer = '이병헌';
+          else if (박성훈  === randomNumber) answer = '박성훈';
+
+          break;
+        }
+    }
+
+
+      // 4. 사용자에게 확인
+      let result  = confirm("랜덤 수를 맞춘 사람이 있습니다   (이정재, 이병헌, 박성훈 ): 골라주세요 !!");
+
+
+       // 5. 일정 시간 후 정답 출력
+      if( result){       
+        setTimeout(() => {
+          alert(`정답을 맞춘 변수는: ${answer}입니다!`);
+        }, 5000);
+
+      }
+
+    </script>
+</body>
+</html>

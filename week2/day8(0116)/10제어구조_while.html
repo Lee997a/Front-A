@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <h2>반복문 : while (반복의 횟수가 정해져 있지 않을 때, 반복횟수 모를 때)</h2>
+
+  <script>
+    
+    //안녕하세요 5번
+    //안녕하세요 "그만할 때까지"
+
+
+    /*
+      while(조건){
+        //조건이 만족할 때 수행할 코드
+      }
+    */
+
+
+    let cnt = 1;
+
+    while(cnt <= 5){
+      console.log("while hi" ,cnt);
+      cnt = cnt + 1; //cnt++;
+    }
+
+
+    let input = prompt();
+    while(input !== "그만"){
+      alert("인사하기");
+      input = prompt();
+    }
+
+
+
+  </script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    //한 줄 주석
+    /*여러줄 주석*/
+
+    /*
+
+      증감연산자 ++(변수의 값을 1 증가), -- (변수의 값을 1 감소)
+      
+      let a = 1;
+
+      a++;
+      ++a;
+
+
+      let b = 10;
+      b--
+      --b
+      
+    */
+
+    let a = 10;    //a = a + 1;
+
+    let b = 10;
+
+    console.log( a++, ++b ); //10, 11
+    console.log(a, b); 
+
+    // ++a : 변수의 값을 1증가시킨다. 연산의 결과로 증가되기 전의 값을 반환함
+    // a++ : 변수의 값을 1증가시킨다. 연산의 결과로 증가된 후의 값을 반환함
+
+  
+    let d = 10;
+    let f = 10;
+
+    console.log(d--, --f);
+    console.log(d, f);
+
+
+
+
+    //문제
+
+    let x = 10, y = 10, z = 10;
+
+    x++; //10    x의 변수 11
+    --y; //9     
+    ++z; //11
+
+    let result = x++ + y++ + ++z; //11 + 9 + 12
+
+    console.log(result);
+
+  </script>
+
+
+
+
+
+</body>
+</html>

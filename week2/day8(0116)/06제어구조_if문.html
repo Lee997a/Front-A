@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <h2>if 문 (분기문)</h2>
+  <p>if문 : 조건에 따라 수행하는 코드(작업)를 다르게 할 수 있음</p>
+  
+  <script>
+    
+    /*
+      1) 
+      if(조건){
+       //조건이 만족할 때 수행하는 코드
+      }
+
+
+      2)
+      if(조건){
+        //조건이 만족할 때 수행하는 코드
+      }else{
+        //위에 조건이 아닌 모든 경우에 수행함
+      }
+
+      3)
+      if(조건){
+        //조건이 만족할 때 수행하는 코드
+      }else if(조건){//위의 조건이 아닌 경우 다른 조건을 물어볼 때 사용
+        //조건이 만족할 때 수행하는 코드
+      }else if(조건){
+        
+      }else if(조건){
+      
+      }
+
+      4) 
+      if(조건){
+        //조건이 만족할~~~~
+      }else if(조건){
+        //조건이 ~~~~~
+      }else if(조건){
+        //조건이 ~~~~~
+      }else[//위의 조건이 아닌 그 밖의 모든 조건
+        //조건이 ~~~~~
+      ]
+
+      //주의사항
+      if(조건){//수행코드}
+      if(조건){//수행코드}
+      if(조건){//수행코드}
+    
+    */
+    
+      
+    let 지역 ="부산";
+    // let 지역 = prompt("어느 지역에 사시나요?")
+
+    if(지역 === "서울"){
+      console.log("서울에 살고 있군요, 지하철이 편리해요");
+    }else if(지역 === "부산"){
+      console.log("부산에 살고 있군요, 해운대가 멋져요");
+    }else if(지역 === "경주"){
+      console.log("경주에 살고 있군요, 경리단길이 예뻐요");
+    }else{
+      console.log("아직 다른 지역에 대한 것은 준비를 못했습니다.");
+    }
+
+
+    //
+    let score = 90;
+    if(score >= 90){
+      console.log("A");
+    }else if(score >= 80 ){
+      console.log("B");
+    }else if (score >= 70){
+      console.log("C");
+    }else{
+      console.log("F");
+    }
+
+    let kor = 90;
+    if(kor >= 90){
+      console.log("A학점");
+    }
+    if(kor >= 80){
+      console.log("B학점");
+    }
+    if(kor >= 70){
+      console.log("C학점");
+    }
+    if(kor < 70){
+      console.log("F학점")
+    }
+
+
+  </script>
+
+
+
+</body>
+</html>

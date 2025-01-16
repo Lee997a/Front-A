@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+  /*
+     논리연산자 : 논리 AND : && (그리고), 논리 OR : || (또는), 논리부정 : !
+  
+  
+  */
+
+    let a = true;
+    let b = false;
+    let c = 10;
+
+    //&& => 모든 조건이 참인경우 => true
+    console.log(a && b); //false
+    console.log(a && (c>5)); //true
+    console.log((c>5) && (c <20)); //true
+    console.log(b && a); //false 
+
+
+    //|| => 하나라도 참이면 => true
+    //모든 조건이 false일 때만 false 반환
+    
+    let x = false;
+    let y = true;
+    let z = 0;
+
+    console.log(x || y); //true
+    console.log(x || (z>5)) //flase  둘 다 false => false
+    console.log((z === 0) || (y === true)); //true
+    console.log(y || x); //true, y가 true 이므로 x 조건은 판별하지 않음
+
+    //논리부정 !
+    // true => false, false => true
+
+    let isLoggedid =  true;
+    console.log(isLoggedid);
+    console.log(!isLoggedid);
+    console.log(!(5 < 3)); //true
+
+
+    let age = 25;
+    let hasId = true;
+
+    if(age >= 18 && hasId){
+      console.log("입장 가능")
+    }else{
+      console.log("입장 불가")
+    }
+    
+
+
+  </script>
+
+</body>
+</html>
