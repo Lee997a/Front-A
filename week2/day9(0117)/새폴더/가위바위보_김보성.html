@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--가위, 바위, 보
+문제(요구사항), 입력창, 출력(필요에 따라 반복)
+입력 : 사용자가 입력한 가위(0), 바위(1), 보(2) 
+출력 : 사용자 승패 :result
+처리과정 : (반복 - 승패가 날때까지)
+
+
+사용자승패 정보 출력
+    사용자Value - 컴퓨터Value
+    =
+    -1 or 2 = 패배
+    0 = 무승부
+    1 or -2 = 승리-->
+
+    <script>
+        let user, computer;
+        let userValue;
+
+    while(true) {
+        let userchoice = prompt("가위, 바위, 보 중 하나를 입력하세요.");
+        if (userchoice == "가위") {
+            userValue = 0;
+        } else if (userchoice == "바위") {
+            userValue = 1;
+        } else if (userchoice == "보") {
+            userValue = 2;
+        } else {
+            alert("잘못된 입력입니다.");
+        }
+    
+        if (userValue !== undefined)   
+        computer = Math.floor(Math.random() * 3);
+    
+        if (userValue - computer == -1 || userValue - computer == 2) {
+        result = "사용자 패배";
+        } else if (userValue - computer == 0) {
+        result = "무승부";
+        } else {
+        result = "사용자 승리";
+            break;
+        }    
+        alert(result);  
+        }
+    alert("사용자가 승리하였으므로 게임이 종료됩니다.");
+    </script>
+
+
+</body>
+</html>

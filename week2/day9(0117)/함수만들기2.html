@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <img src="" id = "bg">
+  
+  <script>
+    
+      /*
+        기능 : 웃긴 이미지 제공
+        입력 : 없음
+        반환 : 웃긴이미지 url
+      */
+    function 웃긴이미지가져오기(){
+
+      let 이미지 ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcX1NTVz9BTx0NOYuqyqrGvg5usCN6PGcs2w&s";
+      
+      return 이미지;
+
+    }
+
+    alert("웃긴이미지 보여드립니다.")
+    let result = 웃긴이미지가져오기();
+    // alert(result);    
+
+
+    let imgtag = document.getElementById("bg");
+    imgtag.src = result;
+
+  </script>
+</body>
+</html>

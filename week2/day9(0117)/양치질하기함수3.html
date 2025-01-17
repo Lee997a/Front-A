@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function 양치질하기낮(){
+      document.write("치약을 짠다 <br>");
+      document.write("양치질 한다. <br>");
+      document.write("헹군다. <br>")
+    };
+
+    function 양치질하기밤(){
+      document.write("치약을 짠다 <br>");
+      document.write("양치질 한다. <br>");
+
+      for(let i = 1; i <= 3; i++){
+      document.write("헹군다. <br>")
+    }
+    };
+
+    // 양치질하기낮();
+
+    양치질하기밤();
+
+    //입력 (외부입력: 함수를 호출하는 쪽과 상호작용 할 수 있는 값)
+    //반한 (함수를 호출한 쪽으로 값을 반환하는 값)
+
+
+    function 양차질하기ver2(횟수){
+      document.write("치약을 짠다 <br>");
+      document.write("양치질 한다. <br>");
+
+      for(let i = 1; i <= 횟수; i++){
+        document.write("헹군다. <br>");
+      }
+    }
+
+    양차질하기ver2(2);
+    양차질하기ver2(1);
+    양차질하기ver2(4);
+
+  </script>
+</body>
+</html>

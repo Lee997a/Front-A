@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    function 양치질하기ver3(횟수){ //함수정의(함수만들기)
+      
+      // 
+      let 걸린시간 = 2;
+      document.write("치약을 짠다 <br>");
+      document.write("양치질 한다. <br>");
+
+      for(let i = 1; i <= 횟수; i++){
+        document.write("헹군다. <br>");
+      }
+
+      return 걸린시간;
+    }                                        
+
+    let result = 양치질하기ver3(3); //함수호출
+
+    if(result >= 3){
+      alert("참 잘했어요");
+    }else if(result >= 2){
+      alert("다음엔 꼼꼼히");
+    }else if (result < 1){
+      alert("다시해라");
+    }
+
+  </script>
+</body>
+</html>

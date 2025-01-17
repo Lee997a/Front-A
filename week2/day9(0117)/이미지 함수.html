@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <img src="" id="image">
+  
+
+  <script>
+
+    function 이미지(){
+      
+      let img = "https://media.istockphoto.com/id/1322277517/ko/%EC%82%AC%EC%A7%84/%EC%9D%BC%EB%AA%B0%EC%97%90-%EC%82%B0%EC%97%90%EC%84%9C-%EC%95%BC%EC%83%9D-%EC%9E%94%EB%94%94.jpg?s=612x612&w=0&k=20&c=w-IbwEn6gsxE-cep062iJsowg-RM-474SJdM6lIwy_o=";
+
+      return img;
+
+    }
+
+    alert("이미지111111");
+    
+    let result1 = 이미지();
+
+
+    let imgTag = document.getElementById("image");
+    imgTag.src = result1;
+
+
+  </script>
+</body>
+</html>

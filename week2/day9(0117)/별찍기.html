@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <script>
+    /*
+    //별 하나를 이용해서 다음과 같이 출렿세요.
+
+    *****
+    *****
+    *****
+
+    */
+
+    document.write("***** <br>");
+    document.write("***** <br>");
+    document.write("***** <br>");
+
+    //반복문
+
+    for(let i = 1; i <= 3; i++){
+      document.write("***** <br>");
+    }
+
+    //*
+
+    document.write("*");
+    document.write("*");
+    document.write("*");
+    document.write("*");
+
+    document.write("<br")
+
+    for(let i = 1; i <= 4; i++){
+      document.write("*");
+    }
+
+    document.write("<br")
+
+    for(let i = 1; i <= 3; i++){
+      // document.write("***** <br>");
+      document.write("*");
+      document.write("*");
+      document.write("*");
+      document.write("*");
+      document.write("<br")
+    }
+
+    for(let i = 1; i <= 3; i++){
+      for(let i = 1; i <= 4; i++){
+        document.write("*");
+      }
+      document.write("<br>");
+    }
+
+
+
+
+    for( let j=1;j<=3; j++){
+           // alert(j);
+            //반복할 코드 작성
+            for( let i=1; i<=9 ; i++){
+                document.write( j+1+"*" + i + " =" + (j+1)* i +"<br>");  //변수 활용해야겠다 !! 
+            }
+        }
+
+
+
+        for( let j=2; j<=4; j++){
+            for( let i=1; i<=9 ; i++){
+            //  document.write( j +"*" +i + " =" + j* i +"<br>");  //변수 활용해야겠다 !! 
+              document.write( ` ${j} *  ${i} =   ${  j *  i }  <br> `)  //변수 활용해야겠다 !! 
+            }
+        }
+
+        /*
+        템플릿리터럴: 백틱 `` 으로 묶음 
+        문자열과 변수함께 작성 
+        변수자리는 ${변수명}으로 작성
+        */
+
+
+
+
+
+  </script>
+</body>
+</html>
