@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+        <img src="" id="ramen"> <br>
+    
+        <script>
+            function ramen(){
+                
+                alert("1. 물을 올린다");
+                alert("2. 스프를 넣는다");
+                alert("3. 물이 끓은 뒤 면을 넣는다");
+                alert("4. 계란을 넣는다");
+
+                document.write("1. 물을 올린다" + "<br>");
+                document.write("2. 스프를 넣는다" + "<br>");
+                document.write("3. 물이 끓은 뒤 면을 넣는다" + "<br>");
+                document.write("4. 계란을 넣는다" + "<br>");
+
+                let 이미지="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDEyMTFfMjY0%2FMDAxNzMzODUzMDA3MjM5.-WWjsLQZQQ8VuagW_egCawOo1erl2gqTsqlIENRlueMg.sujMA3cB1dsbCl8SLJuD3RjSg8ujFuoR77GLp1KBs1cg.JPEG%2F22739077.jpg&type=a340";
+                return 이미지;                
+                }
+
+
+                
+            let start=confirm("라면 레시피를 확인해볼래요?");
+
+            alert(start);
+            console.log(start);
+
+            if (start==true){
+                alert("순서를 알려드릴게요");
+
+                
+            
+
+
+                let result = ramen();
+                let foodTag = document.getElementById("ramen");
+                foodTag.src= result;
+
+
+            }else if (start==false){
+                alert("취소되었습니다");
+            }
+    
+    
+            
+            
+    
+        </script>
+    </body>
+    </html>
+    
+</body>
+</html>

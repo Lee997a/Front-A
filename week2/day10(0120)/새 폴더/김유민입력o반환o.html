@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        function square(price){
+
+        let result = price *price;
+
+        return result;
+        }
+
+
+        let input = prompt("값을 입력하시오");
+        let price = parseFloat(input); 
+
+        if (isNaN(price)) {
+            alert("유효한 숫자를 입력하세요.");
+        } else {
+            let result = square(price);
+            alert("결과: " + result);
+        }
+
+    </script>
+
+</body>
+</html>

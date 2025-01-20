@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    // document.write("*<br>");
+    // document.write("**<br>");
+    // document.write("***<br>");
+    // document.write("****<br>");
+    // document.write("*****<br>");
+
+
+// let num = 5
+//     for(i = 1; i <= num; i++){
+//       document.write("*");
+//     }
+
+let star = " ";
+for (let i = 0; i <= 9; i++){
+  for(let j = 0; j < i + 1; j++){
+    star += "*";
+  }
+  star += "<br>";
+}
+
+document.write(star);
+
+
+
+// function star(){
+//   let output = " ";
+
+//   let result2;
+
+//   for(let i = 0; i < star; i++){
+//     for(let j = 0; j < i + 1; j++){
+//       result2 = output += "*";
+//     }
+//     result2 = output += "<br>";
+//   }
+//   return result2;
+// }
+// let result = star(10);
+// document.write(result);
+
+  </script>
+</body>
+</html>

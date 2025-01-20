@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수만들기연습2</title>
+</head>
+
+<body>
+    <script>
+        //입력x, 반환o
+        function number() {
+            return Math.floor(Math.random() * 50) + 1;
+        }
+
+        let random_number = "";
+
+        for (let i = 1; i <= 5; i++) {
+            random_number += number() + " ";
+        }
+
+        document.write("랜덤 숫자 5개: " + random_number);
+
+
+
+    </script>
+</body>
+
+</html>

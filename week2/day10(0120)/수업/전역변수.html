@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <script>
+
+    //전역변수
+
+    //함수 밖에서 선언한 변수
+    //모든 함수에서 접근 가능하다.
+
+    //전역변수는 최소한으로 사용한다.
+
+    let cnt = 0;
+
+    function a(){
+      cnt = cnt + 1;
+
+    }
+
+    function b(){
+      cnt = cnt + 2;
+
+    }
+
+    a();
+    console.log(cnt);
+
+    b()
+    console.log(cnt);
+  </script>
+
+
+</body>
+</html>

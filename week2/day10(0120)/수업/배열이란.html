@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <h2>배열</h2>
+
+  <p>
+    많은량의 기억장소가 필요할 때 <br>
+    기억 단계와 처리단계 다를 때
+  </p>
+
+  <p>간단한 문제로 배열사용 알아보기</p>
+
+  <p>60명 학생의 성적을 입력받아서(이름, 국어, 영어, 수학) 학생평균을 출력하는 프로그램을 작성해라.</p>
+  <p>추가사항 : 성적순으로 학생정보 출력 => 배열 필요</p>
+  <p>추가사항 : 과목별 평균을 구하라</p>
+
+  <p>배열은 기준으로부터 연속적으로 기억장소(변수)를 확보하는 것.</p>
+  <p>배열은 기억장소를 배열의 요소라고 한다.</p>
+  <p>배열은 요소에 접근하기 위해서 인덱스(첨자)를 사용한다</p>
+  <p>인덱스는 0부터 시작한다.</p>
+  <p>인덱스로 변수를 사용할 수 있다. (정수형 값)</p>
+
+<script>
+  //변수 5개로 국어점수 저장하고 출력하기
+  let su1 = 90;
+  let su2 = 80;
+  let su3 = 75;
+  let su4 = 100;
+  let su5 = 88;
+
+  console.log(su1);
+  console.log(su2);
+  console.log(su3);
+  console.log(su4);
+  console.log(su5);
+
+
+  let kors = [90, 80, 75, 100, 88];
+  console.log(kors[0]);
+  console.log(kors[1]);
+  console.log(kors[2]);
+  console.log(kors[3]);
+  console.log(kors[4]);
+
+  for(let i = 0; i <5; i++){
+    console.log(kors[i]);
+  }
+  
+
+
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+</head>
+<body>
+    <script>
+        //입력 x, 반환 x
+        function hello(){
+            document.write("Hello, World!<br>");
+        }
+
+        //입력 x, 반환 o
+        function totalPrice(){
+            let americano = Number(prompt("아메리카노 몇잔?"));
+            let latte = Number(prompt("라떼 몇잔?"));
+            return americano*4500+latte*5000+"원";
+        }
+
+        
+        hello();
+
+        document.write(totalPrice());
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+      //구구단
+    //   function gugu(num){
+    //   for(let i = 1; i <=9; i++){
+    //     document.write(num + "x" + i + "=" + num*i + "<br> ");
+    //   }
+    // }
+
+    // gugu(5);
+
+
+    
+    //prompt 사용
+    function gugudan(){
+      let su1 = parseInt(prompt("숫자를 입력해 주세요."));
+      for(let i = 1; i <= 9; i++){
+        document.write(su1 + "x" + i + "=" + su1*i + "<br> ");
+      };
+      return su1;
+    }
+    let result = gugudan();
+
+   
+
+
+  </script>
+</body>
+</html>

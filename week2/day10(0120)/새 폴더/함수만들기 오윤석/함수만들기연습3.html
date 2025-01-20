@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수만들기연습3</title>
+</head>
+
+<body>
+    <script>
+        //입력o, 반환o
+        function isAdult(age) {
+            return age >= 19;
+        }
+        let user_age = prompt("나이를 입력해주세요");
+        let result = isAdult(parseInt(user_age));
+
+        if (result) {
+            alert("성인입니다.");
+        } else {
+            alert("성인이 아닙니다.");
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="임의의 숫자를 입력하세요." id="num">
+    <button onclick="startower()">결과 보기</button>
+
+    <script>
+        function hello() // 입력 X, 반환 X
+        {
+            console.log("hello");
+        }
+
+        function time()  // 입력 X, 반환 O
+        {
+            return new Date().toLocaleString();
+        }
+        document.write(time());
+
+        function startower() // 입력 X, 반환 X
+        {
+            let star = "";
+            let num = document.getElementById('num').value;
+
+            for (let i = 1; i <= num; i++) {
+                for (let j = 1; j <= i; j++) {
+                    star += "*";
+                }
+                star += "<br>";
+            }
+            document.write(star);
+        }
+
+        let result = startower();
+        alert(result);
+
+        function startower2(num)
+        {
+            let star = "";
+
+            for (let i = 1; i <= num; i++) {
+                for (let j = 1; j <= i; j++) {
+                    star += "*";
+                }
+                star += "<br>";
+            }
+            document.write(star);
+        }
+        startower2(3);
+    </script>
+</body>
+</html>
