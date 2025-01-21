@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열문제</title>
+</head>
+<body>
+    <script>
+        //아래 과일 배열에서 첫 번째와 세 번째 요소를 출력하세요.
+        const 과일 = ['apple', 'banana', 'cherry'];
+
+        document.write(`${과일[0]}, ${과일[2]}<br><br>`)
+
+
+        //아래 배열 컬러 길이를 출력하세요.
+        const 컬러 = ['red', 'blue', 'green', 'yellow'];
+
+        document.write(`길이 : ${컬러.length}<br><br>`)
+
+
+        //아래 배열 점수에 있는 모든 숫자의 합을 계산하세요.
+        const 점수 = [10, 20, 30, 40];
+
+        let sum = 0
+        for(let i = 0; i < 점수.length; i++){
+            sum += 점수[i]
+        }
+
+        document.write(`합 : ${sum}<br><br>`)
+
+
+        //아래 이름 배열의 각 요소를 순서대로 출력하세요.
+        const 이름 = ['영숙', '순자','영자','옥순','현숙'];
+
+        for(let i = 0; i < 이름.length; i++){
+            document.write(`${이름[i]} `)
+        }
+
+        document.write("<br><br>")
+
+
+        //아래 numbers 배열에서 숫자 7이 있는지 확인하고, 있으면 true , 아니면 false를 출력하세요.
+        const  numbers1 = [2, 4, 6, 8, 10];
+
+        let result = false
+        for(let i = 0; i < numbers1.length; i++){
+            if(numbers1[i] === 7){
+                result = true
+            }
+        }
+
+        document.write(`${result}<br><br>`)
+
+
+        //아래 numbers 배열에서  가장 큰 수 를 출력하시오
+        const numbers2 = [12, 41, 6, 18, 10];
+
+        let max = 0
+        for(let i = 0; i < numbers2.length; i++){
+            if(max < numbers2[i]){
+                max = numbers2[i]
+            }
+        }
+
+        document.write(`가장 큰 수 : ${max}<br><br>`)
+
+
+        //아래  kors 배열에서  총점과 평균을 출력하시오
+        const kors1 = [90, 80, 70, 99, 100];
+
+        let hap1 = 0
+        for(let i = 0; i < kors1.length; i++){
+            hap1 += kors1[i]
+        }
+        let avg1 = hap1 / kors1.length
+
+        document.write(`총점 : ${hap1}, 평균 : ${avg1}<br><br>`)
+
+
+        //아래  kors 배열에서   평균보다 높은 점수는 몇개인가?
+        const kors2 = [90, 80, 70, 99, 100];
+
+        let hap2 = 0
+        for(let i = 0; i < kors2.length; i++){
+            hap2 += kors2[i]
+        }
+        let avg2 = hap2 / kors2.length
+
+        let count = 0
+        for(let i = 0; i < kors2.length; i++){
+            if(avg2 < kors2[i]){
+                count++
+            }
+        }
+
+        document.write(`평균보다 높은 점수 갯수 : ${count}<br><br>`)
+
+
+        //아래 prices 배열에서 1200보다 큰 숫자만 골라 새로운 배열에 저장하세요.
+        const prices = [1000, 1500, 900, 1800, 2000, 1200];
+
+        let newPrice = []
+        for(let i = 0; i < prices.length; i++){
+            if(prices[i] > 1200){
+                newPrice.push(prices[i])
+            }
+        }
+
+        document.write(`${newPrice}<br><br>`)
+
+
+        //아래 numbers 배열의 각 요소를 2배로 만든 새로운 배열을 만드세요.
+        const numbers3 = [1, 2, 3, 4, 5];
+
+        for(let i = 0; i < numbers3.length; i++){
+            numbers3[i] = numbers3[i] * 2
+        }
+
+        document.write(`${numbers3}`)
+    </script>
+</body>
+</html>

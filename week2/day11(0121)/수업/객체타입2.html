@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    //도서정보에 필요한 데이터
+
+    //도서이름
+    //저자
+    //출판사
+    //도서가격
+
+    let bookName = "뇌";
+    let bookPrice = 15000;
+    let bookPublisher = "열린책들";
+    let bookAuthor = "베르나르베르베르";
+
+    //변수 => 그릇
+
+    console.log(bookName);
+    console.log(bookPrice);
+    console.log(bookPublisher);
+    console.log(bookAuthor);
+
+    //도서정보 하나의 객체로 표현
+
+    //구조가 있는 데이터 (구조체) => 식판
+
+    let book = {
+      bookName : '뇌',
+      bookPrice : 15000,
+      bookPublisher : '열린책들',
+      bookAuthor : '베르나르베르베르'
+    }
+
+    //객체 속성 접근 . 연산자
+    console.log(book.bookName);
+    console.log(book.bookPrice);
+    console.log(book.bookPublisher);
+    console.log(book.bookAuthor);
+
+
+    //객체 속성 접근 : [] 대괄호 연산자 
+    console.log(book['bookName']);
+    console.log(book["bookPrice"]);
+    console.log(book["bookPublisher"]);
+    console.log(book["bookAuthor"]);
+
+  
+
+  </script>
+</body>
+</html>

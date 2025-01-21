@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    a();  
+
+    //함수 선언식
+    function a(){     //함수가 호이스팅됨 (코드 어디에서 선언하든 가장 먼저 해석되어 실행될 수 있다.)
+      alert("a는 함수다. 함수호출을 해야 실행됨");
+    }
+
+    //함수 표현식
+    const b = function (){
+      alert("b는 함수이다. 호출해야 실행됨")
+    };
+
+   // a();
+    b();
+
+  </script>
+</body>
+</html>

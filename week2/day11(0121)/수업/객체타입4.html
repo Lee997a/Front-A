@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <script>
+
+      //거북이 자바스크립트의 객체로 표현
+
+      //속성
+      //기능
+      
+      const turtle = {
+
+        이름 : "심청이",
+        종 : "페닐슐라쿠터",
+        나이 : 3,
+        색깔 : "초록색",
+        무게 : "800g",
+        좋아하는음식 : ["거북이사료", "건새우"],
+
+        eat : function(food){
+          if(this.좋아하는음식.includes(food)){
+            return ` ${this.이름} ${food} 행복하게 먹음`; 
+          }else{
+            return '좋아하지 않음 멀똥이 보고 있음';
+          }
+        },
+
+        printInfo : function(){
+          alert(this.이름 + this.종 + this.나이 + this.무게)
+        },
+
+        getAge : function(){
+          return this.나이;
+        }
+
+      };
+
+      let result1 = turtle.eat("건새우");
+      alert(result1);
+
+      turtle.printInfo();
+
+      let result2 = turtle.eat("빵 부스러기");
+      alert(result2);
+
+      let result3 = turtle.getAge();
+      alert(result3);
+
+    </script>
+</body>
+</html>

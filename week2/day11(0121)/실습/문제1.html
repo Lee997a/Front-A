@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    //문제1 아래 과일 배열에서 첫 번째와 세 번째 요소를 출력하세요.
+    const 과일 = ['apple', 'banana', 'yellow'];
+
+    console.log(과일[0] + " " + 과일[2]);
+
+ 
+    //문제2 아래 배열 컬러 길이를 출력하세요.
+    const 컬러 = ['red', 'blue', 'green', 'yellow'];
+
+    console.log(컬러.length);
+
+
+
+    //문제3 아래 배열 점수에 있는 모든 숫자의 합을 계산하세요.
+    const 점수 = [10, 20, 30, 40];
+
+    let sum = 0;
+
+    for(let i = 0; i < 점수.length; i++){
+      sum = sum + 점수[i];
+    }
+    console.log(sum);
+
+
+
+    //문제4 아래 이름 배열의 각 요소를 순서대로 출력하세요.
+    const 이름 = ['영숙', '순자', '영자', '옥순', '현숙'];
+
+    for(let i = 0; i < 이름.length; i++){
+      console.log(이름[i]);
+    }
+
+
+
+    //문제5아래 numbers 배열에서 숫자 7이 있는지 확인하고, 있으면 true , 아니면 false를 출력하세요.
+    const numbers = [2, 4, 6, 8, 10];
+    
+    for(let i = 0; i < numbers.length; i++){
+      let result;
+      if(numbers == 7){
+        result = true;
+      }else{
+        result = false;
+      }
+      console.log(result);
+    }
+
+    
+    //문제6 아래 numbers 배열에서  가장 큰 수 를 출력하시오
+
+    const numbers2 = [12, 41, 6, 18, 10];
+
+    let max = numbers2[0]; //최댓값을 저장할 수 있는 변수를 만들어야 함.
+    
+    for(let i = 0; i <numbers2.length; i++){
+      if(max < numbers2[i]){
+        max = numbers2[i];
+      }
+    }
+    console.log(max);
+
+
+
+    //문제7 아래  kors 배열에서  총점과 평균을 출력하시오
+    const kors = [90, 80, 70, 99, 100];
+
+    let sum1 = 0;
+    for(let i = 0; i < kors.length; i++){
+      sum1 = sum1 + kors[i];
+    }
+    let avg = sum1 / kors.length;
+
+    console.log(sum1);
+    console.log(avg);
+
+
+
+    //문제8 kors 배열에서   평균보다 높은 점수는 몇개인가 ?
+    const kors1 = [90, 80, 70, 99, 100];
+
+    let sum2 = 0;
+    let index2 = 0;
+    for(let i = 0; i  <kors1.length; i++){
+      sum2 = sum2 + kors1[i];
+    }
+    let avg2 = sum2 / kors1.length;
+    
+    for(let i = 0; i <kors1.length; i++){
+      if(avg2 < kors1[i]){
+        index2++;
+      }
+    };
+    console.log(index2);
+
+
+
+     //문제 9 아래 prices 배열에서 1200보다 큰 숫자만 골라 새로운 배열에 저장하세요.
+    const prices = [1000, 1500, 900, 1800, 2000, 1200];
+    const newPrices = [];
+    let index = 0;
+
+    for (let i = 0; i < prices.length; i++){
+    if(1200 < prices[i]){
+      newPrices[index] = prices[i]; //두개가 같은 값으로 정의하게 되면 순서가 건너띄게 된다.
+      index++
+    }
+    };
+    console.log(newPrices);
+
+
+
+
+    //문제 10 아래 numbers 배열의 각 요소를 2배로 만든 새로운 배열을 만드세요.
+    const numbers1 = [1, 2, 3, 4, 5];
+    const newNumbers1 = [];
+
+    for(let i = 0; i < numbers1.length; i++){
+      newNumbers1[i] = numbers1[i] * 2;
+    }
+    console.log(newNumbers1);
+
+
+      
+
+
+  </script>
+</body>
+</html>

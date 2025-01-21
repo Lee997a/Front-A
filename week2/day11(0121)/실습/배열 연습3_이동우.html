@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+
+    // //2차원 배열1
+    // let koreans = [
+    //   ["가개", "가닭", "가도다", "가되다", "가듁"],
+    //   ["나날", "나랗", "나릿믈", "나모", "나모가래"]
+    // ];
+
+    // //2차원 배열2
+    // let koreans2 = [
+    //   ["다고라", "다왇다", "다가", "다대", "다딤"],
+    //   ["라귀", "라뎐", "라발", "라셔", "라와"]
+    // ];
+
+
+    //3차원 배열
+    let akoreans = [
+      [
+        ["가개", "가닭", "가도다", "가되다", "가듁"],
+        ["나날", "나랗", "나릿믈", "나모", "나모가래"]
+      ],
+      [
+        ["다고라", "다왇다", "다가", "다대", "다딤"],
+        ["라귀", "라뎐", "라발", "라셔", "라와"]
+      ]
+
+    ];
+
+    
+    //반복문
+    for (k = 0; k < 2; k++) {
+      for (i = 0; i < 2; i++) {
+        for (j = 0; j < 5; j++) {
+          document.write(akoreans[k][i][j] + ", ");
+        }
+        document.write("<br>")
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>

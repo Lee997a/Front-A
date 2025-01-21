@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+
+    let even1 = [2, 4, 6];
+    let even2 = [8, 10, 12];
+    let even3 = [14, 16, 18];
+
+    //2차열배열 : 배열의 요소가 1차원 배열이다.
+
+
+    let even = [
+      [2, 4, 6],
+      [8, 10, 12],
+      [14, 16, 18]
+    ];
+
+    //1행 출력
+    console.log(even[0][0]);
+    console.log(even[0][1]);
+    console.log(even[0][2]);
+
+    console.log("------------");
+
+    //2행
+    console.log(even[1][0]);
+    console.log(even[1][1]);
+    console.log(even[1][2]);
+
+    console.log("------------");
+
+    //3행
+    console.log(even[2][0]);
+    console.log(even[2][1]);
+    console.log(even[2][2]);
+
+    console.log("------------");
+
+
+    for(let i = 0; i < 3; i++){ //행 반복   i = 0          i = 1             i = 2
+      //
+      for(let j = 0; j < 3; j++){ //    i = 0, 1, 2     j = 0, 1, 2       j = 0, 1, 2
+        console.log(even[i][j]);
+      }
+    }
+
+  </script>
+</body>
+
+</html>

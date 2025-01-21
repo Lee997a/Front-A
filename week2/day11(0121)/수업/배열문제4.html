@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    //점수 중에서 가장 높은 점수 출력하기
+
+    let scores = [90, 80, 77, 100, 89];
+
+    //가장 큰 수를 저장할 변수
+    //출력변수
+
+    let max = scores[0]; //max변수를 데이터범위에서 가장 작은 값으로 초기화, 배열의 첫 번째 값으로 초기화
+
+    for(let i = 0; i < scores.length; i++){
+
+      console.log("max" + max);
+      console.log("scores[", i, "]" + scores[i]);
+      if(max < scores[i]){
+        max = scores[i];
+      }
+    }
+
+    alert(max);
+
+
+
+  </script>
+</body>
+</html>

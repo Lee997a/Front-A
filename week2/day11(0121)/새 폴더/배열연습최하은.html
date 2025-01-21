@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let disney = [
+            [
+                ["디즈니, ", "픽사, ", "마블"],
+            ],
+            //movie
+            [
+                ["주토피아, ", "라푼젤, ", "겨울왕국"],
+                ["엘리멘탈, ", "인사이드아웃, ", "몬스터대학교"],
+                ["스파이더맨, ", "닥터스트레인지, ", "아이언맨"]
+            ],
+            //char
+            [
+                ["주디, ", "파스칼, ", "올라프"],
+                ["앰버, ", "라일리, ", "설리반"],
+                ["피터파커, ", "에이션트원, ", "토니"]
+            ]
+        ];
+
+        for(let i=0; i<3; i++){
+            document.write("<br>")
+            for(let j=0; j<disney[i].length; j++){
+                document.write("<br>")
+                for(let k=0; k<3; k++){
+                    document.write(disney[i][j][k]);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

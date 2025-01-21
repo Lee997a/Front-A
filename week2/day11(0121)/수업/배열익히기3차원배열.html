@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    let even = [
+      [2, 4, 6],
+      [8, 10, 12],
+      [14, 16, 18]
+    ];
+
+    let odd = [
+      [1, 3, 5],
+      [7, 9, 11],
+      [13, 15, 17]
+    ];
+
+
+    //3차원 배열 : 배열의 요소가 2차원 배열임
+
+    let numbers = [
+      //면 : 0
+    [
+      [2, 4, 6],
+      [8, 10, 12],
+      [14, 16, 18]
+    ],
+      //면 : 1
+    [
+      [1, 3, 5],
+      [7, 9, 11],
+      [13, 15, 17]
+    ]
+    ];
+
+    console.log(numbers[0][0][0]);
+    console.log(numbers[0][0][1]);
+    console.log(numbers[0][0][2]);
+
+    console.log("------------");
+
+    console.log(numbers[0][1][0]);
+    console.log(numbers[0][1][1]);
+    console.log(numbers[0][1][2]);
+
+    console.log("------------");
+
+    console.log(numbers[0][2][0]);
+    console.log(numbers[0][2][1]);
+    console.log(numbers[0][2][2]);
+
+    console.log("------------");
+
+    //2번째째 (1면) 출력하기
+
+    console.log(numbers[1][0][0]);
+    console.log(numbers[1][0][1]);
+    console.log(numbers[1][0][2]);
+
+    console.log("------------");
+
+    console.log(numbers[1][1][0]);
+    console.log(numbers[1][1][1]);
+    console.log(numbers[1][1][2]);
+
+    console.log("------------");
+
+    console.log(numbers[1][2][0]);
+    console.log(numbers[1][2][1]);
+    console.log(numbers[1][2][2]);
+
+    console.log("------------");
+
+
+    //반복
+    for(let k = 0; k < 2; k++){
+      //2차원배열 출력하기
+      for(let i = 0; i < 3; i++){
+        for(let j = 0; j <3; j++){
+          console.log(numbers[k][i][j]);
+          document.write(numbers[k][i][j]);
+        }
+        document.write("<br>")
+      }
+    }
+
+    
+
+  </script>
+</body>
+
+</html>

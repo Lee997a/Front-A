@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    //기존배열의 내용을 가지고 변형된 새로운 배열 만들기
+
+    //이름배열 -> ~님 => 새로운 배열
+
+    let names = ["이수민", "박예린", "이정호", "김민환"];
+
+    //빈 배열을 추가하여 위 배열과 더해 새로운 배열이 나올 수 있게 함.
+    let newNames = [];
+
+    for(i = 0; i < names.length; i++){
+      //새로운 배열에 names에 들어있는 값에 "님"이 플러스 되어 새로운 값으로 저장됨.
+      newNames[i] = names[i] + "님";
+    }
+
+    console.log(newNames);
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        document.write("문제1<br>");
+        const 과일 = ['apple', 'banana', 'cherry'];
+        document.write(`${과일[0]}  ${과일[2]}`);
+        document.write("<br>");
+        document.write("<br>");
+
+
+
+        document.write("문제2<br>");
+        const 컬러 = ['red', 'blue', 'green', 'yellow'];
+        document.write(컬러.length);
+        document.write("<br>");
+        document.write("<br>");
+
+
+
+        document.write("문제3<br>");
+        const 점수 = [10, 20, 30, 40];
+        let sum = 0;
+        for (let i = 0; i < 점수.length; i++) {
+            sum += 점수[i];
+        }
+        document.write(sum);
+        document.write("<br>");
+        document.write("<br>");
+
+
+
+        document.write("문제4<br>");
+        const 이름 = ['영숙', '순자', '영자', '옥순', '현숙'];
+        for (let i = 0; i < 이름.length; i++) {
+            document.write(이름[i] + " ");;
+        }
+        document.write("<br>");
+        document.write("<br>");
+
+
+
+        document.write("문제5<br>");
+        const  numbers2 = [2, 4, 6, 8, 10];
+        for(let i=0; i<numbers2.length; i++){
+            if(numbers2[i]===7){
+                document.write("true ");
+            }else{
+                document.write("false ");
+            }
+        }
+        document.write("<br>");
+        document.write("<br>");
+
+
+
+        document.write("문제6<br>");
+        const numbers = [12, 41, 6, 18, 10];
+        let max = 0;
+
+        for (let i = 0; i < numbers.length - 1; i++) {
+            for (let j = 0; j < numbers.length - 1 - i; j++) {
+                if (numbers[j] > numbers[j + 1]) {
+                    let tmp = numbers[j];
+                    numbers[j] = numbers[j + 1];
+                    numbers[j + 1] = tmp;
+                }
+            }
+        }
+        console.log(numbers)
+        document.write(numbers[numbers.length - 1]);
+
+        document.write("<br>");
+        document.write("<br>");
+
+
+
+        document.write("문제7<br>");
+        const kors = [90, 80, 70, 99, 100];
+        let sum1 = 0, avg = 0;
+
+        for (let i = 0; i < kors.length; i++) {
+            sum1 += kors[i];
+        }
+        avg = sum1 / kors.length;
+        document.write(`총점 : ${sum1} &nbsp 평균 : ${avg}`);
+
+        document.write("<br>");
+        document.write("<br>");
+
+
+
+        document.write("문제8<br>");
+        const kors2 = [90, 80, 70, 99, 100];
+        let sum2 = 0, avg1 = 0, cnt = 0;
+
+        for (let i = 0; i < kors2.length; i++) {
+            sum2 += kors2[i];
+        }
+        avg1 = sum2 / kors.length;
+
+        for (let i = 0; i < kors2.length; i++) {
+            if (kors2[i] > avg1) {
+                cnt++;
+            }
+        }
+        document.write(cnt);
+
+        document.write("<br>");
+        document.write("<br>");
+
+
+
+        document.write("문제9<br>");
+        const prices = [1000, 1500, 900, 1800, 2000, 1200];
+        const over_1200 = []; 
+        let index = 0; 
+
+        for (let i = 0; i < prices.length; i++) {
+            if (prices[i] > 1200) {
+                over_1200[index] = prices[i]; 
+                index++;
+            }
+        }
+
+        for(let i=0; i<over_1200.length; i++){
+            document.write(over_1200[i]+" ");
+        }
+
+        document.write("<br>");
+        document.write("<br>");
+
+
+
+        document.write("문제10<br>");
+        const numbers3 = [1, 2, 3, 4, 5];
+
+        for (let i = 0; i < numbers3.length; i++) {
+            numbers3[i] *= 2;
+        }
+
+        for (let i = 0; i < numbers3.length; i++) {
+            document.write(numbers3[i] + " "); 
+        }
+
+        document.write("<br>");
+        document.write("<br>");
+    </script>
+</body>
+</html>

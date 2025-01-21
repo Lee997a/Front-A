@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    //사용자 입력받기 위해 빈 배열;
+    let score = [];
+
+
+    //3개의 점수를 받음.
+    for(i = 0; i < 3; i++){
+      let input = parseInt(prompt("점수 입력"));
+      score[i] = input;
+    }
+
+
+    //총점 구하기
+    let sum =0;
+    for(let i = 0; i < score.length; i++){ //반복횟수이자 배열의 인덱스로 사용
+      sum = sum + score[i];
+    }
+    alert(sum);
+
+    //평균 구하기
+    let avg = sum / score.length;
+
+    alert(Math.floor(avg));
+
+
+  </script>
+</body>
+</html>

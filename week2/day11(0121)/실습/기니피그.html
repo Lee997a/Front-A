@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    const guineapig = {
+      이름 : "기니",
+      나이 : 3,
+      종 : "아메리칸 기니피그",
+      색깔 : "brown",
+      좋아하는음식 : "건초",
+  
+
+    eat : function(food){
+      if(this.좋아하는음식.includes(food)){
+        return `${this.이름}가 ${food}를 격렬히 반겨요`;
+      }else{
+        return '집으로 돌아가요';
+      }
+    },
+ 
+    printInfo : function(){
+      alert(`이름은 '${this.이름}'라고 하고요!, 나이는 ${this.나이}살이에요.`);
+    }
+
+    };
+
+
+  let result = guineapig.eat("건초");
+  alert(result);
+
+  guineapig.printInfo();
+
+
+
+  </script>
+</body>
+</html>

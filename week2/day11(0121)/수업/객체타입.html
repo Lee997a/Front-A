@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //과자정보
+
+    let snackName = "맛동산";
+    
+    //과자정보 객체로 표현한 것
+    let snack = {
+      이름 : "맛동산",
+      제조사 : "오리온",
+      무게 : 200,
+      가격 : 3800
+    };
+
+    console.log(snack.이름);
+    console.log(snack.제조사);
+    console.log(snack.무게);
+    console.log(snack.가격);
+
+    //객체 (속성(데이터) + 기능(매서드))
+    //this => 매서드에서 속성을 접근할 때 쓰는 키워드
+    
+    let snack2 = {
+      이름 : "오징어땅콩",
+      제조사 : "오리온",
+      무게 : 150,
+      가격 : 2400,
+
+      printInfo : function(){
+
+        alert(this.이름 + this.제조사);
+      }
+    };
+
+    alert(snack2.이름)
+    snack2.printInfo();
+
+  </script>
+</body>
+</html>

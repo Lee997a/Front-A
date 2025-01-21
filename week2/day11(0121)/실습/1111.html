@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    const prices = [1000, 1500, 900, 1800, 2000, 1200];
+    const newPrices = [];
+    let index = 0;
+
+    for (let i = 0; i < prices.length; i++){
+    if(1200 < prices[i]){
+      newPrices[index] = prices[i]; //두개가 같은 값으로 정의하게 되면 순서가 건너띄게 된다.
+      index++
+    }
+    };
+    console.log(newPrices);
+  </script>
+</body>
+</html>
