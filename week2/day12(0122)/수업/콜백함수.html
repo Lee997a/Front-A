@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    //콜백함수 : 매개변수로 전달된 함수를 말한다.
+
+    //자바스크립트에서 제공하는 함수 (웹브라우저가 제공하는 함수)
+
+    //정해진 시간후에 특정 코드를 수행하게 해 주는 기능 (함수)
+
+    //코드 (함수로 전달해야 한다.), 시간(밀리초 : 초 * 1000)
+    
+    //2초 뒤에 안녕이라고 출력하고 싶다
+
+    //
+
+    function hi(){
+      alert("hi javascript");
+    }
+
+    //setTimeout ( 함수형태의 코드 (콜백함수) , 밀리초 )
+    setTimeout( hi , 2000); //1000 => 1초
+
+    //setTimeout( hi() , 2000); //1000 => 1초 !!주의, 함수자리에 함수를 호출하는 코드를 작성하면 안됨
+
+
+    //익명함수
+    //setTimeout(funtion(){} , 1000);
+    
+    setTimeout(function(){ 
+      alert("익명함수 hi");
+    } , 5000);
+
+
+    //화살표함수
+    //setTimeout(() => {}, 1000);
+
+    setTimeout( ()=>{
+      alert("화살표함수 hi");
+    } , 7000);
+
+  </script>
+</body>
+</html>

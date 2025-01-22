@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  
+  <script>
+
+    //함수선언식, 함수표현식, 화살표함수
+
+    //1~n까지 합
+
+    /*
+    function getTenSum(){
+      let sum = 0;
+      for(let i = 1; i <= 10; i++){
+        sum = sum + i;
+      }
+      return sum;
+    };
+
+    let result0 = getTenSum();
+    console.log(result0);
+    */
+
+    function hap1(n){
+      //1~n까지의 합
+      let sum = 0;
+      for(let i = 1; i <= n; i++){
+        sum = sum + i;
+      }
+      return sum;
+    
+    };
+    
+    console.log(hap1(5));
+
+    
+    //함수표현식
+    const hap2 = function(n){
+      let sum = 0;
+      for(let i = 1; i <= n; i++){
+        sum += i;
+      }
+      return sum;
+    };
+
+    console.log(hap2(4));
+
+
+    //화살표함수
+    const hap3 = (n) => {
+      let sum = 0;
+      let i = 0;
+
+      while(i < n){
+        i++; //i = i + 1;
+        sum = sum + i;
+
+      }
+      return sum;
+    };
+
+    console.log(hap3(6));
+
+
+
+
+  </script>
+</body>
+</html>

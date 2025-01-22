@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        const 예약번호 = ["p100", "p200", "p300"];
+        console.log(예약번호.includes("p200")); // 출력: true
+        console.log(예약번호.includes("p400"));  // 출력: false
+
+
+
+
+         let search="p100";
+         let result=false;
+         for( let i=0;  i<예약번호.length ; i++){
+            if( search === 예약번호[i]){
+                result=true;
+                break;
+            }            
+         }
+
+         console.log( result);
+
+
+         /* 함수로 만들기  */
+
+
+         function myIncludes( search){
+
+            //배열의 목록
+            const 예약번호 = ["p100", "p200", "p300"];
+           
+            for( let i=0;  i<예약번호.length ; i++){
+                if( search === 예약번호[i]){
+                    return true;
+                }            
+            }
+
+            return false;
+         }
+
+
+         let result2 = myIncludes( "p400");
+         console.log( result2);
+
+
+
+    </script>
+    
+</body>
+</html>

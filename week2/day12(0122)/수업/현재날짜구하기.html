@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    //자바스크립트가 제공하는 내장객체 (Math => 수학관련 기능 제공, Date => 날짜에 관련된 기능 제공, String => 문자열에 관련된 기능 제공)
+
+    let current = new Date();
+
+    console.log(current);
+
+    let year = current.getFullYear();
+
+    let month = current.getUTCMonth(); //0월 부터 나옴. +1을 해야한다.
+
+    let date = current.getDate();
+
+    let day = current.getDay(); //일요일, 월요일,....토요일 (0)인덱스로 제공됨
+
+    let days = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
+
+    console.log(year, month + 1, date, day, days[day]);
+
+  </script>
+</body>
+</html>

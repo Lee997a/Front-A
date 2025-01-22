@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    //pop() : 배열요소 꺼내기(맨 뒤) , push() : 배열요소 넣기(맨 뒤)
+
+    let arr = [];
+
+    // arr[0] = 10;
+
+    arr.push(10); //순서대로 (0 인덱스부터) 배열에 넣기
+    arr.push(20);
+
+    console.log(arr);
+
+    // 어떤 요소가 빠졌는지 알기 위해 result라는 값을 추가해 결과를 출력하면 빠진 값이 출력하게 된다.
+    let result =  arr.pop(); //원본배열이 변경됨 
+    console.log(result);
+    console.log(arr);
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    //문자열 => 문자집합 (문자배열)
+    let str = "i like javascript";
+
+    //문자열이 제공하는 기능 (주요 기능 몇개 알아보기)
+
+
+    //charAt()
+    let result = str.charAt(0);
+    console.log(result);
+
+    let result2 = str.includes("like");
+    console.log(result2);
+
+
+    //시작 인덱스, 가져올 개 수
+    //문자열의 일부를 가져올 때 사용
+    let result3 = str.substr(7, 10);
+    console.log(result3);
+
+    let str2 = "2025-01-22";
+
+    let result4 = str2.split("-"); //구분자로 나눠서 배열로 반혼함
+    console.log(result4);
+
+  </script>
+</body>
+</html>

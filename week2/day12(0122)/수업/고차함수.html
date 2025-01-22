@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h3>고차함수</h3>
+
+
+    <p> 고차함수란?  함수를 인수로 받는 함수를 고차함수라고 한다</p>
+    <p> 비슷한 기능을 하는 함수 여러개를 추상화 시켜 고차함수로 만들어 사용할 수 있다. 
+        (처리패턴이 같은 작업을 추상화하여 하나로 합칠 수 있다)</p>
+    <p> 고차함수란 : higher function으로 함수를 추상화 시킨 것이다</p>
+
+    <script>
+
+        function fun1(){
+            let str="";
+            for(let i=0; i<5; i++){
+                str += i +"-" ;
+            }
+            return str;
+        }
+
+        console.log(fun1());
+
+
+        function fun2(){
+            let str="";
+            for(let i=0; i<3; i++){
+                str += i + ",";
+            }
+            return str;
+        }
+
+        console.log(fun2());
+
+
+
+
+
+
+        //figherF
+        //n : 반복횟수
+        //f : 콜백함수 ( 함수 ) 
+
+        function higherF( n, f ){
+            let str = "";
+            for(let i=0; i<n; i++){
+                str += f(i);
+            }
+            return str;
+        }
+
+        let rtn1 = higherF( 5, function(i){ //n = 5, 함수 : f = function(i){return i + "-";})
+            return i + "-";
+        });
+
+        console.log(rtn1);
+
+
+
+
+
+        // let rtn2 = higherF( 3, function(i){
+        //     return i + ",";
+        // });
+
+        
+        // console.log(rtn2);
+        // document.write(rtn2);
+
+    </script>
+    
+</body>
+</html>

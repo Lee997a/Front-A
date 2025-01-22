@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    //함수명  : a
+    //기능 : 매개변수로 전달된 함수를 3번 실행하는 함수
+    //입력 : 함수 (콜백함수)
+    //반환 : x
+
+    function a( f ){ // => 고차함수라고 한다
+      for(let i = 1; i <= 3; i++){
+        f(); // function 안에 있는 f가 함수이기 때문에 함수를 호출할 수 있게 f()를 작성
+      }
+    }
+
+    function b(){
+      alert("돈까스");
+    }
+
+    //함수 출력
+    a(b);
+
+    a(function(){ //익명함수
+      alert("짜장면");
+    });
+
+    a(()=>{
+      alert("돈까스 카레");
+    });
+
+
+
+
+    //f = 아래와 같은 역할을 함.
+
+    let aa = function(){
+      alert("동우");
+    };
+
+    aa();
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    //고차함수연습 1
+
+    function fun1(){
+      let str = "";
+      for(let i = 0; i < 5; i++){
+        str += i + "-";
+      }
+      return str;
+    };
+    console.log(fun1()); //실행결과 0-1-2-3-4-
+
+    function fun2(){
+      let str = "";
+      for(let i = 0; i < 4; i++){
+        str += i + ",";
+      }
+      return str;
+    };
+    console.log(fun2()); //실행결과 0,1,2,3
+
+
+
+    //위 함수를 고차원 함수로 변경
+
+    //n = i < 5 , i < 3
+    //f = "-" , ","
+
+    //위 코드 두개를 합쳐 만든 고차원 함수
+
+    function higherF(n, f){
+      let str = ""; //str은 그대로 작성
+      for(let i = 0; i < n; i++){ //i < n = 3과 5이기 때문에 수를 작성하기 위해
+        str += f(i); //str = str + f(i);
+      }
+      return str;
+    }
+
+    let rtn1 = higherF(5, function(i){ //콜백함수
+      return i + "-";
+    })
+    console.log(rtn1);
+
+  </script>
+</body>
+</html>
