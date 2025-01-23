@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .wrap{
+    border: 1px solid black;
+    width: 600px;
+    margin: 0 auto;
+  }
+
+
+  .line1{
+    border: 1px solid black;
+    display: flex;
+  }
+
+  .line1 > div{
+    border: 1px solid black;
+    width: 50%;
+  }
+
+  .line2{
+    height: 300px;
+  }
+
+  .content{
+    display: none;
+  }
+  
+</style>
+
+<script>
+
+  function showMember (){
+  // alert("ㅣㅏㅇ러ㅣㄴㅇ리");
+
+    //회원영역 보이기
+    //비회원영역 안보이기
+
+    document.querySelector(".member").style.display = "block";
+    document.querySelector(".noMember").style.display = "none";
+    
+  }
+
+  function showNoMember(){
+    // alert("sdlkghdslfjdslfjdlsk");
+
+    document.querySelector(".member").style.disply = "none";
+    const noMember = document.querySelector(".noMember");
+    noMember.style.display = "block";
+
+  }
+
+
+</script>
+<body>
+  
+
+
+
+
+
+  <div class="wrap">
+
+ <!-- 탭-->
+    <div class="line1">
+      <div onclick="showMember()">회원</div>
+      <div onclick="showNoMember()">비회원</div>
+
+    </div>        
+
+
+
+  
+<!--content-->
+  <div class="line2">
+    
+
+    <!--회원-->
+
+    <div class="content member" style="display: block;"> 회원 화면 $$</div>
+ 
+    <!--비회원-->
+   
+    <div class="content noMember"> 비회원 화면 **</div>
+
+  </div>
+</div>
+</body>
+</html>

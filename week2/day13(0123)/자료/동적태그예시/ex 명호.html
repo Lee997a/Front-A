@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        a{
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        function create(){
+            //alert('나오냐?');
+            let div3 = document.createElement('h3');
+            let div2 = document.createElement('h3');
+            let div1 = document.createElement('div');
+            
+            div1.style.backgroundColor='red';
+            
+            
+            div1.style.backgroundImage='url(https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F011%2F2018%2F09%2F27%2F0003403899_001_20180927204047205.jpg&type=a340)'
+            div1.style.width='400px';
+            div1.style.height='600px';
+            div1.style.backgroundSize='cover';
+            div1.style.backgroundPosition='center';
+            div2.innerHTML='나가세요';
+            div2.style.width='200px';
+            div2.style.height='30px';
+            div3.innerHTML='서강준처럼해주세요';
+            
+            
+
+           // 새로생성된 요소를 추가하는 방법
+           // 부모찾기 
+           let b = document.getElementById('b');
+           //alert(b);
+           b.appendChild( div3);
+           b.appendChild( div1);
+           b.appendChild( div2);
+          
+        }
+
+        function atg(){
+           // alert('이건나오냐');
+           let a1= document.createElement('div');
+           a1.style.backgroundColor='balck';
+           a1.innerHTML='5억이요';
+
+           let b = document.getElementById('b');          
+           b.appendChild(a1);
+        }
+
+        
+    </script>
+</head>
+<body id="b">
+    <button onclick="create()">손님 머리 어떻게 해드릴까요 </button>
+    <a onclick="atg()">얼마죠?</a>
+    
+</body>
+</html>

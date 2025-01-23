@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function change(){
+
+      //적용하고 싶은 element 불러오기 -> 여기서는 wrap2의 클래스를 가진 div
+
+      //변수에 저장
+      let wrap = document.getElementsByClassName("wrap2");
+
+      //
+      let sum = 0;
+      for(i = 0; i < wrap.length; i++){
+        let item = wrap[i];
+
+        let price = parseInt(item.innerHTML); //class로 지정된 wrap2의 div 태그 안에 작성된 내용(parsInt를 썼으므로 숫자만) 가져오기
+        
+        //가져온 숫자들을 더할 수 있는 코드 작성
+        sum += price;
+      }
+   
+      //더한 숫자를 주문금액에 넣기
+      
+      let totalNum = document.getElementById("totalNum"); //어디에 넣을지 element 불러오기
+
+      //더한 숫자를 totalNum이라는 아이디를 준 태그 안에 넣기
+      totalNum.innerHTML = sum;
+
+     
+    }
+
+
+    /*
+    순서
+    1. 적용하고 싶은 element 불러오기
+    2. 무엇을 할것인가? -> div 안에 작성된 숫자를 더한다.
+    3. 어떻게 할 것인가? -> 반복문을 통해 div 내부의 숫자를 불러와 더한다.
+     -> for문 
+     -> for문 안에 div안의 숫자 불러오기
+     -> 불러온 숫자 더하기
+
+     4. 위에서 더한 숫자를 어디에 넣을지 element 불러오기
+     ->태그 안에 innerHTML을 사용해 태그 안에 넣기
+    
+    
+    
+    */
+
+
+  </script>
+
+  </script>
+</head>
+
+<body>
+
+
+  <div class="wrap2">100</div>
+  <div class="wrap2">150</div>
+  <div class="wrap2">200</div>
+
+  더하기 : <span id="totalNum"> </span>
+
+  <button onclick="change()">버튼</button>
+
+
+</body>
+
+</html>

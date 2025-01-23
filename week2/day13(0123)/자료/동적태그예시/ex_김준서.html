@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #body{
+            width: 1400px;
+            margin: 0 auto;
+            height: 1000px;
+            text-align: center;
+        }
+
+
+    </style>
+    <script>
+        function creat(){
+            let ca = document.createElement("a")
+            ca.style.textDecoration="none";
+            ca.style.color="white";
+            ca.style.margin="0 auto";
+            ca.style.fontSize="14px";
+            ca.style.borderRadius="20px"
+            ca.style.display="block";
+            ca.innerHTML="네이버";
+            ca.style.padding="10px"
+            ca.style.backgroundColor="#19CE60"
+            ca.style.width="100px"
+            ca.style.height="60px";
+            ca.style.textAlign="center";
+            ca.style.lineHeight="60px";
+            ca.style.marginBottom="10px";
+    
+            ca.href="http://www.naver.com";
+            ca.target="_blank";
+
+            let b = document.getElementById("body");
+           b.appendChild(ca);   
+         
+            let btn = document.getElementById("btn");
+            btn.style.width="120px";
+            btn.style.height="80px";
+            btn.style.marginBottom="10px";
+
+             
+
+        }
+
+        function bcreate(){
+            let cg = document.createElement("a")
+            cg.innerHTML=("구글")
+            cg.style.textDecoration="none";
+            cg.style.fontSize="14px";
+            cg.style.margin="0 auto";
+            cg.style.borderRadius="20px"
+            cg.style.display="block";
+            cg.style.padding="10px"
+            cg.style.backgroundColor="gray";
+            cg.style.color="white";
+            cg.style.width="100px"
+            cg.style.height="60px";
+            cg.style.textAlign="center";
+            cg.style.lineHeight="60px";
+            cg.style.marginBottom="10px";
+            
+            cg.href="http://www.google.com";
+            cg.target="_blank";
+
+            let b = document.getElementById("body");
+            b.appendChild(cg); 
+
+            let btn = document.getElementById("btns");
+            btns.style.width="120px";
+            btns.style.height="80px";
+            btns.style.marginBottom="10px";
+
+
+        }
+    </script>
+
+</head>
+<body id="body">
+    
+
+        <button onclick="creat()" id="btn">NAVER</button>
+
+
+
+        <button onclick="bcreate()" id="btns"> GOOGLE</button>
+
+  
+</body>
+</html>

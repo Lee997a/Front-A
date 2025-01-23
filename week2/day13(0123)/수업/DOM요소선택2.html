@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+
+    function change(){
+      // alert("dddddddd")
+
+      let wrap = document.getElementsByClassName("wrap")[0]; //반환이 배열이다.
+
+      // alert(wrap);
+
+      wrap.innerHTML = "새로운 내용";
+
+
+      wrap.style.width = "100px";
+      wrap.style.height = "100px";
+      wrap.style.backgroundColor = "green";
+      }
+    
+
+    function unChange(){
+
+      //1. 선택
+      let wrap = document.getElementsByClassName("wrap")[0];
+
+      //2. 내용 및 스타일 변경
+      wrap.innerHTML = "";
+
+      wrap.style.width = "";
+      wrap.style.height = "";
+      wrap.style.backgroundColor = "";
+
+    }
+
+  </script>
+
+
+
+</head>
+<body>
+  
+  <h2> class이름으로 선택하기</h2>
+
+  <h2> class 이름이 wrap인 div 선택하여 스타일 변경하기</h2>
+
+  <p>주의사항 : 배열로 반환한다, 한 개여도</p>
+
+
+  <div class="wrap"></div>
+
+  <button onclick="change()">스타일 적용 클릭</button>
+  <button onclick="unChange()">클릭</button>
+</body>
+</html>

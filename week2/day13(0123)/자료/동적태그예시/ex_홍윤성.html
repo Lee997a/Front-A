@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+
+    //  전역변수 
+        let cnt=0;
+
+        let blue=0;
+        let red=0;
+
+        function redTeam(){
+            if(cnt<9){
+                let newdiv = document.createElement("div");
+                newdiv.style.width= "50px";
+                newdiv.style.height= "50px";
+                newdiv.style.backgroundColor= "red";
+                let b = document.getElementById("b");
+                b.appendChild(newdiv);
+                cnt++;
+                red++;
+                //console.log(cnt);
+                
+            }else{
+                alert("red팀 : " + red + "  "+ "blue팀 : " + blue);
+            }
+        }
+
+        
+        function blueTeam(){
+            if(cnt<9){
+                let newdiv = document.createElement("div");
+                newdiv.style.width= "50px";
+                newdiv.style.height= "50px";
+                newdiv.style.backgroundColor= "blue";
+                let b = document.getElementById("b");
+                b.appendChild(newdiv);
+                cnt++
+                blue++;
+                //console.log(cnt);
+            }else{
+                alert("red팀 : " + red + "  "+ "blue팀 : " + blue);
+            }
+        }
+
+    </script>
+    <style>
+        #b{
+            display:flex;
+            flex-wrap:wrap;
+            border: 1px solid black;
+            width: 150px;
+            height: 150px;
+
+        }
+    </style>
+
+</head>
+<body>
+    <h1>땅따먹기 게임</h1>
+    <div id="b">         
+    </div>
+    <button onclick="redTeam()">RedTeam</button>
+    <button onclick="blueTeam()">BlueTeam</button>
+    
+
+</body>
+</html>

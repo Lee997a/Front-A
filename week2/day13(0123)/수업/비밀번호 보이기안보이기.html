@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  
+  
+  <script>
+
+    function toogle(){
+      //alert("lsdfjdlsfjdlsfjld");
+
+      const pw = document.getElementById("pw");
+
+      const btn = document.getElementById("btn");
+
+      //
+      if(pw.type ==="password"){
+         pw.type = "text"; //보이기 (버튼 : 안보이기)
+         btn.innerHTML = "안보이기"
+        
+      }else{
+        pw.type = "password"; //안보이기 (버튼 : 보이기)
+        btn.innerHTML = "보이기"
+
+      }
+      
+    }
+
+  </script>
+</head>
+<body>
+  
+
+  <input type="password" placeholder="비밀번호 입력하세요" id="pw">
+  <button onclick="toogle()" id="btn">보이기</button>
+  
+</body>
+</html>

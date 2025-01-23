@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<script>
+
+
+
+
+  function addDIV(){
+    //1. 태그생성
+    //2. 부모선택
+    //3. 부모자식으로 추가
+
+
+    //1. 태그생성
+    const a = document.createElement("div");
+  
+    //내용과 스타일 속성 변경
+
+    a.innerHTML = "새로생긴 div";
+
+    a.style.backgroundColor = "blue";
+    a.style.width = "100px";
+
+
+    //2. 부모선택하기
+    const b = document.getElementById("wrap");
+    
+
+
+    //3. 부모자식으로 추가
+    wrap.appendChild(a);
+
+  
+  
+  }
+
+
+
+</script>
+<body>
+  
+
+  <!--wrap 영역에 div 태그를 동적으로 추가하기-->
+
+  <!--
+    1. 태그를 생성한다.
+    2. 부모를 선택한다.
+    3. 부모의 자식으로 추가한다.
+
+
+  
+  -->
+  <div id="wrap">
+
+  </div>
+
+  <button onclick="addDIV()"> div 태그 생성</button>
+
+</body>
+</html>

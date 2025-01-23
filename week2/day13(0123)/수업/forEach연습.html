@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    let names = ["김민환", "김유민", "박수경"];
+
+    console.log(names[0]);
+    console.log(names[1]);
+    console.log(names[2]);
+    
+
+    //배열 -> 반복문 처리
+
+    for(let i = 0; i < names.length; i++){
+      console.log(names[i]);
+    }
+
+    //
+
+    names.forEach(function(a, b){ // 요소값, 인덱스
+      alert(a + b);
+      alert("hi");
+    });
+
+    names.forEach((item, index) => {
+      alert(item + index);
+    });
+
+
+    function aaa(item, index){
+      alert(item + index)
+    }
+    names.forEach(aaa);
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+
+   
+    //map 매서드
+    // ~님
+    let names = ["박시우", "권지언", "이동우"];
+
+    //case1
+    let newNames = [];
+
+    for(let i = 0; i < names.length; i++){
+    
+      let item = names[i];
+
+      newNames[i] = item + "님";
+    };
+
+    console.log(names);
+    console.log(newNames);
+
+
+    //case2
+    let newNames2 = names.map(function(item, index){
+      return item + "씨";
+    });
+
+    console.log(newNames2);
+
+
+    //case3
+    let newNames3 = names.map((item, idex) => { //return 값이 있으므로 리턴값을 받을 수 있는 값을 정해줘야 한다(let newNames3)
+      return item + "씨--"
+    });
+
+    console.log(newNames3);
+
+
+    //case4
+    let newNames4 = names.map(item => item + "님 ^^");
+    console.log(newNames4);
+
+    
+
+
+  </script>
+  
+</body>
+</html>

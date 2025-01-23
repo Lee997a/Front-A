@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex03</title>
+
+    <script>
+        function create(){
+            // alert("dddd");
+            let div1 = document.createElement("div");
+            div1.style.backgroundColor="red";
+            div1.innerHTML="새로생성된 div";
+
+            div1.style.width="120px"
+            div1.style.height="30px"
+            div1.style.textAlign="center";
+            div1.style.color="white";
+            div1.style.fontWeight="bold";
+            div1.style.margin="20px";
+            div1.style.lineHeight="30px"
+
+            // 새로 생성된 요소를 추가하는 방법
+            // 부모 찾기
+            let b = document.getElementById("b");
+            // alert(b);
+            b.appendChild(div1);
+            
+        }
+        
+        function a(){
+            let a1 = document.createElement("a");
+            a1.style.backgroundColor="green";
+            a1.style.color="white";
+            a1.style.textAlign="center";
+            a1.style.width="80px"
+            a1.style.height="30px";                   
+            a1.style.display="block";
+            a1.style.fontSize="20px";
+            a1.style.textDecoration="none";
+            a1.style.fontWeight="bold";
+            a1.style.margin="20px";
+
+            a1.innerHTML="naver";
+            a1.href="https://www.naver.com";
+            a1.target="_blank";
+         
+
+            // let b = document.getElementById("b");
+             //a1.setAttribute("href", "https://www.naver.com");
+             //a1.setAttribute("target", "_blank");
+            b.appendChild(a1);
+        }
+    </script>
+</head>
+<body id="b">
+
+    <button onclick="create()"> div 생성 </button>
+    <button onclick="a()">a 생성</button>
+    
+</body>
+</html>

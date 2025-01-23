@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .wrap {
+      border: 1px solid black;
+      width: 300px;
+      height: 400px;
+    }
+
+    .inputSt {
+      width: 250px;
+      height: 50px;
+    }
+
+    button {
+      width: 250px;
+      height: 50px;
+      background-color: rgb(1, 1, 100);
+    }
+  </style>
+
+  <script>
+
+    function loginCheck() {
+      const frm = document.frm;
+
+
+      //아이디
+      const userIdE = frm.userId;
+      const userId = userIdE.value;
+
+
+      //비밀번호
+      const userPwE = frm.userPw;
+      const userPw = userPwE.value;
+      console.log(userPw);
+
+
+
+
+      if (userId === "") {
+        alert("아이디를 입력하세요");
+        userIdE.focus();
+      } else if (userPw === "") {
+        alert("비밀번호를 입력하세요");
+        userPwE.focus();
+      }else{
+        alert("로그인 중입니다.")
+      }
+
+
+
+    }
+
+
+
+
+
+
+  </script>
+</head>
+
+<body>
+
+
+
+
+  <div class="wrap">
+    <form action="/longin" method="post" name="frm">
+
+      <input type="text" placeholder="아이디를 입력해주세요" name="userId" class="inputSt">
+      <input type="password" placeholder="비밀번호를 입력해주세요" name="userPW" class="inputSt">
+      <button class="btnlogin" onclick="loginCheck()" type="button">로그인</button>
+
+    </form>
+  </div>
+</body>
+
+</html>

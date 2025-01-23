@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+
+    function calcAount(){
+
+      //1. class가 price 모두 선택하기 , querrySelectAll
+
+      //2. 반복 
+      // - 배열의 요소 꺼내오기
+      // - 요소의 내용 가져오기
+      // - 누적
+      
+      //3. 출력요소에 내용으로 넣기
+
+      const priceArr = document.querySelectorAll(".price");
+
+      let sum = 0;
+      priceArr.forEach(function(item){
+        //console.log(item);
+        let price = parseInt( item.innerHTML);
+        sum += price;
+      }
+      );
+      console.log("전체금액", sum);
+
+          //주문금액 넣기
+
+          const totalAmt = document.querySelector("#totalAmt");
+          console.log(totalAmt);
+          totalAmt.innerHTML = sum; //더한 금액 넣기
+      
+      // let sum = 0;
+      // for(let i = 0; i < priceArr.length; i++){
+      //   let item = priceArr[i];
+
+      //   // console.log(item);
+
+      //   let price = parseInt(item.innerHTML);
+      //   // console.log(price);
+      //   sum += price;
+      // }
+
+     
+
+      //주문금액 넣기
+
+      // const totalAmt = document.querySelector("#totalAmt");
+      // console.log(totalAmt);
+      // totalAmt.innerHTML = sum; //더한 금액 넣기
+
+    }
+
+
+  </script>
+</head>
+<body>
+  
+  <h2>querrySelectorAll로 선택하기</h2>
+
+
+  <div class="price">100</div>
+  <div class="price">150</div>
+  <div class="price">200</div>
+  <div class="price">100</div>
+  <div class="price">300</div>
+
+  주문금액 : <span id="totalAmt"> </span>
+
+
+  <div>
+  <button onclick="calcAount()">주문금액</button>
+</div>
+</body>
+</html>

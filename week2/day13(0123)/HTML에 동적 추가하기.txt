@@ -1,0 +1,54 @@
+HTML에 동적 추가하기
+
+1. document.getElementBbyId( );
+2. document.getElementsByClassName( );
+3. document.querySelector ( );
+4. document.querySelectorAll ( );
+ -> 배열을 반환하고 한 개인 경우 첫번재 요소를 직접 얻어온다.
+
+
+
+
+예시 1)  document.getElementBbyId();
+
+
+HTML에 작성된 태그의 id로 지정된 값을 불러오는 역할을 함
+
+ex)
+<body>
+ <div id= wrap></div>
+<button onclick= "change( )"></button>
+</body> 
+
+-> div 태그가 있다고 했을 때
+
+-> document.getElementById("wrap"); 을 사용해서 불러올 수 있음.
+
+-> let wrap = document.getElementById("wrap");  == 불러온 값을 변수에 저장해야 함.
+
+스타일 변경하기
+새로 저장한 wrap이라는 값에 
+-> wrap.style.width = " ";
+-> wrap.style.height = " "; 와 같이 스타일을 적용할 수 있다.
+
+----------------------------------------------------------------------------------------------------------------------------
+
+document.getElementsByClassName( );
+ - class로 지정한 값을 불러오면 배열로 반환한다.
+ - 여러개의 같은 class로 지정된 값이 있다면 반복을 통해 꺼내올 수 있다.
+
+document.getElementBbyId(); 와 마찬가지로 코드를 작성할 수 있다.
+
+<body>
+ <div id= wrap1></div>
+ <div id= wrap1></div>
+ <div id= wrap1></div>
+
+
+</body>
+
+
+
+
+
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+
+    function change(){
+
+      const wrap = document.querySelectorAll(".wrap1")[0]; //배열 반환 
+                                              // 한 개인 경우 첫번째요소를 직접 얻어옴
+
+      wrap.innerHTML = "새로운 내용";
+
+
+      wrap.style.width = "100px";
+      wrap.style.height = "100px";
+      wrap.style.backgroundColor = "blue";
+    
+    };
+
+    function change2(){
+      const wrap = document.querySelectorAll("#wrap2")[0];
+
+      wrap.innerHTML = "아개알ㅈㄴ나랴ㅜㅎ";
+
+      wrap.style.width = "200px";
+      wrap.style.height = "200px";
+      wrap.style.backgroundColor = "red";
+    }
+
+  </script>
+
+
+</head>
+<body>
+
+  <h2>querrySelectorAll 선택하기</h2>
+  <p>주의사항 : 모두 선택하기 때문에 한 개여도 배열로 반환함</p>
+  
+  <div class="wrap1"></div>
+  <div id="wrap2"></div>
+
+  <button onclick="change()">wrap1 변경 </button>
+  <button onclick="change2()">wrap2 변경 </button>
+
+</body>
+</html>

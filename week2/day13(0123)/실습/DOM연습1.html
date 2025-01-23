@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    function style1(){ //버튼 onclick를 어떻게 작동할 것인가
+
+      let wrap = document.getElementById("wrap"); //변경하고 싶은 element 선택 여기서는 (div 태그)
+
+      wrap.innerHTML = "새로운 내용을 넣거나 변경시키는 것"
+
+      //스타일 변경
+
+      wrap.style.width = "100px";
+      wrap.style.height = "100px";
+      wrap.style.backgroundColor = "blue";
+      wrap.style.color = "white";
+    }
+
+    //sty2라는 버튼이 어떻게 작동할 것인가? -> 위에서 넣은 스타일 취소
+
+    function style2(){
+
+      //변경하고 싶은 element 불러오기
+      let wrap = document.getElementById("wrap");
+
+
+      //스타일을 적용했던 것을 취소함.
+      
+      wrap.innerHTML = ""; //태그 안에 있는 내용 지우기
+
+      wrap.style.backgroundColor = "";
+      wrap.style.color = "";
+
+      
+
+    }
+
+
+
+
+  </script>
+
+</head>
+
+<body>
+  <!--연습 1 -->
+
+
+  <!--버튼을 이용해서 div 태그 스타일링하기-->
+  <div id="wrap"></div> 
+
+  <button onclick="style1()"> 스타일 적용</button>
+  <button onclick="style2()"> 스타일 취소</button>
+
+</body>
+
+</html>

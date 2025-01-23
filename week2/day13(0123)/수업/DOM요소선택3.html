@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+    function change1(){
+
+      //class가 wrap1 선택
+      let wrap = document.querySelector(".wrap1");
+      // alert(wrap);
+
+      wrap.innerHTML = "새로운 내용";
+
+
+      wrap.style.width = "100px";
+      wrap.style.height = "100px";
+      wrap.style.backgroundColor = "green";
+    
+    }
+
+    function change2(){ 
+      
+      // id가 wrap2 선택
+      const wrap = document.querySelector("#wrap2");
+
+      wrap.innerHTML = "새로운 내용2";
+
+      wrap.style.width = "200px";
+      wrap.style.height = "200px";
+      wrap.style.backgroundColor = "blue";
+    
+    }
+
+
+  </script>
+
+
+</head>
+<body>
+
+  <h2>querrySelector 선택하기</h2>
+  <p>한 개를 반환한다.</p>
+  
+
+  <div class="wrap1"></div>
+
+  <div id="wrap2"></div>
+
+
+  <button onclick="change1()">wrap1 변경</button>
+  <button onclick="change2()">wrap2 변경</button>
+
+</body>
+</html>
