@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        
+        
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Text:ital@0;1&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Black+Han+Sans&family=DM+Serif+Text:ital@0;1&display=swap');
+            *{
+                padding: 0;
+                margin: 0 auto;
+                box-sizing: border-box;
+                
+            }
+            .dm-serif-text-regular {
+                font-family: "DM Serif Text", serif;
+                font-weight: 400;
+                font-style: normal;
+            }
+            
+           
+
+            li {
+               list-style: none;
+               cursor: pointer;
+            }                       
+            .mainContainer{
+                width: 100%;
+                /* border: 1px solid black; */
+            }
+            .reviewContainer{
+                width: 750px;
+                border: 1px solid black;
+                margin: 0 auto;
+            }
+            .imgAreaContainer{
+                display: flex;
+                width: 100%;
+                margin-top: 30px;
+            }
+            .reviewText{
+                width: 325px;
+                height: 150px;
+            }
+            .textSection{
+               text-align: center;
+
+               
+            }
+            .imgSection{
+                text-align: center;
+            }
+            .ageSectionContainer{
+                width: 100%;
+            }
+            .ageSection{
+                /* border: 1px solid black; */
+            }
+            table{
+                /* border: 1px solid black; */
+                border-collapse: collapse;
+                width: 80%;
+                margin: 0 auto;
+                margin-top: 30px;
+                text-align: center;
+            }
+            td{
+                /* border: 1px solid black; */
+                margin: 0;
+            }
+            .ageBox{
+                width: 33.3%;
+                height: 30px;
+            }
+            .ageBox2{
+                width: 50px;
+            }
+            .sellerInfoArea{
+                width: 100%;
+                /* border: solid 1px black; */
+                margin: 0 auto;
+                text-align: center;
+                margin-top: 50px;
+            }
+            .sellerInfoText{
+                width: 85%;
+                height: 100px;
+                text-align: center;
+            }
+            .shareInfoContainer{
+                margin-top: 50px;
+                /* border: 1px solid black; */
+                font-weight: bold;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            
+        </style>
+        
+      
+    </head>
+    <body>
+        <div class="mainContainer">
+            <div class="reviewContainer">
+                <h2 class="dm-serif-text-regular" style="text-align: center; margin-top: 30px;">REVIEW DETAIL</h2>
+                <div class="imgAreaContainer">
+                    <div class="imgSection">
+                        <p style="font-weight: bold; padding: 15px;">이미지</p>
+                        <img src="data:image/jpeg;base64,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">
+                        <div></div>
+                    </div>
+                    <div class="textSection">
+                        <p style="font-weight: bold; padding: 15px;" >사용 후기</p>
+                        <textarea class="reviewText"></textarea>
+                    </div>
+                </div>
+                <div class="ageSectionContainer">
+                    <div class="ageSection ">
+                        <table>
+                            <tr>
+                                <td>연령대</td>
+                                <td>판매도</td>
+                                <td>성별</td>
+                            </tr>
+                            <tr style="border: 1px solid black;">
+                                <td style="border: 1px solid black;"><div class="ageBox"></div></td>
+                                <td style="border: 1px solid black;"><div class="ageBox"></div></td>
+                                <td style="border: 1px solid black;"><div class="ageBox2"></div></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+                <div class="sellerInfoArea">
+                    <p style="font-weight: bold; margin-right: 74%;">판매자 정보</p>
+                    <textarea class="sellerInfoText"></textarea>
+                </div>
+                <div class="shareInfoContainer">
+                    <p style=" margin-right: 64%;">함께 나누고 싶은 정보</p>
+                    <textarea class="sellerInfoText"></textarea>
+                </div>
+            </div>
+        </div>
+        
+
+        
+        
+    </body>
+</html>

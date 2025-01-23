@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        // 자신이 표현하고 싶은 객체정보 2개 만들기
+        // 2. 속성 + 기능 객체만들고 출력하기
+        
+        
+        
+        const quiz ={
+            Game : [ "리그오브레전드", "롤", "lol"],
+            Movie : [ "액션", "음악", "범죄" ],
+            Workout : "등",
+            Food : "한식",
+            Age : 26,
+            MBTI : [ "INTP", "intp" ],
+            Hobby : [ "게임", "운동" ],
+            Address : "응암동",
+            
+            game : function( GameQuiz ){
+                if ( this.Game.includes(GameQuiz)){
+                    return `맞아요. 주로 ${GameQuiz}을 즐겨요`
+                }else{
+                    return `틀렸어요. 하지만 ${GameQuiz}도 재밌어 보이네요`
+                }
+            },
+
+            movie : function(MovieQuiz){
+                if ( this.Movie.includes(MovieQuiz)){
+                    return `맞아요 ${MovieQuiz}장르 영화를 좋아해요`
+                }else{
+                    return `${MovieQuiz} 장르는 즐겨보진 않는 것 같은데 한번 봐보도록 할게게요.`
+                }
+            },
+            
+            workout : function(WorkoutQuiz){
+                if ( this.Workout.includes(WorkoutQuiz)){
+                    return `맞아요 운동중엔 ${WorkoutQuiz} 부위를 제일 좋아해요`
+                }else{
+                    return `${WorkoutQuiz} 부위보다 더 좋아하는 운동 부위가 있어요`
+                }
+            },
+            food : function(FoodQuiz) {
+                if ( this.Food.includes(FoodQuiz)){
+                    return `${FoodQuiz}을 좋아해요`
+                }else{
+                    return `${FoodQuiz}보다 더 좋아하는 분야의 음식이 있어요`
+                }
+            },
+
+            // 나이 퀴즈
+            age: function(AgeQuiz) {
+                if (parseInt(AgeQuiz) === this.Age) {
+                    return `맞아요. 나이는 ${AgeQuiz}살이에요.`;
+                } else {
+                    return `그렇게 보이나요...?`;
+                }
+            },
+            
+            // MBTI 퀴즈
+            mbti: function(MBTIQuiz) {
+                if (this.MBTI.includes(MBTIQuiz)) {
+                    return `맞아요. 제 MBTI는 ${MBTIQuiz}이에요.`;
+                } else {
+                    return `네?? 아니에요..`;
+                }
+            },
+            
+            // 취미 퀴즈
+            hobby: function(HobbyQuiz) {
+                if (this.Hobby.includes(HobbyQuiz)) {
+                    return `맞아요. 여가시간에는 ${HobbyQuiz}을 즐겨요`;
+                } else {
+                    return `틀렸지만, 그 것도 제 취미에 한번 넣어보도록 할게요.`;
+                }
+            },
+            
+            // 주소 퀴즈
+            address: function(AddressQuiz) {
+                if (this.Address === AddressQuiz) {
+                    return `맞아요. 사는곳은 ${AddressQuiz}이에요.`;
+                } else {
+                    return `${AddressQuiz}에서도 한번 살아보고싶어요.`;
+                }
+            }
+                    
+        };
+
+        alert("작성자의 취미와 정보를 맞추는 퀴즈입니다.");
+        userInput = prompt("도전하실 항목을 골라주세요. \nGame / Movie / Workout / Food / Age / MBTI / Hobby / Address ")
+
+            if(userInput == "Game"){
+                let gameInput = prompt("어떤 게임을 할 것 같나요?");
+                alert(quiz.game(gameInput));
+                }else if(userInput == "Movie"){
+                    let movieInput = prompt("어떤 장르의 영화를 좋아할 것 같나요?");
+                    alert(quiz.movie(movieInput));
+                }else if(userInput == "Workout"){
+                    let workoutInput = prompt("어떤 부위의 운동을 좋아할 것 같나요?");
+                    alert(quiz.workout(workoutInput));
+                }else if(userInput == "Age"){
+                    let ageInput = prompt("나이가 몇 일것 같나요?");
+                    alert(quiz.age(ageInput));
+                }else if(userInput == "Food"){
+                    let foodInput = prompt("어느 분야의 음식을 좋아할까요?");
+                    alert(quiz.food(foodInput));
+                }else if(userInput == "MBTI"){
+                    let mbtiInput = prompt("제 MBTI는 무엇일까요?");
+                    alert(quiz.mbti(mbtiInput));
+                }else if(userInput == "Hobby"){
+                    let hobbyInput = prompt("제 취미는 무엇일까요?");
+                    alert(quiz.hobby(hobbyInput));
+                }else if(userInput == "Address"){
+                    let addressInput = prompt("제가 사는 지역은 어디일까요?");
+                    alert(quiz.address(addressInput));
+                };
+
+    </script>
+
+</body>
+</html>

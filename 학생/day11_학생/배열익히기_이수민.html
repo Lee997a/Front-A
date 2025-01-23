@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let mega = [
+            [
+                ["메가리카노", "아메리카노", "할메가커피", "왕할메가커피"],
+                ["꿀아메리카노", "바닐라아메리카노", "헤이즐넛아메리카노", "에스프레소"],
+                
+            ],
+            [
+                ["카페라떼", "바닐라라떼", "큐브라떼", "카페모카"],
+                [ "카푸치노", "캬라멜마끼아또", "헤이즐넛라떼", "티라미수라떼"],
+                
+            ],
+        ];
+        document.write("메가커피 메뉴를 나열합니다.<br><br>");
+
+        for(let i=0;i<2;i++){
+            for(let j=0; j<2;j++){
+                for(let k=0;k<4;k++){
+                    document.write(mega[i][j][k] + ", ");
+                }
+                document.write("<br>");
+            }
+            document.write("<br>");
+        }
+    </script>
+    
+</body>
+</html>

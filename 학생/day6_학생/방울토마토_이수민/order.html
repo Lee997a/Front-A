@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Black+Han+Sans&family=Dongle&display=swap" rel="stylesheet">
+
+    <style>
+        /*font-style*/
+        .black-han-sans-regular {
+            font-family: "Black Han Sans", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .bagel-fat-one-regular {
+            font-family: "Bagel Fat One", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        /*header-style*/
+        header{
+            height: 100px;
+            background-color: rgb(251, 236, 198);
+
+            box-sizing: border-box;
+            line-height: 100px;
+            display: flex;
+            padding-left: 20px;
+            position: relative;
+
+
+            position: sticky;
+            top:0px;
+
+            z-index: 999;
+        }
+        header h1{
+            font-family: "Black Han Sans";
+            font-weight: 300;
+            color: rgb(226 77 77);
+            font-size: 45px;
+            margin: 0px;
+        }
+        .search{
+            width: 400px;
+            height: 50px;
+            display: flex;
+            position: absolute;
+
+            right: 100px;
+            top: 25px;
+
+        }
+        .search-bar{
+            width: 340px;
+            height: 50px;
+            border: 5px solid rgb(226 77 77);
+            border-radius: 50px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .search img{
+            width: 50px;
+            height: 100%;
+            border-radius: 50%;
+            border: 5px solid rgb(226 77 77);
+            box-sizing: border-box;
+        }
+
+        /*nav-style*/
+        nav{
+            height: 60px;
+            background-color: rgb(231, 220, 195);
+            padding: 20px;
+            box-sizing: border-box;
+           
+        }
+
+        .menu a{
+            text-decoration: none;
+            font-family: 'Black Han Sans';
+            font-size: 19px;
+            color: darkolivegreen;
+        }
+
+        .menu{
+            display: flex;
+            
+            font-family: 'Black Han Sans';
+            font-size: 19px;
+            color: darkolivegreen;
+            margin: 0;
+
+            list-style: none;
+        }
+        .menu-item{
+            margin-left: 15px;
+            margin-right: 15px;
+            padding-right: 10px;
+            position: relative;
+            
+        }
+
+        .hidden-menu{
+            width: 200px;
+            list-style: none;
+            display: none;
+            position: absolute;
+            background-color: rgb(255, 255, 255);
+            text-align: center;
+            top: 40px;
+            left: -20px;
+            padding: 0px;
+        }
+
+        .menu-item:hover .hidden-menu{
+            display: block;
+        }
+        /*section-style*/
+        section{
+            
+            background-color: rgb(255, 246, 225);
+            box-sizing: content-box;
+            padding: 20px;
+
+            font-family: 'Black Han Sans';
+
+            color: rgb(62, 53, 50);
+        }
+
+        .방울토마토{
+            color:rgb(172, 0, 0);
+        }
+
+        .방울토마토주문{
+            width: 50%;
+            
+            border: 5px solid rgb(226 77 77);
+            border-radius: 50px;
+            background-color: white;
+            box-sizing: content-box;
+
+            padding: 30px;
+            padding-bottom: 20px;
+        
+            letter-spacing: 1px;
+
+            margin: 0 auto;
+
+            text-align: center;
+        }
+
+        .방울토마토주문 table{
+            width: 100%;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .방울토마토주문 td, th{
+            width: 25%;
+            padding: 10px 0px 10px 0px;
+            border: 1px solid black;
+        }
+
+        caption{
+            font-size: 30px;
+        }
+
+        td:nth-child(2), td:nth-child(4){
+            text-align: right;
+        }
+
+        .order-info{
+            padding-top: 15px;
+            padding-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        section button{
+            width: 70px;
+            height: 64px;
+            color: white;
+            font-family: "Black Han Sans";
+            font-size: 16px;
+
+            background-image: url(./tomato-btn.png);
+            background-color: white;
+            background-repeat: none;
+            border-radius: 10px;
+            
+            background-size: contain;
+            background-position: center;
+            box-sizing: border-box;
+            border: none;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>방울토마토를 사랑하는 사람들의 모임 방.사.모
+        </h1>
+        <div class="search"><input class="search-bar" type="text" placeholder="검색어를 입력하세요">
+            <img src="./tomato-search.png" alt="search">
+        </div>
+        
+    </header>
+    <nav>
+
+        <ul class="menu">
+            <li class="menu-item"> 메뉴 
+                <ul class="hidden-menu">
+                    <li><a href="./index.html">방울토마토의 효능</a> </li>
+                    <li><a href="./howtomato.html">방울토마토 키우기</a> </li>
+                    <li><a href="./order.html">방토 주문하기</a></li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="./index.html">방울토마토의 효능</a>
+            </li>
+            <li class="menu-item">
+                <a href="./howtomato.html">방울토마토 키우기</a>
+            </li>
+            <li class="menu-item">
+                <a href="./order.html">방토 주문하기</a>
+                
+            </li>
+            
+
+        </ul>
+        
+    </nav>
+
+    <section>
+    <div class="방울토마토주문">
+
+        <table class="order-table">
+            <caption><span class="방울토마토">방울토마토</span> 주문하기</caption>
+            
+            <thead>
+                <tr>
+                    <th>선택</th>
+                    <th>상품</th>
+                    <th>수량</th>
+                    <th>금액</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr>
+                    <td><input type="checkbox">선택</td>
+                    <td>500g</td>
+                    <td>  
+                        <select>
+                            <option>수량을선택하세요</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </td>
+                    <td>
+                        5000&#8361;
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox">선택</td>
+                    <td>700g</td>
+                    <td>  
+                        <select>
+                            <option>수량을선택하세요</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </td>
+                    <td>
+                        7000&#8361;
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td><input type="checkbox">선택</td>
+                    <td>1kg</td>
+                    <td>  
+                        <select>
+                            <option>수량을선택하세요</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </td>
+                    <td>
+                        10000&#8361;
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox">선택</td>
+                    <td>2kg</td>
+                    <td>  
+                        <select>
+                            <option>수량을선택하세요</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </td>
+                    <td>
+                        20000&#8361;
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <div class="order-info">
+            <div>
+                <input type="checkbox">선택삭제
+            </div>
+            <div>
+                총 금액: 0&#8361;
+            </div>
+        </div>
+        <button>주문하기</button>
+
+    </div>
+
+</section>
+
+
+<footer></footer>
+
+
+
+</body>
+</html>

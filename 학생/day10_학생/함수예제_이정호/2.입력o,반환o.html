@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입력 o, 반환 o</title>
+</head>
+<body>
+    <script>
+        /*
+            기능 : 지정한 범위 내에서 지정한 입력한 갯수만큼 숫자 출력, 중복 방지
+            입력 : 갯수(count), 범위(range)
+            반환 : 랜덤 숫자열
+            출력 : 오름차순으로 출력
+        */
+
+        //랜덤 숫자 뽑기
+        function randomNum(count, range){
+            let numArr = []; //숫자 빈 배열
+
+            //갯수(count)가 지정한 범위(range)보다 큰 경우.
+            if(count > range) return '갯수가 지정한 범위보다 더 큽니다.' //오류 메시지 반환
+            //갯수(count)가 지정한 범위(range)보다 작은 경우.
+            else{
+                //지정한 갯수만큼 숫자 출력
+                for(let i = 0; i < count; i++){
+                    let randomNum = Math.floor(Math.random() * range + 1) //숫자 범위 지정해서 랜덤으로 생성
+                    //배열에 이미 값이 있는 경우
+                    if(numArr.includes(randomNum)){
+                        i-- //다시 실행
+                    }
+                    //배열에 값이 없는 경우
+                    else{
+                        numArr.push(randomNum) //숫자 배열에 숫자 저장
+                    }
+                }
+                return numArr //숫자 배열 반환
+            }
+        }
+
+        let count = parseInt(prompt("출력할 숫자 갯수를 입력하세요."))
+        let range = parseInt(prompt("1 ~ 부터 몇 번까지 지정할 지 범위를 입력하세요."))
+
+        let result = randomNum(count, range) //숫자 출력
+
+        document.write(result.sort((a, b) => a - b))
+    </script>
+</body>
+</html>

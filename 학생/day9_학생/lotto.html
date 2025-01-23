@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            width:200px;
+            height:40px;
+            border-radius:10px;
+            border:none;
+        }
+
+        button:hover {
+            background-color: rgb(87, 87, 87);
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    
+    <button onclick="lottonum()">로또 번호 뽑기</button>
+
+    <script>
+        function lottonum() {
+            let lottoarr = [];
+            for (let i=0; i<7; i++) {
+                lottoarr[i]=Math.floor(Math.random() *36);
+            }
+            lottoarr.sort((a,b) => a-b);
+            document.write(lottoarr);
+        }
+    </script>
+</body>
+</html>

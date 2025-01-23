@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const zootopia = {
+            이름 : "주토피아",
+            개봉 : "2016.02.17.",
+            평점 : 9.33,
+            관객수 : "471만명",
+            등장인물 : "주디, 닉, 플래시, 벨웨더, 가젤",
+            이미지URLs : [
+                "https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAyMDA1MDdfMTY2%2FMDAxNTg4ODUyMjg4NjM2.EU_oiG7I414V4BTbXVWAx_oK5HvvVI7Rel3ddKUl48wg.pSXUu42_gMBMiwDcjRDEl5jDwmdZfpbzsO7V400rOBog.JPEG%2FeA292zO8_400x400.jpg&type=a340",  // 주디
+                "https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2F20160323_192%2Ftaciturneye_1458735000742nCaxU_JPEG%2FNa1458734980215.jpg&type=a340",  // 닉
+                "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA5MTZfNDEg%2FMDAxNjMxNzU2NzY4MDY4.U48t1RpQewAet92E30jgXGyF9pofj1pceKh3RsRsm5kg.5ea6DUChgvPlMi1YXy6Tq41anpBw2mK3CiFmwkMkeV8g.JPEG.ghkdwjdtka%2FIMG_4570.jpg&type=a340",  // 플래시
+                "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA5MTNfMTg2%2FMDAxNjk0NTM0MjMwOTI5.8MI_tg6TcvJ_CclmMBTmd8XYya-mkJbLAW243aQL5x4g.Ba9OQK7jAOog3KxrYlZX7VfVXXIoiymfUi0H6E7xL-gg.JPEG.skadngus7842%2FIMG_3254.jpg&type=a340", //벨웨더
+                "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjExMTBfMTM2%2FMDAxNjY4MDQ5ODYwNjU5.qi77s1Xqqc7bZGiOOCuVTDKGo2W3HnySbe6VXs7JU8wg.P3IWLprtVYaxd-heoXyk3fHeUkY21DdL00rsXv4DM1sg.JPEG.dev_zion%2Foutput_3151598815.jpg&type=a340" //가젤
+            ]
+        }
+        document.write("이름 : ", zootopia.이름, "<br>");
+        document.write("개봉 : ", zootopia.개봉, "<br>");
+        document.write("평점 : ", zootopia.평점, "<br>");
+        document.write("관객수 : ", zootopia.관객수, "<br>");
+        document.write("등장인물 : ", zootopia.등장인물, "<br>");
+
+        // 이미지 출력 (배열을 반복문으로 출력)
+        for( let i=0; i<zootopia.이미지URLs.length; i++ ){
+              document.write('<img src="' + zootopia.이미지URLs[i] + '" alt="주토피아 이미지">'); //이미지태그<img  src="" alt="" >
+        }
+    /*
+        for( let i=0; i<zootopia.이미지URLs.length; i++ ){
+              let item = zootopia.이미지URLs[i];
+              document.write('<img src="' + item + '" alt="주토피아 이미지">');
+        }
+    */
+    /*
+        for( let i=0; i<zootopia.이미지URLs.length; i++ ){
+              let item = zootopia.이미지URLs[i];
+              document.write('<img src="' + item + '" alt="주토피아 이미지" style="width: 300px; height: 300px; object-fit: cover; margin-bottom: 20px;">');
+        }
+    */
+    </script>
+
+
+
+
+</body>
+</html>

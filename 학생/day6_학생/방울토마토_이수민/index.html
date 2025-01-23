@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Black+Han+Sans&family=Dongle&display=swap" rel="stylesheet">
+    
+    <style>
+        /*font-style*/
+        .black-han-sans-regular {
+            font-family: "Black Han Sans", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .bagel-fat-one-regular {
+            font-family: "Bagel Fat One", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        /*header-style*/
+        header{
+            height: 100px;
+            background-color: rgb(251, 236, 198);
+
+            box-sizing: border-box;
+            line-height: 100px;
+            display: flex;
+            padding-left: 20px;
+            position: relative;
+
+
+            position: sticky;
+            top:0px;
+
+            z-index: 999;
+        }
+        header h1{
+            font-family: "Black Han Sans";
+            font-weight: 300;
+            color: rgb(226 77 77);
+            font-size: 45px;
+            margin: 0px;
+        }
+        .search{
+            width: 400px;
+            height: 50px;
+            display: flex;
+            position: absolute;
+
+            right: 100px;
+            top: 25px;
+
+        }
+        .search-bar{
+            width: 340px;
+            height: 50px;
+            border: 5px solid rgb(226 77 77);
+            border-radius: 50px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .search img{
+            width: 50px;
+            height: 100%;
+            border-radius: 50%;
+            border: 5px solid rgb(226 77 77);
+            box-sizing: border-box;
+        }
+
+        /*nav-style*/
+        nav{
+            height: 60px;
+            background-color: rgb(231, 220, 195);
+            padding: 20px;
+            box-sizing: border-box;
+           
+        }
+
+        .menu a{
+            text-decoration: none;
+            font-family: 'Black Han Sans';
+            font-size: 19px;
+            color: darkolivegreen;
+        }
+
+        .menu{
+            display: flex;
+            
+            font-family: 'Black Han Sans';
+            font-size: 19px;
+            color: darkolivegreen;
+            margin: 0;
+
+            list-style: none;
+        }
+        .menu-item{
+            margin-left: 15px;
+            margin-right: 15px;
+            padding-right: 10px;
+            position: relative;
+            
+        }
+
+        .hidden-menu{
+            width: 200px;
+            list-style: none;
+            display: none;
+            position: absolute;
+            background-color: rgb(255, 255, 255);
+            text-align: center;
+            top: 40px;
+            left: -20px;
+            padding: 0px;
+        }
+
+        .menu-item:hover .hidden-menu{
+            display: block;
+        }
+        
+
+        /*section-style*/
+        section{
+            
+            background-color: rgb(255, 246, 225);
+            box-sizing: content-box;
+            padding: 20px;
+
+            font-family: 'Black Han Sans';
+
+            color: rgb(62, 53, 50);
+        }
+
+        .방울토마토의효능{
+            width: 50%;
+            
+            border: 5px solid rgb(226 77 77);
+            border-radius: 50px;
+            background-color: white;
+            box-sizing: content-box;
+
+            padding: 30px;
+        
+            letter-spacing: 1px;
+
+            margin: 0 auto;
+        }
+
+        .방울토마토의효능 ul{
+            list-style: none;
+            font-size: 17px;
+            line-height: 30px;
+            color: black;
+        }
+
+        .방울토마토의효능 p{
+            font-size: 21px;
+            margin: 15px;
+        }
+
+        .방울토마토의효능 .text{
+            font-size: 15px;
+            line-height: 25px;
+            color: rgb(43, 43, 43);
+        }
+        .방울토마토{
+            color:rgb(172, 0, 0);
+        } 
+    </style>
+</head>
+<body>
+    <header>
+        <h1>방울토마토를 사랑하는 사람들의 모임 방.사.모
+        </h1>
+        <div class="search"><input class="search-bar" type="text" placeholder="검색어를 입력하세요">
+            <img src="./tomato-search.png" alt="search">
+        </div>
+        
+    </header>
+    <nav>
+
+        <ul class="menu">
+            <li class="menu-item"> 메뉴 
+                <ul class="hidden-menu">
+                    <li><a href="./index.html">방울토마토의 효능</a> </li>
+                    <li><a href="./howtomato.html">방울토마토 키우기</a> </li>
+                    <li><a href="./order.html">방토 주문하기</a></li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="./index.html">방울토마토의 효능</a>
+            </li>
+            <li class="menu-item">
+                <a href="./howtomato.html">방울토마토 키우기</a>
+            </li>
+            <li class="menu-item">
+                <a href="./order.html">방토 주문하기</a>
+                
+            </li>
+            
+
+        </ul>
+        
+    </nav>
+
+    <section>
+        <div class="방울토마토의효능">
+            <ul><h2><span class="방울토마토">방울토마토</span>의 효능</h2>
+                <li><p>🍅암 예방🍅</p>
+
+                    <div class="text">
+                        비타민 C, 베타카로틴, 라이코펜 등의 항산화 성분을 풍부하게 보유하고 있어 암을 유발하는 활성산소를 억제하는 작용을 하여 암예방에 도움이 된다고 합니다. 실제로 전립선 암 예방에 도움이 된다는 연구결과도 있다고 합니다.
+                    </div>
+                </li>
+                
+                <li><p>🍅심혈관 건강🍅</p>
+                    <div class="text">
+                        붉게 잘 익은 토마토 껍질에 풍부하게 들어 있는 라이코펜, 리코펜은 심장을 건강하게 해주는 효과가 있다고 합니다. 그리고 라이코펜은 지용성으로 지방과 함께 섭취할 때 흡수율이 4배까지 증가하며, 염증 및 활성산소 제거 효과가 있어, 혈관을 보호하고, 혈액 응고 위험을 감소시킨다고 합니다. 또한 100g당 209mg이 들어있는 칼륨은 나트륨 배출을 도와 혈압을 낮춰주고, 뇌졸중 및 심혈관 질병 위험도를 낮추는 작용을 합니다.
+                    </div>
+                </li>
+                <li><p>🍅당뇨 억제 효과🍅</p>
+                    <div class="text">
+                        토마토에 함유 되어 있는 칼륨의 효과 중 인슐린 민감도를 높여 혈당 수치를 조절하는 작용을 하여 당뇨 관리에 도움이 된다고 합니다. 또한 섬유질이 풍부하고 열량이 낮아 토마토를 꾸준히 섭취하면 당뇨를 예방하는 효과를 볼 수 있습니다.
+                    </div>
+                </li>
+                <li><p>🍅시력 개선🍅</p>
+                    <div class="text">
+                        토마토에 함유된 비타민A는 강력한 항산화 성분으로 활성산소에 의한 시력 손상을 억제하며, 시력감퇴와 야맹증을 예방하여 전반적인 시력 향상에 도움이 됩니다.
+                    </div>
+                </li>
+                <li><p>🍅피부건강과 소화기능 개선🍅</p>
+                    <div class="text">
+                        토마토에 풍부한 비타민C는 피부, 머리카락, 손톱 조직의 필수 성분인 콜라겐 생성을 촉진시켜 피부질환을 예방하며, 베타카로틴이 풍부해 피부와 점막의 건강을 지키는데 효과적입니다. 또한 식이섬유가 풍부해 장운동을 활발하게 하며, 변비나 대장암 등의 질환 예방에 도움이 된다고 합니다.
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        
+        <div class="방울토마토주문"></div>
+
+    </section>
+
+
+    <footer></footer>
+
+
+
+</body>
+</html>

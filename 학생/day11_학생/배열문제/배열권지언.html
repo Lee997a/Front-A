@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열문제5</title>
+</head>
+<body>
+    <script>
+
+
+       const 과일 = ['apple', 'banana', 'cherry'];
+       document.write(과일[0]+"&nbsp;");
+       document.write(과일[2],"<br>");
+
+       
+       const 컬러 = ['red', 'blue', 'green', 'yellow'];
+       document.write(컬러.length,"<br>");
+
+
+       const 점수 = [10, 20, 30, 40];
+       let sum = 0;
+       for (let i=0; i<점수.length; i++) {
+        sum += 점수[i];
+       }
+       document.write(sum,"<br>");
+
+
+       const 이름 = ['영숙', '순자','영자','옥순','현숙'];
+       for(let i=0; i<이름.length; i++) {
+            document.write(이름[i]+"&nbsp;");
+       }
+       document.write("<br>")
+
+
+       const  numbers = [2, 4, 6, 8, 10];
+       let result;
+       for(let i=0; i<numbers.length; i++) {
+            if(numbers[i]==7)  {
+                result = true;
+            }
+            else {
+                result = false;
+            }
+       }
+       document.write(result,"<br>");
+
+
+       const numberss = [12, 41, 6, 18, 10];
+       let max = 0;
+       for (let i=0; i<numberss.length; i++) {
+            if(numberss[i]>max) {
+                max = numberss[i];
+            }
+       }
+       document.write(max,"<br>");
+
+
+       const kors = [90, 80, 70, 99, 100];
+       let sum1 = 0;
+       let avg1 = 0;
+       for (let i=0; i<kors.length; i++) {
+            sum1 += kors[i];
+       }
+       avg1 = Math.floor(sum1/kors.length);
+       document.write("총점 : ",sum1,"&nbsp;평균 : ",avg1,"<br>");
+
+
+       const korss = [90, 80, 70, 99, 100];
+       let sum2 = 0;
+       let avg2 = 0;
+       let index2 = 0;
+       for (let i=0; i<korss.length; i++) {
+            sum2 += korss[i];
+       }
+       avg2 = Math.floor(sum2/korss.length);
+       for(let i=0; i<korss.length; i++) {
+            if(korss[i]>avg2) {
+                index2++;
+            }
+       }
+       document.write(index2,"<br>");
+
+
+       const prices = [1000, 1500, 900, 1800, 2000, 1200];
+       let newprice = [];
+       let index3 = 0;
+       for (let i=0; i<prices.length; i++) {
+            if(prices[i]>1200) {
+                newprice[index3]=prices[i];
+                index3++;
+            }
+       }
+       document.write(newprice,"<br>");
+
+
+       const numbersss = [1, 2, 3, 4, 5];
+       let newnumber = [];
+       for (let i=0; i<numbersss.length; i++) {
+            newnumber[i]=numbersss[i]*2;
+       }
+       document.write(newnumber);
+
+    </script>
+</body>
+</html>

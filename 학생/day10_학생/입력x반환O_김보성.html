@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //주사위 굴리기 1~6
+        //입력 : X
+        //반환 : 1~6 랜덤한 수
+        //출력 : 1~6랜덤한 수 출력
+
+        function dice(){
+            return Math.floor(Math.random()*6)+1;
+
+        }
+
+        alert("주사위로 오늘의 운을 점쳐드릴게요.")
+        let result= dice();
+        if(result == 1){
+            alert(`오늘의 주사위는 ${result}입니다. 차 조심 하세요.`);
+        }else if(result == 2){
+            alert(`오늘의 주사위는 ${result}입니다. 발 밑을 조심하세요.`);
+        }else if(result == 3){
+            alert(`오늘의 주사위는 ${result}입니다. 평범한 하루가 되겠어요.`);
+        }else if(result == 4){
+            alert(`오늘의 주사위는 ${result}입니다. 기대해봐도 좋은 하루에요요.`);
+        }else if(result == 5){
+            alert(`오늘의 주사위는 ${result}입니다. 좋은데요?.`);
+        }else if(result == 6){
+            alert(`오늘의 주사위는 ${result}입니다. 집 가는길에 복권 한장 어떠세요?.`);
+        }
+
+
+    </script>
+
+</body>
+</html>

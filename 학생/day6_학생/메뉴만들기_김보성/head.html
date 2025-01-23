@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .base{
+            width: 700px;
+            height: 1000px;
+            border: 1px solid black;
+            background-color: #212429;
+            margin: 0 auto;
+        }
+        .headear{
+            /*border: 1px solid black;*/
+            margin-top: 10px;
+            margin-left: 25px;
+            position: relative;
+        }
+        .base .icon{
+            width: 180px;
+            
+            position: absolute;
+        }
+        .base .bell{
+            width: 25px;
+            
+            position: absolute;
+            right: 50px;
+        }
+        .search{
+            /*margin-top: 60px;
+            margin-left: 450px;*/
+            width: 590px;
+            background-color: #25304a;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+
+            margin-top: 60px;
+            margin-left: 60px;
+
+            justify-content: center;
+            align-items: center;
+            display: flex;
+
+
+            position: relative;
+        }
+        .search input{
+            width: 80%;
+            height: 35px;
+
+            border: none;
+            
+            outline: none;
+            background-color: #25304a;
+            color: aliceblue;
+        }
+        .search input::placeholder{
+            font-weight: bold;
+            color: #54637e;
+        }
+        .search img{
+            width: 30px;
+            
+            position: absolute;
+            left: 20px;            
+        }
+        .search img:hover{
+            transition: all 1s;
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="base">
+        <!--검색창-->
+        <div class="headear">
+            <img class="icon" src="https://media.licdn.com/dms/image/v2/C561BAQH8G4ekP-XtDQ/company-background_10000/company-background_10000/0/1634890951485/kinolights_cover?e=2147483647&v=beta&t=ecvW6y0Hjr4bIBh1jAsRMKA8go0T1rDNJupaXNEDJwU">
+            <img class="bell" src="https://www.citypng.com/public/uploads/preview/white-notification-bell-icon-transparent-background-701751695033958n33jtfuju8.png">
+        </div>
+        <div class="search">
+            <img src="https://cdn2.iconfinder.com/data/icons/clean-simple/75/search-512.png">
+            <input type="text" placeholder="작품, 인물, 컬렉션, 게시글을 검색해 보세요">
+        </div>
+    </div>
+</body>
+</html>

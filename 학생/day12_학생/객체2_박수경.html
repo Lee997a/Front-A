@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 자신이 표현하고 싶은 객체정보 2개 만들기
+
+    // 1) 속성만 객체만들고 출력하기 
+    // **2) 속성 + 기능 객체만들고 출력하기** 
+
+    let pepero={
+        이름: "빼빼로",
+        종류: "초콜릿 과자",
+        길이: "10cm",
+        맛: "초코",
+        선호하는맛: ["초코", "아몬드", "딸기"],
+    
+        eat: function(taste) {
+            if (this.선호하는맛.includes(taste)) {
+                return `${this.이름} ${taste}맛을 먹는 중`;
+            } else {
+                return "다른 맛으로";
+            }
+        },
+        
+        printInfo: function() {
+            alert(this.이름 + "는 " + this.종류 + "로, 길이는 " + this.길이 + "이고 맛은 " + this.맛 + "입니다.");
+        },
+        
+        getLength: function() {
+            return this.길이;
+        }
+    };
+
+    let result1=pepero.eat("초코");
+    alert(result1);
+
+    pepero.printInfo();
+    let result2=pepero.eat("누드");
+    alert(result2);
+
+    let result3=pepero.getLength();
+    alert(result3);
+
+
+    </script>
+</body>
+</html>

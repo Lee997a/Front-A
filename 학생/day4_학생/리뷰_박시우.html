@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&display=swap" rel="stylesheet">
+    <style>
+        *{
+            font-family: "Jua", serif;
+        }
+
+        .all{
+            margin-left: 250px;
+            
+        }
+
+        .wrap{
+            border: 2px solid red;
+            width: 750px;
+            position: relative;
+        }
+
+        .food-flavor{
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            gap: 40px;
+        }
+
+        .food-iamge{
+            border: 1px solid black;
+            width: 300px;
+        }
+
+        .info{
+            margin-top: 40px;
+        }
+
+        table{
+            /* border: 1px solid black; */
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        td{
+            border: 1px solid black;
+            width: 200px;
+            height: 20px;
+        }
+
+        /* tr :nth-child(odd){
+            background-color: aqua;
+        } */
+
+        /* .tr:nth-child(1)>td{
+            text-align: center;
+        } */
+
+        .table-title{
+            text-align: center;
+        }
+
+        .table-title td{
+            border: none;
+        }
+
+        .box{
+            border: 1px solid black;
+            width: 90%;
+            height: 100px;
+        }
+
+        .restaurant-info-div{
+            /* border: 1px solid black; */
+            margin-top: 60px;
+            padding-left: 50px;
+        }
+
+        .more-info{
+            /* border: 1px solid black; */
+            margin-top: 60px;
+            padding-left: 50px;
+            margin-bottom: 30px;
+        }
+
+        .thumbs{
+            position: absolute;
+            left: 1200px;
+            top: 400px;
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all">
+        <div class="wrap">
+            <h3 style="text-align: center;">REVIEW DETAIL</h3>
+            <div class="food-flavor">
+                <div class="food-image">
+                    <h4>이미지</h4>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1AO3NHZP6ciqwAXPiwpryVn_DbIyiJm4i8Q&s" alt="수제버거거">
+                </div>
+                <div>
+                    <h4>맛평가(후기)</h4>
+                    <textarea cols="45" rows="7"></textarea>
+                </div>
+            </div>
+    
+            <div class="info">
+                <table>
+                    <tr class="table-title">
+                        <td>연령대</td>
+                        <td>만족도</td>
+                        <td>성별</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+    
+            <div class="restaurant-info-div">
+                <h3>판매점 정보</h3>
+                <div class="box"></div>
+            </div>
+    
+            <div class="more-info">
+                <h3>더 나누고 싶은 정보</h3>
+                <textarea rows="5" cols="90"></textarea>
+            </div>
+        </div>
+    
+        <div class="thumbs">
+            <p>좋다고 생각되시면 꾹~~~</p>
+            <p>👍🏻</p>
+        </div>
+    </div>
+    
+    
+</body>
+
+</html>

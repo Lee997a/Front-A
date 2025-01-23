@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <style>
+        /*헤더*/
+        header{
+            height: 100px;
+            background-color: coral;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        header h1{
+            margin: 0px;
+            text-align: center;
+            line-height: 100px;
+            letter-spacing: 20px;
+        }
+        .search{
+            background-color: white;
+            height: 50px;
+            display: flex;
+        }
+        .search input{
+            border: none;
+            outline: none;
+        }
+        .search img{
+            width: 60px;
+        }
+
+        /*내비*/
+        nav{
+            height: 60px;
+            background-color: wheat;
+        }
+        ul{
+            margin: 0px;
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            line-height: 60px;
+        }
+        a{
+            color: brown;
+            font-weight: bold;
+        }
+        a:hover{
+            color:cornflowerblue;
+        }
+
+        /*세션*/
+        section{
+            padding: 50px;
+        }
+        table{
+            border: 1px solid rgb(227, 216, 216);
+            border-collapse: collapse;
+            width: 800px;
+            font-size: 12px;
+            margin: 0 auto;
+        }
+        caption{
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        tr{
+            height: 40px;
+        }
+        td{
+            border: 1px solid rgb(227, 216, 216);
+            padding: 10px;
+        }
+        td:nth-child(1){
+            text-align: center;
+        }
+        table input, table select{
+            width: 150px;
+            height: 30px;
+        }
+        table button{
+            width: 150px;
+            height: 40px;
+            border: 0px;
+        }
+
+        /*푸터*/
+        footer{
+            height: 100px;
+            background-color: antiquewhite;
+            line-height: 50px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <!--헤더-->
+    <header>
+        <div>
+            <h1>STUDY SITE</h1>
+        </div>
+        <div class="search">
+            <input>
+            <img src="./image/검색.png">
+        </div>
+    </header>
+
+    <!--내비-->
+    <nav>
+        <ul>
+            <li><a href="./수맞추기게임.html">수 맞추기</a></li>
+            <li><a href="./물나르기.html">물 나르기</a></li>
+            <li><a href="./가위바위보.html">가위바위보</a></li>
+            <li><a href="./나이계산.html">나이 계산</a></li>
+            <li><a href="./테이블.html">테이블</a></li>
+        </ul>
+    </nav>
+
+    <!--세션-->
+    <section>
+        <table>
+            <caption>연습용 테이블</caption>
+            <tr>
+                <td>이름</td>
+                <td>
+                    <input type="text">
+                </td>
+            </tr>
+            <tr>
+                <td>아이디</td>
+                <td>
+                    <input type="text">
+                    <button>중복확인</button>
+                </td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td>
+                    <input type="password">
+                    <p style="color: red;">※비밀번호는 8자리 이상 영문숫자를 작성해 주세요</p>
+                </td>
+            </tr>
+            <tr>
+                <td>비밀번호확인</td>
+                <td>
+                    <input type="password">
+                </td>
+            </tr>
+            <tr>
+                <td>이메일</td>
+                <td>
+                    <input type="text">@
+                    <input type="text">
+                    <select>
+                        <option>선택하세요</option>
+                        <option>naver.com</option>
+                        <option>gmail.com</option>
+                    </select>
+                    <button>중복확인</button>
+                </td>
+            </tr>
+            <tr>
+                <td>학년/반</td>
+                <td>
+                    <select>
+                        <option>선택하세요</option>
+                        <option>1</option>
+                        <option>2</option>
+                    </select>
+                    학년
+                    <select>
+                        <option>선택하세요</option>
+                        <option>1</option>
+                        <option>2</option>
+                    </select>
+                    반
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button>가입</button>
+                    <button>취소</button>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <!--푸터-->
+    <footer>
+        <img src="./image/logo.png">
+        <p>
+            (주)에이콘이즈 에이콘아카데미(홍대)
+        </p>
+        <p>
+            COPYRIGHT(C) HBILAB ALL RIGHTS RESERVED.
+        </p>
+     </footer>
+</body>
+</html>

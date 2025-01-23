@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Diphylleia&family=Do+Hyeon&family=Gothic+A1&family=Nanum+Gothic+Coding&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR:wght@200..900&display=swap');
+        *{
+            font-family: "Noto Sans KR", serif;
+            font-optical-sizing: auto;
+            font-weight: <weight>;
+            font-style: normal;
+        }
+        html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        }
+        .background{
+            width: 100%;
+            background-color: #212429;
+            
+        }
+        .base{
+            width: 700px;
+            border: 1px solid black;
+            background-color: #212429;
+            margin: 0 auto;
+
+            position: relative;
+        }
+        /*제안*/
+        /*.suggest *{
+            border: 1px solid green;
+        }*/
+
+        .suggest h3{
+            padding-left: 25px;
+            font-size: 24px;
+            color: white;
+        }
+        .suggest img{
+            width: 45px;
+        }
+        .movie_suggest{
+            display: flex;
+            justify-content: center;
+        }
+        .suggest .suggest_box{
+            width: 20%;
+            height: 260px;
+
+            margin: 8px;
+            border: 0.1px solid rgba(0, 0, 0, 0.158);
+            border-radius: 8px;
+            background-color: #172036;
+        }
+        .suggest_box img{
+            width: 140px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        .suggest_box h4{
+            color: white;
+            text-align: center;
+            /*border: 1px solid rgba(255, 0, 0, 0.247);*/
+            margin: 0 auto;
+            margin-top: -3px;
+        }
+        .rating{
+            display: flex;
+        }
+        .circle{
+            width: 20px;
+            height: 20px;
+            margin: 5px;
+            margin-top: 6px;
+            margin-left: 11px;
+            
+            border-radius: 15px;
+            background-color: #0db482;
+        }
+        .circle, .rating_star{
+            display: none;
+        }
+        .tomato{
+            width: 15px;
+            height: 25px;
+            margin: 5px;
+            margin-top: 3px;
+            bottom: 10px;
+            margin-left: 8px;
+
+            background-image: url(./tomato.png);
+            background-size: cover;
+            background-position: center;
+        }
+        .tomato:hover{
+            display: none;
+        }
+        .tomato:hover + .circle{
+            display: block;
+        }
+        .tomato:hover ~ .rotten_score{
+            display: none;
+        }
+        .tomato:hover ~ .rating_star{
+            display: block;
+        }
+        .rotten_score{
+            color: rgb(255, 145, 0);
+            font-weight: bold;
+            margin-top: 3px;
+        }
+        .rating_star{
+            display: none;
+            font-weight: bold;
+            margin-top: 3px;
+            color :#0ca678;
+        }
+        .plus{
+            width: 20px;
+            height: 20px;
+
+            border-radius: 15px;
+            background-color: #0db482;
+
+            margin-left: 33px;
+            margin-top: 5px;
+            position: relative;
+        }
+        .plus img{
+            
+            width: 17px;
+
+            padding: 0 auto;
+            padding-left: 1.5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="base">
+            <!--제안창-->
+            <div class="suggest">
+                <h3>오늘 이거 볼까요? <img src="./eyes.png"></h3>
+                <div class="movie_suggest">
+                    <div class="suggest_box">
+                        <a href="https://www.netflix.com/kr/title/70299275"><img src="https://i.namu.wiki/i/8Cr9ZS2ABjkNAdm27K3PpfLMOQy4sKDOnHiUxbqSO2Wm4tximaHBpQeABcslP_0SJQFjAIZaYBzKh0JeYlGuAHNhASv2l8ZN1gdOmVTWvkRJ8LMKU17s7w_MmFZFtmeXX17LG4fMeVYAek8mZMxbnw.webp" alt="Whiplash 포스터"></a>
+                        <h4>Whiplash</h4>
+                        <div class="rating">
+                            <img src="./tomato.png" class="tomato">
+                            <div class="circle"></div>
+                            <span class="rotten_score">94.0%</span>
+                            <span class="rating_star">8.88★</span>
+                            <div class="plus">
+                                <img src="./plus.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="suggest_box">
+                        <a href="https://watcha.com/ko-KR/contents/mWvKQw0?utm_campaign=metadata&utm_source=google&utm_medium=search"> <img src="https://i.namu.wiki/i/KMnaDQEyBUdHU1Q7itIsl3InULWUAWNka_xOKPrMG4ojNTgXFmql99QI-KBJ0FN-5RB-i2fB6P__5i51aj-Vd_nLtGOmm-Cbaed7xTpHqSJGsHiBHy3bYb5ImJ2Bx-eldy6AfeV4brDK4ONIFRj3NQ.webp" alt="위키드 포스터"></a>
+                        <h4>Wicked</h4>
+                        <div class="rating">
+                            <img src="./tomato.png" class="tomato">
+                            <div class="circle "></div>
+                            <span class="rotten_score">88.0%</span>
+                            <span class="rating_star">8.68★</span>
+                            <div class="plus">
+                                <img src="./plus.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="suggest_box">
+                        <a href="https://www.netflix.com/kr/title/81730166"><img src="https://i.namu.wiki/i/1hLEgzSFaAtBwRZIFs5PMT2Gcr1Ie9FL5BBMrR9CDii0yZ6Uy1p9vXDZoN_ozagwOocZSl_VBoM0wxPBDgFqjVKnOEWmDux3BkCPIEveNJF070Yr4LFeiOBQZAy_1c80lSBNIqGWc-5Q8V2p2OkUCg.webp" alt="콘크리트 유토피아 포스터"></a>
+                        <h4>콘크리트 유토피아</h4>
+                        <div class="rating">
+                            <img src="./tomato.png" class="tomato">
+                            <div class="circle"></div>
+                            <span class="rotten_score">100%</span>
+                            <span class="rating_star">8.19★</span>
+                            <div class="plus">
+                                <img src="./plus.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="suggest_box">
+                        <a href="https://www.netflix.com/kr/title/70024111?source=naver"><img src="https://i.namu.wiki/i/2HrSg_X4JOD-IXfknB0Z87II-J3PFZ8jx-ACQh7lq7FUV5yaIRE9nSSgWzkw4roaxb80wXtokAsq6qNODjJBFsK29ShoUzCi2LDHjCvvoyZjXRr7Lr676czpcN8usjyr75YRkG8t03EwA6Ssx_y9zg.webp" alt="올드보이 포스터"></a>
+                        <h4>올드보이</h4>
+                        <div class="rating">
+                            <img src="./tomato.png" class="tomato">
+                            <div class="circle"></div>
+                            <span class="rotten_score">82.0%</span>
+                            <span class="rating_star">9.31★</span>
+                            <div class="plus">
+                                <img src="./plus.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>              
+            </div>
+        </div>
+    </div>
+</body>
+</html>

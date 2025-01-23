@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const zootopia={
+            이름 : "주토피아",
+            개봉 : "2016.02.17.",
+            평점 : 9.33,
+            관객수 : "471만명",
+            등장인물 : ["주디", "닉", "플래시", "벨웨더", "가젤"],
+
+            char : function(name){
+                if(this.등장인물.includes(name)){
+                    return `${name}는(은) 주토피아의 친구입니다.`;
+                }else{
+                    return `${name}는(은) 주토피아의 친구가 아닙니다.`;
+                }
+            },
+
+            printInfo : function(){
+                return " 이름 : 주토피아\n 개봉 : 2016.02.17.\n 평점 : 9.33\n 관객수 : 471만명";
+                //return ` 이름 : ${this.이름}\n 개봉 : ${this.개봉}\n 평점 : ${this.평점}\n 관객수 : ${this.관객수}`;
+            },
+        }
+
+        let result1=zootopia.char(prompt("궁금한 친구의 이름을 입력하세요."));
+        alert(result1);
+        let result2=zootopia.printInfo();
+        alert(result2);
+    </script>
+</body>
+</html>

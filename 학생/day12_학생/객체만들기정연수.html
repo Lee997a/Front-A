@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const SPEAR ={
+            이름:"Mcx SPEAR 6.8",
+            개발사:"SIG/SAUER",
+            종류:"Assault rifle",
+            탄약:"6.8mm",
+            단가:"7999$"
+        }
+
+        const jupiter={
+            이름:"목성",
+            구분:"외행성",
+            소속:"우리은하",
+            자전주기:"약 9시간 55분",
+            공전주기:"약 11.8618년",
+            평균온도: -108,
+
+            temperature: function(temp){
+                if(this.평균온도 == temp){
+                    return alert("맞아요! 목성의 온도는 " + temp + "도 에요!")
+                }else if(this.평균온도 > temp){
+                    return alert("아무리 추워도 " + temp + "도 보단 따듯해요");
+                }else if(this.평균온도 < temp){
+                    return alert(temp + "도 보다 훨신 추워요");
+                }
+            },
+
+            include: function(inc){
+                if(this.소속.includes(inc)){
+                    alert("맞아요 목성은 우리은하에 소속되어 있어요");
+                }else{
+                    alert("달라요. 목성은 " + inc + " 에 소속되있지 않아요");
+                }
+            },
+            info: function(){ 
+                alert(" 이름은 " + this.이름+ " 종류는 " + this.구분 + " 소속은 " + this.소속 + " 자전주기는 " + this.자전주기 + " 공전주기는 " + this.공전주기 + " 평균온도는 " + this. 평균온도);
+            }
+
+            
+        }
+        jupiter.info();
+
+        let info1 = jupiter.temperature(prompt("목성의 평균온도는 몇도일까요?"))        
+        let info3 = jupiter.include(prompt("목성은 어떤 은하에 소속되어 있을까요?"));
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+ // 문제: 아래 prices 배열에서 1200보다 큰 숫자만 골라 새로운 배열에 저장하세요.
+        const prices = [1000, 1500, 900, 1800, 2000, 1200];      
+        const newPrices = [];
+        let index=0;
+            
+        for(let i=0;i<prices.length;i++){
+            if(prices[i]>1200){
+                newPrices[index]=prices[i];
+                index++;
+            }
+        }
+
+        console.log(newPrices);
+
+    </script>
+</body>
+</html>

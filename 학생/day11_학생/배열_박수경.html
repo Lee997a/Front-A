@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+
+        //1차원 배열
+        let menu1=["가", "나", "다", "라", "마", "바", "사"];   // 0, 1, 2, 3, 4, 5, 6
+
+        document.write(menu1[1]);  //나
+        document.write(menu1[3]);  //라
+        document.write("<br>============<br>");
+
+        for (let i=0; i<7; i++){
+            document.write( menu1[i]);
+        }
+
+        document.write("<br>============<br>");
+
+    </script>
+
+    <script>
+        //2차원 배열
+        
+        let menu2=[
+            ["ㅇ","ㅈ","ㅊ","ㅋ","ㅌ","ㅍ","ㅎ"],
+            ["ㅏ","ㅑ","ㅓ","ㅕ","ㅗ"],
+            ["ㅛ","ㅡ","ㅣ"]
+        ];
+
+        document.write(menu2[0][0]);   //ㅇ
+        document.write(menu2[1][0]);   //ㅏ
+        document.write(menu2[0][1]);   //ㅈ
+        document.write(menu2[1][0]);   //ㅏ
+        document.write(menu2[0][0]);   //ㅇ
+        document.write(menu2[1][0]);   //ㅏ
+        document.write(menu2[0][1]);   //ㅈ
+        document.write(menu2[1][0]);   //ㅏ
+
+        document.write("<br>============<br>");
+
+        for(let j=0; j<menu2.length; j++){    //j=0     1
+            for(k=0; k<menu2[j].length; k++){    //k=0     0
+                document.write(menu2[j][k]);
+            }
+            document.write("<br>");
+        }
+        
+        
+
+    </script>
+
+</body>
+</html>

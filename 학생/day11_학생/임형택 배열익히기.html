@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //1차원 배열
+        console.log("1차원 배열======");
+        document.write("1차원 배열======","<br>");
+
+        let food1 =["김치찌개", "비빔밥", "불고기", "삼겹살 구이", "갈비찜"];
+        let food2 =["된장찌개", "닭갈비", "잡채", "파전", "떡볶이"];
+        let food3 =["라멘", "초밥", "돈카츠", "파스타", "피자"];
+        let food4 =["타코", "햄버거", "스테이크", "랍스터", "카레"];
+
+        for(let i=0; i<5; i++){
+            console.log(food1[i]);
+            document.write(food1[i]);
+        }
+        
+        document.write("<br>");
+
+        for(let i=0; i<5; i++){
+            console.log(food2[i]);
+            document.write(food2[i]);
+        }
+
+        document.write("<br>");
+
+        for(let i=0; i<5; i++){
+            console.log(food3[i]);
+            document.write(food3[i]);
+        }
+
+        document.write("<br>");
+
+        for(let i=0; i<5; i++){
+            console.log(food4[i]);
+            document.write(food4[i]);
+        }
+
+        document.write("<br>");
+        console.log("2차원 배열=======");
+        document.write("2차원 배열=======","<br>");
+
+        //2차원 배열
+
+        let foods=[
+            ["김치찌개", "비빔밥", "불고기", "삼겹살 구이", "갈비찜"],
+            ["된장찌개", "닭갈비", "잡채", "파전", "떡볶이"],
+            ["라멘", "초밥", "돈카츠", "파스타", "피자"],
+            ["타코", "햄버거", "스테이크", "랍스터", "카레"]
+        ];
+
+        for(let i=0; i<4; i++){
+            for(let j=0; j<5; j++){
+                console.log(foods[i][j]);
+                document.write(foods[i][j]);
+            }
+            document.write("<br>");
+        }
+
+        console.log("3차원 배열======");
+        document.write("3차원 배열========","<br>");
+        //3차원 배열
+
+        let hungry=[
+            [
+            ["김치찌개", "비빔밥", "불고기", "삼겹살 구이", "갈비찜"],
+            ["된장찌개", "닭갈비", "잡채", "파전", "떡볶이"],
+            ["라멘", "초밥", "돈카츠", "파스타", "피자"],
+            ["타코", "햄버거", "스테이크", "랍스터", "카레"]
+            ]
+            ,
+            [
+            ["갈비탕", "냉면", "해물파전", "순두부찌개", "콩나물국밥"],
+            ["제육볶음", "오삼불고기", "곱창전골", "떡갈비", "잡탕밥"],
+            ["쌀국수", "팟타이", "토마토 리조또", "까르보나라", "봉골레 파스타"],
+            ["바베큐 폭립", "치킨윙", "부리또", "참치 스테이크", "비프웰링턴"]
+            ]
+        ];
+
+        for(let k=0; k<2; k++){
+            for(let i=0; i<4; i++){
+                for(let j=0; j<5; j++){
+                    console.log(hungry[k][i][j]);
+                    document.write(hungry[k][i][j]);
+                }
+                document.write("<br>");
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        const cat = {
+            이름: "포도",
+            나이: "6살",
+            색깔: "턱시도",
+            무게: "7kg",
+            좋아하는것: ["북어","츄르"],
+            싫어하는것: ["꼬리만지기","목욕"],
+
+            good : function(간식){
+                if(this.좋아하는것.includes(간식)){
+                    return this.이름+"는 "+간식+"를 주면 애교를 부려요 (*^▽^*)"
+                }else{
+                    return `${간식}는 냄새만 맡고 가버립니다 ^^;`
+                }
+            },
+
+            bad : function(행동){
+                if(this.싫어하는것.includes(행동)){
+                    return `${행동}을(를) 하면 물어요 (T_T)`
+                }else{
+                    return `그냥 나를 안 좋아하는 것 같아...〒▽〒`
+                }
+            },
+
+            printInfo : function(){
+                return `${this.이름} / ${this.나이} / ${this.무게} / ${this.좋아하는것} 좋아함`
+            }
+        }
+
+
+        console.log(`이름: ${cat.이름}`);
+        console.log(`나이: ${cat.나이}`);
+        console.log(`털무늬: ${cat.색깔}`);
+        console.log(`무게: ${cat["무게"]}`);
+        console.log(`좋아하는것: ${cat["좋아하는것"]}`);
+        console.log(`싫어하는것: ${cat["싫어하는것"]}`);
+
+
+
+        let 간식=prompt("포도가 좋아하는 간식은 무엇일까요?")
+        alert(cat.good(간식));
+        alert(cat.good("구운연어"));
+
+        let 행동=prompt("포도가 싫어하는 행동은 무엇일까요?")
+        alert(cat.bad(행동));
+        alert(cat.bad("만지기"));
+        alert(cat.printInfo());
+
+
+        
+        
+    </script>
+</body>
+</html>

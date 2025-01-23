@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            display: flex;
+        }
+        .wrap{
+            width: 600px;
+           /* height: 750px;*/
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        .wrap > h2{
+            text-align: center;
+        }
+
+        /*이미지영역*/
+        h4{
+            margin: 0px;
+            text-align: center;
+        }
+
+        .wrap_answer{
+            display: flex;
+        }
+
+        .wrap_answer p{
+            text-align: center;
+        }
+
+        .wrap_answer img{
+            width: 90%;
+            display: block;
+        }
+
+        /*만족도영역*/
+        .a{
+            
+            width: 85%;
+           /* height: 30px;  */
+
+            display: flex;
+
+            margin:  0 auto;
+        }
+
+        .a > div{
+            width: 33.3%;
+          /*  height: 30px;  */
+        }
+
+        .a  input{
+            
+
+            box-sizing: border-box;
+            height: 20px;
+            
+        }
+
+       /*추천영역*/
+       .thumbs{
+        position: absolute;
+        left: 1200px;
+        top: 400px;
+        font-size: 25px;
+    }
+        
+    </style>
+</head>
+<body>
+    <!--전체영역-->
+    <div class="main">
+    <!--이미지,맛평가-->
+    <div class="wrap">
+        <H2>REVIEW DETAIL</H2>
+
+        
+        <div class="wrap_answer">
+            <div>
+                <p>이미지</p>
+                <img src="./image/빵.jpg" alt="이미지">
+            </div>
+            <div>
+                <p>맛평가(후기)</p>
+                <textarea cols="40" rows="5"></textarea>
+            </div>
+        </div>
+
+        <!--만족도-->
+            <div class="a">
+                <div>
+                    <h4>연령대</h4>
+                    <input type="text">
+                </div>
+                <div>
+                    <h4>만족도</h4>
+                    <input type="text">
+                </div>
+                <div>
+                    <h4>성별</h4>
+                    <input type="text">
+                </div>
+            </div>
+
+        <!--판매점정보-->
+        <div>
+            <p>판매점 정보</p>
+            <input type="text" style="width: 580px; height: 80px;">
+        </div>
+
+        <!--더나누고싶은정보-->
+        <div>
+            <p>더 나누고 싶은 정보</p>
+            <textarea cols="85" rows="5"></textarea>
+        </div>
+    </div>
+
+    <!--따봉-->
+    <div class="thumbs">
+        <p>좋다고 생각되시면 꾹~~~</p>
+        <p>👍🏻</p>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* body{
+            text-align: center;
+        } */
+    </style>
+</head>
+<body>
+
+    <script>
+        
+        //1차원배열
+        document.write("<1차원 배열><br>");
+
+        let 할리스1=["아메리카노","디카페인 아메리카노", "콜드브루", "에스프레소",
+                    "돌체라떼", "카페라떼", "바닐라딜라이트", "카라멜마키아또"];
+
+        //1차원배열반복
+        for(let i=0; i<8; i++){
+            document.write(할리스1[i]);
+            document.write("<br>");
+        };
+        
+        
+        
+        //2차원배열
+        document.write("<br><br><2차원 배열><br>");
+        
+        let 할리스2=[
+            ["아메리카노","디카페인 아메리카노", "콜드브루", "에스프레소"],
+            ["돌체라떼","카페라떼","바닐라딜라이트","카라멜마키아또"],
+            ["홍자몽차","복숭아얼그레이","유자캐모마일","레몬생강차"],
+            ["생딸기주스","사과비트주스","오렌지당근주스","청포도케일주스"]
+        ];
+
+        //2차원배열반복
+        for(let j=0; j<4; j++){
+            document.write(`(${[j+1]}행)<br>`);
+
+            //1차원반복
+            for(let i=0; i<4; i++){
+                document.write(할리스2[j][i]);
+                document.write("<br>")
+            }
+        }
+
+        
+
+        //3차원배열
+        document.write("<br><br><3차원 배열><br>");
+
+        let 할리스3=[
+            [
+                ["아메리카노","디카페인 아메리카노", "콜드브루", "에스프레소"],
+                ["돌체라떼","카페라떼","바닐라딜라이트","카라멜마키아또"]
+            ],
+            
+            [    
+                ["홍자몽차","복숭아얼그레이","유자캐모마일","레몬생강차"],
+                ["생딸기주스","사과비트주스","오렌지당근주스","청포도케일주스"]
+            ]
+        ];
+
+        //3차원배열반복
+        for(let k=0; k<2; k++){
+
+            //2차원반복
+            for(let j=0; j<2; j++){
+                for(let i=0; i<4; i++){
+                    document.write(할리스3[k][j][i]);
+                    document.write("<br>");
+                }
+            }
+            document.write("<br>");
+        }
+
+
+
+    
+    
+    </script>
+
+</body>
+</html>

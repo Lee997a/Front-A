@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px
+        }
+
+        .wrap {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            box-sizing: content-box;
+            border: 1px solid rgb(0, 0, 0);
+            width: 600px;
+            height: 600px;
+        }
+
+        .wrap div {
+            border: 1px solid rgb(221, 221, 221);
+            width: 60px;
+            height: 60px;
+            font-size: 10pt;
+            font-weight: bolder;
+            text-align: center;
+            line-height: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <script>
+        function color_box() {
+            let box = document.querySelectorAll(".wrap div");
+
+            box.forEach((item, index) => {
+                setTimeout(() => {
+                    let rColor = Math.floor(parseInt(Math.random() * 256))
+                    let gColor = Math.floor(parseInt(Math.random() * 256))
+                    let bColor = Math.floor(parseInt(Math.random() * 256))
+                    item.style.backgroundColor = `rgb(${rColor},${gColor},${bColor})`;
+                    console.log(`box[${[index]}].backgroundColor : ${item.style.backgroundColor}`)
+                    item.innerHTML = `R:${rColor}<br>G:${gColor}<br>B:${bColor}`
+                    item.style.color = `rgb(${255 - rColor},${255 - gColor},${255 - bColor})`
+                }, 10 * index)
+            });
+        }
+
+        function null_box() {
+            let box = document.querySelectorAll(".wrap div");
+
+            box.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.backgroundColor = `white`;
+                    item.innerHTML = ``
+                }, 10 * index)
+            });
+        }
+    </script>
+    <h1>랜덤 색 배열</h1>
+    <div class="wrap">
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+    </div>
+    <button onclick="color_box()">start</button>
+    <button onclick="null_box()">delete</button>
+</body>
+
+</html>

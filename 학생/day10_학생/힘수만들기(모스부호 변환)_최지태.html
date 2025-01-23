@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const char_code_arr = [`*-`, `-***`, `-*-*`, `*`, `**-*`, `--*`, `****`, `**`, `*---`,
+            `-*-`, `*-**`, `--`, `-*`, `---`, `*--*`, `--*-`, `*-*`, `***`, `-`, `**-`, `***-`,
+            `*--`, `-**-`, `-*--`, `--**`]; // 모스부호 배열 (A~Z)
+        const check_eng = /^[a-z|A-Z]+$/; // 문자열 확인용 (정규표현식)
+
+        // 입력 x 반환 o
+        // 입력값을 받고 영어만 있는지 검사(유효성 검사) 후 문자열 반환
+        function input() {
+            let input_string = ""
+            alert("영어 -> 모스부호 변환 입니다.")
+            while (true) {
+                input_string = prompt("영어 문자열을 입력하세요");
+                // 유효성 검사
+                if (check_eng.test(input_string)) {
+                    break;
+                } else {
+                    alert("영어만 입력해주세요")
+                }
+            }
+            document.write(`입력한 문자열 : ${input_string}<br>`)
+            hr()
+            return input_string; // 입력받은 문자열 반환
+        }
+
+        // 입력 o 반환 x
+        // 문자열 입력을 받고 문자 하나씩 나눠서 배열에 저장 
+        function print_morse_code(input) {
+            let input_arr = []
+            let morse_code_string = "" // 전체 모스부호 문자열
+
+            input_arr = input.split("") // 문자 하나씩 배열에 저장
+            for (let i = 0; i < input_arr.length; i++) { // 배열의 크기만큼 반복
+                morse_code_string += change_morse_code(input_arr[i])
+                morse_code_string += " "
+            }
+            hr()
+            document.write(`모스 부호 변환 결과<br>${morse_code_string}`)
+        }
+
+        // 입력 o 반환 o
+        // 문자를 받으면 대문자로 변환 후 아스키코드 숫자로 변환,
+        // 모스부호 배열에서 알맞는 부호 반환 
+        function change_morse_code(text) {
+            let char_upper = text.toUpperCase() // 문자를 대문자로 변환
+            let char_num = char_upper.charCodeAt() - 65 // 문자를 아스키코드 숫자로 변환 (ex A = 65)
+            let morse_code = char_code_arr[char_num] // 모스부호 배열에서 가져오기
+            document.write(`${char_upper} : ${morse_code}`)
+            document.write(`<br>`)
+            return morse_code // 모스부호 반환
+        }
+
+        // 입력 x 반환 x
+        function hr () {
+            document.write("================================================================<br>")
+        }
+
+
+        let input_string = input();
+        print_morse_code(input_string)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        function star(a){
+            for(let i=0;i<=a;i++){
+                for(let j=i;j>0;j--){
+                    document.write("*");
+                }
+                document.write("<br>");
+            }
+            
+        }
+        function line(){
+            document.write("---------<br>");   
+        }
+
+        function prom(){
+            let a=parseInt(prompt("피라미드를 몇층 쌓을까요?"));
+            return a;
+        }
+
+        let a=prom();
+        while(true){
+            star(a);
+            line();
+            let cont = confirm("피라미드를 계속 쌓을까요?");
+            if (cont==false){
+                break;
+            }
+            a=prom();
+        }
+        
+        
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Black+Han+Sans&family=DM+Serif+Text:ital@0;1&family=Gowun+Batang&display=swap');
+
+        .dm-serif-text-regular {
+            font-family: "DM Serif Text", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .dm-serif-text-regular-italic {
+            font-family: "DM Serif Text", serif;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        * {
+            padding: 0;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        a {
+            color: #1e90ff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+
+        p,
+        span,
+        button {
+            text-decoration: none;
+            color: #616161;
+        }
+        p{
+            color: black;
+        }
+
+        li {
+            cursor: pointer;
+        }
+
+        button {
+            cursor: pointer;
+            border: 0;
+            background: transparent;
+        }
+
+        ::selection {
+            color: #666;
+            background: #efefef;
+        }
+
+        .menuBarImg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .menuButton {
+            margin-right: 95%;
+            width: 40px;
+            height: 40px;
+            margin-top: 40px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .backgroundContainer {
+            width: 100%;
+            background-color: #f5f7fa;
+            /* height: 2500px; */
+        }
+
+        .headContainer {
+            width: 90%;
+            /* border: 1px solid black; */
+            background-color: white;
+        }
+
+        .titleContainer {
+            display: flex;
+            height: 80px;
+            border: 1ps solid black;
+            padding: 0;
+        }
+
+        .titleTextContainer {
+            width: 200px;
+            /* border: 1px solid black; */
+            margin-right: 500px;
+            display: inline-block;
+            height: 80px;
+            margin: 0px;
+        }
+
+        .headText {
+            width: 160px;
+            height: 80px;
+            margin: 0;
+
+        }
+
+        .searchBarContainer {
+            width: 450px;
+            height: 45px;
+            margin-right: 100%;
+            /* border: 1px solid black; */
+            /* display: inline-block; */
+            margin-right: 100%;
+            margin-top: 25px;
+            display: flex;
+            position: relative;
+        }
+
+        .titleImg {
+            margin: 0;
+        }
+
+        input {
+            width: 450px;
+            height: 30px;
+        }
+
+        .searchButton {
+            width: 60px;
+            height: 30px;
+
+            border: 1px solid black;
+            background-color: #ced4da;
+            font-weight: bold;
+            color: black;
+        }
+
+        .mainContainer {
+            width: 80%;
+            background-color: white;
+            height: 2500px;
+            position: relative;
+        }
+
+        .navContainer {
+            display: flex;
+            width: 90%;
+            /* border: 1px solid black; */
+            height: 35px;
+            position: relative;
+        }
+
+        .leftNav {
+            width: 8%;
+            display: block;
+            text-align: left;
+            margin: 0;
+            font-size: 17px;
+            margin-top: 4px;
+
+
+            color: black;
+            display: flex;
+            text-decoration: underline;
+            text-underline-offset: 11px;
+
+        }
+
+        .rightNav {
+            width: 22%;
+            display: block;
+
+            margin: 0;
+            padding: 0;
+            font-size: 17px;
+            margin-top: 4px;
+            display: flex;
+            text-decoration: underline;
+            position: absolute;
+            right: 40px;
+            text-underline-offset: 11px;
+        }
+
+        .searchIcon {
+            width: 28px;
+            height: 28px;
+            background-image: url(https://cdn-icons-png.flaticon.com/512/107/107122.png);
+            margin: 0;
+            background-position: center();
+            background-size: cover;
+            position: absolute;
+        }
+
+        input::placeholder {
+            padding-left: 30px;
+            display: block;
+        }
+
+        .headSectionContainer {
+            width: 90%;
+            border: 1px solid #ced4da;
+            border-radius: 2px;
+            margin-top: 10px;
+            height: 140px;
+        }
+
+        .mainLeftSectionContainer {
+            width: 49%;
+            /* border: 1px solid gray; */
+            position: absolute;
+            right: 51%;
+            margin-top: 20px;
+
+
+
+        }
+
+        .mainRightSectionContainer {
+            width: 49%;
+            position: absolute;
+            /* border: 1px solid gray; */
+            left: 51%;
+            /* height: 2000px; */
+            margin: 0;
+            margin-top: 20px;
+            border-radius: 3px;
+        }
+
+        .mainSectionContainer {
+            width: 90%;
+            display: flex;
+            position: relative;
+        }
+
+        .mainLeft1 {
+            border: 1px solid #ced4da;
+            height: 410px;
+            border-radius: 3px;
+        }
+
+        .mainLeft1CatStyle {
+            width: 95%;
+            border: 1px solid #ced4da;
+            height: 90px;
+            margin-top: 10px;
+            display: flex;
+            border-radius: 3px;
+        }
+
+        .left1ImgContainer {
+            border-right: 1px solid #ced4da;
+            width: 55px;
+            height: 70px;
+            position: absolute;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        .left1TextArea {
+            margin: 0;
+            padding: 0;
+            width: 70%;
+            height: 90px;
+            margin-left: 17%;
+            text-align: left;
+            margin-top: 10px;
+            color: black;
+        }
+
+        .mainLeft2 {
+            border: 1px solid #ced4da;
+            margin-top: 20px;
+            border-radius: 3px;
+        }
+
+        span:hover {
+            text-decoration: underline;
+        }
+
+        .mainLeft2Title {
+            width: 30%;
+            height: 30px;
+            border: 1px solid #ced4da;
+            background-color: #ced4da;
+            margin: 0;
+            padding: 0;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            color: #0073cf;
+            margin-top: 10px;
+        }
+
+        .left1TextArea1 {
+            margin: 0;
+            padding: 0;
+            width: 70%;
+            height: 110px;
+            margin-left: 17%;
+            text-align: left;
+            margin-top: 10px;
+            color: black;
+        }
+
+        .mainLeft1CatStyle1 {
+            width: 95%;
+            border: 1px solid #ced4da;
+            height: 120px;
+            margin-top: 10px;
+            display: flex;
+            border-radius: 3px;
+        }
+
+        .left1ImgContainer1 {
+            border-right: 1px solid #ced4da;
+            width: 55px;
+            height: 90px;
+            position: absolute;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        .mainLeft3 {
+            border: 1px solid #ced4da;
+            margin-top: 20px;
+            border-radius: 3px;
+        }
+
+        .todayImgContainer {
+            width: 50%;
+            height: 150px;
+            /* border: 1px solid black; */
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/092_Wild_Mute_swan_in_flight_at_Lake_Geneva_during_golden_hour_of_sunset_Photo_by_Giles_Laurent.jpg/270px-092_Wild_Mute_swan_in_flight_at_Lake_Geneva_during_golden_hour_of_sunset_Photo_by_Giles_Laurent.jpg);
+            background-position: center;
+            background-size: cover;
+
+
+        }
+
+        .mainLeft1CatStyle2 {
+            width: 95%;
+            border: 1px solid #ced4da;
+            height: 300px;
+            margin-top: 10px;
+            display: flex;
+            position: relative;
+            border-radius: 3px;
+        }
+        .mainLeft1CatStyle3 {
+            width: 100%;
+            /* border: 1px solid #ced4da; */
+            height: 300px;
+
+            display: flex;
+            position: relative;
+            border-radius: 3px;
+        }
+
+        .mainRight1 {
+            border: 1px solid #ced4da;
+            border-radius: 3px;
+
+        }
+
+        .mainRight1CatStyle {
+            width: 95%;
+            /* border: 1px solid gray; */
+            height: 495px;
+            margin-top: 10px;
+            display: flex;
+            position: relative;
+            border-radius: 3px;
+        }
+
+        .right1Section1 {
+            display: flex;
+            position: relative;
+            padding: 0;
+            margin: 0;
+
+        }
+
+        .right1Section1Img {
+            width: 100px;
+            height: 130px;
+            position: absolute;
+            left: 0;
+            margin: 0;
+        }
+
+        .righ1Section1Text1 {
+            /* border: 1px solid black; */
+            /* width: 70%; */
+            height: 130px;
+            margin-left: 100px;
+            display: block;
+
+            /* margin: 0; */
+            padding: 0;
+            color: black;
+        }
+
+        .righ1Section1Text2 {
+            position: absolute;
+            /* border: 1px solid black; */
+            width: 100%;
+            top: 130px;
+            color: black;
+
+        }
+
+        .righ1Section1Sub {
+            /* border: 1px solid black; */
+            width: 100%;
+            top: 405px;
+            position: absolute;
+            display: flex;
+
+        }
+
+        .mainRight1Title {
+            width: 30%;
+            height: 30px;
+            border: 1px solid #ced4da;
+            background-color: #ced4da;
+            margin: 0;
+            padding: 0;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            color: #0073cf;
+            margin-top: 10px;
+            display: flex;
+            position: relative;
+        }
+
+        .right1SubPart1 {
+            border: 1px solid #ced4da;
+            border-radius: 45%;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            right: 0;
+            width: 10%;
+            height: 25px;
+            text-align: center;
+            background-color: #ced4da;
+            margin-top: 12px;
+            margin-right: 5px;
+            font-weight: bold;
+            color: black;
+            cursor: pointer;
+        }
+
+        .right1SubPart1:hover {
+            background-color: white;
+        }
+
+        .righ1Section1Sub1 {
+            border-top: 1px solid #ced4da;
+            border-bottom: 1px solid #ced4da;
+            width: 100%;
+            top: 445px;
+            position: absolute;
+            display: flex;
+
+        }
+
+        .mainRight1Title1 {
+            width: 55%;
+            height: 30px;
+            border: 1px solid #ced4da;
+            background-color: #ced4da;
+            margin: 0;
+            padding: 0;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            color: #0073cf;
+            margin-top: 10px;
+            display: flex;
+            position: relative;
+        }
+
+        .mainRight2 {
+            border: 1px solid #ced4da;
+            border-radius: 3px;
+            margin-top: 10px;
+        }
+
+        .mainRight2Title {
+            width: 30%;
+            height: 30px;
+            border: 1px solid #ced4da;
+            background-color: #ced4da;
+            margin: 0;
+            padding: 0;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            color: #0073cf;
+            margin-top: 10px;
+            display: flex;
+        }
+
+        .right2ListSection {
+            display: flex;
+            position: relative;
+        }
+
+        .right2List {
+            width: 70%;
+            /* border: solid 1px black; */
+            display: block;
+
+        }
+
+        ul {
+            width: 70%;
+            margin: 0;
+            margin-left: 10px;
+        }
+
+        .right2Img {
+            position: absolute;
+            right: 30px;
+
+        }
+
+        .right3ListSection {
+            display: flex;
+        }
+
+        .right3Img {
+            height: 200px;
+        }
+
+        .mainRight3 {
+            border: 1px solid #ced4da;
+            border-radius: 3px;
+            margin-top: 10px;
+        }
+
+        .sisterProject {
+            width: 90%;
+            border: 1px solid #ced4da;
+            border-radius: 2px;
+            height: 220px;
+            margin: 0 auto;
+            margin-bottom: 0;
+            position: absolute;
+            bottom: 11.5%;
+            left: 5%;
+
+        }
+
+        .sisterPrTitle {
+            width: 10%;
+            height: 30px;
+            border: 1px solid #ced4da;
+            background-color: #ced4da;
+            margin: 0;
+            padding: 0;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            color: #0073cf;
+            margin-top: 10px;
+            display: flex;
+
+        }
+        /* .sisterPrImgSection{
+            display: flex;
+        } */
+        .sisPrImgFloor1{
+            display: flex;
+            width: 95%;
+            margin: 0 auto;
+            /* border: 1px solid black; */
+            padding: 0;
+            margin-top: 5px;
+            
+        }
+        .sisPrTextBox{
+            margin: 0;
+            text-align: left;
+        }
+        .sisPrImg{
+            margin: 0;
+
+        }
+        .sisPrImg1{
+            margin: 0;
+            margin-left: 15%;
+        }
+        .sisPrImg2{
+            margin: 0;
+            margin-left: 17%;
+        }
+        .footer{
+            width: 90%;
+            border-top: 1px solid #ced4da;
+            position: absolute;
+            bottom: 4%;
+            left: 5%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="backgroundContainer">
+        <div class="mainContainer">
+            <div class="headContainer">
+                <d class="titleContainer">
+                    <button class="menuButton"><img src="https://cdn-icons-png.flaticon.com/512/2311/2311531.png"
+                            class="menuBarImg"></button>
+                    <img class="titleImg" src="https://ko.wikipedia.org/static/images/icons/wikipedia.png">
+                    <div class="titleTextContainer">
+                        <div class="headText dm-serif-text-regular titleText">
+                            <h2 style="text-align: left;">위 키 백 과</h2>
+                            <p>우리 모두의 백과사전</p>
+                        </div>
+
+                    </div>
+                    <div class="searchBarContainer">
+                        <input type="text" placeholder="위키백과 검색">
+                        <button class="searchButton">검색</button>
+                        <div class="searchIcon"></div>
+                    </div>
+
+            </div>
+            <hr style="margin-top: 10px; width: 90%;">
+            <div class="navContainer">
+                <div class="leftNav">
+                    <a href="./wikiPage.html">대문</a>
+                    <a href="#" style="color: #0073cf;">토론</a>
+                </div>
+                <div class="rightNav">
+                    <a href="#">읽기</a>
+                    <a href="#">원본 보기</a>
+                    <a href="#">역사 보기</a>
+                    <a href="#">도구V</a>
+                </div>
+            </div>
+            <hr style="width: 90%;">
+            <div class="headSectionContainer">
+                <h1 style="margin-top: 20px; margin-left: 20px;">위키백과</h1>
+                <br>
+                <p style="margin-left: 20px; color: black;">우리 모두가 만들어가는 자유백과사전 <br>
+                    문서 <span style="color: blue;">694,646</span>개와 최근 기여자 <span style="color: #0073cf;">1,837</span>명
+                </p>
+            </div>
+            <div class="mainSectionContainer">
+                <div class="mainLeftSectionContainer">
+                    <div class="mainLeft1">
+                        <div class="mainLeft1CatStyle">
+                            <div class="left1ImgContainer">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/XEIcon_xi-group.svg/40px-XEIcon_xi-group.svg.png"
+                                    style="margin: 0; padding: 0; bottom: 0; position: absolute; cursor: pointer;">
+                            </div>
+                            <p class="left1TextArea"><span
+                                    style="font-weight: bold; font-size: 22px; color: #0073cf; cursor: pointer;">사랑방</span><br><br>
+                                다른 분들과 의견을 교환해봐요!</p>
+
+
+                        </div>
+                        <div class="mainLeft1CatStyle">
+                            <div class="left1ImgContainer">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/XEIcon_xi-message.svg/40px-XEIcon_xi-message.svg.png"
+                                    style=" margin: 0; padding: 0; bottom: 0; position: absolute; cursor: pointer;">
+                            </div>
+                            <p class="left1TextArea"><span
+                                    style="font-weight: bold; font-size: 22px; color: #0073cf; cursor: pointer;">질문방</span><br><br>
+                                지침으로 해소되지 않는 의문을 풀어봐요!</p>
+
+                        </div>
+                        <div class="mainLeft1CatStyle">
+                            <div class="left1ImgContainer">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Group_half.svg/40px-Group_half.svg.png"
+                                    style=" margin: 0; padding: 0; bottom: 0; position: absolute; cursor: pointer;">
+                            </div>
+                            <p class="left1TextArea"><span
+                                    style="font-weight: bold; font-size: 22px; color: #0073cf; cursor: pointer;">사용자
+                                    모임</span><br><br>
+                                커뮤니티 포털에 방문해보세요!</p>
+                        </div>
+                        <div class="mainLeft1CatStyle">
+                            <div class="left1ImgContainer">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/XEIcon_xi-library-bookmark.svg/40px-XEIcon_xi-library-bookmark.svg.png"
+                                    style=" margin: 0; padding: 0; bottom: 0; position: absolute; cursor: pointer;">
+                            </div>
+                            <p class="left1TextArea"><span
+                                    style="font-weight: bold; font-size: 22px; color: #0073cf; cursor: pointer;">정책과
+                                    지침</span><br><br>
+                                편집하시기 전에 한번 읽어주세요!</p>
+                        </div>
+                    </div>
+                    <div class="mainLeft2">
+                        <div class="mainLeft2Title">
+                            <h3 style="margin: 0; padding: 0; margin-top: 3px;">위키백과 참여하기</h3>
+                        </div>
+                        <div class="mainLeft1CatStyle1">
+                            <div class="left1ImgContainer1">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/XEIcon_xi-heart.svg/40px-XEIcon_xi-heart.svg.png"
+                                    style=" margin: 0; padding: 0; bottom: 0; position: absolute; cursor: pointer;">
+                            </div>
+                            <p class="left1TextArea1"><span
+                                    style="font-weight: bold; font-size: 22px; color: #0073cf; cursor: pointer;">환영합니다!</span><br><br>
+                                위키백과는 여러분들을 환영합니다<br>
+                                이것부터 시작해 볼까요!</p>
+                        </div>
+
+                        <div class="mainLeft1CatStyle">
+                            <div class="left1ImgContainer">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Book_sans_information.svg/40px-Book_sans_information.svg.png"
+                                    style=" margin: 0; padding: 0; bottom: 0; position: absolute; cursor: pointer;">
+                            </div>
+                            <p class="left1TextArea"><span
+                                    style="font-weight: bold; font-size: 22px; color: #0073cf; cursor: pointer;">위키백과
+                                    길라잡이</span><br><br>
+                                여러분을 위키인으로 만들어줄 가이드북!</p>
+                        </div>
+
+                        <div class="mainLeft1CatStyle">
+                            <div class="left1ImgContainer">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Document_sans_add.svg/40px-Document_sans_add.svg.png"
+                                    style=" margin: 0; padding: 0; bottom: 0; position: absolute; cursor: pointer;">
+                            </div>
+                            <p class="left1TextArea"><span
+                                    style="font-weight: bold; font-size: 22px; color: #0073cf; cursor: pointer;">새 문서
+                                    만들기 도움말</span><br><br>
+                                새 문서를 만드는 방법에 대해 안내합니다.</p>
+                        </div>
+
+                        <div class="mainLeft1CatStyle">
+                            <div class="left1ImgContainer">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Document_text_edit.svg/40px-Document_text_edit.svg.png"
+                                    style=" margin: 0; padding: 0; bottom: 0; position: absolute; cursor: pointer;">
+                            </div>
+                            <p class="left1TextArea"><span
+                                    style="font-weight: bold; font-size: 22px; color: #0073cf; cursor: pointer;">문서 편집
+                                    도움말</span><br><br>
+                                문서를 편집하는 방법에 대해 안내합니다.</p>
+                        </div>
+
+                        <div class="mainLeft1CatStyle">
+                            <div class="left1ImgContainer">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/PICOL_icon_Image_add.svg/40px-PICOL_icon_Image_add.svg.png"
+                                    style=" margin: 0; padding: 0; bottom: 0; position: absolute; cursor: pointer;">
+                            </div>
+                            <p class="left1TextArea"><span
+                                    style="font-weight: bold; font-size: 22px; color: #0073cf; cursor: pointer;">그림 올리기
+                                    도움말</span><br><br>
+                                그림을 올리는 방법에 대해 안내합니다.</p>
+                        </div>
+
+                        <div class="mainLeft1CatStyle">
+                            <div class="left1ImgContainer">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/XEIcon_xi-building.svg/40px-XEIcon_xi-building.svg.png"
+                                    style=" margin: 0; padding: 0; bottom: 0; position: absolute; cursor: pointer;">
+                            </div>
+                            <p class="left1TextArea"><span
+                                    style="font-weight: bold; font-size: 22px; color: #0073cf; cursor: pointer;">지원
+                                    단체</span><br><br>
+                                위키백과 커뮤니티를 지원하는 단체는?</p>
+                        </div>
+                    </div>
+                    <div class="mainLeft3">
+                        <div class="mainLeft2Title">
+                            <h3 style="margin: 0; padding: 0; margin-top: 3px;">위키백과 소개</h3>
+                        </div>
+                        <br>
+                        <p style="color: black;"><a href="#">위키백과</a>는 <a href="#">위키</a>를 이용하여 전 세계 사람들이 함께 만들어가는 <a
+                                href="#">웹 기반</a>의 다언어 백과사전입니다. <br>
+                            위키백과는 <a href="#">중립적</a>이고 <a href="#">검증 가능</a>한 <a href="#">자유 콘텐츠</a> 백과사전의 제공을 목적으로 하는
+                            프로젝트로, 누구나 참여하여 문서를 수정하고 발전시킬 수 있습니다. <br><br>
+                            위키백과는 <a href="#">다섯 가지 기본 원칙</a>에 따라 운영됩니다. <br>
+                            모든 문서는 <a href="#">크리에이티브 커먼즈 저작자표시-동일조건변경허락 4.0</a>에 따라 사용할 수 있으며, 복사, 수정과 배포가 자유롭고 상업적 목적의
+                            사용도 가능합니다.</p>
+                    </div>
+                    <div class="mainLeft3">
+                        <div class="mainLeft1CatStyle3">
+                            <div class="mainLeft2Title">
+                                <h3 style="margin: 0; padding: 0; margin-top: 3px;">오늘의 그림</h3>
+                                <div class="todayImgContainer"></div>
+
+                            </div>
+                            <p style="margin: 0; position: absolute; bottom: 40px; left: 150px;">위 그림은 <a href="#">위키미디어
+                                    공용에서 가져왔습니다</a></p>
+                            <a href="#" style="position: absolute; margin: 0; padding: 0; bottom: 0; right: 0;">더
+                                보기...</a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="mainRightSectionContainer">
+                    <div class="mainRight1">
+                        <div class="mainLeft2Title">
+                            <h3 style="margin: 0; padding: 0; margin-top: 3px;">알찬 글:클레오파트라</h3>
+                        </div>
+                        <div class="mainRight1CatStyle">
+                            <div class="right1Section1">
+                                <img class="right1Section1Img"
+                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Kleopatra-VII.-Altes-Museum-Berlin1.jpg/100px-Kleopatra-VII.-Altes-Museum-Berlin1.jpg">
+
+                                <p class="righ1Section1Text1"><a href="">클레오파트라 7세 필로파토르</a>(<a href="">그리스어</a>: Κλεοπάτρα Φιλοπάτωρ)는 <a href="">이집트 프톨레마이오스</a>
+                                    왕국의 여왕이자 마지막 통치자였다. <br>
+                                    이집트는 클레오파트라의 죽음 이후 <a href="">로마 제국</a>의 <a href="">속주</a>가 되었으며, 이는 제2의 <a href="">마지막 헬레니즘 국가</a>와 <a href="">알렉산드로스 3세</a>의 통치 이후 지속된 <a href="">시대</a>의 종말을
+                                    의미한다.</p>
+
+                            </div>
+                            <div class="righ1Section1Text2">
+                                <p style="color: black;">기원전 51년 아버지 <a href="">프톨레마이오스 12세 아울레테스</a>가 죽자 남동생 <a href="">프톨레마이오스 13세</a>와 이집트를 공동
+                                    통치하였으나 둘 사이의 갈등으로 내전이
+                                    벌어졌다.
+                                    카이사르와 손잡은 클레오파트라는 프톨레마이오스 13세를 몰아내고, 카이사르는 클레오파트라와 그 남동생 <a href="" style="color: red;">프톨레마이오스 14세</a>를 공동 통치자로 선언했지만
+                                    아들 <a href="">카이사리온</a>을 낳은 클레오파트라와의 사적인 관계는 유지했다. <br><br>
+                                    기원전 43~42년 <a href="">리베라토레스의 내전</a>에서 클레오파트라는 카이사르의 조카이자 상속자인 <a href="">옥타비아누스</a>, <a href="">마르쿠스 안토니우스</a>, <a href="">마르쿠스 아이밀리우스
+                                    레피두스</a>가 결성한 로마 <a href="">제2차 삼두정치</a>의 편에 섰다.
+                                    클레오파트라는 안토니우스와 기원전 41년 <a href="">타르수스</a>에서 만난 후로 관계를 가졌다.
+                                    기원전 31년 옥타비아누스의 군대가 안토니우스와 클레오파트라의 함대를 물리친 <a href="">악티움 해전</a>에 이어, 기원전 30년 옥타비아누스가 이집트를 침공하자,
+                                    클레오파트라는 독으로 자신의 목숨을 끊었다.
+                                    클레오파트라의 유산은 고대와 현대의 예술 작품에 남아있다.
+                                    <hr style="margin-top: 5px;">
+                                </p>
+                            </div>
+                            <div class="righ1Section1Sub">
+                                <div class="mainRight1Title">
+                                    <h3 style="margin: 0; padding: 0; margin-top: 3px;">좋은 글:바다어미</h3>
+
+                                </div>
+                                <div class="right1SubPart1">
+                                    <p style="color: black;">더 보기</p>
+                                </div>
+
+                            </div>
+                            <div class="righ1Section1Sub1">
+                                <div class="mainRight1Title1">
+                                    <h3 style="margin: 0; padding: 0; margin-top: 3px;">알찬 목록:2008년 빌보드 차트 1위 목록</h3>
+
+                                </div>
+                                <div class="right1SubPart1">
+                                    <p style="color: black;">더 보기</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="mainRight2">
+                        <div class="mainLeft2Title">
+                            <h3 style="margin: 0; padding: 0; margin-top: 3px;">새로 들어온 소식</h3>
+                        </div>
+                        <div class="right2ListSection">
+                            <div class="rigt2List">
+                                <ul>
+                                    <li><a href="">1월 9일</a>, <a href="" style="font-weight: bold;">조지프 아운</a>(사진)이 2년간 공백 끝에 <a href="">레바논</a>의 대통령으로 선출되었다</li>
+                                    <li><a href="">1월 7일</a>, <a href="">중국 티베트 자치구</a>에서 규모 M7.1의 <a href="" style="font-weight: bold;">대지진</a>이 발생해 최소 126명이 사망했다.</li>
+                                    <li><a href="">1월 6일</a>, <a href="" style="font-weight: bold;">쥐스탱 트뤼도</a>가 <a href="">캐나다의 총리</a>직 사임 의사를 표명하였다.</li>
+                                    <li><a href="">1월 6일</a>, <a href="" style="font-weight: bold;">인도네시아</a>가 <a href="">브릭스</a>에 합류했다.</li>
+                                    <li><a href="">1월 1일</a>, <a href="">몬테네그로 체티네</a>에서 <a href="" style="font-weight: bold;">총격 사건</a>이 발생하여 12명이 사망하였다.</li>
+                                </ul>
+
+                            </div>
+                            <img class="right2Img"
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Nikos_Christodoulides_meets_with_Joseph_Aoun_%28cropped%29.jpg/120px-Nikos_Christodoulides_meets_with_Joseph_Aoun_%28cropped%29.jpg">
+                        </div>
+                        <br>
+                        <div class="right2TextSection">
+                            <p style="color: black;"><a href="#">진행 중</a>:
+                                <a href="#">2024년 윤석열 대통령 탄핵 운동</a>
+                                · <a href="#">시리아 내전</a>
+                                · <a href="#">이스라엘-하마스 전쟁</a> · <a href="#">미얀마 내전</a> · <a href="#">수단 내전</a>
+                            </p>
+                            <p style="color: black;"><a href="#">최근 부고</a>:
+                                <a href="#">레슬리 찰슨</a> ·
+                                <a href="#">장마리 르펜</a> ·
+                                <a href="#">코스타스 시미티스스</a> ·
+                                <a href="#">클로드 알레그르</a>
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="mainRight3">
+                        <div class="mainLeft2Title">
+                            <h3 style="margin: 0; padding: 0; margin-top: 3px;">새로 들어온 소식</h3>
+                        </div>
+                        <h3 style="margin-top: 20px; margin-left: 20px;">
+                            <a href="#">1월 14일</a>
+                        </h3>
+                        <div class="right3ListSection">
+                            <ul style="width: 70%; margin-left: 40px; margin-bottom: 5px;">
+                                <li><a href="#">1900년</a> - <a href="#">자코모 푸치니</a>의 오페라 《<a href="#">토스카</a>》(사진)가 로마
+                                    코스탄치 극장에서 초연되다.</li>
+                                <a><a href="#">1943년</a> - <a href="#">윈스턴 처칠</a>,
+                                    <a href="#">프랭클린 D</a>.
+                                    <a href="#">루즈벨트</a>,
+                                    <a href="#">샤를 드골</a>,
+                                    <a href="#">앙리 지로</a> 등이
+                                    <a href="#">카사블랑카</a>에 모여 <a href="#">연합국</a>의 <a href="#">제2차 세계 대전</a> 연합 유럽 전술을
+                                    의논한
+                                    <a style="font-weight: bold;" href="#">카사블랑카 회담</a>이 벌어지다.</li>
+                                    <li><a href="#">1970년</a> - <a href="#">나이지리아</a> 동남부에서 독립을 선언한
+                                        <a href="#">비아프라 공화국</a>이 3년에 걸친
+                                        <a style="font-weight: bold;" href="#">비아프라 전쟁</a> 끝에 항복하다.
+                                    </li>
+                                    <li><a href="#">1978</a>년 - 오스트리아의 논리학자인 <a href="#">쿠르트 괴델</a>이 음식에 독이 들어있다는 피해망상
+                                        끝에 아사하다.</li>
+                                    <li><a href="#">2005</a>년 - <a href="#">토성</a>의 위성
+                                        <a href="#">타이탄</a>에 <a style="font-weight: bold;" href="#">하위헌스 탐사선</a>이 착륙하다.
+                                    </li>
+                            </ul>
+                            <img class="right3Img"
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Puccini_Tosca.jpg/100px-Puccini_Tosca.jpg">
+                        </div>
+                        <p style="color: black; margin-top: 5px; margin-left: 10px;"><span style="color: black;">다른
+                                날짜</span>: <span style="color: burlywood;">1월 13일</span> - <span
+                                style="font-weight: bold; color: black;">1월 14일</span>
+                            - <span style="color: #1e90ff;">1월 15일</span></p>
+                        <a style="display: block; text-align: right;" href="#">더 보기...</a>
+                    </div>
+                    <div class="mainRight3">
+                        <div class="mainLeft2Title">
+                            <h3 style="margin: 0; padding: 0; margin-top: 3px;">알고 계십니까</h3>
+
+                        </div>
+                        <div class="right3ListSection">
+                            <ul style="width: 70%; margin: 0; margin-left: 40px; margin-top: 10px; margin-bottom: 5px;">
+                                <li><a href="#">수도권 전철 1호선</a>
+                                    <a href="">동묘앞역</a>의 유래가 된 동묘는
+                                    <a href="">관우</a>의 위패를 모신 <a href="">사당</a>입니다.
+                                </li>
+                                <li>대한민국의 가수인 <a href="">HYNN</a>(흰)(그림)의 예명은 2024년
+                                    <a href="">노벨 문학상</a>을 수상한 <a href="">한강</a> 작가의 소설 《흰》에서 영감을 받아 지은 것이라고 합니다.
+                                </li>
+                                <li>대한민국의 <a href="">한강</a>의 기적이나 일본의 <a href="">고도경제성장</a>, 독일의
+                                    <a href="">라인강의 기적</a>과 같이 프랑스에서도 영광의 30년이라는 전후 경제부흥이 있었습니다.
+                                </li>
+                                <li><a href="">레바논</a>에서는 종교 등 민감한 문제로 인하여 정부 차원의
+                                    <a href="">인구 조사</a>(센서스)가 1932년 이후로 단 한번도 이루어지지 않았습니다. 때문에 종교나
+                                    민족 집단 등의 <a href="">인구</a> 비율에 대한 정확한 데이터가 없습니다.
+                                </li>
+                                <li>출처나 곡명, 가수명, 발매일자 등 모든 정보가 미스터리였다는 점에서 인터넷에서 가장 미스터리한 노래였던
+                                    <a href="">Subways of Your Mind</a>는
+                                    데모가 녹음된 지 40년, 원곡을 찾기 시작한 지 17년, 인터넷에서 인기를 얻은 지 5년 만에 발견되었습니다.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sisterProject">
+                <div class="sisterPrTitle">
+                    <h3 style="margin: 0; padding: 0; margin-top: 3px;">자매 프로젝트</h3>
+                </div>
+                <p style="color: black; margin-left: 30px; margin-top: 10px;">
+                    위키백과는 비영리 단체인 <a href="">위키미디어 재단</a>이 운영하고 있습니다.
+                    위키미디어 재단은 그 밖의 다른 <a href="">프로젝트</a>도 운영하고 있습니다.</p>
+                <div class="sisterPrImgSection">
+                    <div class="sisPrImgFloor1">
+                        <img class="sisPrImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Wikimedia_Community_Logo_optimized.svg/35px-Wikimedia_Community_Logo_optimized.svg.png">
+                        <div class="sisPrTextBox">
+                            <p><a href="">메타위키</a><br>자매프로젝트 관리</p>
+                        </div>
+
+                        <img class="sisPrImg1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/MediaWiki-2020-icon.svg/39px-MediaWiki-2020-icon.svg.png">
+                        <div class="sisPrTextBox">
+                            <p><a href="">미디어위키</a><br>위키 소프트웨어 개발</p>
+                        </div>
+
+                        <img class="sisPrImg1" style="margin-left: 12.5%;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Wiktionary-logo-ko-without-text.svg/42px-Wiktionary-logo-ko-without-text.svg.png">
+                        <div class="sisPrTextBox">
+                            <p><a href="">위키낱말사전</a><br>낱말과 관용구</p>
+                        </div>
+
+                        <img class="sisPrImg1" style="margin-left: 17%;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Wikinews-logo.svg/48px-Wikinews-logo.svg.png">
+                        <div class="sisPrTextBox">
+                            <p><a href="">위키뉴스</a><br>자유 컨텐츠 뉴스</p>
+                        </div>
+                    </div>
+                    
+                    <div class="sisPrImgFloor1">
+                        <img class="sisPrImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Wikidata-logo.svg/43px-Wikidata-logo.svg.png">
+                        <div class="sisPrTextBox">
+                            <p><a href="">위키데이터</a><br>열린 지식 베이스</p>
+                        </div>
+
+                        <img class="sisPrImg1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Wikisource-logo.svg/35px-Wikisource-logo.svg.png">
+                        <div class="sisPrTextBox">
+                            <p><a href="">위키 문헌</a><br>자유 컨텐츠 도서관</p>
+                        </div>
+
+                        <img class="sisPrImg1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Commons-logo.svg/28px-Commons-logo.svg.png">
+                        <div class="sisPrTextBox">
+                            <p><a href="">위키미디어 공용</a><br>열린 미디어 저장소</p>
+                        </div>
+
+                        <img class="sisPrImg1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Wikiversity_logo_2017.svg/40px-Wikiversity_logo_2017.svg.png">
+                        <div class="sisPrTextBox">
+                            <p><a href="">위키배움터</a><br>열린 학습 공간</p>
+                        </div>
+                    </div>
+                    <div class="sisPrImgFloor1">
+                        <img class="sisPrImg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Wikispecies-logo.svg/35px-Wikispecies-logo.svg.png">
+                        <div class="sisPrTextBox">
+                            <p><a href="">위키생물종</a><br>생물 분류 도감</p>
+                        </div>
+
+                        <img class="sisPrImg2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Wikivoyage-Logo-v3-icon.svg/35px-Wikivoyage-Logo-v3-icon.svg.png">
+                        <div class="sisPrTextBox">
+                            <p><a href="">위키여행</a><br>열린 여행 가이드</p>
+                        </div>
+
+                        <img class="sisPrImg2 " style="margin-left: 16%;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikiquote-logo.svg/31px-Wikiquote-logo.svg.png">
+                        <div class="sisPrTextBox">
+                            <p><a href="">위키인용집</a><br>인용 모음집</p>
+                        </div>
+
+                        <img class="sisPrImg2" style="margin-left: 19%;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikibooks-logo.svg/35px-Wikibooks-logo.svg.png">
+                        <div class="sisPrTextBox">
+                            <p><a href="">위키책</a><br>교과서와 참고서</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="footer">
+                <p style="margin-top: 10px; font-size: 12px;">모든 문서는 
+                    <a href="">크리에이티브 커먼즈 저작자표시-동일조건변경허락 4.0</a>에 따라 사용할 수 있으며, 추가적인 조건이 적용될 수 있습니다. 자세한 내용은 <a href="">이용 약관</a>을 참고하십시오. <br>
+                    Wikipedia®는 미국 및 다른 국가에 등록되어 있는 <a href="">>Wikimedia Foundation, Inc.</a> 소유의 등록 상표입니다.</p>
+                    <br><br>
+                    <a href="">개인정보처리방침</a> ·
+                    <a href="">위키백과 소개</a> ·
+                    <a href="">면책 조항</a> ·
+                    <a href="">행동 강령</a> ·
+                    <a href="">개발자</a> ·
+                    <a href="">통계</a> ·
+                    <a href="">쿠키 정책</a> ·
+                    <a href="">모바일 보기</a>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+</body>
+
+</html>

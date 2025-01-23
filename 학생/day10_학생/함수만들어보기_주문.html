@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starbucks</title>
+</head>
+
+<body>
+    <!-- 입력 o, 반환 o -->
+    <h2>스타벅스 메뉴 주문</h2>
+    <p id="order-result"></p>
+    <script>
+        
+        alert("메뉴를 주문하세요\n\n아메리카노 4500원\n플랫화이트 5600원\n자바칩 프라푸치노 6500원");
+
+        let orders = [];
+        let totalPrice = 0;
+
+        function order(sort, num) {
+            let price = 0;
+            switch (sort) {
+                case "아메리카노":
+                    price = 4500 * num;
+                    break;
+                case "플랫화이트":
+                    price = 5600 * num;
+                    break;
+                case "자바칩 프라푸치노":
+                    price = 6500 * num;
+                    break;
+                default:
+                    alert("잘못된 메뉴입니다. 다시 입력해주세요.");
+                    return null;
+            }
+            return {sort, num, price};
+        }
+
+        while (true) {
+            let sort = prompt("종류 선택 (없음 입력 시 종료)");
+            if (sort === "없음") {
+                break;
+            }
+
+            let num = Number(prompt("몇 잔"));
+            if (isNaN(num) || num <= 0) {
+                alert("잔 수를 올바르게 입력해주세요.");
+                continue;
+            }
+
+            let currentOrder = order(sort, num);
+            console.log(currentOrder);
+            if (currentOrder) {
+                orders.push(currentOrder);
+            }
+        }
+
+        orders.forEach( (order) => {
+            totalPrice += order.price;
+        });
+
+        let orderResult = document.getElementById("order-result");
+        let resultHTML = orders.map(order => `<p>${order.sort} ${order.num}잔: ${order.price}원</p>`).join("");
+        resultHTML += `<p><strong>총 금액: ${totalPrice}원</strong></p>`;
+        orderResult.innerHTML = resultHTML;
+    </script>
+</body>
+
+</html>

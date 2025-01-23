@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        
+    <script>
+
+        //곱셈 계산기
+        //입력 : 첫 번째 숫자, 두 번째 숫자
+        //반환 : 결과값
+
+        function InandOut(num1, num2){
+
+            let result = num1 * num2;
+            return result;
+
+        }
+
+        let num1 = parseInt(prompt("첫 번째 숫자를 입력하세요."));
+        let num2 = parseInt(prompt("두 번째 숫자를 입력하세요."));
+        let result = InandOut(num1, num2);
+
+        document.write(result);
+
+    </script>
+
+</body>
+</html>

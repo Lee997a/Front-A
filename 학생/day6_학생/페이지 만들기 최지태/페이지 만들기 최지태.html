@@ -1,0 +1,2003 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+          body와 모든 요소의 기본 설정:
+          - margin과 padding을 0으로 초기화
+          - box-sizing: border-box 로 설정하여 너비 계산시 padding과 border 포함
+          - 배경색을 지정
+        */
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: #080307;
+        }
+
+        /*
+          ul 태그(리스트)의 기본 스타일 제거:
+          - list-style: none => 불릿(●) 제거
+          - margin, padding을 0으로 초기화
+          - display: flex => 가로 방향으로 배치
+        */
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        /*
+          모든 요소(*)에 대해 box-sizing: border-box 적용
+          - 테두리(border)와 안쪽 여백(padding)을 box 크기 계산에 포함
+          - 아래 주석 처리된 border는 개발 시 확인용으로 사용 가능
+        */
+        * {
+            box-sizing: border-box;
+            /* border: 1px solid black; */
+        }
+
+        /*
+          전체 폭 1100px의 컨테이너 .wrap:
+          - 문서 가운데 정렬을 위해 margin: 0 auto 사용
+        */
+        .wrap {
+            width: 1100px;
+            margin: 0 auto;
+        }
+
+        /*
+          header: 페이지의 헤더 영역
+          - 가로 폭 100%
+          - 높이 90px
+          - flex 컨테이너로 내부 요소 가로 배치
+          - 배경색: #080307
+        */
+        header {
+            width: 100%;
+            height: 90px;
+            display: flex;
+            flex-direction: row;
+            background-color: #080307;
+        }
+
+        /* 
+          .leftNav: 헤더의 왼쪽 영역
+          - 너비: 40%
+        */
+        .leftNav {
+            width: 40%;
+        }
+
+        /* 
+          .logo: 헤더 중앙 영역(로고)
+          - 너비: 20%
+        */
+        .logo {
+            width: 20%;
+        }
+
+        /*
+          .logo a: 로고 영역을 감싸는 링크
+          - 기본 여백 제거
+        */
+        .logo a {
+            padding: 0;
+            margin: 0;
+        }
+
+        /*
+          .logo img: 로고 이미지
+          - 가로, 세로 모두 100% 차지
+          - object-fit: contain => 비율 유지하며 영역에 맞춤
+        */
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /*
+          .rightNav: 헤더의 오른쪽 영역
+          - 너비: 40%
+        */
+        .rightNav {
+            width: 40%;
+        }
+
+        /*
+          .top: VIP LOUNGE / 멤버십 / 고객센터 등의 상단 바 영역
+          - 너비: 45%
+          - 높이: 40%
+        */
+        .top {
+            width: 45%;
+            height: 40%;
+        }
+
+        /*
+          .rightNav .top:
+          - rightNav 내부에서 top 영역은 수평 정렬(오른쪽 정렬) 용도로 사용됨
+        */
+        .rightNav .top {
+            justify-self: end;
+        }
+
+        /*
+          .top>ul: 상단 바 내부 ul
+          - font-size: 10px
+          - 높이: 100%
+          - 아이템들을 수직 가운데 정렬 (align-items: center)
+        */
+        .top>ul {
+            font-size: 10px;
+            height: 100%;
+            align-items: center;
+        }
+
+        /*
+          .top a: 상단 바의 링크 스타일
+          - width: 33.3% => 세 개의 링크를 균등 분할
+          - text-align: center => 중앙 정렬
+          - line-height: 100% => 수직으로 맞춰서 보이도록
+          - color: #fff => 흰색 텍스트
+          - font-weight: 100 => 얇은 폰트
+        */
+        .top a {
+            width: 33.3%;
+            text-align: center;
+            line-height: 100%;
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            font-weight: 100;
+        }
+
+        /*
+          .top a:visited:
+          - 방문 후 색상 유지 (흰색)
+        */
+        .top a:visited {
+            color: rgb(255, 255, 255);
+        }
+
+        /*
+          .bottom: 헤더 왼쪽 .leftNav 내부의 하단 부분
+          - 가로 폭 100%
+          - 높이 60%
+          - display: flex => 내부를 가로 배치
+        */
+        .bottom {
+            display: flex;
+            width: 100%;
+            height: 60%;
+        }
+
+        /*
+          .menuIcon: 메뉴 아이콘(사이트맵, 검색) 영역
+          - 가로 폭 20%
+          - 높이 100%
+          - position: relative => 내부에 숨겨진 메뉴를 절대 위치로 배치할 수 있게 함
+        */
+        .menuIcon {
+            display: flex;
+            width: 20%;
+            height: 100%;
+            position: relative;
+        }
+
+        /*
+          .menuIcon > div, .menuIcon p:
+          - menuIcon 내부에 들어가는 div와 p 태그에 공통 스타일
+          - display: flex
+          - margin, padding: 0
+          - 가로 폭 50%, 세로 100%
+          => 사이트맵 아이콘과 검색 아이콘을 50%씩 나누어 배치
+        */
+        .menuIcon>div,
+        .menuIcon p {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            width: 50%;
+            height: 100%;
+        }
+
+        /*
+          .menuIcon img:
+          - 가로, 세로 100%
+          - object-fit: contain => 원본 비율을 유지하면서 영역에 맞춤
+        */
+        .menuIcon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /*
+          .sitemap:hover .hidden_sitemap:
+          - sitemap 영역에 마우스를 올렸을 때, 숨겨진 사이트맵(.hidden_sitemap) 표시
+          - display: block => 보이도록 함
+        */
+        .sitemap:hover .hidden_sitemap {
+            display: block;
+        }
+
+        /*
+          .sitemap > img:
+          - padding: 5px => 사이트맵 아이콘 영역에 여백
+        */
+        .sitemap>img {
+            padding: 5px;
+        }
+
+        /* 
+          숨겨진 사이트맵 레이어 .hidden_sitemap:
+          - 처음에는 display: none => 보이지 않음
+          - 호버 시 display: block
+          - position: absolute => menuIcon 안에서 절대위치
+          - 배경색: rgb(43, 43, 43)
+          - z-index: 5 => 상단에 노출
+        */
+        .hidden_sitemap {
+            display: none;
+            position: absolute;
+            background-color: rgb(43, 43, 43);
+            top: 54px;
+            width: 1100px;
+            padding: 50px;
+            z-index: 5;
+        }
+
+        /*
+          .sitemap_title > p:
+          - font-size: 22px
+          - color: white
+          - 왼쪽 여백: 50px, 아래 여백: 30px
+        */
+        .sitemap_title>p {
+            font-size: 22px;
+            color: white;
+            margin-left: 50px;
+            margin-bottom: 30px;
+        }
+
+        /*
+          .sitemaps:
+          - 여러 개의 sitemap_main(대메뉴)들을 감싸는 영역
+          - display: flex
+          - flex-wrap: wrap => 너비 초과 시 줄바꿈
+          - width: 90%
+          - margin: 0 auto => 중앙 정렬
+        */
+        .sitemaps {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 auto;
+            width: 90%;
+        }
+
+        /*
+          .sitemap_main:
+          - 각 대메뉴(예: '영화', '예매', '극장' 등)를 감싸는 컨테이너
+          - display: flex
+          - flex-direction: column => 세로로 정렬
+          - width: calc(100%/6) => 6분할
+          - text-align: center => 텍스트 중앙 정렬
+          - padding: 0 5px => 좌우 여백
+        */
+        .sitemap_main {
+            display: flex;
+            flex-direction: column;
+            width: calc(100%/6);
+            text-align: center;
+            padding: 0 5px;
+        }
+
+        /*
+          .sitemap_main_text > p:
+          - sitemap_main의 대제목 텍스트 스타일
+          - color: white, font-weight: bold, font-size: 18px
+          - 윗줄, 아랫줄 border로 구분
+        */
+        .sitemap_main_text>p {
+            color: white;
+            width: 100%;
+            font-weight: bold;
+            justify-content: center;
+            font-size: 18px;
+            border-top: 1px solid rgb(61, 61, 61);
+            border-bottom: 1px solid rgb(61, 61, 61);
+            padding: 5px;
+        }
+
+        /*
+          .sutemap_sub:
+          - sitemap_main 하위에 실제 링크 목록(세부 메뉴)
+        */
+        .sutemap_sub {
+            display: flex;
+            flex-direction: column;
+            padding: 5px;
+        }
+
+        /*
+          .sutemap_sub > a:
+          - color: white => 링크 글씨 흰색
+          - font-size: 10px => 작은 글씨
+          - text-decoration: none => 밑줄 제거
+          - margin: 5px 0 => 적당한 간격
+        */
+        .sutemap_sub>a {
+            color: white;
+            text-decoration: none;
+            font-size: 10px;
+            margin: 5px 0;
+        }
+
+        /*
+          a:link일 때 색상도 흰색으로 지정
+        */
+        .sutemap_sub>a:link {
+            color: white;
+        }
+
+        /*
+          sutemap_sub 하위 링크에 마우스 올릴 때:
+          - text-decoration: underline => 밑줄
+          - color: aqua => 물색
+        */
+        .sutemap_sub>a:hover {
+            color: aqua;
+            text-decoration: underline;
+        }
+
+        /*
+          .search > img:
+          - padding: 10px
+        */
+        .search>img {
+            padding: 10px;
+        }
+
+        /*
+          .search:
+          - position: relative => 내부에 절대위치로 검색창(.search_box) 배치
+        */
+        .search {
+            position: relative;
+        }
+
+        /*
+          .search:hover .search_box:
+          - 검색 아이콘에 마우스를 올렸을 때, 검색창 표시
+          - display: flex
+        */
+        .search:hover .search_box {
+            display: flex;
+        }
+
+        /*
+          .search_box:
+          - display: none => 초기 숨김
+          - position: absolute => .search 영역 기준으로 위치
+          - width: 1100px
+          - background-color: rgb(78, 27, 88) => 배경색
+          - top: 54px => 아이콘 아래
+          - left: -44px => 왼쪽으로 약간 이동
+          - z-index: 5 => 위에 표시
+        */
+        .search_box {
+            display: none;
+            position: absolute;
+            width: 1100px;
+            background-color: rgb(78, 27, 88);
+            top: 54px;
+            left: -44px;
+            padding: 30px;
+            z-index: 5;
+        }
+
+        /*
+          .leftArea:
+          - 검색창 왼쪽 영역
+          - 예매율 순, 메가박스 관객순 버튼(.btnArea) 및 차트(.chart) 표시
+          - 너비: 50%
+        */
+        .leftArea {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            height: 100%;
+        }
+
+        /*
+          .btnArea:
+          - 예매율 순, 메가박스 관객순 두 버튼이 들어있는 영역
+        */
+        .btnArea {
+            display: flex;
+            width: 100%;
+            padding: 10px;
+            padding-left: 30px;
+        }
+
+        /*
+          .btnArea p:
+          - 각각 버튼처럼 보이는 텍스트
+          - 너비: 25% 로 가정 -> 실제 보이는 건 4개까지 확장 가능
+          - color: white
+        */
+        .btnArea p {
+            display: block;
+            width: 25%;
+            padding: 0;
+            margin: 0;
+            color: white;
+        }
+
+        /*
+          .chart:
+          - 예매율 순위 차트 영역
+          - 포스터 이미지 + 순위 정보
+        */
+        .chart {
+            display: flex;
+            width: 100%;
+            padding: 20px;
+        }
+
+        /* .chart > img: 포스터 이미지(예시) */
+        .chart>img {
+            display: block;
+            width: 25%;
+        }
+
+        /*
+          .chart_rank:
+          - 차트 오른쪽 부분(순위 텍스트)
+          - 너비: 75%
+        */
+        .chart_rank {
+            width: 75%;
+            height: 100%;
+            padding-left: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /*
+          .chart_rank p:
+          - 각 영화 타이틀
+          - font-size: 16px
+          - color: white
+          - white-space: nowrap => 여러 줄로 넘어가지 않음
+        */
+        .chart_rank p {
+            font-size: 16px;
+            color: white;
+            padding: 3px;
+            white-space: nowrap;
+        }
+
+        /*
+          .chart_rank span:
+          - 순위 숫자에 대한 스타일(기울임체, 볼드)
+        */
+        .chart_rank span {
+            font-style: italic;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        /*
+          .rightArea:
+          - 검색창 오른쪽 영역
+          - 실제 검색 인풋(#search)과 아이콘
+          - 너비: 50%
+        */
+        .rightArea {
+            display: flex;
+            width: 50%;
+            padding-bottom: 100px;
+            justify-content: center;
+            align-items: end;
+            position: relative;
+        }
+
+        /*
+          #search:
+          - 검색 인풋
+          - 너비: 80%, 높이: 60px
+          - border-bottom: 2px solid white => 하단 테두리만
+          - 배경 투명
+          - color: white => 흰색 글씨
+        */
+        #search {
+            width: 80%;
+            height: 60px;
+            outline: none;
+            font-size: 22px;
+            padding: 5px;
+            background-color: rgba(255, 220, 220, 0);
+            border: 0;
+            border-bottom: 2px solid white;
+            color: white;
+        }
+
+        /*
+          #search::-webkit-input-placeholder:
+          - placeholder 텍스트 스타일 (크롬/사파리 등 웹킷 브라우저용)
+        */
+        #search::-webkit-input-placeholder {
+            font-size: 20px;
+            color: #ffffff;
+        }
+
+        /*
+          .rightArea img:
+          - 검색 아이콘 위치 조정
+          - position: absolute => input의 오른쪽 아래 위치
+        */
+        .rightArea img {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            bottom: 120PX;
+            right: 80px;
+        }
+
+        /*
+          .time > img, .profile > img:
+          - 메뉴 아이콘에 대한 padding
+        */
+        .time>img {
+            padding: 10px;
+        }
+
+        .profile>img {
+            padding: 10px;
+        }
+
+        /*
+          .menuText:
+          - 상단 메뉴(영화, 예매, 극장 등) 텍스트 스타일
+          - 너비: 80%
+          - 높이: 100%
+        */
+        .menuText {
+            width: 80%;
+            height: 100%;
+        }
+
+        /*
+          .menuText > ul:
+          - 가로 배치된 메뉴
+          - font-size: 18px, font-weight: bold => 좀 더 두껍게
+          - color: white
+        */
+        .menuText>ul {
+            height: 100%;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /*
+          .menuText > ul li:
+          - 가로 방향 flex 정렬
+          - 중앙 정렬
+          - 너비: 33.3% => 3개 메뉴에 1/3씩 분할
+          - position: relative => 서브메뉴(.hiddenMenu) 절대 위치 설정 가능
+        */
+        .menuText>ul li {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 33.3%;
+            height: 100%;
+            text-align: center;
+            position: relative;
+        }
+
+        /*
+          .menuText > ul a:
+          - 흰색 글씨, 밑줄 제거
+        */
+        .menuText>ul a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /*
+          .menuText > ul a:visited:
+          - 방문 후에도 흰색 유지
+        */
+        .menuText>ul a:visited {
+            color: rgb(255, 255, 255);
+        }
+
+        /*
+          .menuText > ul > li:hover .hiddenMenu:
+          - 상단 메뉴에 마우스를 올리면 숨겨진 서브메뉴 노출
+          - display: flex
+        */
+        .menuText>ul>li:hover .hiddenMenu {
+            display: flex;
+            align-items: center;
+        }
+
+        /*
+          .menuText > ul > li:hover:
+          - 하단에 흰색 테두리 강조
+        */
+        .menuText>ul>li:hover {
+            border-bottom: 5px solid white;
+        }
+
+        /*
+          .hiddenMenu:
+          - 서브메뉴 영역
+          - display: none => 초기 숨김
+          - position: absolute
+          - 배경색: rgba(0, 0, 0, 0.3)
+          - 너비: 1100px, 높이: 40px
+          - z-index: 5
+        */
+        .hiddenMenu {
+            display: none;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.3);
+            width: 1100px;
+            height: 40px;
+            top: 54px;
+            left: 0;
+            z-index: 5;
+        }
+
+        /*
+          .hiddenMenu a:
+          - font-size: 16px
+          - padding: 0 8px => 좌우 여백
+          - color: #fff
+        */
+        .hiddenMenu a {
+            font-size: 16px;
+            padding: 0 8px;
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+        }
+
+        /* 마우스 오버 시 밑줄 */
+        .hiddenMenu a:hover {
+            text-decoration: underline;
+        }
+
+        /* 방문 링크 색상 동일하게 흰색 유지 */
+        .hiddenMenu a:visited {
+            color: rgb(255, 255, 255);
+        }
+
+        /*
+          각 메뉴에 대한 .hiddenMenu 위치 조정
+          - left, padding-left 값 다르게 설정
+        */
+        .menu1 .hiddenMenu {
+            left: -88px;
+            padding-left: 110px;
+        }
+
+        .menu2 .hiddenMenu {
+            left: -205px;
+            padding-left: 110px;
+        }
+
+        .menu3 .hiddenMenu {
+            left: -322px;
+            padding-left: 300px;
+        }
+
+        .menu4 .hiddenMenu {
+            left: -660px;
+            padding-left: 560px;
+        }
+
+        .menu6 .hiddenMenu {
+            left: -894px;
+            padding-left: 780px;
+        }
+
+        /*
+          main:
+          - 페이지 메인 영역
+          - 높이 700px
+          - 배경색: #0a0600
+        */
+        main {
+            width: 100%;
+            height: 700px;
+            background-color: #0a0600;
+        }
+
+        /*
+          .movie_chart:
+          - 메인 내부에서 영화 차트를 보여주는 섹션
+          - width: 90%, height: 800px
+          - margin: 0 auto => 가운데 정렬
+        */
+        .movie_chart {
+            margin: 0 auto;
+            width: 90%;
+            height: 800px;
+        }
+
+        /*
+          .box_office:
+          - "박스오피스" 섹션
+          - 높이 100px
+          - position: relative => 내부 텍스트를 절대 위치로 배치
+        */
+        .box_office {
+            width: 100%;
+            height: 100px;
+            position: relative;
+        }
+
+        /*
+          .box_office a:
+          - 공통 스타일(색상: white, position: absolute)
+        */
+        .box_office a {
+            color: white;
+            position: absolute;
+        }
+
+        /*
+          .box_office_text:
+          - "박스오피스" 텍스트
+          - 아래쪽에 위치(bottom: 0px)
+          - 왼쪽에 위치(left: 450px)
+          - 밑줄 모양을 위한 border-bottom
+        */
+        .box_office_text {
+            bottom: 0px;
+            left: 450px;
+            text-decoration: none;
+            padding-bottom: 5px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /*
+          .more_text:
+          - "더 많은 영화보기" 텍스트
+          - font-size: 12px
+          - 오른쪽 아래에 위치(right: 0)
+        */
+        .more_text {
+            font-size: 12px;
+            text-decoration: none;
+            bottom: 0px;
+            right: 0;
+        }
+
+        /* 마우스 오버 시 밑줄 표시 */
+        .more_text:hover {
+            text-decoration: underline;
+        }
+
+        /*
+          .movies:
+          - 영화 목록(4개) 가로 배치
+          - margin-top: 10px
+        */
+        .movies {
+            margin-top: 10px;
+            width: 100%;
+            display: flex;
+        }
+
+        /*
+          .movie:
+          - 각 영화 하나를 감싸는 영역
+          - width: 25% => 4등분
+          - padding: 15px
+          - position: relative => 순위( p 태그 )를 절대 위치로 올릴 수 있음
+        */
+        .movie {
+            width: 25%;
+            padding: 15px;
+            position: relative;
+        }
+
+        /*
+          .movie > img:
+          - 영화 포스터
+          - 폭 100%
+        */
+        .movie>img {
+            width: 100%;
+        }
+
+        /*
+          .movie p:
+          - 순위를 표시하는 p 태그
+          - position: absolute => 포스터 위에 겹쳐 보임
+          - 배경 이미지는 bg-main-movie-rank.png (숫자 위에 랭킹 효과)
+        */
+        .movie p {
+            position: absolute;
+            display: block;
+            width: 85%;
+            height: 300px;
+            padding: 15px;
+            top: -10px;
+            left: 15px;
+            color: rgb(255, 255, 255);
+            font-size: 26px;
+            font-style: italic;
+            font-weight: bold;
+            z-index: 1;
+            background-image: url(https://www.megabox.co.kr/static/pc/images/main/bg-main-movie-rank.png);
+            background-position: center;
+            background-size: cover;
+        }
+
+        /*
+          .reservation:
+          - 좋아요(♡), 예매 버튼을 가로로 배치
+          - width: 100%
+        */
+        .reservation {
+            display: flex;
+            width: 100%;
+        }
+
+        /*
+          .reservation a:
+          - color: white
+          - 중앙 정렬
+          - margin: 2px, padding: 5px
+          - font-size: 12px
+          - height: 30px
+          - 밑줄 제거
+        */
+        .reservation a {
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            margin: 2px;
+            padding: 5px;
+            font-size: 12px;
+            height: 30px;
+        }
+
+        /*
+          첫 번째 링크(좋아요 버튼):
+          - width: 30%
+          - border: 1px solid white
+          - border-radius: 3px
+        */
+        .reservation a:nth-child(1) {
+            width: 30%;
+            border: 1px solid white;
+            border-radius: 3px;
+        }
+
+        /*
+          두 번째 링크(예매 버튼):
+          - width: 70%
+          - 파란색 배경(#107594)
+        */
+        .reservation a:nth-child(2) {
+            width: 70%;
+            border-radius: 3px;
+            background-color: #107594;
+            border: 1px solid #107594;
+        }
+
+        /*
+          .movie_nav:
+          - 박스오피스 아래, 영화 검색/예매를 간편하게 하는 4개 박스 메뉴
+          - 배경색: 검정
+          - 높이: 80px
+          - width: 80%, 가운데 정렬
+        */
+        .movie_nav {
+            display: flex;
+            background-color: rgb(0, 0, 0);
+            width: 80%;
+            height: 80px;
+            margin: 0 auto;
+        }
+
+        /*
+          .nav_box:
+          - movie_nav 내부 박스
+          - border-right: 1px solid rgba(255, 255, 255, 0.5)
+          - width: 25% => 총 4개
+          - 수직, 수평 중앙 정렬
+        */
+        .nav_box {
+            display: flex;
+            border-right: 1px solid rgba(255, 255, 255, 0.5);
+            width: 25%;
+            margin: 20px 0;
+            padding: 0 20px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /*
+          마지막 nav_box(4번째)는 border-right 제거
+        */
+        .nav_box:nth-child(4) {
+            border-right: 0px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /*
+          .nav_box > input:
+          - 검색 인풋
+          - border-bottom: 1px solid rgba(255, 255, 255, 0.5)
+          - 배경 투명
+          - 글자색: white
+        */
+        .nav_box>input {
+            width: 100%;
+            height: 80%;
+            outline: none;
+            border: none;
+            color: white;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        /*
+          인풋의 placeholder 색상 및 폰트 크기
+        */
+        .nav_box>input::-webkit-input-placeholder {
+            color: white;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        /*
+          .nav_box > a:
+          - 하단의 텍스트 버튼(상영시간표, 박스오피스, 빠른예매 등)
+          - font-size: 14px
+          - color: white
+          - 밑줄 제거
+        */
+        .nav_box>a {
+            color: white;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        /* 마우스 오버 시 밑줄 표시 */
+        .nav_box>a:hover {
+            text-decoration: underline;
+        }
+
+        /*
+          .infoTop:
+          - 메인 영역 아래쪽, 혜택 등을 보여주는 섹션
+          - 높이: 800px
+          - 배경색: white
+          - 패딩 상단 15px
+        */
+        .infoTop {
+            width: 100%;
+            height: 800px;
+            margin: 0 auto;
+            padding-top: 15px;
+            background-color: white;
+        }
+
+        /*
+          .infoTop_title:
+          - '혜택' 타이틀과 더보기(+) 아이콘
+          - width: 70%, height: 50px => 가운데 정렬
+        */
+        .infoTop_title {
+            width: 70%;
+            height: 50px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .infoTop_title p {
+            font-size: 20px;
+        }
+
+        .infoTop_title a {
+            font-size: 30px;
+            text-decoration: none;
+            color: black;
+        }
+
+        /*
+          .infoTop_content:
+          - 위쪽(상단 이미지), 아래쪽(하단 이미지)로 나뉨
+          - width: 70%, 가운데 정렬
+        */
+        .infoTop_content {
+            width: 70%;
+            margin: 0 auto;
+        }
+
+        /*
+          .infoTop_content_topImage:
+          - 가로 50%, display: flex => 이미지 2개 가로 배치
+        */
+        .infoTop_content_topImage {
+            width: 50%;
+            display: flex;
+        }
+
+        /*
+          .infoTop_content_topImage img:
+          - 첫 번째 이미지는 width: 220px, height: 180px
+          - 두 번째 이미지는 width: 280px
+        */
+        .infoTop_content_topImage img {
+            display: flex;
+        }
+
+        .infoTop_content_topImage img:nth-child(1) {
+            width: 220px;
+            height: 180px;
+            margin-top: 0;
+        }
+
+        .infoTop_content_topImage img:nth-child(2) {
+            width: 280px;
+        }
+
+        /*
+          .infoTop_content_bottomImage img:
+          - border-radius: 5px => 모서리 둥글게
+          - margin: 5px, 위쪽 여백 -25px
+          - box-shadow: 0 0 10px 1px black => 그림자
+        */
+        .infoTop_content_bottomImage img {
+            border-radius: 5px;
+            margin: 5px;
+            margin-top: -25px;
+            box-shadow: 0 0 10px 1px black;
+        }
+
+        /*
+          첫 번째 하단 이미지는 width: 340px, height: 140px
+          두 번째 하단 이미지는 height: 140px
+        */
+        .infoTop_content_bottomImage img:nth-child(1) {
+            width: 340px;
+            height: 140px;
+        }
+
+        .infoTop_content_bottomImage img:nth-child(2) {
+            height: 140px;
+        }
+
+        /*
+          .infoMiddle:
+          - 보라색 배경 영역
+          - height: 250px
+          - margin-top: -70px => infoTop과 겹치게 만드는 효과
+          - padding-top: 70px
+        */
+        .infoMiddle {
+            width: 100%;
+            height: 250px;
+            background-color: rgb(80, 51, 150);
+            margin-top: -70px;
+            padding-top: 70px;
+        }
+
+        /*
+          .infoMiddle_nav:
+          - width: 70%, height: 180px
+          - 아이콘들을 가로 배치
+        */
+        .infoMiddle_nav {
+            display: flex;
+            width: 70%;
+            height: 180px;
+            margin: 0 auto;
+        }
+
+        /*
+          .infoMiddle_nav_icon:
+          - width: 25%, height: 100%
+          - 세로 정렬 (flex-direction: column)
+          - text-align: center
+          - padding: 50px 0 => 세로 가운데 쯤
+        */
+        .infoMiddle_nav_icon {
+            width: 25%;
+            height: 100%;
+            text-align: center;
+            padding: 50px 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /*
+          .infoMiddle_nav_icon img:
+          - width: 35%, height: 45px => 작은 아이콘 크기
+          - object-fit: contain
+        */
+        .infoMiddle_nav_icon img {
+            width: 35%;
+            height: 45px;
+            object-fit: contain;
+        }
+
+        /*
+          .infoMiddle_nav_icon a:
+          - color: white
+          - text-decoration: none
+        */
+        .infoMiddle_nav_icon a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /*
+          .infoBottom:
+          - 다시 흰색 배경 영역
+          - '메가박스 안내' 섹션
+        */
+        .infoBottom {
+            background-color: white;
+            width: 100%;
+        }
+
+        /*
+          .infoBottom_title:
+          - width: 80%
+          - 폰트 굵게
+          - padding: 20px
+          - 가운데 정렬
+        */
+        .infoBottom_title {
+            width: 80%;
+            font-weight: bold;
+            padding: 20px;
+            margin: 0 auto;
+        }
+
+        .infoBottom_title span {
+            color: rgb(80, 51, 150);
+        }
+
+        .infoBottom_title p {
+            padding: 0;
+            margin: 0;
+            font-size: 22px;
+        }
+
+        /*
+          .infoBottom_content:
+          - height: 160px
+          - 가운데 정렬 (display: flex, align-items: center)
+        */
+        .infoBottom_content {
+            width: 80%;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        /*
+          .infoBottom_content a:
+          - 좌우 방향 링크: < >
+          - color: black
+          - text-decoration: none
+          - font-size: 50px => 크게 표시
+        */
+        .infoBottom_content a {
+            color: black;
+            text-decoration: none;
+            font-size: 50px;
+        }
+
+        /*
+          .gallery:
+          - 너비: 85%, 높이: 100%
+          - 가운데 정렬
+        */
+        .gallery {
+            width: 85%;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        /*
+          .gallery img:
+          - margin: 10px
+          - width: 140px, height: 140px
+          - object-fit: cover => 중앙을 채움
+          - object-position: top => 상단을 기준으로 자름
+          - box-shadow: 0 0 10px 1px black => 그림자
+        */
+        .gallery img {
+            margin: 10px;
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            object-position: top;
+            box-shadow: 0 0 10px 1px black;
+        }
+
+        /*
+          footer:
+          - 페이지 하단 영역
+          - 배경색: white
+          - padding-top: 70px
+        */
+        footer {
+            width: 100%;
+            background-color: white;
+            padding-top: 70px;
+        }
+
+        /*
+          .announcement:
+          - 공지사항 영역
+          - border-top, border-bottom => 상하 테두리
+          - width: 90%, 가운데 정렬
+          - flex로 가로 배치
+          - text-align: center
+        */
+        .announcement {
+            border-top: 1px solid rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+            display: flex;
+            width: 90%;
+            margin: 0 auto;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /*
+          .place:
+          - 공지사항 왼쪽 영역(지점 등)
+          - width: 10%
+          - border-right: 1px solid
+        */
+        .place {
+            width: 10%;
+            border-right: 1px solid rgba(0, 0, 0, 0.3);
+        }
+
+        /*
+          .announcement_text:
+          - 가운데 본문 텍스트
+          - width: 80%
+          - 좌우 공간 padding: 10px
+          - display: flex => 오른쪽 정렬(날짜 등)
+        */
+        .announcement_text {
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+        }
+
+        /*
+          .more:
+          - 공지 더보기 링크
+          - width: 10%
+          - border-left: 1px solid
+        */
+        .more {
+            width: 10%;
+            border-left: 1px solid rgba(0, 0, 0, 0.3);
+        }
+
+        /*
+          .announcement p, .announcement a:
+          - 공지사항 텍스트와 링크
+          - 밑줄 제거, 글자색: black
+        */
+        .announcement p,
+        .announcement a {
+            text-decoration: none;
+            color: black;
+        }
+
+        /*
+          .footer_nav:
+          - footer 내비게이션 (고객센터, 자주 묻는 질문, 1:1 문의 등 아이콘)
+          - width: 80%
+          - 가운데 정렬
+        */
+        .footer_nav {
+            width: 80%;
+            display: flex;
+            margin: 0 auto;
+        }
+
+        /*
+          .footer_nav_icon:
+          - 각각의 아이콘 + 텍스트
+          - width: calc(100%/6) => 6개 등분
+          - 세로 정렬
+          - padding: 30px 45px
+          - text-align: center
+        */
+        .footer_nav_icon {
+            width: calc(100%/6);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            padding: 30px 45px;
+        }
+
+        /*
+          .footer_nav_icon img:
+          - 아이콘의 크기를 100%로 조정
+          - padding: 5px
+          - object-fit: cover => 아이콘 형태에 맞춰 채움
+        */
+        .footer_nav_icon img {
+            width: 100%;
+            padding: 5px;
+            object-fit: cover;
+        }
+
+        /*
+          .footer_nav_icon a:
+          - font-size: 12px
+          - color: black
+          - 밑줄 제거
+        */
+        .footer_nav_icon a {
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+            color: black;
+            text-decoration: none;
+        }
+
+        /*
+          .foot:
+          - 하단 정보 영역(회사 정보, SNS 링크 등)
+          - 배경색: #c9c9c9 (회색)
+          - padding: 30px 0
+          - margin-top: 150px => 위 컨텐츠와 간격
+        */
+        .foot {
+            margin-top: 150px;
+            padding: 30px 0;
+            width: 100%;
+            background-color: #c9c9c9;
+        }
+
+        /*
+          .foot_top:
+          - 상단 링크 모음(회사소개, 인재채용 등)
+          - display: flex => 가로로 배치
+          - justify-content: space-around => 좌우 공간 균등
+          - padding-bottom: 15px
+        */
+        .foot_top {
+            display: flex;
+            width: 100%;
+            margin: 0 auto;
+            padding-bottom: 15px;
+            justify-content: space-around;
+        }
+
+        /*
+          .foot_top a:
+          - 작은 글씨(font-size: 10px)
+          - 색상 black
+          - 밑줄 제거
+        */
+        .foot_top a {
+            color: black;
+            text-decoration: none;
+            margin: 0 5px;
+            font-size: 10px;
+        }
+
+        /*
+          .find:
+          - "극장찾기" 버튼
+          - border: 1px solid black
+          - border-radius: 10px => 둥근 모서리
+          - 내부 텍스트 세로 정렬
+        */
+        .find {
+            display: flex;
+            border: 1px solid black;
+            border-radius: 10px;
+            align-items: center;
+        }
+
+        .find a {
+            color: black;
+            text-decoration: none;
+            margin: 0 5px;
+            font-size: 10px;
+        }
+
+        /*
+          .foot_bottom:
+          - 하단 로고, 회사 정보, SNS 아이콘
+          - justify-content: space-around => 가로로 균등 배치
+          - align-items: center => 세로 가운데
+        */
+        .foot_bottom {
+            display: flex;
+            width: 100%;
+            margin: 0 auto;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        /*
+          .foot_bottom img:
+          - width: 150px => 로고 크기
+          - object-fit: contain
+        */
+        .foot_bottom img {
+            width: 150px;
+            object-fit: contain;
+        }
+
+        /*
+          .foot_bottom p:
+          - 폰트 크기 10px => 작은 글씨
+        */
+        .foot_bottom p {
+            font-size: 10px;
+        }
+
+        /*
+          .foot_icons > a > img:
+          - SNS 아이콘 크기 30px
+        */
+        .foot_icons>a>img {
+            width: 30px;
+            height: 30px;
+        }
+
+        /*
+          .foot_icons a:
+          - 밑줄 제거
+        */
+        .foot_icons a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+      .wrap: 전체 페이지를 감싸는 컨테이너
+    -->
+    <div class="wrap">
+        <!--
+          header: 페이지 상단 영역
+          - leftNav(메뉴) + logo(중앙 로고) + rightNav(로그인/회원가입/이벤트 등)
+        -->
+        <header>
+            <!--
+              헤더 왼쪽 영역 (leftNav):
+              - top: VIP LOUNGE / 맴버십 / 고객센터
+              - bottom: 메뉴 아이콘(사이트맵, 검색), 상단 메뉴(영화, 예매, 극장)
+            -->
+            <div class="leftNav">
+                <div class="top">
+                    <ul>
+                        <a href="https://www.megabox.co.kr/benefit/viplounge">VIP LOUNGE</a>
+                        <a href="https://www.megabox.co.kr/benefit/membership">맴버십</a>
+                        <a href="https://www.megabox.co.kr/support">고객센터</a>
+                    </ul>
+                </div>
+                <div class="bottom">
+                    <!-- .menuIcon: 메뉴(사이트맵, 검색 아이콘) 영역 -->
+                    <div class="menuIcon">
+                        <!-- 사이트맵 아이콘 -->
+                        <div class="sitemap">
+                            <img src="./menu.png" alt="">
+                            <!--
+                              .hidden_sitemap: 사이트맵 전체 레이어
+                              - 마우스 오버 시 표시
+                            -->
+                            <div class="hidden_sitemap">
+                                <div class="sitemap_title">
+                                    <p>SITEMAP</p>
+                                    <div class="sitemaps">
+                                        <!--
+                                          sitemap_main: '영화', '예매', '극장' 등
+                                          sutemap_sub: 하위 링크들
+                                        -->
+                                        <div class="sitemap_main">
+                                            <div class="sitemap_main_text">
+                                                <p>영화</p>
+                                            </div>
+                                            <div class="sutemap_sub">
+                                                <a href="">전체영화</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="sitemap_main">
+                                            <div class="sitemap_main_text">
+                                                <p>예매</p>
+                                            </div>
+                                            <div class="sutemap_sub">
+                                                <a href="">빠른예매</a>
+                                                <a href="">상영시간표</a>
+                                                <a href="">더 부티크 프라이빗 예매</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="sitemap_main">
+                                            <div class="sitemap_main_text">
+                                                <p>극장</p>
+                                            </div>
+                                            <div class="sutemap_sub">
+                                                <a href="">전체극장</a>
+                                                <a href="">특별관</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="sitemap_main">
+                                            <div class="sitemap_main_text">
+                                                <p>이벤트</p>
+                                            </div>
+                                            <div class="sutemap_sub">
+                                                <a href="">진행중 이벤트</a>
+                                                <a href="">지난 이벤트</a>
+                                                <a href="">당첨자발표</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="sitemap_main">
+                                            <div class="sitemap_main_text">
+                                                <p>스토어</p>
+                                            </div>
+                                            <div class="sutemap_sub">
+                                                <a href="">새로운 상품</a>
+                                                <a href="">메가티켓</a>
+                                                <a href="">팝콘/음료/굿즈</a>
+                                                <a href="">포인트몰</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="sitemap_main">
+                                            <div class="sitemap_main_text">
+                                                <p>나의 메가박스</p>
+                                            </div>
+                                            <div class="sutemap_sub">
+                                                <a href="">나의 메가박스 홈</a>
+                                                <a href="">예매/구매내역</a>
+                                                <a href="">영화관람권</a>
+                                                <a href="">스토어교환권</a>
+                                                <a href="">할인/제휴쿠폰</a>
+                                                <a href="">맴버십포인트</a>
+                                                <a href="">나의 무비스토리</a>
+                                                <a href="">나의 이벤트 응모내역</a>
+                                                <a href="">나의 문의내역</a>
+                                                <a href="">자주쓰는 할인카드</a>
+                                                <a href="">회원정보</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="sitemap_main">
+                                            <div class="sitemap_main_text">
+                                                <p>혜택택</p>
+                                            </div>
+                                            <div class="sutemap_sub">
+                                                <a href="">맴버십 안냄냄</a>
+                                                <a href="">VIP LOUNGE</a>
+                                                <a href="">제휴/할인</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="sitemap_main">
+                                            <div class="sitemap_main_text">
+                                                <p>고객센터</p>
+                                            </div>
+                                            <div class="sutemap_sub">
+                                                <a href="">고객센터 홈</a>
+                                                <a href="">자주묻는질문</a>
+                                                <a href="">공지사항</a>
+                                                <a href="">1:1문의</a>
+                                                <a href="">단체/대관문의</a>
+                                                <a href="">분실문문의</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="sitemap_main">
+                                            <div class="sitemap_main_text">
+                                                <p>회사소개개</p>
+                                            </div>
+                                            <div class="sutemap_sub">
+                                                <a href="">메가박스소개</a>
+                                                <a href="">사회공헌</a>
+                                                <a href="">홍보자료</a>
+                                                <a href="">제휴/부대사업문의</a>
+                                                <a href="">온라인제보센터</a>
+                                                <a href="">HR자료</a>
+                                                <a href="">인재채용</a>
+                                                <a href="">윤리경영</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="sitemap_main">
+                                            <div class="sitemap_main_text">
+                                                <p>이용정책책</p>
+                                            </div>
+                                            <div class="sutemap_sub">
+                                                <a href="">이용약관</a>
+                                                <a href="">위치기반서비스 이용약관</a>
+                                                <a href="">개인정보처리방침</a>
+                                                <a href="">스크린수배정에관한기분</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 검색 아이콘 -->
+                        <div class="search">
+                            <img src="./search.png" alt="">
+                            <!--
+                              .search_box: 검색창 레이어
+                              - 마우스 오버 시 표시
+                            -->
+                            <div class="search_box">
+                                <div class="leftArea">
+                                    <div class="btnArea">
+                                        <p>예매율 순</p>
+                                        <p>메가박스 관객순</p>
+                                    </div>
+                                    <div class="chart">
+                                        <img src="https://img.megabox.co.kr/SharedImg/2025/01/06/veoYkRw8THPbrE9FobWUP1BVmEbMOXnp_316.jpg"
+                                            alt="">
+                                        <div class="chart_rank">
+                                            <p><span>1</span>말할 수 없는 비밀</p>
+                                            <p><span>2</span>검은 수녀들</p>
+                                            <p><span>3</span>히트맨2</p>
+                                            <p><span>4</span>하얼빈</p>
+                                            <p><span>5</span>보고타:마지막 기회의 땅</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rightArea">
+                                    <input type="text" name="" id="search" placeholder="영화를 검색하세요">
+                                    <img src="./search.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- .menuText: 상단 메뉴 (영화, 예매, 극장) -->
+                    <div class="menuText">
+                        <ul>
+                            <a href="">
+                                <li class="menu1">
+                                    <a href="https://www.megabox.co.kr/movie">
+                                        영화
+                                    </a>
+                                    <ul class="hiddenMenu">
+                                        <a href="https://www.megabox.co.kr/movie">전체영화</a>
+                                    </ul>
+                                </li>
+                            </a>
+                            <li class="menu2">
+                                <a href="https://www.megabox.co.kr/booking">
+                                    예매
+                                </a>
+                                <ul class="hiddenMenu">
+                                    <a href="https://www.megabox.co.kr/booking">빠른예매</a>
+                                    <a href="https://www.megabox.co.kr/booking/timetable">상영시간표</a>
+                                    <a href="https://www.megabox.co.kr/booking/privatebooking">더 부티크 프라이빗 예매</a>
+                                </ul>
+                            </li>
+                            <li class="menu3">
+                                <a href="https://www.megabox.co.kr/theater/list">
+                                    극장
+                                </a>
+                                <ul class="hiddenMenu">
+                                    <a href="https://www.megabox.co.kr/theater/list">전체극장</a>
+                                    <a href="https://www.megabox.co.kr/specialtheater/list">특별극장</a>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 로고 영역 -->
+            <div class="logo">
+                <a href="#">
+                    <img src="https://img.megabox.co.kr/static/pc/images/common/ci/logo-white_new2.png" alt="메가박스 로고">
+                </a>
+            </div>
+
+            <!-- 헤더 오른쪽 영역 -->
+            <div class="rightNav">
+                <div class="top">
+                    <ul>
+                        <a href="javascript:fn_viewLoginPopup('default','pc')">로그인</a>
+                        <a href="https://www.megabox.co.kr/join">회원가입</a>
+                        <a href="https://www.megabox.co.kr/booking">빠른예매</a>
+                    </ul>
+                </div>
+                <div class="bottom">
+                    <div class="menuText">
+                        <ul>
+                            <li class="menu4">
+                                <a href="https://www.megabox.co.kr/event">
+                                    이벤트
+                                </a>
+                                <ul class="hiddenMenu">
+                                    <a href="https://www.megabox.co.kr/event">진행중 이벤트</a>
+                                    <a href="https://www.megabox.co.kr/event">지난 이벤트</a>
+                                    <a href="https://www.megabox.co.kr/event">당첨자발표</a>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="https://www.megabox.co.kr/store" class="menu5">
+                                    스토어
+                                </a>
+                            </li>
+                            <li class="menu6">
+                                <a href="https://www.megabox.co.kr/benefit/membership">
+                                    해택
+                                </a>
+                                <ul class="hiddenMenu">
+                                    <a href="https://www.megabox.co.kr/benefit/membership">메가박스 맴버쉽</a>
+                                    <a href="https://www.megabox.co.kr/benefit/discount/guide">제휴/할인</a>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="menuIcon">
+                        <a class="time" href="https://www.megabox.co.kr/booking/timetable">
+                            <img src="./time.png" alt="">
+                        </a>
+                        <p class="profile">
+                            <img src="./profile.png" alt="">
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 메인 영역 -->
+        <main>
+            <div class="movie_chart">
+                <div class="box_office">
+                    <a class="box_office_text" href="">박스오피스</a>
+                    <a class="more_text" href="https://www.megabox.co.kr/movie">더 많은 영화보기기+</a>
+                </div>
+                <div class="movies">
+                    <div class="movie">
+                        <img src="https://img.megabox.co.kr/SharedImg/2025/01/06/veoYkRw8THPbrE9FobWUP1BVmEbMOXnp_420.jpg"
+                            alt="">
+                        <p>1</p>
+                        <div class="reservation">
+                            <a href="">♡ 680</a>
+                            <a href="">예매</a>
+                        </div>
+                    </div>
+                    <div class="movie">
+                        <img src="https://img.megabox.co.kr/SharedImg/2025/01/06/0XDjkXDLm7waDVJ9leltSNNBOrEpLGEU_420.jpg"
+                            alt="">
+                        <p>2</p>
+                        <div class="reservation">
+                            <a href="">♡ 680</a>
+                            <a href="">예매</a>
+                        </div>
+                    </div>
+                    <div class="movie">
+                        <img src="https://img.megabox.co.kr/SharedImg/2025/01/10/WAC0I4UtsbCRjs4IvT4Vht9QYvdRTnDD_420.jpg"
+                            alt="">
+                        <p>3</p>
+                        <div class="reservation">
+                            <a href="">♡ 680</a>
+                            <a href="">예매</a>
+                        </div>
+                    </div>
+                    <div class="movie">
+                        <img src="https://img.megabox.co.kr/SharedImg/2025/01/08/voFgSlrB9J2LLJqj7p6L6Zx03X3qFf6O_420.jpg"
+                            alt="">
+                        <p>4</p>
+                        <div class="reservation">
+                            <a href="">♡ 680</a>
+                            <a href="">예매</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="movie_nav">
+                    <div class="nav_box">
+                        <input type="text" placeholder="영화명을 입력해 주세요">
+                    </div>
+                    <div class="nav_box">
+                        <a href="">상영시간표</a>
+                    </div>
+                    <div class="nav_box">
+                        <a href="">박스오피스</a>
+                    </div>
+                    <div class="nav_box">
+                        <a href="">빠른예매</a>
+                    </div>
+                </div>
+            </div>
+            <div class="infoTop">
+                <div class="infoTop_title">
+                    <p>혜택</p>
+                    <a href="">+</a>
+                </div>
+                <div class="infoTop_content">
+                    <div class="infoTop_content_topImage">
+                        <img src="https://img.megabox.co.kr/SharedImg/BnftMng/2024/12/31/XeOIoBtvrXMFmhMpgfksu048yVbtuZZp.jpg"
+                            alt="">
+                        <img src="https://img.megabox.co.kr/SharedImg/BnftMng/2024/12/31/Iv48B8KKcN2iKsLHLANxPW4LJOmp8QLp.jpg"
+                            alt="">
+                    </div>
+                    <div class="infoTop_content_bottomImage">
+                        <img src="https://img.megabox.co.kr/SharedImg/event/2025/01/02/KKwz0kFAgR2cKqtehy6XXYXvKAQWxIqO.jpg"
+                            alt="">
+                        <img src="https://img.megabox.co.kr/SharedImg/event/2025/01/02/vJiOBW7gqjIrC3CPT2arO8RwNJeJ8CX7.jpg"
+                            alt="">
+                    </div>
+                </div>
+                <div class="infoMiddle">
+                    <div class="infoMiddle_nav">
+                        <div class="infoMiddle_nav_icon">
+                            <a href="">
+                                <img src="https://www.megabox.co.kr/static/pc/images/common/ico/ico-vip-main.png"
+                                    alt="ads">
+                                <p>VIP LOUNGE</p>
+                            </a>
+                        </div>
+                        <div class="infoMiddle_nav_icon">
+                            <a href="">
+                                <img src="https://www.megabox.co.kr/static/pc/images/common/ico/ico-membership-main.png"
+                                    alt="ads">
+                                <p>맴버십</p>
+                            </a>
+                        </div>
+                        <div class="infoMiddle_nav_icon">
+                            <a href="">
+                                <img src="https://www.megabox.co.kr/static/pc/images/common/ico/ico-card-main.png"
+                                    alt="ads">
+                                <p>할인카드안내</p>
+                            </a>
+                        </div>
+                        <div class="infoMiddle_nav_icon">
+                            <a href="">
+                                <img src="https://www.megabox.co.kr/static/pc/images/common/ico/ico-event-main.png"
+                                    alt="ads">
+                                <p>이벤트트</p>
+                            </a>
+                        </div>
+                        <div class="infoMiddle_nav_icon">
+                            <a href="">
+                                <img src="https://www.megabox.co.kr/static/pc/images/common/ico/ico-store-main.png"
+                                    alt="ads">
+                                <p>스토어어</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="infoBottom">
+                    <div class="infoBottom_title">
+                        <p><span>메가박스</span> 안내</p>
+                    </div>
+                    <div class="infoBottom_content">
+                        <a href="">&lt;</a>
+                        <div class="gallery">
+                            <img src="https://img.megabox.co.kr/static/pc/images/2024Re/theater/bg-main-dolbycinema.png"
+                                alt="">
+                        </div>
+                        <a href="">&gt;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- footer: 페이지 하단 영역 -->
+            <footer>
+                <div class="announcement">
+                    <div class="place">
+                        지점
+                    </div>
+                    <div class="announcement_text">
+                        <p>
+                            [코엑스][코엑스]시사회 진행에 따른 고객 안내 (1월 14일)
+                        </p>
+                        <p>
+                            2025.01.10
+                        </p>
+                    </div>
+                    <div class="more">
+                        <a href="">더보기 &gt;</a>
+                    </div>
+                </div>
+                <div class="footer_nav">
+                    <div class="footer_nav_icon">
+                        <img src="https://img.megabox.co.kr/static/pc/images/common/ico/ico-main-customer.png" alt="">
+                        <a href="">고객센터</a>
+                    </div>
+                    <div class="footer_nav_icon">
+                        <img src="https://img.megabox.co.kr/static/pc/images/common/ico/ico-main-faq.png" alt="">
+                        <a href="">자주 묻는 질문</a>
+                    </div>
+                    <div class="footer_nav_icon">
+                        <img src="https://img.megabox.co.kr/static/pc/images/common/ico/ico-main-qna.png" alt="">
+                        <a href="">1:1문의</a>
+                    </div>
+                    <div class="footer_nav_icon">
+                        <img src="https://img.megabox.co.kr/static/pc/images/common/ico/ico-main-group.png" alt="">
+                        <a href="">단체/대관문의</a>
+                    </div>
+                    <div class="footer_nav_icon">
+                        <img src="https://img.megabox.co.kr/static/pc/images/common/ico/ico-main-lost.png" alt="">
+                        <a href="">분실물 문의/접수</a>
+                    </div>
+                    <div class="footer_nav_icon">
+                        <img src="https://img.megabox.co.kr/static/pc/images/common/ico/ico-main-boutique.png" alt="">
+                        <a href="">더 부티크<br>프라이빗<br>대관예매</a>
+                    </div>
+                </div>
+                <div class="foot">
+                    <div class="foot_top">
+                        <div class="foot_nav">
+                            <a href="">회사소개</a>
+                            <a href="">인재채용</a>
+                            <a href="">사회공헌</a>
+                            <a href="">제휴/공고/부대사업문의</a>
+                            <a href="">이용약관</a>
+                            <a href="">위치기반서비스 이용약관</a>
+                            <a href="">개인정보처리방침</a>
+                            <a href="">윤리경영</a>
+                        </div>
+                        <div class="find">
+                            <a href="">극장찾기</a>
+                        </div>
+                    </div>
+                    <div class="foot_bottom">
+                        <img src="https://img.megabox.co.kr/static/pc/images/common/ci/logo-opacity_new2.png" alt="">
+                        <p>
+                            서울특별시 강남구 테헤란로 87길 22 도심공항터미널 건물 408호 ARS 1544-0070 대표이메일
+                            m.dreamcenter@partner.megabox.co.kr<br>
+                            대표자명 홍정인, 남용석 · 개인정보보호책임자 강병철 · 사업자등록번호 211-86-59478 · 통신판매업신고번호 2023-서울성동-0177 <br>
+                            COPYRIGHT © MegaboxJoongAng, Inc. All rights reserved
+                        </p>
+                        <div class="foot_icons">
+                            <a href="">
+                                <img src="https://img.megabox.co.kr/static/pc/images/common/ico/ico-youtubeN.png"
+                                    alt="">
+                            </a>
+                            <a href="">
+                                <img src="https://img.megabox.co.kr/static/pc/images/common/ico/ico-instagramN.png"
+                                    alt="">
+                            </a>
+                            <a href="">
+                                <img src="https://img.megabox.co.kr/static/pc/images/common/ico/ico-twitterN.png"
+                                    alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+</body>
+
+</html>

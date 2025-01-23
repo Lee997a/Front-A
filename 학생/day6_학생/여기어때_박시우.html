@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Jua&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Jua&family=Noto+Sans+KR:wght@100..900&display=swap"
+        rel="stylesheet">
+    <style>
+h3{
+    margin-left: 60px;
+            font-family: "Noto Sans KR", serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+}
+
+        .wrap {
+            /* border: 1px solid red; */
+            margin-top: 30px;
+            margin-bottom: 30px;
+            /* width: 100%;
+            height: 100%;
+            position: fixed; */
+        }
+
+        .header {
+            /* border: 1px solid black; */
+            height: 80px;
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 auto;
+
+        }
+
+        .header img {
+            width: 180px;
+        }
+
+        .header button {
+            border-radius: 5px;
+            border: 1px solid rgb(210, 210, 210);
+            background-color: rgb(255, 255, 255);
+            cursor: pointer;
+            height: 50%;
+            padding: 10px;
+        }
+
+        .login {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .login img {
+            width: 30px;
+            height: 25px;
+        }
+
+        .header button:hover {
+            background-color: rgb(208, 208, 208);
+        }
+
+        .search {
+            width: 100%;
+            height: 300px;
+            position: relative;
+        }
+
+        .search::before {
+            content: "";
+            background: url(https://www.imwood.co.kr/news/photo/202006/24591_44429_4648.jpg);
+            background-size: cover;
+            background-position: 0%;
+            opacity: 0.5;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+        }
+
+        .search p {
+            color: rgb(0, 0, 0);
+            width: 500px;
+            left: 250px;
+            top: 40px;
+            line-height: 30px;
+            position: relative;
+            font-weight: 900;
+            font-size: 25px;
+        }
+
+        .search input {
+            position: relative;
+            padding: 15px;
+            width: 300px;
+            left: 80px;
+            top: 40px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .search-wrap {
+            position: relative;
+            background-color: rgb(255, 255, 255);
+            width: 77%;
+            height: 140px;
+            left: 200px;
+            top: 40px;
+            border-radius: 18px;
+        }
+
+        .search-wrap input {
+            background-color: rgb(242, 243, 244);
+            font-family: "Noto Sans KR", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+        }
+
+        .search-wrap button {
+            position: relative;
+            left: 80px;
+            top: 20px;
+            border: none;
+            background-color: white;
+            font-weight: bold;
+            font-size: 15px;
+            color: rgb(141, 141, 141);
+            font-family: "Noto Sans KR", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+        }
+
+        .search-wrap button:hover {
+            cursor: pointer;
+        }
+
+        #searching-button {
+            position: relative;
+            left: 100px;
+            top: 43px;
+            background-color: rgb(88, 150, 255);
+            color: white;
+            padding: 15px;
+            width: 130px;
+            border-radius: 10px;
+        }
+
+        #searching-button:hover {
+            background-color: rgb(52, 126, 255);
+        }
+
+        .event {
+            margin: 50px auto;
+            width: 80%;
+            /* display: flex; */
+            /* border: 1px solid black; */
+        }
+
+        
+
+        .event-box {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .event-box-separate {
+            line-height: 25px;
+            display: flex;
+            background-color: rgb(234, 231, 231);
+            border-radius: 10px;
+            padding: 10px;
+            width: 350px;
+            justify-content: space-around;
+            font-family: "Black Han Sans", serif;
+            font-weight: 200;
+            font-style: normal;
+            letter-spacing: 2px;
+        }
+
+        .event-box-separate img {
+            width: 120px;
+            border-radius: 50%;
+        }
+
+        .event-box-separate p {
+            display: inline-block;
+        }
+
+        .travel-destination {
+            width: 80%;
+            margin: 0 auto;
+
+        }
+
+        .travel-destination ul {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            margin: 0 auto;
+            gap: 40px;
+        }
+
+        
+
+        .travel-destination img {
+            width: 180px;
+            height: 180px;
+            border-radius: 14px;
+        }
+
+        .travel-destination p {
+            font-family: "Noto Sans KR", serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        .next-btn{
+            border-radius: 50%;
+            /* border: 1px solid black; */
+            box-shadow: 0px 0px 10px 0px rgb(176, 176, 176);
+            width: 50px;
+            height: 50px;
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuxbIT-Xz4ZgNJ5rsAdm6lNMuUWQkzXN4dvA&s);
+            background-position: center;
+            background-size: 80%;
+            background-repeat: no-repeat;
+            position: relative;
+            left: 1310px;
+            bottom: 180px;
+            z-index: 1;
+        }
+
+        .another-destinations{
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .another-destinations ul{
+            list-style: none;
+            display: flex;
+            gap: 50px;
+            margin-left: 20px;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            margin-bottom: 80px;
+            margin-top: 40px;
+        }
+
+        .another-destinations li{
+            width: 100px;
+            color: rgb(99, 146, 255);
+            font-weight: 550;
+        }
+
+        .another-destinations li:hover{
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .comunity{
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            
+            
+        }
+
+        .foot{
+            width: 80%;
+            margin: 0 auto;
+            font-family: "Noto Sans KR", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            color:rgb(173, 173, 173);
+            font-size: 12px;
+        }
+
+        .foot p{
+            margin-left: 50px;
+        }
+
+        .login img{
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <header class="header">
+            <img src="https://www.yeogi.com/facebook_1200_628px.png" alt="여기어때">
+            <div class="login">
+                <button>로그인/회원가입</button>
+                <img src="https://cdn-icons-png.flaticon.com/512/3502/3502458.png" alt="메뉴아이콘">
+            </div>
+        </header>
+
+        <div class="search">
+            <p>국내부터 해외까지 <br>여행할때 여기어때</p>
+            <div class="search-wrap">
+                <div>
+                    <button>국내숙소</button>
+                    <button>해외숙소</button>
+                </div>
+                <label for="travel">
+                    <input type="text" placeholder="여행지나 숙소를 검색해보세요." id="travel">
+                </label>
+                <input type="date">
+                <input type="number" placeholder="인원수" min="1">
+                <button id="searching-button">검색</button>
+            </div>
+        </div>
+
+        <div class="event">
+            <h3>이벤트</h3>
+            <div class="event-box">
+                <div class="event-box-separate">
+                    <p>매일 매일 선착순! <br>
+                        <span style="font-weight: 500; font-size: 24px; margin-top: 0px;">1월 제휴 <br> 추가 할인!</span>
+                    </p>
+                    <img src="https://previews.123rf.com/images/zhanna26/zhanna261707/zhanna26170700028/82443021-%ED%81%B0-%EC%84%B8%EC%9D%BC-%EB%A7%8C%ED%99%94-%ED%8F%AD%EB%B0%9C%EC%9E%85%EB%8B%88%EB%8B%A4-%EB%B2%A1%ED%84%B0-%EC%9D%BC%EB%9F%AC%EC%8A%A4%ED%8A%B8-%EB%A0%88%EC%9D%B4-%EC%85%98.jpg"
+                        alt="">
+                </div>
+                <div class="event-box-separate">
+                    <p>황금연휴에 호캉스 어때요? <br>
+                        <span style="font-weight: 500; font-size: 24px; margin-top: 0px;">전국 인기 호텔<br> 최대 5만원 할인</span>
+                    </p>
+                    <img src="https://royal-hotel-seoul.booked.kr/data/Photos/OriginalPhoto/16182/1618275/1618275788/Royal-Hotel-Seoul-Exterior.JPEG"
+                        alt="">
+                </div>
+                <div class="event-box-separate">
+                    <p>1월 황금연휴 지금 예약하세요! <br>
+                        <span style="font-weight: 500; font-size: 24px; margin-top: 0px;">가평부터 제주까지 <br> 펜션 6%
+                            할인!</span>
+                    </p>
+                    <img src="https://lh6.googleusercontent.com/proxy/Um5Nve8H1WhuBrH4eBQcy-Vqq3WREc2mWhBc04LJu5NIZlnoFQy_hfHWjAyG_k3de4j2ht_gbEOxVUvArG2OdQeb6OdB-yMhbI4XAL9gbJxDDkhlYsdFPuUyshCu_exybWo7at3C2RZEcBdAHnqYTA"
+                        alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="travel-destination">
+            <h3>국내 인기 여행지</h3>
+            <div class="">
+                <ul>
+                    <li><img src="https://www.lottehotel.com/content/dam/lotte-hotel/lotte/jeju/overview/introduction/g-0807.jpg.thumb.768.768.jpg"
+                            alt="">
+                        <p>제주도</p>
+                    </li>
+                    <li><img src="https://www.agoda.com/wp-content/uploads/2024/04/Featured-image-Han-River-at-night-in-Seoul-South-Korea-1244x700.jpg"
+                            alt="">
+                        <p>서울</p>
+                    </li>
+                    <li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNuJEoiu0BIhZ3R4ZPLMaNxBabI5iu6WpMew&s"
+                            alt="">
+                        <p>부산</p>
+                    </li>
+                    <li><img src="https://kead-webzine.or.kr/wp-content/uploads/2023/09/%EB%A9%94%EC%9D%B8%EC%BB%B7-2-1168x778.jpg"
+                            alt="">
+                        <p>강릉</p>
+                    </li>
+                    <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/%EB%8F%84%EC%8B%9C%EC%9D%98%ED%83%84%EC%83%9D.jpg/500px-%EB%8F%84%EC%8B%9C%EC%9D%98%ED%83%84%EC%83%9D.jpg"
+                            alt="">
+                        <p>인천</p>
+                    </li>
+                    <li><img src="https://www.mytravelnotes.co.kr/wp-content/uploads/2023/08/image-1024x684.png" alt="">
+                        <p>경주</p>
+                    </li>
+                </ul>
+                <div class="next-btn">
+                </div>
+            </div>
+            <h3>해외 인기 여행지</h3>
+            <div>
+                <ul>
+                    <li><img src="https://cdn.imweb.me/upload/S201612185855798c0088d/dcc0614d31720.jpg"
+                            alt="">
+                        <p>오사카</p>
+                    </li>
+                    <li><img src="https://www.jal.co.jp/kr/ko/guide-to-japan/destinations/articles/tokyo/your-guide-to-best-attractions/_jcr_content/root/responsivegrid/sectioncontainer/image_1846683741.coreimg.jpeg/1664938698999.jpeg"
+                            alt="">
+                        <p>도쿄</p>
+                    </li>
+                    <li><img src="https://blog.onlytour.co.kr/assets/img/upload/editor/C13RGonKNv.jpg"
+                            alt="">
+                        <p>나짱</p>
+                    </li>
+                    <li><img src="https://image.goodchoice.kr/resize_360x360/exhibition/cms/Region_Fukuoka_01_20231117141634.png"
+                            alt="">
+                        <p>후쿠오카</p>
+                    </li>
+                    <li><img src="https://www.joseilbo.com/gisa_img_origin/17364216671736421667_phoenix_origin.png"
+                            alt="">
+                        <p>다낭</p>
+                    </li>
+                    <li><img src="https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/bd4ca0a1-b555-4634-ba17-b094b6c5f29d.jpeg" alt="">
+                        <p>괌</p>
+                    </li>
+                </ul>
+                <div class="next-btn">
+                </div>
+            </div>
+        </div>
+
+        <div class="another-destinations">
+            <h3>국내 여행지</h3>
+            <ul>
+                <li>경기</li>
+                <li>제주도</li>
+                <li>충남</li>
+                <li>인천</li>
+                <li>대구</li>
+                <li>대전</li>
+                <li>서울</li>
+                <li>경남</li>
+                <li>강원</li>
+                <li>경북</li>
+                <li>광주</li>
+                <li>충북</li>
+                <li>전남</li>
+                <li>세종</li>
+                <li>독도</li>
+                <li>서해</li>
+                <li>남해해</li>
+            </ul>
+            <h3>해외 여행지</h3>
+            <ul>
+                <li>오사카</li>
+                <li>사이판</li>
+                <li>홍콩</li>
+                <li>도쿄</li>
+                <li>세부</li>
+                <li>보라카이</li>
+                <li>시드니</li>
+                <li>런던</li>
+                <li>뉴욕</li>
+                <li>고베</li>
+                <li>멜버른</li>
+                <li>벤쿠버</li>
+                <li>바르셀로나</li>
+                <li>두바이</li>
+                <li>헬싱키</li>
+                <li>마드리드</li>
+                <li>베를린</li>
+            </ul>
+        </div>
+
+        <div class="comunity">
+            <div>
+                <h3 style="color: rgb(91, 90, 90);">고객센터</h3>
+                <p style="margin-left: 60px; color: rgb(173, 173, 173); font-weight: bold; font-size: smaller;">고객행복센터(전화): 오전 9시 ~ 새벽 3시 운영 <br>
+
+                    카카오톡 문의: 24시간 운영</p>
+            </div>
+            <div>
+                <h3 style="color: rgb(91, 90, 90);">회사</h3>
+                <p style="margin-left: 60px; color: rgb(173, 173, 173); font-weight: bold; font-size: smaller;">회사소개</p>
+            </div>
+            <div>
+                <h3 style="color: rgb(91, 90, 90);">서비스</h3>
+                <p style="margin-left: 60px; color: rgb(173, 173, 173); font-weight: bold; font-size: smaller;">공지사항<br>자주 묻는 질문 <br>기업 출장/복지 서비스 문의</p>
+            </div>
+            <div>
+                <h3 style="color: rgb(91, 90, 90);">혜택</h3>
+                <p style="margin-left: 60px; color: rgb(173, 173, 173); font-weight: bold; font-size: smaller;">엘리트 멤버십<br>
+                트립홀릭 혜택 안내 <br>여기어때 상품권 조회</p>
+            </div>
+            <div>
+                <h3 style="color: rgb(91, 90, 90);">모든 여행</h3>
+                <p style="margin-left: 60px; color: rgb(173, 173, 173); font-weight: bold; font-size: smaller;">국내 숙소<br>
+                해외숙소 <br>항공 <br> 항공 + 숙소 <br> 레저/티켓 <br> 렌터카카</p>
+            </div>
+        </div>
+
+        <footer class="foot">
+            <p>(주)여기어때컴퍼니<br>
+
+                주소 : 서울특별시 강남구 봉은사로 479, 479타워 11층 | 대표이사 : 정명훈 | 사업자등록번호 : 742-86-00224사업자정보확인<br>
+                
+                전자우편주소 : help@yeogi.com | 통신판매번호 : 2017-서울강남-01779 | 관광사업자 등록번호 : 제1026-24호 | 전화번호 : 1670-6250 | 호스팅서비스제공자의 상호 표시 : (주)여기어때컴퍼니<br>
+                
+                (주)여기어때컴퍼니는 통신판매중개자로서 통신판매의 당사자가 아니며, 상품의 예약, 이용 및 환불 등과 관련한 의무와 책임은 각 판매자에게 있습니다.</p>
+
+            <p>이용약관&nbsp;
+                개인정보처리방침&nbsp;
+                소비자 분쟁해결 기준&nbsp;
+                콘텐츠산업진흥법에 의한 표시&nbsp;</p>
+                <p>Copyright GC COMPANY Corp. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

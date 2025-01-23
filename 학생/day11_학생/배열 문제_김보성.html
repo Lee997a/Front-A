@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+//1차원 배열
+
+        let movies = [ "파이트 클럽, ", "남산의 부장들, ", "불한당, ", "악마를 보았다" ];
+
+        document.write("== 1차원 배열==<br><br> 감상영화 : ")
+            for(let i = 0; i<=3; i++){
+                document.write(movies[i]);
+            }   
+        document.write("<br>")
+        document.write("<br>")
+
+//2차원 배열
+
+        let Songs = 
+            [
+                ["오늘만 I LOVE YOU", "Whiplash", "toxic till the end"],
+                ["REBEL HEART", "HOME SWEET HOME", "APT."],
+                ["DRIP", "Drowning", "Hug"]
+            ];
+
+            document.write("==2차원 배열==<br><br>");
+            document.write("인기차트 1위 ~ 9위위 <br><br>");
+
+            for (let i = 0; i <= 2; i++) {
+                for (let j = 0; j <= 2; j++) {
+                    document.write(Songs[i][j]);
+                    if (j < 2) {
+                        document.write(", ");  
+                    }
+                }
+                document.write("<br>");  
+            }
+        
+//3차원 배열
+
+        let food = [
+            [
+                [ "국밥", "족발", "닭갈비" ],
+                [ "쭈꾸미 볶음", "칼국수", "닭볶음탕" ],
+                [ "물회", "제육볶음", "김치찌개" ]
+            ],
+            
+            [
+                [ "짬뽕", "중화우동", "아이스 바닐라 라떼" ],
+                [ "케이크", "메밀소바", "초밥" ],
+                [ "파스타", "스테이크", "뇨끼" ]
+            ]
+        ];
+        
+        document.write("<br>==3차원 배열==<br><br>");
+        
+        document.write(`식사 : ${food[0][1][0]} <br>`)
+        document.write(`후식 : ${food[1][1][0]} <br>`)
+        document.write(`음료 : ${food[1][0][2]} <br>`)
+        
+    </script>
+
+</body>
+</html>

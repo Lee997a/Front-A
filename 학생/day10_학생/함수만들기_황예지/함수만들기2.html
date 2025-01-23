@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <img id="img">
+    <script>
+    //입력x, 반환o
+
+    function 마라탕먹기(){
+        //마라탕배달시키기
+        alert("1. 배달 어플을 실행한다.");
+        alert("2. 맛있는 마라탕 가게를 찾는다.");
+        alert("3. 마라탕 재료를 고른다. ");
+        alert("4. 주문하고 기다리기 !");
+        
+        let 이미지="https://lh5.googleusercontent.com/proxy/KnEDiz9X5UdzlImstdE5u4ENHwMck0fdUzDm-OAEtQ5PUgKYmUt0bUKOY1XKGW0G73JnCHy-fbnOJ-Ggi8zzL2oFOEShh0KOEqjWQgKv";
+        return 이미지;
+    }
+
+    let result = 마라탕먹기();
+    let imgTag = document.getElementById("img");
+    imgTag.src = result;
+
+</script>
+
+
+</body>
+</html>

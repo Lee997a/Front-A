@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries_Info</title>
+</head>
+
+<body>
+    <script>
+        const countries = [
+            {
+                countryName: "KOREA",
+                population: "51.71 million",
+                area: 100210,
+                language: "korean",
+                GDP: "1.713 trillion USD",
+                population_per_area: function () {
+                    const numericPopulation = parseFloat(this.population) * (this.population.includes("billion") ? 1_000_000_000 : 1_000_000);
+                    return numericPopulation / this.area;
+                },
+                GDPlevel: function () {
+                    let numericGDP = parseFloat(this.GDP);
+                    if (this.GDP.includes("trillion")) {
+                        numericGDP *= 1_000_000_000_000; 
+                    } else if (this.GDP.includes("billion")) {
+                        numericGDP *= 1_000_000_000; 
+                    }
+
+                    let numericPopulation = parseFloat(this.population);
+                    if (this.population.includes("billion")) {
+                        numericPopulation *= 1_000_000_000;
+                    } else if (this.population.includes("million")) {
+                        numericPopulation *= 1_000_000;
+                    }
+
+                    return numericGDP / numericPopulation;
+                },
+                nationality: function (nation) {
+                    switch(nation){
+                        case "KOREA":
+                            return "선생님은 한국인이십니다. 안녕하세요?";
+                        case "USA":
+                            return "you are american. hello?";
+                        case "JAPAN":
+                            return "あなたは日本人ですこんにちは";
+                        case "GERMANY":
+                            return "Hallo, du bist Deutscher";
+                    }
+                },
+                strikethrough:function(){
+                    return "============================================";
+                }
+            },
+            {
+                countryName: "USA",
+                population: "334.9 billion",
+                area: 9833517,
+                language: "english",
+                GDP: "27.36 trillion USD",
+                population_per_area: function () {
+                    const numericPopulation = parseFloat(this.population) * (this.population.includes("billion") ? 1_000_000_000 : 1_000_000);
+                    return numericPopulation / this.area;
+                },
+                GDPlevel: function () {
+                    let numericGDP = parseFloat(this.GDP);
+                    if (this.GDP.includes("trillion")) {
+                        numericGDP *= 1_000_000_000_000; 
+                    } else if (this.GDP.includes("billion")) {
+                        numericGDP *= 1_000_000_000; 
+                    }
+
+                    let numericPopulation = parseFloat(this.population);
+                    if (this.population.includes("billion")) {
+                        numericPopulation *= 1_000_000_000;
+                    } else if (this.population.includes("million")) {
+                        numericPopulation *= 1_000_000;
+                    }
+
+                    return numericGDP / numericPopulation;
+                },
+                nationality: function (nation) {
+                    switch(nation){
+                        case "KOREA":
+                            return "선생님은 한국인이십니다. 안녕하세요?";
+                        case "USA":
+                            return "you are american. hello?";
+                        case "JAPAN":
+                            return "あなたは日本人ですこんにちは";
+                        case "GERMANY":
+                            return "Hallo, du bist Deutscher";
+                    }
+                },
+                strikethrough:function(){
+                    return "============================================";
+                }
+            },
+            {
+                countryName: "JAPAN",
+                population: "124.5 billion",
+                area: 378000,
+                language: "japanese",
+                GDP: "4.213 trillion USD",
+                population_per_area: function () {
+                    const numericPopulation = parseFloat(this.population) * (this.population.includes("billion") ? 1_000_000_000 : 1_000_000);
+                    return numericPopulation / this.area;
+                },
+                GDPlevel: function () {
+                    let numericGDP = parseFloat(this.GDP);
+                    if (this.GDP.includes("trillion")) {
+                        numericGDP *= 1_000_000_000_000; 
+                    } else if (this.GDP.includes("billion")) {
+                        numericGDP *= 1_000_000_000; 
+                    }
+
+                    let numericPopulation = parseFloat(this.population);
+                    if (this.population.includes("billion")) {
+                        numericPopulation *= 1_000_000_000;
+                    } else if (this.population.includes("million")) {
+                        numericPopulation *= 1_000_000;
+                    }
+
+                    return numericGDP / numericPopulation;
+                },
+                nationality: function (nation) {
+                    switch(nation){
+                        case "KOREA":
+                            return "선생님은 한국인이십니다. 안녕하세요?";
+                        case "USA":
+                            return "you are american. hello?";
+                        case "JAPAN":
+                            return "あなたは日本人ですこんにちは";
+                        case "GERMANY":
+                            return "Hallo, du bist Deutscher";
+                    }
+                },
+                strikethrough:function(){
+                    return "============================================";
+                }
+            },
+            {
+                countryName:"GERMANY",
+                population: "84.48 million",
+                area: 357592,
+                language: "german",
+                GDP: "4.456 trillion USD",
+                population_per_area: function () {
+                    const numericPopulation = parseFloat(this.population) * (this.population.includes("billion") ? 1_000_000_000 : 1_000_000);
+                    return numericPopulation / this.area;
+                },
+                GDPlevel: function () {
+                    let numericGDP = parseFloat(this.GDP);
+                    if (this.GDP.includes("trillion")) {
+                        numericGDP *= 1_000_000_000_000; 
+                    } else if (this.GDP.includes("billion")) {
+                        numericGDP *= 1_000_000_000; 
+                    }
+
+                    let numericPopulation = parseFloat(this.population);
+                    if (this.population.includes("billion")) {
+                        numericPopulation *= 1_000_000_000;
+                    } else if (this.population.includes("million")) {
+                        numericPopulation *= 1_000_000;
+                    }
+
+                    return numericGDP / numericPopulation;
+                },
+                nationality: function (nation) {
+                    switch(nation){
+                        case "KOREA":
+                            return "선생님은 한국인이십니다. 안녕하세요?";
+                        case "USA":
+                            return "you are american. hello?";
+                        case "JAPAN":
+                            return "あなたは日本人ですこんにちは";
+                        case "GERMANY":
+                            return "Hallo, du bist Deutscher";
+                    }
+                },
+                strikethrough:function(){
+                    return "============================================";
+                }
+            }
+        ];
+
+        for (const country of countries) {
+            console.log(`국가: ${country.countryName}`);
+            console.log(`인구 밀도: ${country.population_per_area().toFixed(2)} 명/km²`);
+            console.log(`1인당 GDP: ${country.GDPlevel().toFixed(2)} USD/명`);
+            console.log(`국적적: ${country.nationality(country.countryName)}`);
+            console.log(country.strikethrough());
+        }
+    </script>
+</body>
+
+</html>

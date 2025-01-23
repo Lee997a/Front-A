@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+        }
+        html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        font-family: 'Pretendard-Regular';
+        }
+        .background{
+            width: 100%;
+            background-color: #212429;
+            
+        }
+        .base{
+            width: 700px;
+            height: 2000px;/*Fixed 창 테스트33
+            */
+            /*border: 1px solid black;*/
+            background-color: #212429;
+            margin: 0 auto;
+
+            position: relative;
+        }
+        /*검색창*/
+        .headear{
+            /*border: 1px solid black;*/
+            margin-top: 10px;
+            margin-left: 25px;
+            position: relative;
+        }
+        .base .icon{
+            width: 180px;
+            position: absolute;
+            bottom: 7px;
+            left: -30px;
+            z-index: 10;
+        }
+        .base .bell{
+            width: 25px;
+            
+            position: absolute;
+            right: 35px;
+            bottom: 10px;
+            z-index: 10;
+        }
+        .search_bar{
+            /*margin-top: 60px;
+            margin-left: 450px;*/
+            width: 650px;
+            background-color: #25304a;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+
+            margin-top: 60px;
+            margin-left: 20px;
+
+            justify-content: center;
+            align-items: center;
+            display: flex;
+
+
+            position: relative;
+        }
+        .search_bar input{
+            width: 80%;
+            height: 35px;
+
+            border: none;
+            
+            outline: none;
+            background-color: #25304a;
+            color: aliceblue;
+        }
+        .search_bar input::placeholder{
+            font-weight: bold;
+            color: #54637e;
+        }
+        .search_bar img{
+            width: 30px;
+            
+            position: absolute;
+            left: 20px;            
+        }
+        .search_bar img:hover{
+            transition: all 1s;
+            transform: rotate(360deg);
+        }
+        /*랭킹*/
+        .ranking{
+            width: 100%;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .ranking h3{
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .ranking_box:hover{
+            cursor: pointer;
+            background-color: #3a548185;
+            color: #c7c7c7;
+        }
+        .ranking li{
+            height: 80px;
+            margin-top: 10px;
+            list-style: none;
+            font-weight: bold;
+            font-size: 20px;
+            border: 0.5px solid #555555a1;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .num{
+            height: 40px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            padding-top: 10px;
+        }
+
+        .ranking img{
+            width: 36px;
+            height: 48px;
+            margin-left: 10px;
+        }
+        .mov_name{
+            /*border: 1px solid white;*/
+            margin-left: 15px;
+            border-left: 2px solid white;
+            padding-left: 15px;
+        }
+         /*카테고리 / 버튼창*/
+         .category{
+            width: 100%;
+            height: 100px;
+            display: flex;
+            padding-left: 15px;
+        }
+        .box{
+            width: 214px;
+            height: 64px;
+            margin: 5px;
+
+            display: flex;
+            justify-items: center;
+            align-items: center;
+
+            background-color: #25304adc;
+            border-radius: 15px ;
+        }
+        .box img{
+            width: 40px;
+            padding-left: 20px;
+        }
+        .box h3{
+            color: #afbdda;
+            padding-left: 20px;
+        }
+        .box h4{
+            color: #afbdda;
+            padding-left: 20px;
+        }
+        /*제안*/
+        /*.suggest *{
+            border: 1px solid green;
+        }*/
+
+        .suggest h3{
+            padding-left: 25px;
+            font-size: 24px;
+            color: white;
+        }
+        .suggest img{
+            width: 45px;
+        }
+        .movie_suggest{
+            display: flex;
+            justify-content: center;
+        }
+        .suggest .suggest_box{
+            width: 20%;
+            height: 260px;
+
+            margin: 8px;
+            border: 0.1px solid rgba(0, 0, 0, 0.158);
+            border-radius: 8px;
+            background-color: #172036;
+        }
+        .suggest_box img{
+            width: 140px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        .suggest_box:hover{
+            box-shadow: 0px 0px 10px 0 #5e2929;
+        }
+        .suggest_box h4{
+            color: white;
+            text-align: center;
+            font-weight: normal;
+            /*border: 1px solid rgba(255, 0, 0, 0.247);*/
+            margin: 0 auto;
+            margin-top: -1px;
+        }
+        .rating{
+            display: flex;
+        }
+        .circle{
+            width: 30px;
+            height: 22px;
+            margin: 5px;
+            margin-top: 6px;
+            margin-left: 11px;
+            
+            border-radius: 50px;
+            background-color: #0db482;
+        }
+        .circle, .rating_star{
+            display: none;
+        }
+        .tomato{
+            width: 10px;
+            height: 35px;
+            margin: 5px;
+            margin-top: 3px;
+            bottom: 10px;
+            margin-left: 8px;
+        }
+        .tomato:hover{
+            display: none;
+        }
+        .tomato:hover + .circle{
+            display: block;
+        }
+        .tomato:hover ~ .rotten_score{
+            display: none;
+        }
+        .tomato:hover ~ .rating_star{
+            display: block;
+        }
+        .rotten_score{
+            color: rgb(255, 145, 0);
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .rating_star{
+            display: none;
+            font-weight: bold;
+            margin-left: 5px;
+            margin-top: 5px;
+            color :#0ca678;
+        }
+        .plus{
+            width: 20px;
+            height: 20px;
+
+            border-radius: 15px;
+            background-color: #0db482;
+
+            margin-left: 30px;
+            margin-top: 5px;
+            position: relative;
+            display: flex;
+            right: 10px;
+        }
+        .plus img{
+            
+            width: 17px;
+
+            padding: 0 auto;
+            padding-left: 1.5px;
+        }
+                /*Fixed 창*/
+        .fixed_base ul{
+            width: 100%;
+            /*border: 1px solid red;*/
+            padding: 0;
+            background-color: #172036;
+
+            display: flex;
+            position: fixed;
+            left: 0px;
+            bottom: -16px;            
+
+            list-style: none;
+        }
+        .fixed_base li{
+            width: 20%;
+            padding: 10px;
+            /*border: 1px solid gray;*/
+            box-shadow: 0px -5px 5px -2px #1a1e36;
+            
+            text-align: center;
+        }
+        .fixed_base img{
+            width: 25px;
+            filter: invert(100%);
+        }
+        .fixed_base p{
+            margin: 0px;
+            
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body style="background-color: #212429;">
+    <div class="background">
+        <div class="base">
+            <!--검색창-->
+            <div class="headear">
+                <a href=""><img class="icon" src="https://media.licdn.com/dms/image/v2/C561BAQH8G4ekP-XtDQ/company-background_10000/company-background_10000/0/1634890951485/kinolights_cover?e=2147483647&v=beta&t=ecvW6y0Hjr4bIBh1jAsRMKA8go0T1rDNJupaXNEDJwU"></a>
+                <img class="bell" src="./bell.png">
+            </div>
+            <div class="search_bar">
+                <img src="https://cdn2.iconfinder.com/data/icons/clean-simple/75/search-512.png">
+                <input type="text" placeholder="작품, 인물, 컬렉션, 게시글을 검색해 보세요">
+            </div>
+            <!--랭킹-->
+            <ul class="ranking">
+                <h3>오늘의 '넷플릭스'랭킹</h3>
+                <li class="ranking_box" onclick="location.href='https://www.netflix.com/title/81752951';"><p class="num" style="padding-right: 4.5px;">1.</p>
+                    <img src="https://flixpatrol.com/runtime/cache/files/posters/9/w350/9ybw60pm0eexskeizmvmolcuhyu.webp">
+                    <p class="mov_name">Ad Vitam</p>
+                </li>
+                <li class="ranking_box" onclick="location.href='https://www.netflix.com/title/81752951';"><p class="num">2.</p>
+                    <img src="https://flixpatrol.com/runtime/cache/files/posters/x/w350/xugdawetqsgxnnwz2djs8u7bbzn.webp">
+                    <p class="mov_name">마이펫의 이중생활 2</p>
+                </li>
+                <li class="ranking_box" onclick="location.href='https://www.netflix.com/ma-en/title/81083799';"><p class="num">3.</p>
+                    <img src="https://flixpatrol.com/runtime/cache/files/posters/6/w350/6n7asmq1wy2cxtubffglcvppyk7.webp">
+                    <p class="mov_name">Ma</p>
+                </li>
+            </ul>
+             <!--카테고리 / 버튼 창-->
+             <div class="category">
+                <div style="cursor: pointer;" onclick="location.href='https://muko.kr/';">
+                    <div class="box">
+                        <img src="./커뮤니티.png" alt="커뮤니티 png">
+                        <h3>커뮤니티</h3>
+                    </div>
+                </div>    
+                <div style="cursor: pointer;" onclick="location.href='https://www.megabox.co.kr/movie/comingsoon';">
+                    <div class="box">
+                        <img src="./예정작.png" alt="예정작 png">
+                        <h4>신작  & 예정작</h4>
+                    </div>
+                </div>
+                <div style="cursor: pointer;" onclick="location.href='https://www.kmdb.or.kr/db/list/242';">
+                    <div class="box">
+                        <img src="./컬렉션.png" alt="컬렉션 png">
+                        <h3>컬렉션</h3>
+                    </div>
+                </div>
+            </div>
+            <!--제안창-->
+            <div class="suggest">
+                <h3>오늘 이거 볼까요? <img src="./eyes.png"></h3>
+                <div class="movie_suggest">
+                    <div class="suggest_box">
+                        <a href="https://www.netflix.com/kr/title/70299275"><img src="https://i.namu.wiki/i/8Cr9ZS2ABjkNAdm27K3PpfLMOQy4sKDOnHiUxbqSO2Wm4tximaHBpQeABcslP_0SJQFjAIZaYBzKh0JeYlGuAHNhASv2l8ZN1gdOmVTWvkRJ8LMKU17s7w_MmFZFtmeXX17LG4fMeVYAek8mZMxbnw.webp" alt="Whiplash 포스터"></a>
+                        <h4>Whiplash</h4>
+                        <div class="rating">
+                            <img src="./tomato.png" class="tomato">
+                            <div class="circle"></div>
+                            <span class="rotten_score">94.0%</span>
+                            <span class="rating_star">8.88★</span>
+                            <div class="plus">
+                                <img src="./plus.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="suggest_box">
+                        <a href="https://watcha.com/ko-KR/contents/mWvKQw0?utm_campaign=metadata&utm_source=google&utm_medium=search"> <img src="https://i.namu.wiki/i/KMnaDQEyBUdHU1Q7itIsl3InULWUAWNka_xOKPrMG4ojNTgXFmql99QI-KBJ0FN-5RB-i2fB6P__5i51aj-Vd_nLtGOmm-Cbaed7xTpHqSJGsHiBHy3bYb5ImJ2Bx-eldy6AfeV4brDK4ONIFRj3NQ.webp" alt="위키드 포스터"></a>
+                        <h4>Wicked</h4>
+                        <div class="rating">
+                            <img src="./tomato.png" class="tomato">
+                            <div class="circle "></div>
+                            <span class="rotten_score">88.0%</span>
+                            <span class="rating_star">8.68★</span>
+                            <div class="plus">
+                                <img src="./plus.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="suggest_box">
+                        <a href="https://www.netflix.com/kr/title/81730166"><img src="https://i.namu.wiki/i/1hLEgzSFaAtBwRZIFs5PMT2Gcr1Ie9FL5BBMrR9CDii0yZ6Uy1p9vXDZoN_ozagwOocZSl_VBoM0wxPBDgFqjVKnOEWmDux3BkCPIEveNJF070Yr4LFeiOBQZAy_1c80lSBNIqGWc-5Q8V2p2OkUCg.webp" alt="콘크리트 유토피아 포스터"></a>
+                        <h4>콘크리트 유토피아</h4>
+                        <div class="rating">
+                            <img src="./tomato.png" class="tomato">
+                            <div class="circle"></div>
+                            <span class="rotten_score">100%</span>
+                            <span class="rating_star">8.19★</span>
+                            <div class="plus">
+                                <img src="./plus.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="suggest_box">
+                        <a href="https://www.netflix.com/kr/title/70024111?source=naver"><img src="https://i.namu.wiki/i/2HrSg_X4JOD-IXfknB0Z87II-J3PFZ8jx-ACQh7lq7FUV5yaIRE9nSSgWzkw4roaxb80wXtokAsq6qNODjJBFsK29ShoUzCi2LDHjCvvoyZjXRr7Lr676czpcN8usjyr75YRkG8t03EwA6Ssx_y9zg.webp" alt="올드보이 포스터"></a>
+                        <h4>올드보이</h4>
+                        <div class="rating">
+                            <img src="./tomato.png" class="tomato">
+                            <div class="circle"></div>
+                            <span class="rotten_score">82.0%</span>
+                            <span class="rating_star">9.31★</span>
+                            <div class="plus">
+                                <img src="./plus.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>              
+            </div>
+           <!--Fixed 창-->
+           <div class="fixed_base">
+            <ul>
+                <li class="fiexd home" style="cursor:pointer;" onclick="location.href='https://m.kinolights.com/';">
+                    <img src="./home.png" alt="home.png">
+                    <p>홈</p>
+                </li>
+                <li class="fixed rank" style="cursor: pointer;" onclic k="location.href='https://www.kobis.or.kr/kobis/business/stat/boxs/findDailyBoxOfficeList.do';">
+                    <img src="./ranking.png" alt="ranking.png">
+                    <p>랭킹</p>
+                </li>
+                <li class="fixed search" style="cursor:pointer;" onclick="location.href='https://www.kofic.or.kr/kofic/business/infm/introData.do';">
+                    <img src="./search.png" alt="search.png">
+                    <p>탐색</p>
+                </li>
+                <li class="fixed reward" style="cursor:pointer;" onclick="location.href='https://www.megabox.co.kr/event/detail?eventNo=16928';">
+                    <img src="./reward.png" alt="reward.png">
+                    <p>혜택</p>
+                </li>
+                <li class="fixed mypage" style="cursor:pointer;" onclick="location.href='';">
+                    <img src="./mypage.png" alt="mypage.png">
+                    <p>마이페이지</p>
+                </li>
+            </ul>
+        </div>            
+        </div>
+    </div>    
+</body>
+</html>

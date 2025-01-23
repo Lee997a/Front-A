@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체</title>
+    <style>
+        .imgcontainer {
+            display: flex;
+        }
+
+        img {
+            width: 250px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="imgcontainer">
+        <img src="./images/KakaoTalk_20250121_160936769.jpg">
+        <img src="./images/KakaoTalk_20250121_160936769_01.jpg">
+        <img src="./images/KakaoTalk_20250121_160936769_02.jpg">
+    </div>
+    <script>
+
+        const cat = {
+            이름: "곰",
+            나이: 10,
+            색깔: "흰색",
+            특징: "오드아이",
+            좋아하는음식: ["츄르", "빵쪼가리", "고기"],
+
+            catcolor: function (color) {
+                let inputcolor = prompt("색상을 예상해보세요 : (색까지 붙이세요)");
+                if (this.색깔.includes(inputcolor)) {
+                    return `${this.이름}이는 ${inputcolor}이 맞습니다<br><br>`;
+                }
+                else {
+                    return `틀렸습니다<br><br>`;
+                }
+            },
+
+            printInfo: function () {
+                document.write("이름 : " + this.이름 + "<br>나이 : " + this.나이 + "<br>색깔 : " + this.색깔 + "<br>특징 : " + this.특징 + "<br>좋아하는 음식 : " + this.좋아하는음식 + "<br>")
+            },
+        };
+
+        document.write("<br>", cat.이름);
+        document.write("<br>", cat.나이);
+        document.write("<br>", cat.색깔);
+        document.write("<br>", cat.특징);
+        document.write("<br>", cat.좋아하는음식);
+
+        let result1 = cat.catcolor();
+        document.write(result1);
+
+        cat.printInfo();
+
+    </script>
+</body>
+
+</html>

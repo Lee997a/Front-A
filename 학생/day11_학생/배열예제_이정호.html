@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열예제</title>
+</head>
+<body>
+    <script>
+        //1차원 배열
+        let one_arr = ["ISTJ", "ISTP", "ISFJ", "ISFP", "INTJ", "INTP", "INFJ", "INFP",
+                       "ESTJ", "ESTP", "ESFJ", "ESFP", "ENTJ", "ENTP", "ENFJ", "ENFP"]
+
+        document.write("-1차원 배열- <br><br>")
+        for(let i = 0; i < one_arr.length; i++){
+            document.write(`${one_arr[i]} <br>`)
+        }
+        document.write("<br>")
+
+        //2차원 배열
+        let two_arr = [
+            ["ISTJ", "ISTP", "ISFJ", "ISFP"],
+            ["INTJ", "INTP", "INFJ", "INFP"],
+            ["ESTJ", "ESTP", "ESFJ", "ESFP"],
+            ["ENTJ", "ENTP", "ENFJ", "ENFP"]
+        ]
+
+        document.write("-2차원 배열- <br><br>")
+        for(let i = 0; i < two_arr.length; i++){
+            for(let j = 0; j < two_arr[i].length; j++){
+                document.write(`${two_arr[i][j]} <br>`)
+            }
+        }
+        document.write("<br>")
+
+        //3차원 배열
+        let three_arr = [
+            [
+                ["ISTJ", "ISTP", "ISFJ", "ISFP"],
+                ["INTJ", "INTP", "INFJ", "INFP"],
+            ],
+            [
+                ["ESTJ", "ESTP", "ESFJ", "ESFP"],
+                ["ENTJ", "ENTP", "ENFJ", "ENFP"]
+            ]
+        ]
+
+        document.write("-3차원 배열- <br><br>")
+        for(let i = 0; i < three_arr.length; i++){
+            for(let j = 0; j < three_arr[i].length; j++){
+                for(let k = 0; k < three_arr[i][j].length; k++){
+                    document.write(`${three_arr[i][j][k]} <br>`)
+                }
+            }
+        }
+    </script>
+</body>
+</html>

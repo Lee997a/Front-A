@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        //속성+기능객체
+        const note={
+            noteName : "LG그램",
+            notePrice : 1200000,
+            noteCpu : "intelCore i7",
+            noteSave : "300GB",
+
+            purchase : function(price){
+                price = parseInt(prompt("지불할 금액"));
+                if(note.notePrice>price){
+                    alert("금액이 부족합니다");
+                }else{
+                    alert(`거래완료  거스름돈: ${price-note.notePrice}`)
+                }
+
+            }
+            
+        };
+        
+        note.purchase();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체타입연습</title>
+</head>
+
+<body>
+    <script>
+        const quokka = {
+            이름: "쿼카",
+            학명: "Setonix brachyurus",
+            색상: "갈색의 털에 회색 포인트",
+            서식지: "로트네스트섬, 오스트레일리아",
+            먹는음식: ["잎", "줄기", "풀"],
+
+            eat: function (food) {
+                if (this.먹는음식.includes(food)) {
+                    return alert(`${this.이름}는 ${food}를(을) 맛있게 먹어요.`);
+                } else {
+                    return alert(`${this.이름}는 ${food}를(을) 먹지 않아요.`);
+                }
+            },
+
+            printInfo: function () {
+                document.write("<h2>동물정보</h2>" + "이름: " + this.이름 + "<br>학명: " + this.학명 + "<br>색상: " + this.색상 + "<br>서식지: " + this.서식지 + "<br>먹는음식: " + this.먹는음식);
+            },
+
+            quiz: function () {
+                const feed = prompt("쿼카에게 줄 음식을 입력하세요")
+                this.eat(feed);
+            },
+
+            charater: function () {
+                alert("호기심 많고 친근한 성격을 가지고 있어 사람을 두려워 하지 않습니다.");
+                alert("항상 웃고있는 것처럼 보여 '세상에서 가장 행복한 동물'로 불립니다");
+            }
+        }
+
+        quokka.printInfo();
+
+    </script>
+    <br>
+    <button onclick="quokka.charater()">특징</button>
+    <br>
+    <button onclick="quokka.quiz()">쿼카에게 음식주기</button>
+
+
+</body>
+
+</html>

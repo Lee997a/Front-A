@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button
+        {
+            width: 135px;
+            height: 25px;
+
+            border: 1px solid black;
+            background-color: black;
+            color: white;
+        }
+        button:hover
+        {
+            background-color: white;
+            color: black;
+        }
+    </style>
+    <script>
+        function eat(){
+            const acornStudent =
+            [
+                [
+                    ["한우갈비", "우삼겹", "오리불고기", "샤브샤브"],
+                    ["닭백숙", "삼계탕", "닭갈비", "닭볶음탕"],
+                    ["연어회", "연어초밥", "참치회", "광어회", "고등어회"],
+                ],
+
+                [
+                    ["소고기솥밥", "버섯솥밥", "명란솥밥", "볶음밥"],
+                    ["김치라면", "짬뽕", "국수"],
+                    ["김치찌개", "된장찌개", "만둣국", "미역국"]
+                ]
+            ];
+            for (let i = 0; i < acornStudent.length; i++) // 2차원 배열 갯수
+            {
+                for (let j = 0; j < acornStudent[i].length; j++) // 행의 갯수
+                {
+                    for (let k = 0; k < acornStudent[i][j].length; k++) // 열의 갯수
+                    {
+                        document.write(acornStudent[i][j][k] + ", ");
+                    }
+                    document.write("<br>");
+                }
+                document.write("<br>");
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="eat()">지금 먹고 싶은 음식</button>
+</body>
+</html>

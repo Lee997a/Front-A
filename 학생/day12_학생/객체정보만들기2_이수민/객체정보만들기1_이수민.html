@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        자신이 표현하고 싶은 객체정보 2개 만들기
+
+        1) 속성만 객체만들고 출력하기
+        2) 속성 + 기능 객체만들고 출력하기
+        */
+
+        const snack=[
+            {
+                name: "말랑카우",
+                taste: "딸기우유맛",
+                price: 2400,
+                weight: "79g",
+
+            },
+            {
+                name:"자유시간",
+                taste: "리얼초코",
+                price: 1000,
+                weight: "38g"
+            }
+
+        ];
+
+        for(let i=0;i<snack.length;i++){
+            item=snack[i];
+            document.write(item.name+"<br>");
+            document.write(item.taste+"<br>");
+            document.write(item.price+"<br>");
+            document.write(item.weight+"<br>");
+            document.write("<br>");
+        }
+        
+
+
+    </script>
+    
+</body>
+</html>

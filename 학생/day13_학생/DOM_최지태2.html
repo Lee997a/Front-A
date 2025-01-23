@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        * {
+            text-align: center;
+        }
+        button {
+            padding: 20px;
+            margin: 10px;
+        }
+        div {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        .wrap {
+            box-sizing: content-box;
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .wrap>div {
+            display: flex;
+            flex-direction: row;
+
+        }
+
+        .wrap>div>div {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+    </style>
+    <script>
+        function start() {
+            const items = document.querySelectorAll(".wrap > div > div");
+            const n = 10; // 행렬의 크기
+            let num = 1; // 출력할 숫자
+            let delay = 0; // 초기 지연 시간
+            let time = 10
+
+            // 나선형 순서대로 숫자 출력
+            for (let layer = 0; layer < n / 2; layer++) {
+                // 상단 행 (왼쪽에서 오른쪽)
+                for (let i = layer; i < n - layer; i++) {
+                    setTimeout(((index) => () => {
+                        items[index].innerHTML = num++;
+                    })(layer * n + i), delay);
+                    delay += time;
+                }
+
+                // 우측 열 (위에서 아래로)
+                for (let i = layer + 1; i < n - layer; i++) {
+                    setTimeout(((index) => () => {
+                        items[i * n + (n - layer - 1)].innerHTML = num++;
+                    })(i), delay);
+                    delay += time;
+                }
+
+                // 하단 행 (오른쪽에서 왼쪽)
+                for (let i = n - layer - 2; i >= layer; i--) {
+                    setTimeout(((index) => () => {
+                        items[(n - layer - 1) * n + i].innerHTML = num++;
+                    })(i), delay);
+                    delay += time;
+                }
+
+                // 좌측 열 (아래에서 위로)
+                for (let i = n - layer - 2; i > layer; i--) {
+                    setTimeout(((index) => () => {
+                        items[i * n + layer].innerHTML = num++;
+                    })(i), delay);
+                    delay += time;
+                }
+            }
+        }
+
+        function deletes() {
+            const items = document.querySelectorAll(".wrap > div > div");
+            const n = 10; // 행렬의 크기
+            let num = 1; // 출력할 숫자
+            let delay = 0; // 초기 지연 시간
+            let time = 10
+
+            // 나선형 순서대로 숫자 출력
+            for (let layer = 0; layer < n / 2; layer++) {
+                // 상단 행 (왼쪽에서 오른쪽)
+                for (let i = layer; i < n - layer; i++) {
+                    setTimeout(((index) => () => {
+                        items[index].innerHTML = ''
+                        num++;
+                    })(layer * n + i), delay);
+                    delay += time;
+                }
+
+                // 우측 열 (위에서 아래로)
+                for (let i = layer + 1; i < n - layer; i++) {
+                    setTimeout(((index) => () => {
+                        items[i * n + (n - layer - 1)].innerHTML = ''
+                        num++;
+                    })(i), delay);
+                    delay += time;
+                }
+
+                // 하단 행 (오른쪽에서 왼쪽)
+                for (let i = n - layer - 2; i >= layer; i--) {
+                    setTimeout(((index) => () => {
+                        items[(n - layer - 1) * n + i].innerHTML = ''
+                        num++;
+                    })(i), delay);
+                    delay += time;
+                }
+
+                // 좌측 열 (아래에서 위로)
+                for (let i = n - layer - 2; i > layer; i--) {
+                    setTimeout(((index) => () => {
+                        items[i * n + layer].innerHTML = ''
+                        num++;
+                    })(i), delay);
+                    delay += time;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h2>달팽이 배열</h2>
+    <button onclick="start()">start</button>
+    <button onclick="deletes()">delete</button>
+    <div class="wrap">
+        <div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</body>
+
+</html>

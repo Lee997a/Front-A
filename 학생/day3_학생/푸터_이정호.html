@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>푸터</title>
+    <style>
+        /*푸터*/
+        .footer{
+            border: 1px solid black;
+            padding: 20px;
+            color: rgb(124, 124, 124);
+            width: 1450px;
+            margin: 0 auto;
+        }
+        .footer p, .footer a{
+            font-size: 13px;
+        }
+
+        /*---------------------------------------*/
+
+        /*위 구역*/
+        .up_footer{
+            margin-bottom: 20px;
+            display: flex;
+        }
+
+        /*위 왼쪽 구역*/
+        .up_left{
+            width: 70%;
+        }
+
+        /*위 오른쪽 구역*/
+        .up_right{
+            width: 30%;
+            margin-top: 10px;
+        }
+        .up_right select{
+            width: 170px;
+            border-radius: 100px;
+            padding: 10px;
+            border-color: lightgray;
+            margin-right: 10px;
+        }
+
+        /*---------------------------------------*/
+
+        /*아래 구역*/
+        .down_footer{
+            display: flex;
+        }
+
+        /*아래 왼쪽 구역*/
+        .down_left{
+            width: 60%;
+        }
+        .menu{
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        .at_sign{
+            margin-top: 30px;
+        }
+        .down_left span{
+            color: black;
+            text-decoration: underline;
+        }
+
+        /*아래 오른쪽 구역*/
+        .down_right{
+            width: 40%;
+        }
+        .down_right_2{
+            display: flex;
+            margin-top: 20px;
+        }
+        .down_right_2 p{
+            margin-top: 20px;
+        }
+        .isms-logo{
+            display: flex;
+            margin-right: 30px;
+        }
+        .isms-logo img{
+            width: 70px;
+            margin-top: 5px;
+        }
+
+        /*---------------------------------------*/
+
+        /*버튼*/
+        .squar_btn{
+            background-color: white;
+            border-color: lightgray;
+            border-radius: 5px;
+            font-size: 11px;
+            height: 25px;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+        .circle_btn{
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            border: 2px solid lightgray;
+            background-color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!--푸터-->
+    <div class="footer">
+        <!--위 구역-->
+        <div class="up_footer">
+            <!--위 왼쪽 구역-->
+            <div class="up_left">
+                <img src="https://contents.kyobobook.co.kr/resources/fo/images/common/ink/img_logo_kyobo_footer.png" alt="교보문고logo">
+            </div>
+            <!--위 오른쪽 구역-->
+            <div class="up_right">
+                <select>
+                    <option>Family Site</option>
+                </select>
+                <button class="circle_btn">A</button>
+                <button class="circle_btn">B</button>
+                <button class="circle_btn">C</button>
+            </div>
+        </div>
+        <!--아래 구역-->
+        <div class="down_footer">
+            <!--아래 왼쪽 구역-->
+            <div class="down_left">
+                <p class="menu">회사소개 | 이용약관 | <span>개인정보처리방침</span> | 청소년보호정책 | 대량주문안내 | 협력사여러분 | 채용정보 | 광고소개</p>
+                <p>대표이사 : 안병현, 김상훈 | 서울특별시 종로구 종로 1 | 사업자등록번호 : 102-81-11670</p>
+                <p><b>대표전화 : 1544-1900(발신자 부담전화)</b> | FAX : 0502-987-5711(지역번호 공통) | 서울특별시 통신판매업신고번호 : 제 653호<button class="squar_btn">사업자정보확인 ></button></p>
+                <p class="at_sign">© KYOBO BOOK CENTRE</p>
+            </div>
+            <!--아래 오른쪽 구역-->
+            <div class="down_right">
+                <div class="down_right_1">
+                    <p>
+                        <b>토스페이먼츠 구매안전서비스</b><button class="squar_btn">서비스 가입 확인 ></button><br>
+                        고객님은 안전거래를 위해 현금 등으로 결제시 저희 쇼핑몰에서 가입한<br>
+                        토스페이먼츠의 구매안전서비스를 이용하실 수 있습니다.
+                    </p>
+                </div>
+                <div class="down_right_2">
+                    <div class="isms-logo">
+                        <img src="https://isms.kisa.or.kr/main/images/sub/ISMS.png" alt="isms로고">
+                        <p>정보보호관리체계<br>ISMS 인증체계</p>
+                    </div>
+                    <div class="isms_date">
+                        <p>[인증범위] 인터넷 교보문고 및 브랜드 서비스 운영<br>
+                            [유효기간] 2023.11.15 ~ 2026.11.14</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

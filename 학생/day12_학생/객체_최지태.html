@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            자신이 표현하고 싶은 객체정보 2개 만들기
+
+            1) 속성만 객체만들고 출력하기
+            2) 속성 + 기능 객체만들고 출력하기
+        */
+
+        const movie = {
+            name: "기생충",
+            genre: [
+                "드라마", "스릴러", "블랙 코미디", "서스펜스", "범죄",
+                "가족", "피카레스크", "사회고발"
+            ],
+            director: "봉준호",
+            actor: [
+                "송강호", "이선균", "조여정", "최우식", "박소단", 
+                "장혜진", "이정은"
+            ],
+            production: "바른손이엔에이",
+            distributor: "CJ엔터테인먼트",
+            filmRatings: 15
+        };
+
+        let toDoList = [
+            {
+                mainTask: "과제하기",
+                subTask: ["자바 과제", "C과제",],
+                onChecked: [false, true],
+                time: "2025-01-22",
+                printTodo: print,
+                addTask: add,
+            },
+            {
+                mainTask: "학원가기",
+                subTask: ["입실",],
+                onChecked: [true],
+                time: "2025-01-22",
+                printTodo: print,
+                addTask: add,
+            },
+            {
+                mainTask: "집가기기",
+                subTask: ["지하철 타기",],
+                onChecked: [false],
+                time: "2025-01-22",
+                printTodo: print,
+                addTask: add,
+            },
+        ];
+
+        function print() {
+            document.write(`
+                <ul>
+                    <h2>${this.mainTask}</h2>
+            `);
+            for (let i = 0; i < this.subTask.length; i++) {
+                if (this.onChecked[i])
+                    document.write(`
+                        <li>
+                            <input type="checkBox" Checked>
+                            ${this.subTask[i]}
+                        </li>
+                    `);
+                else
+                    document.write(`
+                        <li>
+                            <input type="checkBox">
+                            ${this.subTask[i]}
+                        </li>
+                    `);
+            }
+            document.write(`
+                <h5>${this.time} 까지</h5>
+            `);
+            document.write(`
+                </ul>
+            `);
+        };
+
+        function add(task) {
+            this.subTask[this.subTask.length] = task;
+            this.onChecked[this.onChecked.length] = false;
+        };
+
+        document.write(`<h1> To Do List </h1>`);
+        toDoList[0].addTask(prompt("투두리스트에 추가하기"));
+        for (let i = 0; i < toDoList.length; i++) {
+            toDoList[i].printTodo();
+        };
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+ @import url('https://fonts.googleapis.com/css2?family=Diphylleia&family=Do+Hyeon&family=Gothic+A1&family=Nanum+Gothic+Coding&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR:wght@200..900&display=swap');
+        *{
+            font-family: "Noto Sans KR", serif;
+            font-optical-sizing: auto;
+            font-weight: <weight>;
+            font-style: normal;
+        }
+        html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;category
+        height: 100%;
+        }
+        .background{
+            width: 100%;
+            background-color: #212429;
+        }
+        .base{
+            width: 700px;
+            height: 1000px;
+            /*border: 1px solid black;*/
+            background-color: #212429;
+            margin: 0 auto;
+            color:white;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        /*카테고리 / 버튼창*/
+        .category{
+            width: 100%;
+            height: 100px;
+            display: flex;
+        }
+        .box{
+            width: 214px;
+            height: 64px;
+            margin: 5px;
+
+            display: flex;
+            justify-items: center;
+            align-items: center;
+
+            background-color: #25304adc;
+            border-radius: 15px ;
+        }
+        .box img{
+            width: 40px;
+            padding-left: 20px;
+        }
+        .box h3,h4{
+            color: #afbdda;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="base">
+            <!--카테고리 / 버튼 창-->
+            <div class="category">
+                <div style="cursor: pointer;" onclick="location.href='https://muko.kr/';">
+                    <div class="box">
+                        <img src="./커뮤니티.png" alt="커뮤니티 png">
+                        <h3>커뮤니티</h3>
+                    </div>
+                </div>    
+                <div style="cursor: pointer;" onclick="location.href='https://www.megabox.co.kr/movie/comingsoon';">
+                    <div class="box">
+                        <img src="./예정작.png" alt="예정작 png">
+                        <h4>신작  & 예정작</h4>
+                    </div>
+                </div>
+                <div style="cursor: pointer;" onclick="location.href='https://www.kmdb.or.kr/db/list/242';">
+                    <div class="box">
+                        <img src="./컬렉션.png" alt="컬렉션 png">
+                        <h3>컬렉션</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

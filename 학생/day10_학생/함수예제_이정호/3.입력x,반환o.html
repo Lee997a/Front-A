@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입력 x, 반환 o</title>
+    <style>
+        #colorDiv{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="colorDiv"></div>
+
+    <script>
+        /*
+            기능 : 랜덤 배경색
+            입력 : 없음
+            반환 : 1 ~ 7까지 랜덤으로 숫자를 반환
+        */
+
+        function randomColor(){
+            let random = Math.floor(Math.random() * 7 + 1) //1 ~ 7 사이에 랜덤 숫자
+            return random //랜덤 숫자 반환
+        }
+
+        let color = randomColor()
+        let colorDiv = document.querySelector("#colorDiv")
+        console.log(color)
+
+        if(color === 1){
+            colorDiv.style.backgroundColor = "red"
+        }else if(color === 2){
+            colorDiv.style.backgroundColor = "orange"
+        }else if(color === 3){
+            colorDiv.style.backgroundColor = "yellow"
+        }else if(color === 4){
+            colorDiv.style.backgroundColor = "green"
+        }else if(color === 5){
+            colorDiv.style.backgroundColor = "blue"
+        }else if(color === 6){
+            colorDiv.style.backgroundColor = "darkblue"
+        }else if(color === 7){
+            colorDiv.style.backgroundColor = "purple"
+        }
+    </script>
+</body>
+</html>

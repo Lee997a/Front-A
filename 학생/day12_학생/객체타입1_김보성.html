@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        // 자신이 표현하고 싶은 객체정보 2개 만들기
+        // 1. 속성만 객체만들고 출력하기
+
+        const Movie = {
+            Name : "내부자들 : 디 오리지널",
+            Actor : [ "이병헌", " 조승우", " 백윤식", " 이경영" ],
+            Director : "우민호",
+            Runnigtime : "3H 45S",
+            Production : "하이브미디어코프",
+            Presents : "쇼박스",
+            Release : 2015/12/31,
+            Audience : "9,156,925 명",
+            Boxoffice : "$ 61,653,908",
+            Streaming : [ "NETFLIX", "Wavve", "WATCHA", "TVING", "Apple TV+", "SERIES on", "coupang play", "U+ 모바일tv", "Disney+" ],
+            Screeninggrade : "19+"
+        }
+        userInput = prompt(Movie.Name+"에 관한 정보입니다. 궁금하신 정보를 입력 해 주세요.\n 배우 / 감독 / 상영시간 / 제작사 / 배급사 / 개봉일 \n 관객수 / 박스오피스 / 스트리밍 / 상영등급")
+    
+        if(userInput == "배우"){
+            alert(Movie.Actor);
+        }else if(userInput == "감독"){
+            alert(Movie.Director);
+        }else if(userInput == "상영시간"){
+            alert(Movie.Runnigtime);
+        }else if(userInput == "제작사"){
+            alert(Movie.Production);
+        }else if(userInput == "배급사"){
+            alert(Movie.Presents);
+        }else if(userInput == "개봉일"){
+            alert(Movie.Release);
+        }else if(userInput == "관객수"){
+            alert(Movie.Audience);
+        }else if(userInput == "박스오피스"){
+            alert(Movie.Boxoffice);
+        }else if(userInput == "스트리밍"){
+            alert(Movie.Streaming);
+        }else if(userInput == "상영등급"){
+            alert(Movie.Screeninggrade);
+        }else{
+            alert("정해진 입력값만 입력 해 주세요.")
+        }
+
+
+    </script>
+
+
+</body>
+</html>

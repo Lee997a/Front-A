@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const friend={
+            name:"예지",
+            gender:"여성",
+            age: 24,
+            like: ["집에가기", "케이팝", "고양이",],
+            dislike: ["집에못가기", "바퀴벌레"],
+
+            prefer: function(){
+                let item=prompt(this.name+"에게 무엇을 줄까요?");
+                if(this.like.includes(item)){
+                    return `${this.name}는 ${item}(을)를 좋아한다`;
+                }else if(this.dislike.includes(item)){
+                    return `아 ㅋㅋ ${item};;..멀.뚱멀.뚱 서있음`;
+                }
+
+            },
+
+            getAge: function(){
+                return `${this.age}살 입니다`;
+            }
+
+            
+        };
+
+        let result2=friend.getAge();//나이 출력
+        alert(result2);
+        
+        //
+        let result1=friend.prefer();
+       
+        alert(result1);
+
+        result1=friend.prefer();
+        alert(result1);
+
+        /* let result2=friend.prefer("바퀴벌레");
+        alert(result2); */
+
+
+    </script>
+</body>
+</html>

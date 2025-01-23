@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .wrap{
+            width: 750px;
+           /* height: 1000px; */
+            border: 1px solid black;
+            text-align: center;           
+            margin: 0 auto;;
+        }
+
+
+        .box2{
+            display: flex;
+            padding:  10px;
+            /* border: 1px solid black; */
+            justify-content: center;
+            right: 15px;
+            
+        }
+        img{
+            width: 250px;
+            
+        }
+        .box2 textarea{
+            width: 450px;
+            height: 330px;
+            text-align: center;
+            
+        }
+        
+        .aa{
+            width: 85%;
+            
+           
+            margin: 0 auto;
+
+            display: flex;
+        }
+
+
+        .aa > div{
+            width: 33.3%;
+           
+            
+        }
+        .box3 h3{
+            margin: 0;
+            margin-bottom: 5px;
+        }
+
+
+        .box3  input{
+            width: 100%;
+            padding: 10px;
+
+            box-sizing: border-box;
+        }
+        .box4{
+            margin-top: 20px;
+            padding: 10px;
+        }
+        .box4 input{
+            width: 90%;
+            height: 100px;
+        }
+        .box4 h3{
+            margin-right: 550px;
+        }
+        .box5{
+            width: 100%;
+            height: 200px;
+            padding: 10px;
+        }
+        .box5 h3{
+            margin-right: 500px;
+        }
+        .box5 textarea{
+            width: 90%;
+            height: 100px;
+        }
+        .re{
+            position: absolute;
+            right: 400px;
+            top: 700px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+
+        <!-- Review detail -->
+        <div class="box1">
+            <h2>REVIEW DETAIL</h2>
+        </div>
+
+        <!-- 이미지, 맛 평가(후기) -->
+        <div class="box2">
+            <div class="box2-1">
+                <h3>이미지</h3>
+                <img src="https://buly.kr/7x5cHk1" alt="라면 사진">
+            </div>
+            <div class="box2-2">
+                <h3>맛평가(후기)</h3>
+                <textarea placeholder="솔직한 맛 평가 부탁드립니다!" id=""></textarea>
+
+            </div>
+        </div>
+
+        <!-- 연령대, 만족도, 성별 -->
+        <div class="box3">
+           
+            <div class="aa">
+                <div>
+                    <h3>연령대</h3>
+                    <input type="text">
+                </div>
+                <div>
+                    <h3>만족도</h3>
+                    <input type="text">
+                </div>
+                <div>
+                    <h3>성별</h3>
+                    <input type="text">
+                </div>
+            </div>
+            
+
+        </div>
+
+        <!-- 판매점 정보, 더 나누고 싶은 정보 -->
+        <div class="box4">
+            <h3>판매점 정보</h3>
+            <input type="text">
+
+        </div>
+        <div class="box5">
+            <h3>더 나누고 싶은 정보</h3>
+            <textarea></textarea>
+
+        </div>
+
+
+
+
+    </div>
+    <div class="re">
+        <h3>리뷰는 농심에게 큰 힘이 됩니다.... </h3>
+    </div>
+</body>
+</html>

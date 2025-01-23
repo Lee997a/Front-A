@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+        }
+        html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        font-family:'Pretendard-Regular'
+        }
+        .background{
+            width: 100%;
+            background-color: #212429;
+        }
+        .base{
+            width: 700px;
+            height: 1000px;
+            /*border: 1px solid black;*/
+            background-color: #212429;
+            margin: 0 auto;
+            color:white;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .ranking{
+            width: 100%;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .ranking h3{
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .ranking li{
+            height: 80px;
+            margin-top: 10px;
+            list-style: none;
+            font-weight: bold;
+            font-size: 20px;
+            border: 0.5px solid #555555a1;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .num{
+            height: 40px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .ranking img{
+            width: 48px;
+            height: 60px;
+            margin-left: 10px;
+        }
+        .mov_name{
+            /*border: 1px solid white;*/
+            margin-left: 15px;
+            border-left: 2px solid white;
+            padding-left: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="base">
+             <!--랭킹-->
+             <ul class="ranking">
+                <h3>오늘의 '넷플릭스'랭킹</h3>
+                <li><p class="num">1.</p>
+                    <a href="https://www.netflix.com/title/81752951"><img src="https://flixpatrol.com/runtime/cache/files/posters/9/w350/9ybw60pm0eexskeizmvmolcuhyu.webp"></a>
+                    <p class="mov_name">Ad Vitam</p>
+                </li>
+                <li><p class="num">2.</p>
+                    <a href="https://www.netflix.com/kr/title/81044813"><img src="https://flixpatrol.com/runtime/cache/files/posters/x/w350/xugdawetqsgxnnwz2djs8u7bbzn.webp"></a>
+                    <p class="mov_name">마이펫의 이중생활 2</p>
+                </li>
+                <li><p class="num">3.</p>
+                    <a href="https://www.netflix.com/ma-en/title/81083799"><img src="https://flixpatrol.com/runtime/cache/files/posters/6/w350/6n7asmq1wy2cxtubffglcvppyk7.webp"></a>
+                    <p class="mov_name">Ma</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

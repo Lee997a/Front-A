@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        
+        const snack = {
+            name: "감자칩", 
+            price: 1500,
+            stock: 50, 
+            flavors: ["original", "cheese"],
+            manufacturing: {
+                country: "Korea",
+                factory: "경기도 안양  공장"
+            },
+            promotions: {
+                discount: 10, // 10% 할인
+                offerValidUntil: "2025-01-31"
+            },
+            discount:function(howmany){
+                let d_price = this.price*howmany*0.9;
+                let d_ratio = this.price*howmany*0.1;
+                // return [d_price,d_ratio];
+                return {d_price,d_ratio};  //객체로 반환
+
+            }
+        };
+
+        // 스낵의 프로모션 할인율을 출력하시오 
+        let 갯수 = Number(prompt("몇개를 구매하실건가요?"));
+
+        console.log(snack.discount(갯수));
+
+
+        console.log(snack.promotions);
+        console.log(snack.promotions.discount);
+    </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열연습습</title>
+</head>
+
+<body>
+    <script>
+        //1차원배열열
+        let fruit1 = ["딸기", "사과", "앵두", "배", "망고", "복숭아", "키위", "파인애플", "포도"];
+
+        let vegetable1 = ["배추", "브로콜리", "상추", "고추", "피망", "가지", "당근", "마늘", "양파"];
+
+        console.log(fruit1[0]);
+        console.log(fruit1[1]);
+        console.log(fruit1[2]);
+        console.log(fruit1[3]);
+        console.log(fruit1[4]);
+        console.log(fruit1[5]);
+        console.log(fruit1[6]);
+        console.log(fruit1[7]);
+        console.log(fruit1[8]);
+
+        console.log("=======");
+
+        console.log(vegetable1[0]);
+        console.log(vegetable1[1]);
+        console.log(vegetable1[2]);
+        console.log(vegetable1[3]);
+        console.log(vegetable1[4]);
+        console.log(vegetable1[5]);
+        console.log(vegetable1[6]);
+        console.log(vegetable1[7]);
+        console.log(vegetable1[8]);
+
+        console.log("=======");
+
+        document.write("[1차원배열]");
+        document.write("<br>");
+        for (let i = 0; i < 9; i++) {
+            document.write(fruit1[i]);
+            document.write(vegetable1[i]);
+            document.write("<br>");
+        }
+        document.write("<br>");
+
+        //2차원배열
+        let fruit = [
+            ["딸기", "사과", "앵두"],
+            ["배", "망고", "복숭아"],
+            ["키위", "파인애플", "포도"]
+        ];
+
+        let vegetable = [
+            ["배추", "브로콜리", "상추"],
+            ["고추", "피망", "가지"],
+            ["당근", "마늘", "양파"]
+        ];
+
+        console.log(fruit[0][0]);
+        console.log(fruit[0][1]);
+        console.log(fruit[0][2]);
+
+        console.log(fruit[1][0]);
+        console.log(fruit[1][1]);
+        console.log(fruit[1][2]);
+
+        console.log(fruit[2][0]);
+        console.log(fruit[2][1]);
+        console.log(fruit[2][2]);
+
+        console.log("=======");
+
+        console.log(vegetable[0][0]);
+        console.log(vegetable[0][1]);
+        console.log(vegetable[0][2]);
+
+        console.log(vegetable[2][0]);
+        console.log(vegetable[2][1]);
+        console.log(vegetable[2][2]);
+
+        console.log(vegetable[2][0]);
+        console.log(vegetable[2][1]);
+        console.log(vegetable[2][2]);
+
+        console.log("=======");
+
+        document.write("[2차원배열]");
+        document.write("<br>");
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                document.write(fruit[i][j]);
+                document.write(vegetable[i][j]);
+                document.write("<br>");
+            }
+            document.write("<br>");
+        }
+        document.write("<br>");
+
+        //3차원배열
+
+        let food = [
+            [
+                ["딸기", "사과", "앵두"],
+                ["배", "망고", "복숭아"],
+                ["키위", "파인애플", "포도"]
+            ],
+
+            [
+                ["배추", "브로콜리", "상추"],
+                ["고추", "피망", "가지"],
+                ["당근", "마늘", "양파"]
+            ]
+        ];
+
+        console.log(food[0][0][0]);
+        console.log(food[0][0][1]);
+        console.log(food[0][0][2]);
+
+        console.log(food[0][1][0]);
+        console.log(food[0][1][1]);
+        console.log(food[0][1][2]);
+
+        console.log(food[0][2][0]);
+        console.log(food[0][2][1]);
+        console.log(food[0][2][2]);
+
+        console.log(food[1][0][0]);
+        console.log(food[1][0][1]);
+        console.log(food[1][0][2]);
+
+        console.log(food[1][1][0]);
+        console.log(food[1][1][1]);
+        console.log(food[1][1][2]);
+
+        console.log(food[1][2][0]);
+        console.log(food[1][2][1]);
+        console.log(food[1][2][2]);
+
+        document.write("[3차원배열]");
+        document.write("<br>");
+        for (let i = 0; i < 2; i++) {
+            for (let j = 0; j < 3; j++) {
+                for (let k = 0; k < 3; k++) {
+                    document.write(food[i][j][k]);
+                    document.write("<br>");
+                }
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        const Mac={
+            종류:["MacbookAir","MacbookPro"],
+            가격:[1500000, 2500000],
+            인치:[
+                [13,15],
+                [14,16]
+                ],
+            칩:[
+                ["M2","M3"],
+                ["M4","M4Pro","M4Max"]
+                ],
+            용량:["512GB","1TB"],
+
+            type : function(sort){
+                if(this.종류.includes(sort)){
+                    if(sort===this.종류[0]){
+                        return `${this.종류[0]} ${this.가격[0]} 입니다`;
+                    }else if(sort===this.종류[1]){
+                        return `${this.종류[1]} ${this.가격[1]} 입니다`;
+                    }else{
+                        return "없는 상품입니다";
+                    }
+                }
+            },
+            inch : function(sort){
+                if(this.종류.includes(sort)){
+                    if(sort===this.종류[0]){
+                        return `${this.인치[0][0]}인치와 ${this.인치[0][1]} 인치가 있습니다`;
+                    }
+                    else{
+                        return `${this.인치[1][0]}인치와 ${this.인치[1][1]} 인치가 있습니다`;
+                    }
+                }
+            },
+            chip : function(sort){
+                if(this.종류.includes(sort)){
+                    if(sort===this.종류[0]){
+                        return `${this.칩[0][0]} 칩과 ${this.칩[0][1]} 칩이 있습니다`;
+                    }
+                    else{
+                        return `${this.칩[1][0]} 칩과 ${this.칩[1][1]} 칩과 ${this.칩[1][2]} 칩이 있습니다`;
+                    }
+                }
+            },
+            macStorage : function(sort){
+                if(this.종류.includes(sort)){
+                    if(sort===this.종류[0]){
+                        return `${this.용량[0]}와 ${this.용량[1]} 가 있습니다`;
+                    }
+                    else{
+                        return `${this.용량[0]}와 ${this.용량[1]} 가 있습니다`;
+                    }
+                }
+            }
+
+           
+        };
+        const userinput=prompt("MacbookAir 또는 MacbookPro중 선택하세요");
+        let result=Mac.type(userinput);
+        alert(result);
+        let result1=Mac.inch(userinput);
+        alert(result1);
+        let result2=Mac.chip(userinput);
+        alert(result2);
+        let result3=Mac.macStorage(userinput);
+        alert(result3);
+    </script>
+</body>
+</html>

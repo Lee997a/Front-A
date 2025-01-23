@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<need>
+    <meta charaset="UFT-8">
+    <meta name="viewport" content="width=device-eidth, initel-scale=1. 0">
+    <title>Document</title>
+    <style>
+        .review /* 리뷰 */
+        {
+            width: 750px;
+            margin: 0 auto;
+
+            border: 1px solid black;
+        }
+        .section /*  전체 서식 */
+        {
+            width: 80%;
+            height: 180px;
+            margin: 5px auto;
+        }
+
+        .textsection_1 /* 텍스트 단락 1 */
+        {
+            margin: 5px auto;
+            text-align: center;
+        }
+        .textsection_2 /* 텍스트 단락 2 */
+        {
+            display: flex;
+
+            width: 80%;
+            margin: 5px auto;
+        }
+        .textsection_2 > div
+        {
+            width: 50%;
+            text-align: center;
+        }
+
+        .section_1 /* 음식 정보 */
+        {
+            display: flex;
+
+            text-align: center;
+        }
+        .section_1 > div
+        {
+            width: 50%;
+            height: 100%;
+        }
+        .img /* 이미지 */
+        {
+            background-image: url(https://upload.wikimedia.org/wikipedia/commons/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+        .textarea_1 /* 후기 작성란 */
+        {
+            width: 90%;
+            height: 100px;
+        }
+
+        .section_2 /* 인적사항 */
+        {
+            display: flex;
+            text-align: center;
+        }
+        .section_2 > div
+        {
+            width: 33.3%;
+            text-align: center;
+        }
+        .textarea_2 /* 인적사항 작성란 */
+        {
+            width: 100%;
+        }
+
+        .textarea_3 /* 기타 내용 작성란 */
+        {
+            width: 100%;
+            height: 100px;
+        }
+    </style>
+</need>
+<body>
+    <!-- 리뷰 -->
+    <div class="review">
+        <!-- 제목 -->
+        <div class="textsection_1">
+            <h1>REVIEW DETAL</h1>
+        </div>
+
+        <!-- 음식 정보 -->
+        <div class="textsection_2"> <!-- 제목 -->
+            <div>
+                <h4>이미지</h4>
+            </div>
+            <div>
+                <h4>후기</h4>
+            </div>
+        </div>
+        <div class="section_1 section"> <!-- 내용 -->
+            <div class="img">
+                <!-- 이미지 -->
+            </div>
+            <div>
+                <textarea class="textarea_1"> </textarea>
+            </div>
+        </div>
+
+        <!-- 인적사항 -->
+        <div class="section_2 section">
+            <div>
+                <h4>성별</h4>
+                <textarea class="textarea_2"> </textarea>
+            </div>
+            <div>
+                <h4>연령대</h4>
+                <textarea class="textarea_2"> </textarea>
+            </div>
+            <div>
+                <h4>만족도</h4>
+                <textarea class="textarea_2"> </textarea>
+            </div>
+        </div>
+
+        <!-- 판매점 정보 -->
+        <div class="section_3 section"> <!-- 내용 -->
+            <h4>판매점 정보</h4>
+            <textarea class="textarea_3"> </textarea>
+        </div>
+
+        <!-- 더 나누고 싶은 정보 -->
+        <div class="section_3 section">
+            <h4>더 나누고 싶은 정보</h4>
+            <textarea class="textarea_3"> </textarea>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체예제</title>
+</head>
+<body>
+    <!--속성 + 기능 객체만들고 출력하기-->
+    <div style="margin-bottom: 20px;">
+        <button onclick="alert(ramen[0].search())">신라면</button>
+        <button onclick="alert(ramen[1].search())">열라면</button>
+        <button onclick="alert(ramen[2].search())">진라면</button>
+        <button onclick="alert(ramen[3].search())">너구리</button>
+        <button onclick="alert(ramen[4].search())">안성탕면</button>
+        <button onclick="alert(ramen[5].search())">삼양라면</button>
+    </div>
+
+    <!--input으로 라면 찾기-->
+    <div>
+        <input id="inputRamen">
+        <button id="buttonRamen">찾기</button>
+    </div>
+
+    <script>
+        //속성만 객체만들고 출력하기
+        const book = [
+            {
+                name : "2025 시나공 정보처리기사 필기 기본서", //도서명
+                auth : "길벗 R&B", //저자
+                price : 31500, //가격
+                page : 956, //쪽수
+                year : "2024-11-11", //발행년도
+                publisher : "길벗" //출판사
+            },
+            {
+                name : "2025 시나공 퀵이지 정보처리기사 실기 단기완성", //도서명
+                auth : "길벗 R&B", //저자
+                price : 28800, //가격
+                page : 696, //쪽수
+                year : "2024-06-24", //발행년도
+                publisher : "길벗" //출판사
+            }
+        ]
+
+        document.write(`<h2>필기 교체</h2>`)
+        document.write(`도서명 : ${book[0].name}<br>`)
+        document.write(`저자 : ${book[0].auth}<br>`)
+        document.write(`가격 : ${book[0].price}원<br>`)
+        document.write(`쪽수 : ${book[0].page}p<br>`)
+        document.write(`발행년도 : ${book[0].year}<br>`)
+        document.write(`출판사 : ${book[0].publisher}`)
+
+        document.write("<br>")
+
+        document.write(`<h2>실기 교체</h2>`)
+        document.write(`도서명 : ${book[1].name}<br>`)
+        document.write(`저자 : ${book[1].auth}<br>`)
+        document.write(`가격 : ${book[1].price}원<br>`)
+        document.write(`쪽수 : ${book[1].page}p<br>`)
+        document.write(`발행년도 : ${book[1].year}<br>`)
+        document.write(`출판사 : ${book[1].publisher}`)
+
+        //속성 + 기능 객체만들고 출력하기
+        const ramen = [
+            {
+                name : "신라면",
+                price : "3,550원 ~ 5,000원",
+                corner : "A코너",
+                search : function(){
+                    return (`${this.name}은 '${this.corner}'에 있으며 가격은 ${this.price}입니다.`)
+                }
+            },
+            {
+                name : "열라면",
+                price : "2,980원~4,750원",
+                corner : "B코너",
+                search : function(){
+                    return (`${this.name}은 '${this.corner}'에 있으며 가격은 ${this.price}입니다.`)
+                }
+            },
+            {
+                name : "진라면",
+                price : "2,980원~4,750원",
+                corner : "C코너",
+                search : function(){
+                    return (`${this.name}은 '${this.corner}'에 있으며 가격은 ${this.price}입니다.`)
+                }
+            },
+            {
+                name : "너구리",
+                price : "4,480원~6,000원",
+                corner : "D코너",
+                search : function(){
+                    return (`${this.name}은 '${this.corner}'에 있으며 가격은 ${this.price}입니다.`)
+                }
+            },
+            {
+                name : "안성탕면",
+                price : "3,300원~4,500원",
+                corner : "E코너",
+                search : function(){
+                    return (`${this.name}은 '${this.corner}'에 있으며 가격은 ${this.price}입니다.`)
+                }
+            },
+            {
+                name : "삼양라면",
+                price : "3,680원~4,750원",
+                corner : "F코너",
+                search : function(){
+                    return (`${this.name}은 '${this.corner}'에 있으며 가격은 ${this.price}입니다.`)
+                }
+            }
+        ]
+
+        //input으로 라면 찾기
+        const inputRamen = document.querySelector("#inputRamen")
+        const buttonRamen = document.querySelector("#buttonRamen")
+
+        buttonRamen.addEventListener("click", function(){
+            for(let i = 0; i < ramen.length; i++){
+                if(inputRamen.value === ""){
+                    alert("입력을 해주세요.")
+                    break;
+                }else if(inputRamen.value !== ramen[i].name){
+                    alert("해당 라면은 저희 매장에 없습니다.")
+                    break;
+                }else if(inputRamen.value === ramen[i].name){
+                    alert(ramen[i].search())
+                    break
+                }
+            }
+            inputRamen.value = ""
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let note={
+            noteName : "LG그램",
+            notePrice : 1200000,
+            noteCpu : "intelCore i7",
+            noteSave : "300GB"
+        };
+
+        alert(note.noteName);
+        alert(note.notePrice);
+        alert(note.noteCpu);
+        alert(note.noteSave);
+    
+        document.write(note.noteName+"<br>");
+        document.write(note.notePrice+"<br>");
+        document.write(note.noteCpu+"<br>");
+        document.write(note.noteSave);
+
+        console.log(note["noteName"]);
+        console.log(note["notePrice"]);
+        console.log(note["noteCpu"]);
+        console.log(note["noteSave"]);
+
+    </script>
+</body>
+</html>

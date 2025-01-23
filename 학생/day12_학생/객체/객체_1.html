@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+    <script>
+        let likebooks = 
+        [
+            {
+                이름: "드래곤 라자",
+                장르: ["판타지", "모험"],
+                작가: "이영도",
+                출판사: "황금가지",
+                권수: 8
+            },
+
+            {
+                이름: "퓨처 워커",
+                장르: ["판타지"],
+                작가: "이영도",
+                출판사: "황금가지",
+                권수: 4
+            },
+
+            {
+                이름: "폴라리스 랩소디",
+                장르: ["판타지", "모험"],
+                작가: "이영도",
+                출판사: "황금가지",
+                권수: 5
+            },
+
+            {
+                이름: "눈물을 마시는 새",
+                장르: ["판타지", "군상극", "정치", "전쟁", "대하소설"],
+                작가: "이영도",
+                출판사: "황금가지",
+                권수: 4
+            },
+
+            {
+                이름: "피를 마시는 새",
+                장르: ["판타지", "군상극", "정치", "전쟁", "대하소설"],
+                작가: "이영도",
+                출판사: "황금가지",
+                권수: 8
+            },
+
+            {
+                이름: "그림자 자국",
+                장르: ["판타지", "스릴러", "정치", "전쟁"],
+                작가: "이영도",
+                출판사: "황금가지",
+                권수: 8
+            }
+        ];
+
+        for (let i = 0; i < likebooks.length; i++) {
+            console.log("이름: " + likebooks[i].이름);
+            console.log("장르: " + likebooks[i].장르.join(", "));
+            console.log("작가: " + likebooks[i].작가);
+            console.log("출판사: " + likebooks[i].출판사);
+            console.log("권수: " + likebooks[i].권수);
+            console.log("===============================");
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

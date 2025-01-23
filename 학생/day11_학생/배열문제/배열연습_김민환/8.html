@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문제: 아래  kors 배열에서   평균보다 높은 점수는 몇개인가?</title>
+</head>
+<body>
+    <script>
+        const kors = [90, 80, 70, 99, 100];
+
+        sum = 0;
+        
+        for(i=0; i<kors.length; i++){
+            sum=sum+kors[i];
+            
+        }
+        avg = sum/kors.length;
+        
+        for(i=0; i<kors.length; i++){
+        if(kors[i]>avg){
+            document.write(kors[i]);
+            document.write("<br>");
+        }
+        
+    }
+    </script>
+</body>
+</html>

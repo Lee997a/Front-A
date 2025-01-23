@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+    <script>
+        // 문제: 아래 배열 첫 번째와 세 번째 요소 출력
+        const 과일 = ['apple', 'banana', 'cherry'];
+
+        console.log(과일[0] + ", " + 과일[2]);
+        console.log("==================================");
+
+
+
+        // 문제: 아래 배열 길이 출력
+        const 컬러 = ['red', 'blue', 'green', 'yellow'];
+        
+        console.log(컬러.length);
+        console.log("==================================");
+
+
+        
+        // 문제: 아래 배열에 있는 모든 숫자의 합 계산
+        const 점수 = [10, 20, 30, 40];
+        let 총합 = 0;
+
+        for (i=0; i < 점수.length; i++)
+        {
+            총합 += 점수[i];
+        }
+
+        console.log(총합);
+        console.log("==================================");
+
+
+
+        // 문제: 아래 배열의 각 요소를 순서대로 출력
+        const 이름 = ['영숙', '순자', '영자', '옥순', '현숙'];
+
+        for (i=0; i < 이름.length; i++)
+        {
+            console.log(이름[i]);
+        }
+
+        console.log("==================================");
+
+
+
+        
+        // 문제: 아래 배열에서 숫자 7이 있는지 확인하고, 있으면 true, 아니면 false 출력
+        const numbers1 = [2, 4, 6, 8, 10];
+        let 결과 = false;
+
+        for (i=0; i < numbers1.length; i++)
+        {
+            if (numbers1[i] === 7)
+            {
+                결과 = true;
+                break;
+            }
+        }
+
+        console.log(결과);
+        console.log("==================================");
+
+
+
+        // 문제: 아래 배열에서 가장 큰 수 출력
+        const numbers2 = [12, 41, 6, 18, 10];
+        let 가장큰수 = numbers2[0]
+
+        for (i=1; i < numbers2.length; i++)
+        {
+            if (가장큰수 < numbers2[i])
+            {
+                가장큰수 = numbers2[i];
+            }
+        }
+
+        console.log(가장큰수);
+        console.log("==================================");
+
+
+
+        // 문제: 아래 배열 총점과 평균, 평균보다 높은 점수의 갯수 출력
+        const kors1 = [90, 80, 70, 99, 100];
+        let 총점 = 0;
+        
+
+        for (i=0; i < kors1.length; i++)
+        {
+            총점 += kors1[i];
+        }
+
+        let 평균 = 총점 / 5
+        let 높은점수갯수 = 0;
+
+        for (i=0; i < kors1.length; i++)
+        {
+            if (평균 < kors1[i])
+            {
+                높은점수갯수++;
+            }
+        }
+
+        console.log(총점);
+        console.log(평균);
+        console.log(높은점수갯수);
+        console.log("==================================");
+
+
+
+        // 문제: 아래 배열에서 1200보다 큰 숫자만 새로운 배열에 저장
+        const prices = [1000, 1500, 900, 1800, 2000, 1200];
+        const newprices = [];
+
+        for (let i = 0; i < prices.length; i++)
+        {
+            if (prices[i] > 1200)
+            {
+                newprices[newprices.length] = prices[i];
+            }
+        }
+
+        for (let i = 0; i < newprices.length; i++)
+        {
+            console.log(newprices[i]);
+        }
+
+        console.log("==================================");
+
+
+        
+        // 문제: 아래 배열의 각 요소를 2배로 만든 새로운 배열 작성
+        const numbers3 = [1, 2, 3, 4, 5];
+        const newnumbers3 = [];
+
+        for (let i = 0; i < numbers3.length; i++)
+        {
+            let 두배 = numbers3[i] * 2;
+            newnumbers3[newnumbers3.length] = 두배;
+        }
+
+        for (let i = 0; i < newprices.length; i++)
+        {
+            console.log(newnumbers3[i]);
+        }
+
+        console.log("==================================");
+
+
+    </script>
+</head>
+<body>
+</body>
+</html>
