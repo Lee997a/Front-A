@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+
+function getFoodRandom(){
+  const food = [
+        "치킨", "비빔밥", "삼겹살", "짜장면",
+        "샌드위치", "회", "햄버거", "돈까스",
+        "김치찌개", "된장찌개", "불고기", "떡볶이",
+        "찹채", "갈비찜", "김밥", "순두부찌개"
+        ];
+
+        const randomFood = Math.floor(Math.random()*food.length);
+
+        return food[randomFood];
+}
+
+  let result = getFoodRandom();
+  console.log(result);
+
+  result = getFoodRandom();
+  console.log(result);
+
+  </script>
+</body>
+
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+    /*
+    1. 주문금액 구하기
+    2. 전체 합계 구하기
+    3. 금액 취소하기
+    */
+    function conprice(obj){ //input onkeyup" "에 this를 넣었으므로 여기에 매개변수를 작성할 수 있다.
+    //수량
+    const qty = parseInt(obj.value); //input 타입이라 value 작성
+
+    //단가 -> unit이라는 class를 가진 td를 가져와야 함으로 obj를 기준으로 부모는 input을 감싸고 있는 td,
+    //td의 부모는 tr이므로 먼저 tr을 가져와야 한다.
+    
+    const tr = obj.parentElement.parentElement; //부모의 부모 가져옴
+    
+    //다음으로 unit의 금액을 가져와야함.
+    // parseInt로 숫자만 가져오고 querySelector로 unit이라는 클래스를 가진 td를 가져옴.
+    //innerHTML로 그 안에 가지고 있는 숫자를 가져옴
+    const unit = parseInt(tr.querySelector(".unit").innerHTML);
+    
+    //금액 구하기
+    const amt = qty * unit;
+
+    tr.querySelector(".amt").innerHTML = amt;
+    }
+
+
+  </script>
+</head>
+<body>
+  <div id="wrap">
+    <table>
+      <caption>장바구니</caption>
+      <tr>
+        <th>선택</th>
+        <th>제품명</th>
+        <th>금액</th>
+        <th>수량</th>
+        <th>결제금액</th>
+      </tr>
+
+      <tr>
+        <td><input type="checkbox" class="cb"></td> <!--js에서 선택하기 위해 class 속성 작성-->
+        <td>사과</td>
+        <td class="unit">12000</td>
+        <td class="qty"><input type="text" onkeyup="conprice(this)"></td> <!--value 값이 있어야 함. onkeyup = "이름() "-->
+        <td class="amt">0</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox"  class="cb"></td>
+        <td >배</td>
+        <td class="unit">14000</td>
+        <td class="qty"><input type="text" onkeyup="conprice(this)"></td>
+        <td class="amt">0</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox"  class="cb"></td>
+        <td >포도</td>
+        <td class="unit">11000</td>
+        <td class="qty"><input type="text" onkeyup="conprice(this)"></td>
+        <td class="amt">0</td>
+      </tr>
+    </table>
+
+    <div class="total_wrap">
+      <p>
+          <button onclick="itemDelete()">삭제</button>
+      </p>
+      <p id="order">
+            결제 금액 <span id="total-price"> 0</span> 원   
+      </p>      
+   </div>
+
+  </div>
+</body>
+</html>

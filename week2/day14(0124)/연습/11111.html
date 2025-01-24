@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .wrap {
+      border: 1px solid black;
+      width: 600px;
+      height: 200px;
+    }
+
+    table {
+      text-align: center;
+      border-collapse: collapse;
+    }
+
+    table th, td {
+      border: 1px solid black;
+    }
+
+    table td {
+      width: 90px;
+    }
+
+    input {
+      border: none;
+      outline: none;
+    }
+  </style>
+
+  <script>
+    
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <table>
+      <caption>장바구니</caption>
+      <thead>
+        <tr>
+          <th>체크</th>
+          <th>상품명</th>
+          <th>가격</th>
+          <th>수량</th>
+          <th>금액</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="checkbox" class="check_b"></td>
+          <td>사과</td>
+          <td class="price">2500</td>
+          <td><input type="text" value="" onkeyup="number(this)"></td>
+          <td class="amt">0</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="check_b"></td>
+          <td>배</td>
+          <td class="price">3500</td>
+          <td><input type="text" value="" onkeyup="number(this)"></td>
+          <td class="amt">0</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="check_b"></td>
+          <td>포도</td>
+          <td class="price">2000</td>
+          <td><input type="text" value="" onkeyup="number(this)"></td>
+          <td class="amt">0</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="check_b"></td>
+          <td>참외</td>
+          <td class="price">3000</td>
+          <td><input type="text" value="" onkeyup="number(this)"></td>
+          <td class="amt">0</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>총 금액</td>
+          <td colspan="4" id="total-price">0</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <button onclick="deleteItem()">삭제</button>
+  </div>
+</body>
+</html>

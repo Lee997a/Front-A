@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+
+    function clacAmount(){
+      // alert("dfsdfsf");
+
+    //선택
+    //값 얻어오기, value속성
+    //계산
+    //금액에 넣기
+
+    const qtyE = document.querySelector(".qty");
+    const priceE = document.querySelector(".price");
+    const amtE = document.querySelector(".amt");
+
+    const qty = parseInt(qtyE.value);
+    const price = parseInt(priceE.value);
+    const amt = parseInt(amtE.value);
+
+    console.log(qty);
+    console.log(price);
+    console.log(amt);
+
+    const amount = qty * price;
+
+    amtE.value = amount;
+
+
+
+    }
+
+
+  </script>
+</head>
+<body>
+  
+
+  수량 <input type="text" class="qty">
+  단가 <input type="text" class="price">
+  금액 <input type="text" class="amt">
+
+  <button onclick="clacAmount()">계산</button>
+</body>
+</html>

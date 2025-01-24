@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+
+/*
+    1. 수량 가져오기
+    2. 단가 가져오기
+    3. 총합 구하기
+
+*/
+
+
+    function price(a){
+      //수량
+      const qq = parseInt(a.value); //숫자를 가져와야 함으로 parseInt
+
+      //금액 부모찾기
+
+      const tr = a.parentElement.parentElement; //부모의 부모
+
+      //금액 가져오기
+      // tr.querySelector(".unit");
+      const uu = parseInt(tr.querySelector(".unit").innerHTML);
+
+      //금액 구하기
+
+      const amt = qq * uu;
+
+      //구한 금액 넣기
+
+      tr.querySelector(".amt").innerHTML = amt;
+      
+
+    }
+
+
+  </script>
+</head>
+<body>
+  <div id="wrap">
+
+    <table>
+      <caption>장바구니</caption>
+      <tr>
+        <th>수량</th>
+        <th>금액</th>
+        <th>결제금액</th>
+      </tr>
+      <tr>
+        <td class="unit">8200</td>
+        <td class="qty"><input type="text" value="" onkeyup="price(this)"></td>
+        <td class="amt">0</td>
+      </tr>
+    </table>
+
+
+  </div>
+</body>
+</html>

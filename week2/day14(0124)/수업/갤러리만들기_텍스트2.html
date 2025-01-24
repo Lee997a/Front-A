@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .wrap {
+      height: 100px;
+    }
+
+    .gallery {
+      height: 50px;
+    }
+  </style>
+
+  <script>
+
+    let message = ["곧 설연휴 시작 !!! ^^ 신난다 !! ", "프론트 프로젝트 곧 시작 합니다!! 재미있게 해 줘요  🍔 🍟  ", "날씨가 넘 추워요 감기 조심  ", "설연휴 잘 보내고 와요 !!", "for , if, 1차원배열, 함수 연습 연습", "함수가 별거냐 ^^", "배열이 별거냐 ^^ "];
+
+
+    let i = 0;
+
+    function next() {
+
+      //갤러리 영역 선택
+
+      const gallery = document.querySelector(".gallery");
+
+      gallery.innerHTML = message[i];
+      i += 1;
+
+      console.log(i);
+      // console.log(message[i])
+
+      if (i >= message.length) { //반복할 수 있게 i를 초기화 해줌 //초기화하지 않으면 undefiend 출력됨
+        i = 0;
+      }
+ 
+
+    gallery.animate({
+      transform: [                          /* transform   translate 위치 이동 */
+        'translateY(100%)',    //시작          요소를 자신의 높이의 100%만큼 아래로 이동.
+        'translateY(0px)'      //도착          요소를 원래 위치로 되돌림.
+      ]
+    },
+      {
+        duration: 1000               // 위의효과가 1초간 지속되도록
+      });
+    }
+
+  </script>
+</head>
+
+<body>
+
+
+  <div class="wrap">
+    <div class="gallery">
+      갤러리 내용
+    </div>
+
+  </div>
+
+  <button onclick="next()">다음</button>
+</body>
+
+</html>

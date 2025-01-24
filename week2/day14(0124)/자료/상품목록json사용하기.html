@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CSS3 애니메이션</title>
+    <style>
+        .prod-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+
+        
+
+        /*  상품  아이템  box */
+        .prod-list li {           
+            padding: 0;
+            margin: 10px;
+            text-align: center;
+            border: 1px solid rgb(223, 14, 14);
+        }
+
+        .prod-list img {             
+            width: 300px;
+            height: 200px;
+        }
+
+        
+ 
+    </style>
+</head>
+
+<body>
+    <h1>신상품 목록</h1>
+    <div id="wrap">
+        <ul class="prod-list">
+            <!-- JavaScript에서 동적으로 상품 항목이 추가하기  -->
+        </ul>
+    </div>
+
+    <script>
+        // JSON (자바스크립트 객체 표현법) 데이터
+        const products = [
+            {
+                id: 1,
+                title: "상품 1",
+                description: "아주 좋아요  ",
+                price: "12,345원",
+                image: "http://t3.gstatic.com/licensed-image?q=tbn:ANd9GcSRTbtzf1Mp52cmK2-fUMECKB-XiYhEpm3cPpqskbz2YjC8mt6h8H93LFTaRb5ZiX4ZN6hM8bVH3_HtGeb4dqw"
+            },
+            {
+                id: 2,
+                title: "상품 2",
+                description: "활용도가 좋아요 ",
+                price: "12,345원",
+                image: "http://t3.gstatic.com/licensed-image?q=tbn:ANd9GcSRTbtzf1Mp52cmK2-fUMECKB-XiYhEpm3cPpqskbz2YjC8mt6h8H93LFTaRb5ZiX4ZN6hM8bVH3_HtGeb4dqw"
+            },
+            {
+                id: 3,
+                title: "상품 3",
+                description: "향이 좋아요 ",
+                price: "12,345원",
+                image: "http://t3.gstatic.com/licensed-image?q=tbn:ANd9GcSRTbtzf1Mp52cmK2-fUMECKB-XiYhEpm3cPpqskbz2YjC8mt6h8H93LFTaRb5ZiX4ZN6hM8bVH3_HtGeb4dqw"
+            }
+        ];
+
+
+        // 상품 리스트 동적 추가하기 
+        const productList = document.querySelector('.prod-list');
+
+        products.forEach(product => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <img src="${product.image}" alt="${product.title}">
+                <div class="caption">
+                    <h1>${product.title}</h1>
+                    <p>${product.description}</p>
+                    <p>가격 : ${product.price}</p>
+                </div>
+            `;
+
+            productList.appendChild(li);
+        });
+    </script>
+</body>
+
+</html>

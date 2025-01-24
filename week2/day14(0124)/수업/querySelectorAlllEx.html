@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .a{
+      width: 100px;
+      height: 20px;
+      border: 1px solid black;
+    }
+  </style>
+
+<body>
+
+
+  <p class="a"></p>
+  <p class="a"></p>
+  <p class="a"></p>
+  <p class="a">사과</p>
+
+    <script>
+
+    const wrap = document.querySelectorAll(".a");
+
+    console.log(wrap.length);
+
+    wrap[0].innerHTML = "abc";
+    wrap[1].innerHTML = "deff";
+
+    alert(wrap[3].innerHTML); //
+
+  </script>
+</head>
+  
+</body>
+</html>

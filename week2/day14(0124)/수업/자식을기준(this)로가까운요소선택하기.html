@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    .item{
+      display: flex;
+      border: 1px solid black;
+    }
+
+    .item > div{
+      border: 1px solid black;
+      
+    }
+  </style>
+
+  <script>
+
+    function getContent(obj){
+      
+      const item = obj.parentElement.parentElement;
+      const content = item.querySelector(".content").value;
+      alert(content);
+    
+    }
+
+
+    //closest() 제공
+    function getContent2(obj){
+
+      const item = obj.closest(".item");
+      
+      const content = item.querySelector(".content");
+      const contentValue = content.value;
+
+      alert(contentValue);
+    }
+
+
+
+
+  </script>
+</head>
+<body>
+  
+
+  <!--item-->
+  <div class="item">
+    
+    <div>
+      <input type="text" class="content">
+    </div>
+    <div>
+      <button onclick="getContent(this)">클릭</button>
+    </div>
+  </div>
+
+  <div class="item">
+    
+    <div>
+      <input type="text" class="content">
+    </div>
+    <div>
+      <button onclick="getContent2(this)">클릭</button>
+    </div>
+  </div>
+
+</body>
+</html>
