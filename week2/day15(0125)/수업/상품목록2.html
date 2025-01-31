@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    ul li {
+      width: 300px;
+      height: 300px;
+      border: 1px solid black;
+      text-align: center;
+
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    img {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+  <script>
+    function init() {
+      // alert("sdfdsf");
+
+      //서버에 데이터 요청하기
+      let products = [
+        {
+          url: "https://image.lotteimall.com/upload/bdct_conts_img/14555_20250124101844_LIVE.jpg/dims/resizemc/360x640/optimize",
+          title: "패딩",
+          price: "320000"
+        },
+        {
+          url: "https://contents.lotteon.com/itemimage/20240702144602/LO/15/00/81/50/86/_1/50/08/15/08/7/LO1500815086_1500815087_1.png/dims/optimize/dims/resizemc/400x400",
+          title: "가방",
+          price: "32000"
+        },
+        {
+          url: "https://contents.lotteon.com/itemimage/20240109101000/LE/12/09/10/16/12/_1/24/92/85/41/1/LE1209101612_1249285411_1.jpg/dims/optimize/dims/resizemc/400x400",
+          title: "신발",
+          price: "120000"
+        }
+      ];
+      console.log(products);
+
+      let product_list = document.querySelector(".product_list");
+
+      for (let i = 0; i < products.length; i++) {
+        let item = products[i];
+        console.log(item);
+
+        //li 태그 만들기
+        let li = document.createElement("li");
+        li.innerHTML = `
+        <img src="${item.url}">
+        <p>${item.title}</p>
+        <p>${item.price}</p>`;
+
+        //부모에 추가하기
+        product_list.appendChild(li);
+        
+      }
+
+    }
+
+
+  </script>
+</head>
+
+<body onload="init()">
+
+  <ul class="product_list">
+    <!--자바스크립트로 상품목록 만들기-->
+  </ul>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .wrap{
+      display: flex;
+    }
+
+    .item{
+      width: 100px;
+      height: 100px;
+      background-color: aqua;
+      margin: 50px;
+    }
+
+    .item:nth-child(1):hover{
+      transform: rotate(360deg); /*양수값이면 시계방향으로 회전*/
+      transition: 3s;
+    }
+
+    .item:nth-child(2):hover{
+      transform: rotate(-180deg);
+      transition: 2s;
+    }
+
+    .item:nth-child(3):hover{
+      transform: rotate(1440deg);
+      transition: 3s;
+    }
+  </style>
+</head>
+<body>
+
+  <h2> transform : rotate 회전하기</h2>
+
+  <div class="wrap">
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+
+</div>
+</body>
+</html>

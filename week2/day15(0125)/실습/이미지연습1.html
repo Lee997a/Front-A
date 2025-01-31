@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .gallery-wrap {
+      width: 500px;
+      height: 500px;
+      margin: 0 auto;
+      border: 1px solid black;
+      position: relative;
+
+    }
+
+    .gallery {
+      width: 500px;
+      height: 500px;
+      border: 1px solid black;
+      background-image: url(./이미지1/boy-8539958_1280.jpg);
+      background-position: center;
+      background-size: cover;
+    }
+
+
+    .preBtn img {
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      top: 50%;
+      left: -50px;
+      transform: translateY(-50%);
+
+    }
+
+    .nextBtn img {
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      top: 50%;
+      right: -50px;
+      transform: translateY(-50%);
+    }
+
+    .preBtn:hover {
+      cursor: pointer;
+    }
+
+    .nextBtn:hover {
+      cursor: pointer;
+    }
+  </style>
+
+
+  <script>
+    let imgNames = [
+      "이미지1/boy-8539958_1280.jpg",
+      "이미지1/gyeongbokgung-6257203_1280.jpg",
+      "이미지1/robin-9361610_1280.jpg",
+      "이미지1/shrine-9348003_1280.jpg",
+    ];
+
+    let index = 0;
+    function next() {
+      index++;
+      if (index >= imgNames.length) {
+        index = 0;
+      }
+
+      let gallery = document.querySelector(".gallery");
+
+      gallery.style.backgroundImage = "url("+ imgNames[index] +")";
+      gallery.style.backgroundPosition = "center";
+      gallery.style.backgroundSize = "cover";
+
+
+    }
+
+    function prev() {
+      //alert("dkfjkdf");
+      index--;  // index = index -1;
+
+      if (index < 0) {
+        index = imgNames.length - 1; //배열의 가장 큰 인덱스 = 배열의 크기 -1
+      }
+      
+
+      let gallery = document.querySelector(".gallery");
+      gallery.style.backgroundImage = `url( ${imgNames[index]})`;
+      gallery.style.backgroundPosition = "center";
+      gallery.style.backgroundSize = "cover";
+
+    }
+
+  </script>
+</head>
+
+<body>
+  <div class="gallery-wrap">
+    <div class="gallery"></div>
+
+    <div class="preBtn" onclick="prev()">
+      <img src="/이미지/dddddd.png">
+    </div>
+    <div class="nextBtn" onclick="next()">
+      <img src="/이미지/pngegg.png">
+    </div>
+
+  </div>
+
+</body>
+
+</html>

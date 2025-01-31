@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .example {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition: background-color 1s ease 1s;
+         }
+
+        .example:hover {
+             background-color: blue;
+        }
+
+
+        
+        /*
+
+            transition이 적용되는 속성 
+
+            background-color: 배경색
+            color: 글자색
+            opacity: 투명도
+            width: 너비
+            height: 높이
+            border: 테두리
+            transform: 변환 효과 (예: rotate, scale, translate 등)
+            box-shadow: 그림자 효과
+            font-size: 글꼴 크기
+            padding: 안쪽 여백
+            margin: 바깥쪽 여백
+
+            all 사용해됨 
+            
+
+            
+            transition-property: background-color;
+            transition-duration : 2s ;   애니메이션지속시간
+            transition-timing-function : ease  ;    // ease, linear, ease-in, ease-out, ease-in-out  애니메이션 진행속도
+            transition-delay :1s  ; 애니메이션을 1초동안 지연시킨다
+
+
+
+
+            ease: 기본값이며, 처음에는 느리게 시작하고 후반에는 빠르게 가속하는 속도 곡선을 생성합니다.
+            linear: 일정한 속도로 애니메이션을 진행합니다. 일정한 속도로 애니메이션을 적용하는 단순한 직선 곡선을 생성합니다.
+            ease-in: 처음에는 느리게 시작하고 점점 가속하는 속도 곡선을 생성합니다.
+            ease-out: 처음에는 빠르게 시작하고 후반에는 감속하는 속도 곡선을 생성합니다.
+            ease-in-out: 처음에는 느리게 시작하고 중간에는 가속하며, 후반에는 감속하는 속도 곡선을 생성합니다.
+
+        */
+
+
+        #ex div{
+            width: 100px;
+            height: 50px;
+            margin: 5px 10px;
+            padding: 5px;
+            background-color: blue;
+            color: aliceblue;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 5px;           
+            display: inline-block;
+        }
+
+        
+        #ex:hover div{
+            height: 400px;
+        }
+        #ex .ease{
+            transition: 3s ease;
+        }
+        #ex .linear {
+            transition: 3s linear;
+        }
+        #ex .ease-in {
+            transition: 3s ease-in;
+         }
+        #ex .ease-out {
+            transition: 3s ease-out;
+        }
+        #ex .ease-in-out {
+            transition: 3s ease-in-out;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>트랜지션 </h2>
+    <p> 속성 값이 변화할 때 천천히 변하도록 설정해 애니메이션 효과를 줄 수 있다.   !!</p>
+
+    <p>: 웹 요소가 어떤 스타일 속성의 값을 변경할 때(예: 배경색, 크기, 테두리 등),   <br>
+       이를 즉각적으로 변경하는 대신 일정한 시간 동안 부드럽게 변화시키는 CSS 기능이다  <br>
+     
+       예를 들어, 마우스를 올릴 때(:hover) 배경색이 변경된다면, <br>
+       트랜지션을 사용해 이 변화가 자연스럽게 보이게 할 수 있습니다.</p>
+
+    
+    <div class="example"></div>
+
+    <p></p>
+
+    <div class="example2"></div>
+
+    <h2>transition-timing-function 속도 곡선 속성 값</h2>
+    <div id="ex">
+        <div class="ease">ease</div>
+        <div class="linear">linear</div>
+        <div class="ease-in">ease-in</div>
+        <div class="ease-out">ease-out</div>
+        <div class="ease-in-out">ease-in-out</div>
+    </div>
+
+
+    
+</body>
+</html>

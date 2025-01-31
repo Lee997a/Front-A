@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .item {
+      width: 100px;
+      height: 100px;
+      margin: 50px;
+      /*실행시간간*/
+      transition: 2s;
+    }
+
+    .item:nth-child(1) {
+      background-color: rgb(12, 0, 149);
+
+    }
+
+    .item:nth-child(2) {
+      background-color: rgb(44, 88, 0);
+
+      transition-property: background-color;
+      /* 속성을 정해서 특정 요소만 변경*/
+      transition-duration: 2s;
+      /*실행시간*/
+      transition-delay: 2s;
+      /*얼마나 후에 실행시킬건가*/
+      transition-timing-function: ease;
+      /*실행 곡선*/
+    }
+
+    .item:nth-child(1):hover {
+      background-color: aqua;
+
+    }
+
+    .item:nth-child(2):hover {
+      background-color: rgb(139, 255, 139);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="item"></div>
+  <div class="item"></div>
+</body>
+
+</html>

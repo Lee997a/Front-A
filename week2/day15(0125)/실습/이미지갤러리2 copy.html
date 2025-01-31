@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .gallery_wrap {
+      width: 500px;
+      height: 500px;
+      border: 1px solid black;
+      margin: 0 auto;
+      /*상하여백, 좌우여백*/
+      position: relative;
+    }
+
+    .gallery {
+      width: 500x;
+      height: 500px;
+      border: 1px solid black;
+
+      background-image: url(./image1/4286186.jpg);
+      background-position: center;
+      background-size: cover;
+    }
+
+    .preBtn {
+      width: 30px;
+      height: 30px;
+      border: 1px solid black;
+      position: absolute;
+      /*top, left, right, bottom*/
+      top: 50%;
+      left: 0px;
+      transform: translateY(-50%); /*position으로 정한 값 + transform으로 정 가운데 맞추기*/
+    }
+
+    .nextBtn {
+      width: 30px;
+      height: 30px;
+      border: 1px solid black;
+      position: absolute;
+      top: 50%;
+      right: 0px;
+    }
+
+    .title{
+      position: absolute;
+      left: 50%;
+      top: 20px;
+      transform: translateX(-50%);
+      width: 100px;
+      border: 1px solid black;
+      height: 30px;
+    }
+  </style>
+
+  <script>
+    let imgNames = ["image1/4286186.jpg",
+      "image1/2131618.jpg",
+      "image1/8981504.jpg"
+    ];
+
+
+    let index = 0;
+    function next() {
+      index++
+      let gallery = document.querySelector(".gallery");
+      gallery.style.backgroundImage = "url(" +imgNames[index] + ")";
+      gallery.style.backgroundPosition = "center";
+      gallery.style.backgroundSize = "cover";
+
+
+      if(index >= imgNames.length){
+        index = 0;
+      }
+    }
+
+    function prev(){
+      // alert("lsdjfldsf");
+      index--; //index = index -1;
+
+      if(index < 0){
+        imdex = imgNames.length-1; //배열의 가장 큰 인덱스 = 배열의 크기 -1
+      }
+      
+      let gallery = document.querySelector(".gallery");
+      gallery.style.backgroundImage = "url(" +imgNames[index] + ")";
+      gallery.style.backgroundPosition = "center";
+      gallery.style.backgroundSize = "cover";
+
+
+ 
+    }
+    
+  </script>
+</head>
+
+<body>
+  <div class="gallery_wrap">
+    <!--갤러리 화면면-->
+    <div class="gallery"></div>
+
+    <!--제목 영역-->
+    <div class="title"></div>
+
+    <!--btn-->
+    <div class=preBtn onclick="prev()"> << </div>
+        <div class="nextBtn" onclick="next()"> >> </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .wrap{
+      width: 500px;
+      height: 100px;
+
+    }
+    .gallery{
+      height: 260px;
+      overflow: hidden;
+      position: relative;
+
+    }
+
+    .gallery img{
+      width: 200px;
+      height: 250px;
+
+    }
+    button{
+      position: absolute;
+      top: 280px;
+      left: 100px;
+
+    }
+  </style>
+  <script>
+    let message = [];
+    let index = 0;
+
+    function next(){
+      let gallery = document.querySelector(".gallery");
+      gallery.innerHTML = message[index];
+      index++
+      if(index >= message.length){
+        index = 0;
+      }
+
+      gallery.animate({
+        transform:[
+          'translateX(100%)',
+          'translateY(0px)'
+        ]
+      },
+    {duration : 2000}
+    )
+    }
+
+    function init(){
+      let gallery_slide = document.querySelectorAll(".gallery .gallery-slide");
+
+      for(let i = 0; i < gallery_slide.length; i++){
+        let item = gallery_slide[i];
+
+        let slide_content = item.innerHTML;
+        message[i] = slide_content;
+      }
+    }
+
+  </script>
+</head>
+<body onload="init()">
+  <div class="wrap">
+    <div class="gallery">
+      <div class="gallery-slide">말할수없는 비밀<br>
+        <img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000089/89375/89375_320.jpg">
+      </div>
+      <div class="gallery-slide">검은 수녀들<br>
+        <img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000089/89398/89398_320.jpg">
+      </div>
+      <div class="gallery-slide">히트맨2<br>
+        <img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000089/89367/89367_320.jpg">
+      </div>
+      <div class="gallery-slide">브로큰<br>
+        <img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000089/89389/89389_320.jpg">
+      </div>
+      <div class="gallery-slide">하얼빈<br>
+        <img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000088/88797/88797_320.jpg">
+      </div>
+    </div>
+    <button  onclick="next()">다음</button>
+  </div>
+  
+</body>
+</html>

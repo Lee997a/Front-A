@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    function d(){
+      let position = {위도 : 100, 경도 : 200};
+      return position;
+    }
+
+    let result =d();
+    console.log(result);
+    let 위도 = result.위도;
+    let 경도 = result["경도"];
+
+    alert(위도);
+    alert(경도);
+  </script>
+</body>
+</html>

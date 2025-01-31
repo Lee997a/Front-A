@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    .wrap{
+
+      border: 1px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 800px;
+
+      margin: 0 auto;
+    }
+
+    .item{
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      margin: 50px;
+    }
+
+    .item:nth-child(1):hover{
+      transform: scaleX(1.2); /*가로*/
+    }
+
+    .item:nth-child(2):hover{
+      transform: scaleY(1.2);
+    }
+
+    .item:nth-child(3):hover{
+      transform: scale(0.7);
+    }
+
+    .item:nth-child(4):hover{
+      transform: scale(1.2);
+    }
+
+  </style>
+</head>
+<body>
+
+  <h2> transform : scale</h2>
+  <p> 요소의 크기를 확대하거나 축소할 수 있다.</p>
+
+  <div class="wrap">
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+  </div>
+</body>
+</html>

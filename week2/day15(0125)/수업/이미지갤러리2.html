@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .gallery_wrap {
+      width: 500px;
+      height: 500px;
+      border: 1px solid black;
+      margin: 0 auto;
+      /*상하여백, 좌우여백*/
+      position: relative;
+    }
+
+    .gallery {
+      width: 500x;
+      height: 500px;
+      border: 1px solid black;
+
+      background-image: url(media/Penguins.png);
+      background-position: center;
+      background-size: cover;
+    }
+
+    .preBtn {
+      width: 30px;
+      height: 30px;
+      border: 1px solid black;
+      position: absolute;
+      /*top, left, right, bottom*/
+      top: 50%;
+      left: 0px;
+      transform: translateY(-50%); /*position으로 정한 값 + transform으로 정 가운데 맞추기*/
+    }
+
+    .nextBtn {
+      width: 30px;
+      height: 30px;
+      border: 1px solid black;
+      position: absolute;
+      top: 50%;
+      right: 0px;
+    }
+
+    .title{
+      position: absolute;
+      left: 50%;
+      top: 20px;
+      transform: translateX(-50%);
+      width: 100px;
+      border: 1px solid black;
+      height: 30px;
+    }
+  </style>
+
+  <script>
+    let imgNames = ["media/Penguins.png",
+      "media/Lighthouse.png",
+      "media/Chrysanthemum.png",
+      "media/Desert.png",
+      "media/Hydrangeas.png",
+      "media/Jellyfish.png",
+      "media/Koala.png",
+      "media/Tulips.png"
+    ];
+
+    let titleNames = ["팽귄",
+      "집",
+      "국화",
+      "사막",
+      "수국",
+      "해파리",
+      "코알라",
+      "튤립"
+    ];
+
+    let index = 0;
+    
+    function next() {
+      index++;
+      if(index >= imgNames.length){
+        index = 0;
+      }
+      
+      let gallery = document.querySelector(".gallery");
+      let title = document.querySelector(".title")
+
+      //이미지 영역 변경하기
+      gallery.style.backgroundImage = "url(" +imgNames[index] + ")";
+      gallery.style.backgroundPosition = "center";
+      gallery.style.backgroundSize = "cover";
+
+      //타이틀 영역 
+      title.innerHTML = titleNames[index];
+
+
+
+    }
+
+    function prev(){
+      // alert("lsdjfldsf");
+      index--; //index = index -1;
+
+      if(index < 0){
+        idex = imgNames.length-1; //배열의 가장 큰 인덱스 = 배열의 크기 -1
+      }
+      
+      let gallery = document.querySelector(".gallery");
+      gallery.style.backgroundImage = `url(${imgNames[index]})`;
+      gallery.style.backgroundPosition = "center";
+      gallery.style.backgroundSize = "cover";
+
+    
+ 
+    }
+    
+  </script>
+</head>
+
+<body>
+  <div class="gallery_wrap">
+    <!--갤러리 화면면-->
+    <div class="gallery"></div>
+
+    <!--제목 영역-->
+    <div class="title">펭귄</div>
+
+    <!--btn-->
+    <div class=preBtn onclick="prev()"> << </div>
+        <div class="nextBtn" onclick="next()"> >> </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .wrap{
+      height: 300px;
+    }
+
+    .gallery{
+      height: 250px;
+    }
+
+  </style>
+  <script>
+    let message = ["말할수없는 비밀","검은 수녀들", "히트맨2", "브로큰", "하얼빈"];
+
+    let index = 0;
+
+    function next(){
+      // alert("ㅇ니ㅏ렁니");
+
+      let gallery = document.querySelector(".gallery");
+      gallery.innerHTML = message[index];
+      index++;
+
+      if(index >= message.length){
+        index = 0;
+      }
+
+      gallery.animate({
+        transform:[
+          'translateY(100%)',
+          'translateX(0px)'
+        ]
+      },
+      {
+        duration : 1000
+      }
+    )
+    }
+
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="gallery"></div>
+  </div>
+  <button  onclick="next()">다음</button>
+</body>
+</html>

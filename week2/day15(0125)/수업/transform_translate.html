@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .item{
+      width: 100px;
+      height: 100px;
+      background-color: green;
+      margin: 100px;
+    }
+
+    .item1:hover{
+      transform: translateX(50px); /*왼쪽 : -값, 오른쪽 이동*/
+
+    }
+
+    .item2:hover{
+      transform: translateY(50px); /*위쪽 : -값, 아래쪽 이동*/
+    }
+
+    .item3:hover{
+      transform: translate(50px, 50px);
+    }
+
+  </style>
+</head>
+<body>
+  
+  <h2> 변형 transform (트랜스폼) </h2>
+  <h2> trasnlate 위치변환 </h2>
+  <p>
+    특정 요소의 크기나 형태가 변하는 것을 변형 또는 트랜스폼이라고 한다. <br>
+    사용자의 동작에 반응해 텍스트나 이미지 등을 움직이게 할 수 있다. 
+  </p>
+
+  <div class="item item1"></div>
+  <div class="item item2"></div>
+  <div class="item item3"></div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .wrap{
+      height: 200px;
+    }
+    .gallery{
+      height: 50px;
+      line-height: 50px;
+      border: 1px solid black;
+
+      overflow: hidden; /* .gallery를 넘어가는 것을 숨기는 역할을 함. */
+    }
+  </style>
+
+  
+  <script>
+      let message = [];
+      let index = 0; 
+
+    function next(){
+      // alert("lsdnfldsnfdl");
+      let gallery = document.querySelector(".gallery");
+      gallery.innerHTML = message[index];
+      index++;
+
+      if(index >= message.length){
+        index = 0;
+      }
+
+    }
+
+  
+
+    function init(){
+      // alert("sdjflds");
+
+      let gallery_slides = document.querySelectorAll(".gallery .gallery-slide");
+      // alert(gallery_slides.length);
+      for(let i = 0; i < gallery_slides.length; i++){
+        let item = gallery_slides[i];
+        // alert(item);
+
+        let slide_content = item.innerHTML;
+        // alert(slide_content);
+        message[i] = slide_content; //message.push( slide_content);
+      }
+      console.log(message)
+    }
+
+
+  </script>
+</head>
+<body onload="init()"> <!--onload 웹페이지가 로드가 되었을 때-->
+  <div class="wrap">
+    <div class="gallery"> 갤러리 화면
+      <div class="gallery-slide">곧 설연휴 시작 !!! ^^ 신난다 !!</div>
+      <div class="gallery-slide">프론트 프로젝트 곧 시작 합니다!! 재미있게 해 줘요  🍔 🍟</div>
+      <div class="gallery-slide">날씨가 넘 추워요 감기 조심</div>
+      <div class="gallery-slide">설연휴 잘 보내고 와요 !!</div>
+      <div class="gallery-slide">for , if, 1차원배열, 함수 연습 연습</div>
+      <div class="gallery-slide">함수가 별거냐 ^^</div>
+      <div class="gallery-slide">배열이 별거냐 ^^ </div>
+    </div>
+  </div>
+
+  <button onclick="next()">다음</button>
+</body>
+</html>
