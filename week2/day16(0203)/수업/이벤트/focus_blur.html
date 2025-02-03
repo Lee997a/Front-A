@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+    function a(obj){
+      obj.style.backgroundColor = "lightgray";
+    }
+    function b(obj){
+      obj.style.backgroundColor = "";
+    }
+  </script>
+</head>
+<body>
+  <h2>focus, blur 이벤트 처리</h2>
+
+  <p>focus : 해당 요소에 포커스가 왔을 때 발생</p>
+  <p>blur : 포커스가 왔다가 포커스를 잃었을 때 발생</p>
+
+  <input type="text" placeholder="검색어" onfocus="a(this)" onblur="b(this)"> 
+</body>
+</html>

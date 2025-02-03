@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function shouMessage(e){
+      alert("클릭^_^");
+      console.log(e)
+    };
+  </script>
+</head>
+<body>
+  
+  <h2>이벤트 객체</h2>
+  <p>이벤트가 발생하였을 때 이벤트 관련 정보를 객체형태로 제공한다.</p>
+  <p>이벤트 핸들러 함수에서만 사용이 가능하다.</p>
+
+  <h4>태그에서 이벤트 객체 전달하기</h4>
+  <button onclick="shouMessage(event)">클릭</button>
+</body>
+</html>

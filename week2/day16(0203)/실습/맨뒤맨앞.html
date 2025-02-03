@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      height: 5000px;
+      position: relative;
+    }
+
+    .up{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+    .bottom{
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    button{
+      width: 100px;
+      height: 50px;
+      border: none;
+      background-color: black;
+      color: white;
+    }
+  </style>
+
+  <script>
+    function up(){
+      window.scrollTo({top : 0, behavior:"smooth"}) //객체
+    }
+
+    function bottom(){
+      window.scrollTo({top: document.body.scrollHeight, behavior:"smooth"});
+    }
+  </script>
+</head>
+<body>
+
+  
+  <button onclick="bottom()" class="bottom">아래로</button>
+  
+  <button onclick="up()" class="up">위로</button>
+
+
+
+
+
+
+</body>
+</html>

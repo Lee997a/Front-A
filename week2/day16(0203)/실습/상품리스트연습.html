@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .product-box{
+      width: 200px;
+      height: 300px;
+      border: 1px solid black;
+      position: relative;
+    }
+
+    .product-box img {
+            width: 100%; 
+            height: 100%;
+            object-fit: cover;           
+        }
+
+        .product-box .product-info{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+
+          background: rgba(199, 193, 193,0.6 ); 
+          opacity: 0;
+          color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transition: 1s;
+          flex-direction: column; /*글씨를 열로*/
+        }
+        .product-box:hover .product-info{
+          opacity: 1;
+        }
+  </style>
+</head>
+
+<body>
+  <div class="product-list">
+    <div class="product-box">
+      <img src="https://image2.lotteimall.com/goods/37/64/27/2810276437_1.jpg/dims/resizemc/640x360/optimize"
+        alt="상품 이미지 1">
+
+      <!--히든영역-->
+      <div class="product-info">
+        <h3>패딩</h3>
+        <p>상품 설명1</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

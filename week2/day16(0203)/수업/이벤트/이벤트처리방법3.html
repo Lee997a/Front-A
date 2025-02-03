@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    button{
+      width: 100px;
+      height: 50px;
+      background-color: bisque;
+      border: none;
+      box-shadow: 10px 2px 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>자바스크립트로 이벤트 처리하기 : 이벤트리스너 함수(매서드) 사용하기</h2>
+  
+  <button id="btn1">클릭1</button>
+  <button id="btn2">클릭2</button>
+
+  <script>
+    const btn1 = document.getElementById("btn1");
+    const btn2 = document.getElementById("btn2");
+    
+    console.log(btn1);
+    console.log(btn2);
+
+                    //이벤트 이름, 콜백함수(이벤트리스너 함수)
+    btn1.addEventListener("click", function(){
+      alert("클릭1");
+    })
+
+    btn2.addEventListener("click", function(){
+      alert("클릭2");
+    })
+
+  </script>
+</body>
+</html>

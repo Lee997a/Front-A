@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>특정 위치로 가기</title>
+    <style>
+        /* 페이지 콘텐츠의 높이를 늘려서 스크롤 가능하게 설정 */
+        .section {
+            height: 800px; /* 각 섹션의 높이 */
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 스크롤을 이동시킬 특정 위치로 가는 버튼들 -->
+    <button onclick="scrollToSection('section1')">섹션 1으로 가기</button>
+    <button onclick="scrollToSection('section2')">섹션 2으로 가기</button>
+    <button onclick="scrollToSection('section3')">섹션 3으로 가기</button>
+
+    <!-- 각 섹션 -->
+    <div id="section1" class="section" style="background-color: lightblue;">
+        섹션 1
+    </div>
+    <div id="section2" class="section" style="background-color: lightcoral;">
+        섹션 2
+    </div>
+    <div id="section3" class="section" style="background-color: lightgreen;">
+        섹션 3
+    </div>
+
+    <script>
+        // 특정 섹션으로 부드럽게 스크롤 이동
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView({
+                behavior: 'smooth',  // 부드럽게 스크롤
+                block: 'start'       // 섹션의 시작 부분으로 맞춤
+            });
+        }
+    </script>
+
+</body>
+</html>

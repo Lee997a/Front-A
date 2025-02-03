@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <h2>addEventListnener를 사용하는 경우 여러개 이벤트 처리 내용을 등록할 수 있다.</h2>
+  <button id="btn1">클릭</button>
+
+  <script>
+    const btn1 = document.getElementById("btn1");
+    console.log(btn1);
+
+    // btn1.addEventListener();
+    
+    // btn1.addEventListener("click", function(){});
+    btn1.addEventListener("click", function(){alert("hi")});
+    btn1.addEventListener("click", function(){alert("bi")});
+  </script>
+</body>
+</html>

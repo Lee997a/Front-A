@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+     <!--사용자 정의 속성값은  data- 으로 시작하는 규칙을 따라야 한다 !!-->
+     <button id="btn" data-info="사용자 정보" data-address="서울시 노원구 공릉"  > 클릭</button>
+
+     <script>
+         let btn  = document.getElementById("btn");
+ 
+         btn.addEventListener( "click" , function(e){
+ 
+              console.log( e);
+              console.log( e.target);  //이벤트가 발생한 대상
+              console.log( e.target.innerHTML);
+              console.log( e.target.id);
+              console.log( e.target.dataset.info);
+              console.log( e.target.dataset.address);
+              //사용자정의 속성을 얻어올 때는 dataset.이름 형식으로 얻어온다 
+              console.log(e.target.getAttribute('data-info')); //
+              //이 방법으로도 얻어 올 수 있다. 
+
+              let address  =e.target.getAttribute("data-address");
+              console.log( address);
+
+
+               
+         });
+ 
+         
+     </script>
+</body>
+</html>

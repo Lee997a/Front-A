@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="item">아메리카노</div>
+
+
+  <script>
+    const menu = document.querySelector(".item");
+    console.log(menu)
+
+    menu.addEventListener("click", function(){
+      const content = this.innerHTML; //this는 이 함수의 주체가 되는 menu 객체를 의미
+      alert(content + "를 선택하셨군요")
+    });
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+    function showContent(e){
+      console.log(e);
+
+      const currentE = e.target;
+      console.log(currentE);
+
+      const content = currentE.innerHTML;
+      alert(content + "를 선택하셨군요");
+    }
+  </script>
+</head>
+<body>
+  
+  <div class="item" onclick="showContent(event)">아메리카노</div> <!--event는 다른 이름으로 변경 불가-->
+
+</body>
+</html>

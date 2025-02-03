@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <h2>새창 열기</h2>
+
+  <button id="btn">네이버 </button>
+
+  <script>
+
+    const btn = document.getElementById("btn");
+    console.log(btn);
+
+    btn.addEventListener("click", function(){
+      // console.log("dksfjld");
+
+       //let options = "toolbar=no,scrollbars=no,resizable=yes,status=no,menubar=no,width=1200, height=800, top=0,left=0";
+       
+      //새창열기
+      window.open("https://www.naver.com", "newWin", "left = 0, top = 0, width = 400, height = 300, toolbar=no,scrollbars=no"); 
+    }) //주소, 이름, 위치, 크기
+    
+  </script>
+</body>
+</html>

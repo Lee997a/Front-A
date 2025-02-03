@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #search{
+      width: 50px;
+      transition: 1s;
+    }
+  </style>
+
+  <script>
+    // window.addEventListener("load", function(){alert("hi")});
+    // 문서로드가 완료되면 수행
+    window.addEventListener("load", function(){
+      const search = document.getElementById("search");
+      
+      search.addEventListener("focus", function(){
+        console.log("focus");
+        search.style.width = "250px"
+        
+      });
+
+      search.addEventListener("blur", function(){console.log("blur");
+      search.style.width = "50px"
+
+      });
+      
+    });
+
+  </script>
+
+</head>
+<body>
+
+  <input type="text" placeholder="검색어" id="search"> 
+
+  
+  <script>
+
+    //1. 태그 아래에 자바스크립트 코드 작성
+    //2. 문서로드가 완료된 후 선택하기
+
+
+
+  </script>
+</body>
+</html>

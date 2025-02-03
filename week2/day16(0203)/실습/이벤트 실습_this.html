@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="item">아메리카노</div>
+  <div class="item" >카페라떼</div>
+  <div class="item">복숭아티</div>
+  <div class="item" >스무디</div>
+
+  <script>
+
+    const menu = document.querySelectorAll(".item");
+    console.log(menu)
+
+    menu.addEventListener("click", function(){
+      const content = this.innerHTML;
+      alert(content + '를 선택')
+    })
+
+  </script>
+</body>
+</html>

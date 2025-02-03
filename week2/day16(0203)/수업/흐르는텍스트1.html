@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+    function doRotate(){
+      // alert("dkfdl");
+
+      //1. 내용 가져오기
+      //2. 첫글자 뽑아오기
+      //3. 두번째 글자보다 전체 뽑아오기
+      //4. 2,3번 순서를 바꾸기
+      //5. 내용을 변경시키기
+      
+    let content = document.getElementById("content");
+    let contentValue = content.innerHTML;
+
+    // alert(contentValue); //Hello
+
+    let first = contentValue.substr(0,1); //(startIndex, length) 몇번째 부터 몇개 => 0 인덱스 부터 1개 => H
+    // alert(first);
+
+    // 두번째 인자를 생략하면 첫 번째 인자로 넘긴 시작 인덱스부터 문자열의 끝까지 추출 => ello
+    let reamins = contentValue.substr(1); 
+    // alert(reamins);
+
+    contentValue = reamins + first;
+
+    content.innerHTML = contentValue;
+
+    }
+
+    let intervalId;
+    function startRotate(){
+                              //함수
+      intervalId = setInterval( doRotate , 1000);
+    }
+
+    function stopRotate(){
+      clearInterval(intervalId); // 위에 정의된 것을 clear해줌
+    }
+  </script>
+</head>
+<body>
+
+  <div id="content">Hello</div>
+  
+  <button onclick="startRotate()">시작</button>
+  <button onclick="stopRotate()">멈춰</button>
+
+</body>
+</html>

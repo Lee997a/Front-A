@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <button id="btn1">클릭</button>
+
+  <script>
+
+    //이벤트에 여러개를 지정할 경우 기존의 이벤트는 대체됨(기존것은 지워진다.)
+
+    const btn1 = document.getElementById("btn1");
+    console.log(btn1);
+
+    btn1.onclick = function(){
+      alert("^^^^^^^^^");
+    }
+
+    btn1.onclick = function(){
+      alert("**********");
+    }
+  </script>
+</body>
+</html>

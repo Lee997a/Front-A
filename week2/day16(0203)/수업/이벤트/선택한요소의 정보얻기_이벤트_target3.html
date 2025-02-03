@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .item{
+      width: 100px;
+      height: 50px;
+      line-height: 50px;
+      display: inline-block;
+      border: 1px solid black;
+      text-align: center;
+    }
+  </style>
+
+</head>
+<body>
+  
+  <div class="item">아메리카노</div> <!--event는 다른 이름으로 변경 불가-->
+  <div class="item">라떼</div>
+  <div class="item">복숙아티</div>
+
+  <script>
+    const menus = document.querySelectorAll(".item");
+    console.log(menus);
+
+    for(let i = 0; i < menus.length; i++){
+      let item = menus[i];
+      console.log(item)
+
+      item.addEventListener("click", function(e){
+        console.log(e);
+        const content = e.target.innerHTML;
+        alert(content + "를 선택하셨군요")
+      })
+    }
+
+  </script>
+
+</body>
+</html>

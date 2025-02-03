@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>자바스크립트로 이벤트 처리하기 : 이벤트 속성 사용하기</h2>
+
+  <ul>
+    <li>이벤트를 적용할 대상 선택하기</li>
+    <li>주의 사항 : 자바스크립트 코드가 html 코드 아래에 있어야 한다.</li>
+    <li>문서로드가 완료된 후 자바스크립트 고드를 작성하는 방법도 있음</li>
+  </ul>
+  
+  <button id="btn1">클릭1</button>
+  <button id="btn2">클릭2</button>
+
+  <script>
+    
+    //1. 선택
+    const btn1 = document.getElementById("btn1");
+
+    const btn2 = document.getElementById("btn2");
+    console.log(btn1);
+    console.log(btn2);
+
+
+    //2. 이벤트 속성으로 리스너 선택
+
+    btn1.onclick = function(){
+      alert("클릭1");
+    }
+
+    btn2.onclick = showMessage;
+    function showMessage(){
+      alert("클릭2");
+    }
+
+    //이벤트 : click
+    //이벤트리스너 : onclick
+    //이벤트핸들러 : 익명함수, showMessage()
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // window.addEventListener("load", function(){});
+
+    window.addEventListener("load", function () {
+      // alert("dkdkdkdk");
+
+      const btn = document.getElementById("btn");
+      btn.addEventListener("click", function (e) {
+      // alert("hi");
+        //클릭되었을 때 실행하고 싶은 코드 작성
+        console.log(e);
+        console.log("클릭됨^_-;");
+      })
+
+    });
+  </script>
+</head>
+
+<body>
+
+  <h2>이벤트 리스너로 처리하는 경우는 첫번째 매개변수로 이벤트 객체를 전달 받는다.</h2>
+  <button id="btn">클릭</button>
+
+
+</body>
+
+</html>

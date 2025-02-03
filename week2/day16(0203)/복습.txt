@@ -1,0 +1,7 @@
+복습
+
+1. 상품리스트 - 히든영역
+
+2. 버튼 - addEventListener 처리하기
+
+3. 문서로드 - window.addEventListener(이벤트 이름, 콜백함수);

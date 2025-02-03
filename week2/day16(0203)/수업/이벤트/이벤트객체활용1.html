@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+
+
+
+
+  </script>
+</head>
+<body>
+
+  <h2>이벤트 객체를 활용하여 엔터키 입력하면 검색되게 하기</h2>
+
+  <input type="text" placeholder="검색" id="search">
+
+
+  <script>
+
+    const search = document.getElementById("search");
+    // console.log(search);
+
+    search.addEventListener("keyup", function(e){
+      console.log(e);
+
+      console.log("aaaakdkdkdk");
+
+    
+      if(e.key === 'Enter'){
+        alert("검색중.....")
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 리스트</title>
+    <style>
+        
+
+        .product-list {
+            display: flex;
+            gap: 20px;   /* 요소 간격 */        
+        }
+
+        .product-box {
+            position: relative;
+            width: 200px;
+            height: 300px;           
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+             
+        }
+
+
+        /* 이미지를 부모영역의 크기의  100%  설정함 */
+        .product-box img {
+            width: 100%; 
+            height: 100%;
+            object-fit: cover;           
+        }
+
+
+        /*상품이미지에 겹치게 레이아웃 */
+        .product-box .product-info {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            /* 배경색을 투명하게  */
+            background: rgba(199, 193, 193  ); 
+            color: #fff;
+          
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+           /*  opacity: 1; */
+             opacity: 0;   /* 겹쳐있지만 투명도를 0으로 해서 안보이게 함 */          
+            transition: 1s;    /*  transition: opacity 0.1s;  , 천천히 보이게 함 */
+        }
+ 
+
+
+        /* 마우스가 올렸을 때 투명도를 1로 보이게 함 */
+        .product-box:hover .product-info {
+           opacity: 0.7; 
+              
+        }
+    </style>
+</head>
+<body>
+
+    <h2>상품 히든영역 만들기 </h2>
+    
+
+    <ul>
+        <li>이미지영역과 상품설명 히든영역을 겹치게 한다 : positon 속성사용</li>
+        <li>히든영역이 보이지않도록  opacity:0 설정 </li>
+        <li>상품에 마우스가 올라가면 opacity:0.7로  변경하면 보임 , 약간 투명하므로 뒤의 이미지가 보임 </li>
+    </ul>
+    <div class="product-list">
+        <div class="product-box">
+            <img src="https://image2.lotteimall.com/goods/37/64/27/2810276437_1.jpg/dims/resizemc/640x360/optimize" alt="상품 이미지 1">
+
+            <!--히든영역-->
+            <div class="product-info">
+                <h3>상품명 1</h3>
+                <p>상품 설명 1</p>
+            </div>
+        </div>
+        <div class="product-box">
+            <img src="https://image2.lotteimall.com/goods/37/64/27/2810276437_1.jpg/dims/resizemc/640x360/optimize" alt="상품 이미지 2">
+
+            <!--  히든영역-->
+            <div class="product-info">
+                <h3>상품명 2</h3>
+                <p>상품 설명 2</p>
+            </div>
+        </div>
+        <div class="product-box">
+            <img src="https://image2.lotteimall.com/goods/37/64/27/2810276437_1.jpg/dims/resizemc/640x360/optimize" alt="상품 이미지 3">
+             <!--히든영역-->
+            <div class="product-info">
+                <h3>상품명 3</h3>
+                <p>상품 설명 3</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

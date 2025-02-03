@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+
+        let time;
+        function init(){
+          //  alert("hi");
+          //doRotate();
+
+
+          time = setInterval(doRotate   ,  1000);
+
+
+
+        }
+
+
+        function doRotate(){
+            //alert("dfdlfdlf");
+            let contentE  = document.querySelector("#content");
+            let content  =  document.querySelector("#content").innerHTML;
+            //alert( content);
+            let firstChar  = content.substr( 0, 1)  //시작위치, 가져올 개 수 
+            let reamins  =  content.substr(1 , content.length -1);     //hello     // h    //ello     //  ellloh 
+            content= reamins + firstChar;
+            contentE.innerHTML = content; 
+        }
+
+
+        function stopMove(){
+            clearInterval(time);
+
+        }
+
+
+    </script>
+</head>
+<body onload="init()">
+    
+    <h3> 텍스트가 자동회전하며, 마우스로 클릭하면 중단합니다</h3>
+    <p id="content"   onclick="stopMove()">프론트 프로젝트 시작 !!  재미있는거 멋있는거 많이 만들어 줘요  ^ ___ ^ !! 우리 모두 화이팅 !!  즐코 !!</p>
+
+</body>
+</html>

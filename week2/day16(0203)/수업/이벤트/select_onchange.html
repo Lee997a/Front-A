@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <h2> select 값이 변경될 때 change 이벤트 처리하기</h2>
+
+
+  <select id="email">
+    <option value="">선택하시오</option>
+    <option value="google.com">google.com</option>
+    <option value="naver.com">naver.com</option>
+  </select>
+
+  <input type="text" id="info">
+
+
+
+  <script>
+
+    const email = document.getElementById("email");
+
+    // email.addEventListener("change", function(){console.log("change"); }); //이벤트이룸, 콜백함수
+
+    email.addEventListener("change", function(){
+      // console.log("change");
+
+      const email_domain = email.options[email.selectedIndex].value;
+      // console.log(email_domain); 
+      console.log(email.selectedIndex);
+
+      const info = document.getElementById("info");
+      info.value = email_domain;
+    }); 
+  </script>
+</body>
+</html>
