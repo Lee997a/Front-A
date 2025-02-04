@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    ul{
+      list-style: none;
+      width: 100px;
+      /* display: flex; */
+    
+
+    }
+    li{
+      /* border: 1px solid black; */
+      position: relative;
+      height: 40px;
+      text-align: center;
+    }
+
+    .underLine{
+      width: 0;
+      height: 2px;
+      background-color: rebeccapurple;
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+    }
+
+    li:hover .underLine{
+      width: 100px;
+      transition: 1s;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <ul>
+    <li>메뉴1 <div class="underLine"></div></li>
+    <li>메뉴2 <div class="underLine"></div></li>
+  </ul>
+</body>
+</html>

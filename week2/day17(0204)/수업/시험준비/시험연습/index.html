@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=\, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    header{
+      height: 100px;
+      background-color: rgb(248,248,248);
+      position: relative;
+    }
+
+    header .title{
+      position: absolute;
+      left: 10px;
+      top: 20px;
+    }
+
+    header .search{
+      position: absolute;
+      right: 10px;
+      bottom: 20px;
+      display: flex;
+    }
+
+    header .search input{
+      border: 0;
+      outline: none;
+    }
+
+    header .search img{
+      width: 30px;
+      height: 30px;
+    }
+
+
+    nav{
+      height: 40px;
+      padding: 20px;
+      background-color: rgb(232,243,243);
+    }
+
+    nav a{
+      text-decoration: none;
+      color: black;
+      font-size: 14px;
+    }
+
+    section{
+      height: 600px;
+
+    }
+
+    section ul{
+      list-style: none;
+      display: flex;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    section ul li{
+      width: 300px;
+      padding: 20px;
+      border: 0.5px solid rgb(255,241,241);
+      position: relative;
+    }
+
+    section ul li img{
+      width: 200px;
+      height: 220px;
+    }
+
+    section ul li .section_text{
+      width: 130px;
+      padding: 10px;
+      color: red;
+      background-color: black;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    footer{
+      height: 60px;
+      background-color: rgb(233, 239, 239);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    footer .item{
+      width: 33%;
+      height: 60px;
+      text-align: center;
+      line-height: 60px;
+
+    }
+
+    footer .item img{
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title">
+      <img src="../images/logo.png">
+    </div>
+    <div class="search">
+      <input type="text">
+      <img src="../images/검색.png">
+    </div>
+  </header>
+
+  <nav>
+    <a href="#">로그인</a>
+    <a href="#">회원가입</a>
+    <a href="#">홈으로</a>
+  </nav>
+
+  <section>
+    <div class="section_wrap">
+      <ul>
+        <li>
+          <img src="../images/img01.png">
+          <p>프로젝트기반 빅데이터분석 과정</p>
+          <div class="section_text">
+            BigData
+          </div>
+        </li>
+        <li>
+          <img src="../images/img02.png">
+          <p>프로젝트기반 빅데이터분석 과정</p>
+          <div class="section_text">
+            Android
+          </div>
+        </li>
+        <li>
+          <img src="../images/img03.png">
+          <p>프로젝트기반 빅데이터분석 과정</p>
+          <div class="section_text">
+            Front
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <div class="item">
+      <img src="../images/footer_acorn.png">
+    </div>
+    <div class="item">
+      자바(JAVA) & 안드로이드 개발자 양성과정
+    </div>
+    <div class="item">
+      COPYRIGHT(C) HBILAB ALL RIGHTS RESERVED.
+    </div>
+  </footer>
+</body>
+</html>

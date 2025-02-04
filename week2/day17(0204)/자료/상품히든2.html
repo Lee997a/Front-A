@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ul{
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+        } 
+
+
+        ul li{
+            width: 250px;
+            height: 300px;
+            border: 1px solid black;
+            background-color: aqua;
+
+            
+            /*히든영역 안보이게 하기  */
+            overflow: hidden;
+
+            position: relative;
+        }
+
+
+
+    .hidden_wrap{
+
+        width: 100%;
+        height: 100%;
+        background-color: orange;
+
+        position: absolute;
+        bottom:-300px;
+
+        transition: 1s; 
+    }
+
+    ul li:hover .hidden_wrap{
+        bottom: 0px;
+    }
+
+    </style>
+</head>
+<body>
+
+    <ul>
+        <li>
+              상품소개
+
+              <!--히든 영역-->
+              <div class="hidden_wrap">히든영역</div>
+        </li>
+    </ul>
+    
+</body>
+</html>

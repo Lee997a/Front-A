@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+   
+
+    /*  메뉴 한 개를 감싸는 영역  */
+    .menu-item,    
+    .line-wrap {
+      position: relative;
+      width: 200px;
+      text-align: center;
+    }
+
+
+    .menu-item::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background-color: #c00e0e;
+      /* 줄의 색상을 원하는 색상으로 변경해주세요. */
+      transition: width 0.3s ease-in-out; /*transition: width 0.3s ease-in-out;*/     
+    }
+
+
+    .menu-item:hover::after {
+      width: 100%;
+    }
+
+
+    .line {
+      position: absolute;
+      bottom: 0;
+      
+      left: 50%;
+      transform: translateX(-50%);
+
+      width: 0;
+      height: 1px;
+      background-color: #c00e0e;
+      /* 줄의 색상을 원하는 색상으로 변경해주세요. */
+      transition:  0.3s  ;   /* transition: width 0.3s ease-in-out;*/
+    }
+
+    .line-wrap:hover .line {
+      width: 100%;
+    }
+  </style>
+</head>
+
+
+<body>
+ <p> 가상요소 사용하기 (요소를 직접 추가하지 않음)</p>
+  <ul  >
+    <li class="menu-item">메뉴 1</li>
+    <li class="menu-item">메뉴 2</li>
+  </ul>
+
+
+  <hr>
+
+  <p> 요소를 직접 만들어 사용하기</p>
+   <div class="line-wrap">
+     메뉴3
+    <div class="line"></div>
+  </div>
+
+</body>
+
+</html>

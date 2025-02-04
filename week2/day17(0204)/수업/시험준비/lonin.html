@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    header {
+      height: 100px;
+      background-color: rgb(245, 248, 248);
+      position: relative;
+    }
+
+    header .title {
+      position: absolute;
+      top: 20px;
+      left: 10px;
+    }
+
+    header .search {
+      position: absolute;
+      right: 10px;
+      bottom: 20px;
+      display: flex;
+    }
+
+    header .search input {
+      border: none;
+      outline: none;
+    }
+
+    header .search img {
+      width: 30px;
+      height: 30px;
+    }
+
+
+
+    nav {
+      height: 40px;
+      padding: 20px;
+      background-color: rgb(232, 243, 243);
+      display: flex;
+
+    }
+
+    nav a {
+      text-decoration: none;
+      margin-right: 10px;
+      color: black;
+      font-size: 14px;
+    }
+
+
+
+    section {
+      height: 600px;
+
+    }
+
+    section .log_wrap{
+      width: 400px;
+      padding: 20px;
+      border: 0.5px solid rgb(234, 222, 222);
+      margin: 0 auto;
+    }
+
+    section .log_img{
+      width: 300px;
+      height: 300px;
+      background-image: url(./images/login_logo.jpg);
+      background-position: center;
+      background-size: cover;
+      margin: 0 auto;
+    }
+
+    section .log_info{
+      padding: 20px;
+    }
+
+    section .log_info  input{
+      width: 98%;
+      height: 40px;
+      margin-top: 5px;
+    }
+
+    section .log_info button{
+      width: 100%;
+      height: 50px;
+      background-color: silver;
+      border: 0px;
+      margin-top: 10px;
+    }
+
+
+
+
+    footer {
+      height: 60px;
+      background-color: rgb(233, 239, 239);
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+
+    footer .footer_item {
+      width: 33.3%;
+      line-height: 60px;
+    }
+  </style>
+
+  <script>
+
+    function logBtn(){
+      let frm = document.frm;
+      let userId = frm.userId;
+      let userPw = frm.userPw;
+
+      if(userId.value == ""){
+        alert("아이디를 입력해주세요");
+        userId.focus()
+      }else if(userPw.value == ""){
+        alert("비밀번호를 입력해주세요");
+        userPw.focus();
+      }else{
+        alert("로그인 성공");
+      }
+    }
+
+  </script>
+</head>
+
+<body>
+  <header>
+    <div class="title">
+      <img src="./images/logo.png">
+    </div>
+    <div class="search">
+      <input type="text">
+      <img src="./images/검색.png">
+    </div>
+  </header>
+
+  <nav>
+    <a href="./lonin.html">로그인</a>
+    <a href="./joinus.html">회원가입</a>
+    <a href="./index.html">홈으로</a>
+  </nav>
+
+  <section>
+    <form name="frm" method="post" accept="#">
+      <div class="log_wrap">
+        <div class="log_img"></div>
+        <div class="log_info">
+          <input type="text" placeholder="아이디" name="userId">
+          <input type="password" placeholder="비밀번호" name="userPw">
+          <button type="button" onclick="logBtn()">로그인</button>
+        </div>
+      </div>
+    </form>
+  </section>
+
+  <footer>
+
+    <div class="footer_item">
+      <img src="./images/footer_acorn.png">
+    </div>
+    <div class="footer_item">
+      (주)에이콘이즈 에이콘아카데미(홍대)
+    </div>
+    <div class="footer_item">
+      COPYRIGHT(C) HBILAB ALL RIGHTS RESERVED.
+    </div>
+  </footer>
+</body>
+
+</html>

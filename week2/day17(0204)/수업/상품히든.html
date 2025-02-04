@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    ul{
+      list-style: none;
+      padding: 0px;
+      margin: 0;
+    }
+
+    ul li{
+      width: 250px;
+      height: 300px;
+      border: 1px solid black;
+      position: relative;
+      /*히든영역을 */
+      overflow: hidden;
+    }
+
+    .hidden_box{
+      width: 100%;
+      height: 300px;
+      background-color: rgb(115, 152, 225) ;
+      position: absolute;
+      bottom: -300px;
+      opacity: 0;
+      text-align: center;
+      line-height: 300px;
+    }
+
+    li:hover .hidden_box{
+      bottom: 0;
+      opacity: .7   ;
+      transition: 2s;
+    }
+
+    .hidden_box2{
+      width: 100%;
+      height: 300px;
+      background-color: aquamarine;
+      position: absolute;
+      top: 0;
+      right: -260px;
+      text-align: center;
+      line-height: 300px;
+
+    }
+    li:hover .hidden_box2{
+      right: 0;
+      transition: 3s;
+      opacity: .5;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li>
+      상품소개
+
+      <!--히든영역-->
+      <div class="hidden_box">히든영역</div>
+      <div class="hidden_box2">히든영역 2</div>
+    </li>
+  </ul>
+</body>
+</html>
