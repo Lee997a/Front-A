@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title> FAQ - 고객센터 </title>
+   <!-- 헤더 & 푸터 스타일 -->
+   <style>
+      @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+      /* 기본 설정 */
+      header,
+      footer {
+         font-family: 'Noto Sans KR', sans-serif;
+      }
+
+      html,
+      body {
+         margin: 0px;
+         padding: 0px;
+         width: 100%;
+         height: 100%;
+      }
+
+      /* 헤더 영역 전체 스타일 */
+      .header_background {
+         width: 100%;
+         height: 123px;
+      }
+
+      header {
+         width: 100%;
+         margin: 0px;
+         padding: 0px;
+         position: fixed;
+         background-color: white;
+         opacity: 0.9;
+         transition: 1.5s;
+         z-index: 1000;
+      }
+
+      header:hover {
+         opacity: 1;
+         transition: 0.5s;
+      }
+
+      .header_wrap {
+         width: 1280px;
+         max-width: 1280px;
+         margin: 0px auto;
+         box-sizing: border-box;
+      }
+
+      .header_top_menu,
+      .header_main,
+      .header_sub_menu_list {
+         list-style: none;
+         padding: 0px;
+         margin: 0px;
+      }
+
+      .header_top_menu a,
+      .header_main_menu a,
+      .header_sub_menu_list a {
+         text-decoration: none;
+         color: black;
+      }
+
+      /* 헤더 상단 메뉴 스타일 */
+      .header_top {
+         padding: 8px 24px;
+      }
+
+      .header_top_menu {
+         display: flex;
+         align-items: center;
+         justify-content: flex-end;
+         font-size: 12px;
+         gap: 16px;
+      }
+
+      .header_top_menu li a {
+         color: #999999;
+      }
+
+      /* 헤더 메인 메뉴 스타일 */
+      .header_main_wrap {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         height: 90px;
+         margin: 0px;
+         /* border: 1px solid black; */
+      }
+
+      .header_main {
+         display: flex;
+         align-items: center;
+         height: 90px;
+         padding: 0px 24px;
+         margin: 0px;
+         gap: 70px;
+         font-size: 17px;
+         font-weight: 500;
+      }
+
+      .header_logo img {
+         max-width: 113px;
+      }
+
+      .header_main_menu {
+         position: relative;
+      }
+
+      .header_main_menu a {
+         font-size: 20px;
+         font-weight: 400;
+         color: #333333;
+         /* 필요 시 패딩이나 마진을 조정하여 텍스트 시작 위치를 맞춥니다 */
+         display: block;
+      }
+
+      /* 공통 서브메뉴 배경 - header_main 영역에 마우스가 올라가면 전체 배경이 보임 */
+      .submenu_background {
+         width: 100%;
+         height: 150px;
+         background-color: #4e5059dd;
+         opacity: 0;
+         transition: 0.5s;
+         pointer-events: none;
+         position: absolute;
+         top: 123px;
+         left: 0px;
+      }
+
+      .header_main:hover .submenu_background {
+         opacity: 1;
+         pointer-events: auto;
+         transition: 0.5s;
+         z-index: 800;
+      }
+
+      /* 서브메뉴 리스트 - 각 메뉴 항목의 하위 메뉴는 메인 메뉴 항목 내부에서 나타남 */
+      .header_sub_menu_list {
+         position: absolute;
+         left: 0px;
+         top: 90px;
+         display: none;
+         transition: 0.5s;
+      }
+
+      /* 서브메뉴 항목 스타일 */
+      .header_sub_menu_list a {
+         font-size: 15px;
+         padding: 4px 0px;
+         box-sizing: border-box;
+         /* 한 라인에 단어가 모두 나오도록 설정 (줄바꿈 없이) */
+         white-space: nowrap;
+      }
+
+      .header_main:hover .header_sub_menu_list {
+         display: block;
+         transition: 0.5s;
+         z-index: 900;
+      }
+
+      .header_sub_menu_list a {
+         color: #ebebeb;
+      }
+
+      .header_top_menu a:hover,
+      .header_main_menu a:hover,
+      .header_sub_menu_list a:hover {
+         color: #f9bb00;
+      }
+
+      .header_main_menu:hover>a {
+         color: #f9bb00;
+      }
+
+
+      /* 푸터 영역 전체 스타일 */
+      footer {
+         width: 100%;
+         height: 334px;
+         background-color: rgb(241, 241, 241);
+      }
+
+
+      .footer-div {
+         display: flex;
+         width: 1280px;
+         max-width: 1280px;
+         height: 100%;
+         background-color: rgb(241, 241, 241);
+         margin: 0px auto;
+         align-items: center;
+         justify-content: space-between;
+      }
+
+      /* footer 왼쪽 정보 영역 */
+      .footer-div-infos {
+         font-size: 13px;
+      }
+
+      .footer-div-infos p {
+         padding-bottom: 30px;
+      }
+
+      /* footer 오른쪽 패밀리사이트 영역 */
+      .footer-right {
+         height: 237px;
+         justify-content: space-between;
+      }
+
+
+      /* 패밀리사이트 내 아이콘 영역 */
+      .footer-sites {
+         display: flex;
+      }
+
+      .footer-familysite p {
+         text-align: end;
+         margin: 13px 0px 40px;
+      }
+
+      .sns img {
+         width: 32px;
+         height: 32px;
+         background-color: white;
+         border-radius: 50%;
+         margin-left: 8px;
+      }
+   </style>
+   <!-- 섹션 스타일 -->
+   <style>
+      /* FAQ */
+      .customerCenter_wrap {
+         width: 1100px;
+         margin: 0 auto;
+         background-color: rgb(249, 250, 251);
+
+      }
+
+      /* 고객센터 홈 */
+      .box1 {
+         margin: 30px 0px 0px 10px;
+
+      }
+
+      .box1 h1 {
+         font-size: 48px;
+         margin: 0 auto;
+         padding: 10px;
+      }
+
+      .box1 p {
+         font-size: 20px;
+         color: rgb(159, 159, 159);
+         margin: 0 auto;
+         padding: 10px;
+      }
+
+
+
+      /* customerCenter_searchBar */
+
+      .customerCenter_searchBar {
+         display: flex;
+         margin-top: 60px;
+      }
+
+      .customerCenter_searchBar img {
+         width: 60px;
+         height: 60px;
+      }
+
+      .customerCenter_searchBar input {
+         width: 810px;
+         height: 60px;
+         border-radius: 10px;
+         border: none;
+         outline: none;
+
+      }
+
+      .customerCenter_searchBar input:focus {
+         border: none;
+      }
+
+
+      /* customerCenter_searchBar1 */
+      .customerCenter_searchBar1 {
+         margin: 0 auto;
+         display: flex;
+         border-radius: 10px;
+
+         box-shadow: 0px 0px 20px #ccc;
+      }
+
+      .customerCenter_searchBar1 input:hover {
+         /* border: 1px solid red; */
+      }
+
+      .customerCenter_searchBar1 input:focus {
+         border: none;
+      }
+
+      /* rgb(249, 187, 0) */
+
+
+
+
+
+      /* customerCenter_searchBtn */
+      .customerCenter_searchBtn {
+         border: none;
+         width: 160px;
+         height: 65px;
+         border-radius: 10px;
+         background-color: rgb(249, 187, 0);
+         margin-right: 10px;
+      }
+
+      .customerCenter_searchBtn:hover {
+         transform: scale(0.98);
+         transition: 0.25s;
+         color: white;
+      }
+
+      ul {
+         list-style: none;
+         padding: 0px;
+         margin: 0px;
+      }
+
+      ul a,
+      a:link,
+      a:visited,
+      a:active {
+         color: rgb(159, 159, 159);
+         /* 클릭 후 링크 색상 변경 */
+         text-decoration: none;
+      }
+
+
+      /* box1의 ul */
+
+      .box1 ul {
+         width: 100%;
+
+
+         display: flex;
+         justify-content: center;
+
+      }
+
+      .box1 li a:hover {
+         color: rgb(51, 51, 51);
+      }
+
+      .box1-1 ul>li {
+         padding: 10px;
+         margin-top: 10px;
+      }
+
+
+      /* box2 시작*/
+      .faqTitle {
+         width: 100%;
+         height: 50px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         position: relative;
+         margin: 80px 0px 80px 0px;
+      }
+
+      .faqTitle h1 {
+         /*FAQ TOP 5*/
+         font-size: 28px;
+         margin: 0 auto;
+
+      }
+
+
+      /* 질문들(~한가요?) box3 questionWrap */
+      .box3>div {
+         margin-bottom: 20px;
+      }
+
+      .box3 {
+         margin: 20px;
+      }
+
+      .questionWrap {
+         border-radius: 10px;
+         border: none;
+         width: 1040px;
+         height: 60px;
+         position: relative;
+         background-color: rgb(244, 244, 244);
+         transition: 0.2s;
+
+      }
+
+      .itemWrap {
+         width: 1040px;
+         height: 60px;
+         margin-top: 20px;
+
+         overflow: hidden;
+      }
+
+      .questionWrap .Q_image {
+         /*Q 이미지*/
+         width: 24px;
+         height: 24px;
+         position: absolute;
+         left: 10px;
+         bottom: 17px;
+      }
+
+      .questionWrap .plus_image {
+         /*화살표 이미지*/
+         width: 20px;
+         height: 20px;
+         position: absolute;
+         right: 10px;
+         bottom: 17px;
+      }
+
+      .questionWrap span {
+         /*질문들*/
+         font-size: 17px;
+         position: absolute;
+         left: 50px;
+         bottom: 17px;
+      }
+
+      .questionWrap:hover {
+         background-color: rgb(229, 229, 229);
+      }
+
+      /* 첫번째 질문 답변 (content1) */
+      .content1_box {
+         font-size: 17px;
+         height: 250px;
+         background-color: rgb(229, 229, 229);
+         border-radius: 10px;
+      }
+
+      .content1 {
+         display: flex;
+      }
+
+      .content1>* {
+         margin-top: 15px;
+      }
+
+      .content1_img img {
+         width: 24px;
+         height: 24px;
+         margin-left: 10px;
+      }
+
+      .content1_info {
+         margin-left: 15px;
+      }
+
+      /* 두번째 질문 답변 (content2) */
+      .content2_box {
+         font-size: 17px;
+         height: 140px;
+         background-color: rgb(229, 229, 229);
+         border-radius: 10px;
+      }
+
+      .content2 {
+         display: flex;
+      }
+
+      .content2>* {
+         margin-top: 15px;
+      }
+
+      .content2_img img {
+         width: 24px;
+         height: 24px;
+         margin-left: 10px;
+      }
+
+      .content2_info {
+         margin-left: 15px;
+      }
+
+      /* 세번째 질문 답변 (content3) */
+      .content3_box {
+         font-size: 17px;
+         height: 160px;
+         background-color: rgb(229, 229, 229);
+         border-radius: 10px;
+      }
+
+      .content3 {
+         display: flex;
+      }
+
+      .content3>* {
+         margin-top: 15px;
+      }
+
+      .content3_img img {
+         width: 24px;
+         height: 24px;
+         margin-left: 10px;
+      }
+
+      .content3_info {
+         margin-left: 15px;
+      }
+
+      /* 네번째 질문 답변 (content4) */
+      .content4_box {
+         font-size: 17px;
+         height: 190px;
+         background-color: rgb(229, 229, 229);
+         border-radius: 10px;
+      }
+
+      .content4 {
+         display: flex;
+      }
+
+      .content4>* {
+         margin-top: 15px;
+      }
+
+      .content4_img img {
+         width: 24px;
+         height: 24px;
+         margin-left: 10px;
+      }
+
+      .content4_info {
+         margin-left: 15px;
+      }
+
+      /* 다섯번째 질문 답변 (content5) */
+      .content5_box {
+         font-size: 17px;
+         height: 190px;
+         background-color: rgb(229, 229, 229);
+         border-radius: 10px;
+      }
+
+      .content5 {
+         display: flex;
+      }
+
+      .content5>* {
+         margin-top: 15px;
+      }
+
+      .content5_img img {
+         width: 24px;
+         height: 24px;
+         margin-left: 10px;
+      }
+
+      .content5_info {
+         margin-left: 15px;
+      }
+
+      /* 여섯번째 질문 답변 (content6) */
+      .content6_box {
+         font-size: 17px;
+         height: 170px;
+         background-color: rgb(229, 229, 229);
+         border-radius: 10px;
+      }
+
+      .content6 {
+         display: flex;
+      }
+
+      .content6>* {
+         margin-top: 15px;
+      }
+
+      .content6_img img {
+         width: 24px;
+         height: 24px;
+         margin-left: 10px;
+      }
+
+      .content6_info {
+         margin-left: 15px;
+      }
+
+      /* 일곱번째 질문 답변 (content7) */
+      .content7_box {
+         font-size: 17px;
+         height: 170px;
+         background-color: rgb(229, 229, 229);
+         border-radius: 10px;
+      }
+
+      .content7 {
+         display: flex;
+      }
+
+      .content7>* {
+         margin-top: 15px;
+      }
+
+      .content7_img img {
+         width: 24px;
+         height: 24px;
+         margin-left: 10px;
+      }
+
+      .content7_info {
+         margin-left: 15px;
+      }
+
+      /* 여덟번째 질문 답변 (content8) */
+      .content8_box {
+         font-size: 17px;
+         height: 150px;
+         background-color: rgb(229, 229, 229);
+         border-radius: 10px;
+      }
+
+      .content8 {
+         display: flex;
+      }
+
+      .content8>* {
+         margin-top: 15px;
+      }
+
+      .content8_img img {
+         width: 24px;
+         height: 24px;
+         margin-left: 10px;
+      }
+
+      .content8_info {
+         margin-left: 15px;
+      }
+
+      /* 아홉번째 질문 답변 (content9) */
+      .content9_box {
+         font-size: 17px;
+         height: 150px;
+         background-color: rgb(229, 229, 229);
+         border-radius: 10px;
+      }
+
+      .content9 {
+         display: flex;
+      }
+
+      .content9>* {
+         margin-top: 15px;
+      }
+
+      .content9_img img {
+         width: 24px;
+         height: 24px;
+         margin-left: 10px;
+      }
+
+      .content9_info {
+         margin-left: 15px;
+      }
+
+      /* 열번째 질문 답변 (content10) */
+      .content10_box {
+         font-size: 17px;
+         height: 150px;
+         background-color: rgb(229, 229, 229);
+         border-radius: 10px;
+      }
+
+      .content10 {
+         display: flex;
+      }
+
+      .content10>* {
+         margin-top: 15px;
+      }
+
+      .content10_img img {
+         width: 24px;
+         height: 24px;
+         margin-left: 10px;
+      }
+
+      .content10_info {
+         margin-left: 15px;
+      }
+
+      /* 열한번째 질문 답변 (content11) */
+      .content11_box {
+         font-size: 17px;
+         height: 280px;
+         background-color: rgb(229, 229, 229);
+         border-radius: 10px;
+      }
+
+      .content11 {
+         display: flex;
+      }
+
+      .content11>* {
+         margin-top: 15px;
+      }
+
+      .content11_img img {
+         width: 24px;
+         height: 24px;
+         margin-left: 10px;
+      }
+
+      .content11_info {
+         margin-left: 15px;
+      }
+
+
+      /*  */
+
+      .customerFAQ_wrap {
+         /* border: 1px solid black; */
+         width: 1040px;
+         margin: 0 auto;
+         background-color: rgb(250, 250, 250);
+      }
+
+      /* 버튼 (전체, 결제환불, 할인적립, 이벤트 ...) */
+      .faq_button button {
+         border: 1px solid rgba(128, 128, 128, 0.5);
+         outline: none;
+         border-radius: 20px 20px 10px 20px;
+         background-color: white;
+         color: #333333;
+         font-size: 15px;
+         font-weight: bold;
+         margin: 100px 0px 10px 0px;
+      }
+
+      .faq_button button:hover {
+         transform: scale(0.98);
+         transition: 0.25s;
+         background-color: rgb(249, 187, 0);
+         border: 1px solid rgba(128, 128, 128, 0.2);
+      }
+
+      .button1 {
+         /* 전체 */
+         width: 85px;
+         height: 52px;
+      }
+
+      .button2 {
+         /* 결제환불 */
+         width: 128px;
+         height: 52px;
+      }
+
+      .button3 {
+         /* 할인적립 */
+         width: 128px;
+         height: 52px;
+      }
+
+      .button4 {
+         /* 이벤트 */
+         width: 103px;
+         height: 52px;
+      }
+
+      .button5 {
+         /* 택배 */
+         width: 85px;
+         height: 52px;
+      }
+
+      .button6 {
+         /* 기타 */
+         width: 85px;
+         height: 52px;
+      }
+
+      .button7 {
+         /* 매장안내 */
+         width: 122px;
+         height: 52px;
+      }
+
+      .button8 {
+         /* APP */
+         width: 86px;
+         height: 52px;
+      }
+
+      .button9 {
+         /* 카드 프로모션 */
+         width: 164px;
+         height: 52px;
+      }
+
+      /* 질문들(~가능한가요?) */
+      .box3>div {
+         margin-bottom: 20px;
+      }
+
+      .box3 {
+         margin: 20px;
+      }
+
+      .questionWrap {
+         border-radius: 10px;
+         border: none;
+         width: 1040px;
+         height: 60px;
+         /* margin: 20px 0px; */
+         position: relative;
+         background-color: rgb(244, 244, 244);
+         transition: 0.2s;
+         box-sizing: border-box;
+         margin-bottom: 20px;
+
+      }
+
+      .questionWrap .Q_image {
+         /*Q 이미지*/
+         width: 24px;
+         height: 24px;
+         position: absolute;
+         left: 10px;
+         bottom: 17px;
+      }
+
+      .questionWrap .plus_image {
+         /*화살표 이미지*/
+         width: 20px;
+         height: 20px;
+         position: absolute;
+         right: 10px;
+         bottom: 17px;
+      }
+
+      .questionWrap span {
+         /*질문들*/
+         font-size: 17px;
+         position: absolute;
+         left: 50px;
+         bottom: 17px;
+      }
+
+      .questionWrap:hover {
+         background-color: rgb(229, 229, 229);
+      }
+
+
+      /* 더보기 버튼 */
+      .faq_moreQuestion_button button {
+         width: 336px;
+         height: 42px;
+         background-color: rgb(235, 235, 235);
+         border-radius: 30px;
+         border: none;
+         padding: 6px 24px;
+
+         font-size: 15px;
+         margin: 15px 0px;
+      }
+
+      .faq_moreQuestion_button {
+         text-align: center;
+         transition: 5s;
+      }
+
+      .faq_moreQuestion_button button:hover {
+         background-color: rgb(229, 229, 229);
+         transition: 0.5s;
+      }
+
+
+      /* 마지막 부분 ( 궁금한 내용을 찾지 못하셨다면? ) */
+      .wantMore {
+         width: 100%;
+         height: 100px;
+
+         display: flex;
+         align-items: center;
+      }
+
+      .wantMore:hover {
+         background-color: darkgray;
+         border-radius: 10px;
+      }
+
+      .wantMore:hover .whiteBtn {
+         background-color: rgb(249, 187, 0);
+         border: none;
+      }
+
+      .wantMore_box {
+
+         width: 100%;
+         display: flex;
+
+
+         position: relative;
+
+
+
+      }
+
+      .wantMore_box img {
+         width: 24px;
+         height: 24px;
+         margin-left: 10px;
+      }
+
+      .wantMore_box span {
+         font-size: 17px;
+         margin-left: 20px;
+      }
+
+      .whiteBtn {
+         width: 160px;
+         height: 100%;
+         /* padding: 8px 24px; */
+         outline: none;
+         border: none;
+         font-size: 12px;
+         text-align: center;
+         border: 0.5px solid grey;
+         position: absolute;
+         right: 0px;
+      }
+   </style>
+   <script>
+      //여기야 여기 
+      // box3 (질문들)
+      //첫번째 질문 (content1)
+      function changeText1(obj) {
+
+         obj.classList.toggle("content1_box");
+
+         const content1 = document.getElementById("content1");
+      }
+      //두번째 질문 (content2)
+      function changeText2(obj) {
+
+         obj.classList.toggle("content2_box");
+
+         const content2 = document.getElementById("content2");
+      }
+
+      //세번째 질문 (content3) 
+      function changeText3(obj) {
+
+         obj.classList.toggle("content3_box");
+
+         const content3 = document.getElementById("content3");
+      }
+
+      //네번째 질문 (content4)
+      function changeText4(obj) {
+
+         obj.classList.toggle("content4_box");
+
+         const content4 = document.getElementById("content4");
+      }
+
+      //다섯번째 질문 (content5)
+      function changeText5(obj) {
+
+         obj.classList.toggle("content5_box");
+
+         const content5 = document.getElementById("content5");
+      }
+
+      //여섯번째 질문 (content6)
+      function changeText6(obj) {
+
+         obj.classList.toggle("content6_box");
+
+         const content6 = document.getElementById("content6");
+      }
+
+      //일곱번째 질문 (content7)
+      function changeText7(obj) {
+
+         obj.classList.toggle("content7_box");
+
+         const content7 = document.getElementById("content7");
+      }
+
+      //여덟번째 질문 (content8)
+      function changeText8(obj) {
+
+         obj.classList.toggle("content8_box");
+
+         const content8 = document.getElementById("content8");
+      }
+
+      //아홉번째 질문 (content9)
+      function changeText9(obj) {
+
+         obj.classList.toggle("content9_box");
+
+         const content9 = document.getElementById("content9");
+      }
+
+      //열번째 질문 (content10)
+      function changeText10(obj) {
+
+         obj.classList.toggle("content10_box");
+
+         const content10 = document.getElementById("content10");
+      }
+
+      //열한번째 질문 (content11)
+      function changeText11(obj) {
+
+         obj.classList.toggle("content11_box");
+
+         const content11 = document.getElementById("content11");
+      }
+
+
+
+      //여기야 여기
+      function customerCenter_searchBtn() {
+
+      }
+
+      function showYellow() {
+         const customerCenter_searchBar1 = document.querySelector(".customerCenter_searchBar1");
+         customerCenter_searchBar1.style.border = "2px solid rgb(249, 187, 0";
+      }
+      function showNone() {
+         const customerCenter_searchBar1 = document.querySelector(".customerCenter_searchBar1");
+         customerCenter_searchBar1.style.border = "none";
+      }
+
+      function whiteBtn() {
+         alert("온라인 문의로 가는 중..");
+         window.location.href = 'customerCenter_online.html';
+      }
+   </script>
+</head>
+
+<body>
+   <!-- 헤더 영역 채우기 -->
+   <div class="header_background">
+      <!-- 헤더 영역 -->
+      <header>
+         <div class="header_wrap">
+            <!-- 헤더 상단 메뉴 -->
+            <div class="header_top">
+               <ul class="header_top_menu">
+                  <li><a href="">채용안내</a></li>
+                  <li><a href="">전자 계약 시스템</a></li>
+               </ul>
+            </div>
+            <!-- 헤더 메인 메뉴 -->
+            <div class="header_main_wrap">
+               <div class="header_logo">
+                  <a href="index.html"><img src="./project_images/header&footer_img/logo.png" alt="이마트24 로고" /></a>
+               </div>
+               <ul class="header_main">
+                  <div class="submenu_background"></div>
+                  <li class="header_main_menu">
+                     <a href="brand_story.html">이마트24 소개</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="brand_story.html">브랜드 스토리</a></li>
+                        <li><a href="brand_resource.html">브랜드 리소스 센터</a></li>
+                        <li><a href="brand_gallery.html">브랜드 갤러리</a></li>
+                     </ul>
+                  </li>
+                  <li class="header_main_menu">
+                     <a href="goods_event.html">상품</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="goods_event.html">행사 상품</a></li>
+                        <li><a href="goods_different.html">차별화 상품</a></li>
+                        <li><a href="goods_fresh.html">Fresh Food</a></li>
+                     </ul>
+                  </li>
+                  <li class="header_main_menu">
+                     <a href="service_app.html">서비스</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="service_app.html">APP 서비스</a></li>
+                        <li><a href="service_life.html">생활 서비스</a></li>
+                        <li><a href="#" onclick="alert('준비되지 않았습니다');">제휴 서비스</a></li>
+                     </ul>
+                  </li>
+                  <li class="header_main_menu">
+                     <a href="event_act.html">이벤트</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="event_act.html">진행중인 이벤트</a></li>
+                        <li><a href="#" onclick="alert('준비되지 않았습니다');">종료된 이벤트</a></li>
+                     </ul>
+                  </li>
+                  <li class="header_main_menu">
+                     <a href="customerCenter.html">고객센터</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="customerCenter.html">고객센터 홈</a></li>
+                        <li><a href="customerCenter_faq.html">FAQ</a></li>
+                        <li><a href="customerCenter_online.html">온라인 문의</a></li>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </header>
+   </div>
+
+   <!-- 섹션 부분 -->
+   <section>
+      <!-- FAQ -->
+      <div class="customerCenter_wrap">
+         <div class="box1"> <!-- 고객센터 홈 -->
+            <h1>FAQ</h1>
+            <p>자주 문의하시는 질문과 답변을 모았습니다.</p>
+
+            <!-- 검색바 -->
+            <div class="customerCenter_searchBar">
+               <div class="customerCenter_searchBar1">
+                  <img src="https://www.emart24.co.kr/assets/assets/imgs/iconSearch.png" alt="검색아이콘">
+                  <input type="text" onfocus="showYellow()" onblur="showNone()" placeholder="궁금하신 내용을 검색해주세요.">
+               </div>
+
+               <!-- 검색 버튼 -->
+               <button class="customerCenter_searchBtn" onclick="customerCenter_searchBtn()">검색</button>
+            </div>
+
+            <div class="box1-1">
+               <ul>
+                  <li><a href="#">APP</a></li>
+                  <li><span style="color:grey">|</span></li>
+                  <li><a href="#">환불</a></li>
+                  <li><span style="color:grey">|</span></li>
+                  <li><a href="#">택배</a></li>
+                  <li><span style="color:grey">|</span></li>
+                  <li><a href="#">상품권</a></li>
+                  <li><span style="color:grey">|</span></li>
+                  <li><a href="#">매장</a></li>
+                  <li><span style="color:grey">|</span></li>
+                  <li><a href="#">영수증</a></li>
+               </ul>
+            </div>
+         </div>
+
+
+         <!-- box2 (FAQ TOP 5) -->
+         <div class="box2">
+            <div class="faqTitle">
+               <h1>FAQ TOP 4</h1>
+            </div>
+         </div>
+
+
+         <!-- box3 (질문들) -->
+         <div class="box3">
+
+            <!-- 첫번째 질문 (content1) -->
+            <div class="itemWrap" onclick="changeText1(this)">
+               <div class="questionWrap">
+
+                  <img class="Q_image" src="https://www.emart24.co.kr/assets/assets/imgs/quest.png" alt="">
+                  <span>카드 프로모션의 경우 카드별 프로모션 적용이 가능한가요?</span>
+                  <img class="plus_image" src="https://www.emart24.co.kr/assets/assets/imgs/arrowDown40.png"
+                     alt="화살표 이미지">
+
+
+               </div>
+               <div class="content1">
+
+                  <div class="content1_img">
+                     <img src="https://www.emart24.co.kr/assets/assets/imgs/answer.png" alt="">
+                  </div>
+
+                  <div class="content1_info">
+                     네. 각각 카드사별 프로모션 적용 가능합니다.<br>같은 카드사별 2번은 적용이 불가합니다.<br><br>
+                     > 예: 행사별 행사 대상 카드가 2개인 경우 (예를 들어 현대 / 우리카드인경우)<br>
+                     행사 카드별로 행사대상금액 이상 결제 시 행사 혜택 제공 가능<br>
+                     행사별 행사 적용 대상 카드별 현대카드로 1번 + 우리카드로 1번 참여 가능<br>
+                  </div>
+               </div>
+            </div>
+
+            <!-- 두번째 질문 (content2) -->
+
+            <div class="itemWrap" onclick="changeText2(this)">
+               <div class="questionWrap">
+                  <img class="Q_image" src="https://www.emart24.co.kr/assets/assets/imgs/quest.png" alt="">
+                  <span>카드 프로모션 결제 시 다른 결제수단이랑 같이 결제해도 적용 가능한가요?</span>
+                  <img class="plus_image" src="https://www.emart24.co.kr/assets/assets/imgs/arrowDown40.png"
+                     alt="화살표 이미지">
+               </div>
+
+               <div class="content2">
+
+                  <div class="content2_img">
+                     <img src="https://www.emart24.co.kr/assets/assets/imgs/answer.png" alt="">
+                  </div>
+
+                  <div class="content2_info">
+                     불가합니다. 행사 대상카드로만 혜택 적용 가능한 금액이상을 전액결제한 경우에만 헤택 제공 됩니다.
+                  </div>
+
+               </div>
+            </div>
+
+
+            <!-- 세번째 질문 (content3) -->
+
+            <div class="itemWrap" onclick="changeText3(this)">
+               <div class="questionWrap">
+                  <img class="Q_image" src="https://www.emart24.co.kr/assets/assets/imgs/quest.png" alt="">
+                  <span>카드 행사 시에도 할인과 적립이 가능한가요?</span>
+                  <img class="plus_image" src="https://www.emart24.co.kr/assets/assets/imgs/arrowDown40.png"
+                     alt="화살표 이미지">
+               </div>
+
+               <div class="content3">
+
+                  <div class="content3_img">
+                     <img src="https://www.emart24.co.kr/assets/assets/imgs/answer.png" alt="">
+                  </div>
+
+                  <div class="content3_info">
+                     할인 적립 가능합니다.<br>
+                     단, 금액이 조건인 행사인 경우 할인 후 금액이 조건 이상이어야지만 적용 가능합니다.
+                  </div>
+
+               </div>
+            </div>
+
+            <!-- 네번째 질문 (content4) -->
+            <div class="itemWrap" onclick="changeText4(this)">
+               <div class="questionWrap">
+                  <img class="Q_image" src="https://www.emart24.co.kr/assets/assets/imgs/quest.png" alt="">
+                  <span>카드 프로모션 PAY 내 등록된 카드도 적용 가능한가요?</span>
+                  <img class="plus_image" src="https://www.emart24.co.kr/assets/assets/imgs/arrowDown40.png"
+                     alt="화살표 이미지">
+               </div>
+
+               <div class="content4">
+
+                  <div class="content4_img">
+                     <img src="https://www.emart24.co.kr/assets/assets/imgs/answer.png" alt="">
+                  </div>
+
+                  <div class="content4_info">
+                     각 행사별 행사대상 카드라면 행사적용이 가능합니다.<br>
+                     행사 내용은 홈페이지 내 이벤트페이지 참고 부탁드립니다. <br>
+                     유의사항 내 행사제외카드 꼭 확인하시어 결제 부탁드립니다.
+                  </div>
+
+               </div>
+            </div>
+         </div>
+
+         <!--  -->
+         <div class="customerFAQ_wrap">
+
+            <!-- 버튼 (전체, 결제환불, 할인적립, 이벤트 ...) -->
+            <div class="faq_button">
+               <button class="button1">전체</button>
+               <button class="button2">결제·환불</button>
+               <button class="button3">할인·적립</button>
+               <button class="button4">이벤트</button>
+               <button class="button5">택배</button>
+               <button class="button6">기타</button>
+               <button class="button7">매장안내</button>
+               <button class="button8">APP</button>
+               <button class="button9">카드 프로모션</button>
+            </div>
+
+
+            <!-- 질문들(~가능한가요?) -->
+            <div class="faq_question">
+               <!-- 다섯번째 질문 (content5) -->
+               <div class="itemWrap" onclick="changeText5(this)">
+                  <div class="questionWrap">
+                     <img class="Q_image" src="https://www.emart24.co.kr/assets/assets/imgs/quest.png" alt="">
+                     <span>APP 모바일 영수증은 어디에서 확인하나요?</span>
+                     <img class="plus_image" src="https://www.emart24.co.kr/assets/assets/imgs/arrowDown40.png"
+                        alt="화살표 이미지">
+                  </div>
+
+                  <div class="content5">
+
+                     <div class="content5_img">
+                        <img src="https://www.emart24.co.kr/assets/assets/imgs/answer.png" alt="">
+                     </div>
+
+                     <div class="content5_info">
+                        모바일 영수증은 점포 결제 시 이마트24 앱 통합바코드를 스캔하신 경우에만 발급됩니다.<br>경로는 다음과 같습니다.<br>메뉴(三) > 마이페이지 > 모바일 영수증
+                     </div>
+
+                  </div>
+               </div>
+               <!-- 여섯번째 질문 (content6) -->
+               <div class="itemWrap" onclick="changeText6(this)">
+                  <div class="questionWrap">
+                     <img class="Q_image" src="https://www.emart24.co.kr/assets/assets/imgs/quest.png" alt="">
+                     <span>APP 쿠폰(금액권) 여러 번 나눠서 사용 가능한가요?</span>
+                     <img class="plus_image" src="https://www.emart24.co.kr/assets/assets/imgs/arrowDown40.png"
+                        alt="화살표 이미지">
+                  </div>
+
+                  <div class="content6">
+
+                     <div class="content6_img">
+                        <img src="https://www.emart24.co.kr/assets/assets/imgs/answer.png" alt="">
+                     </div>
+
+                     <div class="content6_info">
+                        고객님,이마트24 앱 쿠폰은 잔액관리가 되지 않는 쿠폰으로 1회에 모든 금액을 다 소진하셔야 합니다.<br>
+                        여러 번 나눠서 사용이 불가한 점 참고 부탁드립니다.
+                     </div>
+
+                  </div>
+               </div>
+               <!-- 일곱번째 질문 (content7) -->
+               <div class="itemWrap" onclick="changeText7(this)">
+                  <div class="questionWrap">
+                     <img class="Q_image" src="https://www.emart24.co.kr/assets/assets/imgs/quest.png" alt="">
+                     <span>APP 쿠폰(금액권) 잔액관리가 되나요?</span>
+                     <img class="plus_image" src="https://www.emart24.co.kr/assets/assets/imgs/arrowDown40.png"
+                        alt="화살표 이미지">
+                  </div>
+
+                  <div class="content7">
+
+                     <div class="content7_img">
+                        <img src="https://www.emart24.co.kr/assets/assets/imgs/answer.png" alt="">
+                     </div>
+
+                     <div class="content7_info">
+                        고객님, 이마트24 앱 쿠폰은 잔액관리가 되지 않는 쿠폰으로 1회에 모든 금액을 다 소진하셔야 합니다.<br>
+                        일부 금액을 사용했다 하더라도 쿠폰에 잔액은 남지 않으며 사용완료 처리되는 점 참고 부탁드립니다.
+                     </div>
+
+                  </div>
+               </div>
+               <!-- 여덟번째 질문 (content8) -->
+               <div class="itemWrap" onclick="changeText8(this)">
+                  <div class="questionWrap">
+                     <img class="Q_image" src="https://www.emart24.co.kr/assets/assets/imgs/quest.png" alt="">
+                     <span>APP 비밀번호 변경은 어디에서 하나요?</span>
+                     <img class="plus_image" src="https://www.emart24.co.kr/assets/assets/imgs/arrowDown40.png"
+                        alt="화살표 이미지">
+                  </div>
+
+                  <div class="content8">
+
+                     <div class="content8_img">
+                        <img src="https://www.emart24.co.kr/assets/assets/imgs/answer.png" alt="">
+                     </div>
+
+                     <div class="content8_info">
+                        앱 첫화면 메뉴버튼(三) > 마이페이지 > 회원정보 수정에서 비밀번호 변경이 가능합니다.
+                     </div>
+
+                  </div>
+               </div>
+               <!-- 아홉번째 질문 (content9) -->
+               <div class="itemWrap" onclick="changeText9(this)">
+                  <div class="questionWrap">
+                     <img class="Q_image" src="https://www.emart24.co.kr/assets/assets/imgs/quest.png" alt="">
+                     <span>APP 아이디 변경이 가능한가요?</span>
+                     <img class="plus_image" src="https://www.emart24.co.kr/assets/assets/imgs/arrowDown40.png"
+                        alt="화살표 이미지">
+                  </div>
+
+                  <div class="content9">
+
+                     <div class="content9_img">
+                        <img src="https://www.emart24.co.kr/assets/assets/imgs/answer.png" alt="">
+                     </div>
+
+                     <div class="content9_info">
+                        APP 아이디 변경은 불가합니다.
+                     </div>
+
+                  </div>
+               </div>
+               <!-- 열번째 질문 (content10) -->
+               <div class="itemWrap" onclick="changeText10(this)">
+                  <div class="questionWrap">
+                     <img class="Q_image" src="https://www.emart24.co.kr/assets/assets/imgs/quest.png" alt="">
+                     <span>APP 탈퇴 철회가 가능한가요?</span>
+                     <img class="plus_image" src="https://www.emart24.co.kr/assets/assets/imgs/arrowDown40.png"
+                        alt="화살표 이미지">
+                  </div>
+
+                  <div class="content10">
+
+                     <div class="content10_img">
+                        <img src="https://www.emart24.co.kr/assets/assets/imgs/answer.png" alt="">
+                     </div>
+
+                     <div class="content10_info">
+                        탈퇴철회는 불가합니다.
+                     </div>
+
+                  </div>
+               </div>
+               <!-- 열한번째 질문 (content11) -->
+               <div class="itemWrap" onclick="changeText11(this)">
+                  <div class="questionWrap">
+                     <img class="Q_image" src="https://www.emart24.co.kr/assets/assets/imgs/quest.png" alt="">
+                     <span>APP 회원 탈퇴는 어디에서 하나요?</span>
+                     <img class="plus_image" src="https://www.emart24.co.kr/assets/assets/imgs/arrowDown40.png"
+                        alt="화살표 이미지">
+                  </div>
+
+                  <div class="content11">
+
+                     <div class="content11_img">
+                        <img src="https://www.emart24.co.kr/assets/assets/imgs/answer.png" alt="">
+                     </div>
+
+                     <div class="content11_info">
+                        고객님, 회원 탈퇴 경로 및 유의사항을 안내드립니다.<br><br>
+                        ■ 경로: 이마트24APP 실행→우측 상단 더보기→톱니바퀴(설정)→설정 내 스크롤 하단으로 이동 회원탈퇴<br><br>
+                        ■ 회원탈퇴시 유의사항<br>
+                        * 회원 탈퇴 후 3개월간 재가입이 불가능합니다.<br>
+                        * 한번 탈퇴한 아이디는 재사용이 불가능합니다.
+                     </div>
+
+                  </div>
+               </div>
+
+               <!--  -->
+               <!-- <div class="questionWrap">
+                  <img class="Q_image" src="https://www.emart24.co.kr/assets/assets/imgs/quest.png" alt="">
+                  <span>APP 모바일 영수증은 어디에서 확인하나요?</span>
+                  <img class="plus_image" src="https://www.emart24.co.kr/assets/assets/imgs/arrowDown40.png" alt="화살표 이미지">
+            </div> -->
+
+               <!-- <div class="questionWrap">
+                  <img class="Q_image" src="https://www.emart24.co.kr/assets/assets/imgs/quest.png" alt="">
+                  <span>APP 쿠폰(금액권) 여러 번 나눠서 사용 가능한가요?</span>
+                  <img class="plus_image" src="https://www.emart24.co.kr/assets/assets/imgs/arrowDown40.png" alt="화살표 이미지">
+            </div>
+            <div class="questionWrap">
+                  <img class="Q_image" src="https://www.emart24.co.kr/assets/assets/imgs/quest.png" alt="">
+                  <span>APP 쿠폰(금액권) 잔액관리가 되나요?</span>
+                  <img class="plus_image" src="https://www.emart24.co.kr/assets/assets/imgs/arrowDown40.png" alt="화살표 이미지">
+            </div>
+            <div class="questionWrap">
+                  <img class="Q_image" src="https://www.emart24.co.kr/assets/assets/imgs/quest.png" alt="">
+                  <span>APP 비밀번호 변경은 어디에서 하나요?</span>
+                  <img class="plus_image" src="https://www.emart24.co.kr/assets/assets/imgs/arrowDown40.png" alt="화살표 이미지">
+            </div>
+            <div class="questionWrap">
+                  <img class="Q_image" src="https://www.emart24.co.kr/assets/assets/imgs/quest.png" alt="">
+                  <span>APP 아이디 변경이 가능한가요?</span>
+                  <img class="plus_image" src="https://www.emart24.co.kr/assets/assets/imgs/arrowDown40.png" alt="화살표 이미지">
+            </div>
+            <div class="questionWrap">
+                  <img class="Q_image" src="https://www.emart24.co.kr/assets/assets/imgs/quest.png" alt="">
+                  <span>APP 탈퇴 철회가 가능한가요?</span>
+                  <img class="plus_image" src="https://www.emart24.co.kr/assets/assets/imgs/arrowDown40.png" alt="화살표 이미지">
+            </div>
+            <div class="questionWrap">
+                  <img class="Q_image" src="https://www.emart24.co.kr/assets/assets/imgs/quest.png" alt="">
+                  <span>APP 회원 탈퇴는 어디에서 하나요?</span>
+                  <img class="plus_image" src="https://www.emart24.co.kr/assets/assets/imgs/arrowDown40.png" alt="화살표 이미지">
+            </div> -->
+               <!-- <div class="questionWrap">
+                  <img class="Q_image" src="https://www.emart24.co.kr/assets/assets/imgs/quest.png" alt="">
+                  <span>APP 회원가입은 어디에서 하나요?</span>
+                  <img class="plus_image" src="https://www.emart24.co.kr/assets/assets/imgs/arrowDown40.png" alt="화살표 이미지">
+            </div>
+            <div class="questionWrap">
+                  <img class="Q_image" src="https://www.emart24.co.kr/assets/assets/imgs/quest.png" alt="">
+                  <span>카드 프로모션의 경우 카드별 프로모션 적용이 가능한가요?</span>
+                  <img class="plus_image" src="https://www.emart24.co.kr/assets/assets/imgs/arrowDown40.png" alt="화살표 이미지">
+            </div> -->
+
+
+
+               <!-- 더보기 버튼 -->
+               <div class="faq_moreQuestion_button">
+                  <button>더보기</button>
+               </div>
+
+               <!-- 궁금한 내용을 찾지 못하셨다면? -->
+               <div class="wantMore">
+                  <div class="wantMore_box">
+                     <img src="https://www.emart24.co.kr/assets/assets/imgs/moreQIcon.png" alt="">
+                     <span>궁금한 내용을 찾지 못하셨다면?</span>
+                     <button class="whiteBtn" onclick="whiteBtn()">온라인 문의</button>
+                  </div>
+               </div>
+
+            </div>
+   </section>
+
+   <!-- 푸터 영역 -->
+   <footer>
+      <div class="footer-div">
+         <div class="footer-div-infos">
+            <span style="cursor: pointer;">
+               <p>개인정보 처리방침 &nbsp;|&nbsp; 고정형 영상정보기기 운영 관리 방침 &nbsp;|&nbsp; 위치기반서비스 이용약관 &nbsp;|
+                  <span style="color: #333333; font-weight: 400;">&nbsp;이용약관 &nbsp;| &nbsp;공지사항 &nbsp;| &nbsp;고객센터
+                     &nbsp;|&nbsp; CSR경영 &nbsp;| &nbsp;사이트맵</span>
+               </p>
+            </span>
+            <span style="color: #333333;">
+               <p>(주) 이마트24</p>
+            </span>
+            <span style="color: #999999; ">
+               <p>대표이사 : 송만춘 / 사업자등록번호: 105-86-92454 <br>
+                  서울특별시 성동구 성수동 2가 281-4 푸조비즈타워 / 고객센터: 02-6916-1500 / Fax: 02-6916-1430 <br>
+                  COPYRIGHT (C) EMART24.ALL RIGHT RESERVED
+               </p>
+            </span>
+         </div>
+
+         <div class="footer-right">
+            <div class="footer-familysite">
+               <p><span style="color: #333333; font-size: 13px; cursor: pointer;">패밀리사이트 +</span></p>
+            </div>
+            <div class="footer-sites">
+               <div class="sns">
+                  <a href="">
+                     <img src="./project_images/header&footer_img/youtube.png" alt="">
+                  </a>
+               </div>
+               <div class="sns">
+                  <a href="">
+                     <img src="./project_images/header&footer_img/insta.png" alt="">
+                  </a>
+               </div>
+               <div class="sns">
+                  <a href="">
+                     <img src="./project_images/header&footer_img/facebook.png" alt="">
+                  </a>
+               </div>
+               <div class="sns">
+                  <a href="">
+                     <img src="./project_images/header&footer_img/tiktok.png" alt="">
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </footer>
+</body>
+
+</html>

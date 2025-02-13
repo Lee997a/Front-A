@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        문제: 사용자의 체중(kg)과 키(m)를 입력받아 
+        BMI를 계산하고 건강 상태를 출력하세요.
+        BMI 공식: BMI = 체중(kg) / (키(m) * 키(m))
+        BMI에 따른 건강 상태:
+        18.5 미만: 저체중
+        18.5 이상 23 미만: 정상
+        23 이상 25 미만: 과체중
+        25 이상: 비만 
+        사용자의 입력이 잘못되었을 경우(음수 또는 0 입력되면) 
+        "잘못된 입력입니다"를 출력하고 종료하세요.
+        */
+       
+      // 체중 입력 받기
+        let weight;
+        while (true) {
+            weight = prompt("체중을 입력하세요");
+            weight = parseInt(weight);
+
+            if (!isNaN(weight) && weight > 0) {
+                break; // 올바르게 입력했으면  while  나가기 
+            } else {
+                alert("유효한 체중을 입력하세요 (숫자만 입력)");
+            }
+        }
+
+        // 키 입력 받기
+        let height;
+        while (true) {
+            height = prompt("키를 입력하세요");
+            height = parseInt(height) / 100; // cm → m 변환
+            if (!isNaN(height) && height > 0) {
+                break; // 올바르게 입력했으면  while  나가기 
+            } else {
+                alert("유효한 키를 입력하세요 (숫자만 입력)");
+            }
+        }
+
+
+
+        let BMI = weight/(height*height);  //(height**2);
+
+        console.log( BMI);
+
+        if( BMI>=0 &&  BMI <18.5){
+            alert("저체중");
+        }else if(BMI>= 18.5 && BMI <23){
+            alert("정상");
+        }else if(BMI >=23 && BMI<25){
+            alert("과체중");
+        }else if(BMI >= 25){
+            alert("비만");
+        } 
+        
+       
+    </script>
+</body>
+</html>

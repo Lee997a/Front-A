@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title> 고객센터 홈 - 고객 센터 </title>
+   <!-- 헤더 & 푸터 스타일 -->
+   <style>
+      @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+      /* 기본 설정 */
+      header,
+      footer {
+         font-family: 'Noto Sans KR', sans-serif;
+      }
+
+      html,
+      body {
+         margin: 0px;
+         padding: 0px;
+         width: 100%;
+         height: 100%;
+      }
+
+      /* 헤더 영역 전체 스타일 */
+      .header_background {
+         width: 100%;
+         height: 123px;
+      }
+
+      header {
+         width: 100%;
+         margin: 0px;
+         padding: 0px;
+         position: fixed;
+         background-color: white;
+         opacity: 0.9;
+         transition: 1.5s;
+         z-index: 1000;
+      }
+
+      header:hover {
+         opacity: 1;
+         transition: 0.5s;
+      }
+
+      .header_wrap {
+         width: 1280px;
+         max-width: 1280px;
+         margin: 0px auto;
+         box-sizing: border-box;
+      }
+
+      .header_top_menu,
+      .header_main,
+      .header_sub_menu_list {
+         list-style: none;
+         padding: 0px;
+         margin: 0px;
+      }
+
+      .header_top_menu a,
+      .header_main_menu a,
+      .header_sub_menu_list a {
+         text-decoration: none;
+         color: black;
+      }
+
+      /* 헤더 상단 메뉴 스타일 */
+      .header_top {
+         padding: 8px 24px;
+      }
+
+      .header_top_menu {
+         display: flex;
+         align-items: center;
+         justify-content: flex-end;
+         font-size: 12px;
+         gap: 16px;
+      }
+
+      .header_top_menu li a {
+         color: #999999;
+      }
+
+      /* 헤더 메인 메뉴 스타일 */
+      .header_main_wrap {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         height: 90px;
+         margin: 0px;
+         /* border: 1px solid black; */
+      }
+
+      .header_main {
+         display: flex;
+         align-items: center;
+         height: 90px;
+         padding: 0px 24px;
+         margin: 0px;
+         gap: 70px;
+         font-size: 17px;
+         font-weight: 500;
+      }
+
+      .header_logo img {
+         max-width: 113px;
+      }
+
+      .header_main_menu {
+         position: relative;
+      }
+
+      .header_main_menu a {
+         font-size: 20px;
+         font-weight: 400;
+         color: #333333;
+         /* 필요 시 패딩이나 마진을 조정하여 텍스트 시작 위치를 맞춥니다 */
+         display: block;
+      }
+
+      /* 공통 서브메뉴 배경 - header_main 영역에 마우스가 올라가면 전체 배경이 보임 */
+      .submenu_background {
+         width: 100%;
+         height: 150px;
+         background-color: #4e5059dd;
+         opacity: 0;
+         transition: 0.5s;
+         pointer-events: none;
+         position: absolute;
+         top: 123px;
+         left: 0px;
+      }
+
+      .header_main:hover .submenu_background {
+         opacity: 1;
+         pointer-events: auto;
+         transition: 0.5s;
+         z-index: 800;
+      }
+
+      /* 서브메뉴 리스트 - 각 메뉴 항목의 하위 메뉴는 메인 메뉴 항목 내부에서 나타남 */
+      .header_sub_menu_list {
+         position: absolute;
+         left: 0px;
+         top: 90px;
+         display: none;
+         transition: 0.5s;
+      }
+
+      /* 서브메뉴 항목 스타일 */
+      .header_sub_menu_list a {
+         font-size: 15px;
+         padding: 4px 0px;
+         box-sizing: border-box;
+         /* 한 라인에 단어가 모두 나오도록 설정 (줄바꿈 없이) */
+         white-space: nowrap;
+      }
+
+      .header_main:hover .header_sub_menu_list {
+         display: block;
+         transition: 0.5s;
+         z-index: 900;
+      }
+
+      .header_sub_menu_list a {
+         color: #ebebeb;
+      }
+
+      .header_top_menu a:hover,
+      .header_main_menu a:hover,
+      .header_sub_menu_list a:hover {
+         color: #f9bb00;
+      }
+
+      .header_main_menu:hover>a {
+         color: #f9bb00;
+      }
+
+
+      /* 푸터 영역 전체 스타일 */
+      footer {
+         width: 100%;
+         height: 334px;
+         background-color: rgb(241, 241, 241);
+      }
+
+
+      .footer-div {
+         display: flex;
+         width: 1280px;
+         max-width: 1280px;
+         height: 100%;
+         background-color: rgb(241, 241, 241);
+         margin: 0px auto;
+         align-items: center;
+         justify-content: space-between;
+      }
+
+      /* footer 왼쪽 정보 영역 */
+      .footer-div-infos {
+         font-size: 13px;
+      }
+
+      .footer-div-infos p {
+         padding-bottom: 30px;
+      }
+
+      /* footer 오른쪽 패밀리사이트 영역 */
+      .footer-right {
+         height: 237px;
+         justify-content: space-between;
+      }
+
+
+      /* 패밀리사이트 내 아이콘 영역 */
+      .footer-sites {
+         display: flex;
+      }
+
+      .footer-familysite p {
+         text-align: end;
+         margin: 13px 0px 40px;
+      }
+
+      .sns img {
+         width: 32px;
+         height: 32px;
+         background-color: white;
+         border-radius: 50%;
+         margin-left: 8px;
+      }
+   </style>
+   <!-- 섹션 스타일 -->
+   <style>
+      /**************************나 시작******************************/
+      .customerCenter_wrap {
+         width: 1100px;
+         margin: 0 auto;
+         background-color: rgb(249, 250, 251);
+      }
+
+      /* 고객센터 홈 */
+      .box1 {
+         /* margin-top: 20px; */
+         padding: 10px;
+
+      }
+
+      .box1 h1 {
+         font-size: 48px;
+         margin: 0 auto;
+         padding: 10px;
+      }
+
+      .box1 p {
+         font-size: 20px;
+         color: rgb(159, 159, 159);
+         margin: 0 auto;
+         padding: 10px;
+      }
+
+
+
+      /* customerCenter_searchBar */
+
+      .customerCenter_searchBar {
+         display: flex;
+         margin-top: 60px;
+      }
+
+      .customerCenter_searchBar img {
+         width: 60px;
+         height: 60px;
+      }
+
+      .customerCenter_searchBar input {
+         width: 810px;
+         height: 60px;
+         border-radius: 10px;
+         border: none;
+         outline: none;
+
+      }
+
+      .customerCenter_searchBar input:focus {
+         border: none;
+      }
+
+
+      /* customerCenter_searchBar1 */
+      .customerCenter_searchBar1 {
+         margin: 0 auto;
+         display: flex;
+         border-radius: 10px;
+
+         box-shadow: 0px 0px 20px #ccc;
+      }
+
+      .customerCenter_searchBar1 input:hover {
+         /* border: 1px solid red; */
+      }
+
+      .customerCenter_searchBar1 input:focus {
+         border: none;
+      }
+
+      /* rgb(249, 187, 0) */
+
+
+
+
+
+      /* customerCenter_searchBtn */
+      .customerCenter_searchBtn {
+         border: none;
+         width: 160px;
+         height: 65px;
+         border-radius: 10px;
+         background-color: rgb(249, 187, 0);
+         margin-right: 10px;
+      }
+
+      .customerCenter_searchBtn:hover {
+         transform: scale(0.98);
+         transition: 0.25s;
+         color: white;
+      }
+
+      ul {
+         list-style: none;
+         padding: 0px;
+         margin: 0px;
+      }
+
+      ul a,
+      a:link,
+      a:visited,
+      a:active {
+         color: rgb(159, 159, 159);
+         /* 클릭 후 링크 색상 변경 */
+         text-decoration: none;
+      }
+
+
+      /* box1의 ul */
+
+      .box1 ul {
+         width: 100%;
+
+
+         display: flex;
+         justify-content: center;
+
+      }
+
+      .box1 li a:hover {
+         color: rgb(51, 51, 51);
+      }
+
+      .box1-1 ul>li {
+         padding: 10px;
+         margin-top: 10px;
+      }
+
+
+
+
+      /* box2 시작*/
+      .faqTitle {
+         width: 100%;
+         height: 50px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         margin: 0;
+         position: relative;
+         margin: 80px 0px 80px 0px;
+      }
+
+      .faqTitle h1 {
+         /*FAQ TOP 4*/
+         font-size: 28px;
+         margin: 0 auto;
+
+      }
+
+      .faqTitle button {
+         /*전체보기*/
+         font-size: 15px;
+         position: absolute;
+         right: 40px;
+         border: none;
+         background-color: white;
+      }
+
+      .faqTitle img {
+         /* + 이미지*/
+         width: 24px;
+         height: 24px;
+         position: absolute;
+         right: 10px;
+      }
+
+      .faqTitle button:hover {
+         color: rgb(249, 187, 0);
+      }
+
+      .customerCenter_wrap ul {
+         display: flex;
+      }
+
+
+
+
+      /* 질문들(~한가요?) box3 questionWrap */
+      .box3>div {
+         margin-bottom: 20px;
+      }
+
+      .box3 {
+         margin: 20px;
+      }
+
+      .questionWrap {
+         border-radius: 10px;
+         border: none;
+         width: 1040px;
+         height: 60px;
+         margin: 0 auto;
+         position: relative;
+         background-color: rgb(244, 244, 244);
+         transition: 0.2s;
+
+      }
+
+      .itemWrap {
+         width: 1040px;
+         height: 60px;
+         /* border: 1px solid black; */
+         margin: 0 auto;
+
+         overflow: hidden;
+      }
+
+      .questionWrap .Q_image {
+         /*Q 이미지*/
+         width: 24px;
+         height: 24px;
+         position: absolute;
+         left: 10px;
+         bottom: 17px;
+      }
+
+      .questionWrap .plus_image {
+         /*화살표 이미지*/
+         width: 20px;
+         height: 20px;
+         position: absolute;
+         right: 10px;
+         bottom: 17px;
+      }
+
+      .questionWrap span {
+         /*질문들*/
+         font-size: 17px;
+         position: absolute;
+         left: 50px;
+         bottom: 17px;
+      }
+
+      .questionWrap:hover {
+         background-color: rgb(229, 229, 229);
+      }
+
+      /* 첫번째 질문 답변 (content1) */
+      .content1_box {
+         font-size: 17px;
+         height: 230px;
+         background-color: rgb(229, 229, 229);
+         border-radius: 10px;
+      }
+
+      .content1 {
+         display: flex;
+      }
+
+      .content1>* {
+         margin-top: 15px;
+      }
+
+      .content1_img img {
+         width: 24px;
+         height: 24px;
+         margin-left: 10px;
+      }
+
+      .content1_info {
+         margin-left: 15px;
+      }
+
+      /* 두번째 질문 답변 (content2) */
+      .content2_box {
+         font-size: 17px;
+         height: 120px;
+         background-color: rgb(229, 229, 229);
+         border-radius: 10px;
+      }
+
+      .content2 {
+         display: flex;
+      }
+
+      .content2>* {
+         margin-top: 15px;
+      }
+
+      .content2_img img {
+         width: 24px;
+         height: 24px;
+         margin-left: 10px;
+      }
+
+      .content2_info {
+         margin-left: 15px;
+      }
+
+      /* 세번째 질문 답변 (content3) */
+      .content3_box {
+         font-size: 17px;
+         height: 140px;
+         background-color: rgb(229, 229, 229);
+         border-radius: 10px;
+      }
+
+      .content3 {
+         display: flex;
+      }
+
+      .content3>* {
+         margin-top: 15px;
+      }
+
+      .content3_img img {
+         width: 24px;
+         height: 24px;
+         margin-left: 10px;
+      }
+
+      .content3_info {
+         margin-left: 15px;
+      }
+
+      /* 네번째 질문 답변 (content4) */
+      .content4_box {
+         font-size: 17px;
+         height: 170px;
+         background-color: rgb(229, 229, 229);
+         border-radius: 10px;
+      }
+
+      .content4 {
+         display: flex;
+      }
+
+      .content4>* {
+         margin-top: 15px;
+      }
+
+      .content4_img img {
+         width: 24px;
+         height: 24px;
+         margin-left: 10px;
+      }
+
+      .content4_info {
+         margin-left: 15px;
+      }
+
+
+      /* 전화 문의, 온라인 문의 box4 */
+      .box4 {
+         width: 1040px;
+         height: 460px;
+         margin: 0 auto;
+         position: relative;
+      }
+
+      .contact {
+         display: flex;
+         width: 100%;
+         height: 180px;
+         position: absolute;
+         top: 140px;
+         /* transform:translate(-50%, -50%); */
+      }
+
+      /* 전화 문의 */
+      .callInquiry {
+         width: 50%;
+         height: 100%;
+         display: flex;
+         align-items: center;
+         /* justify-content: center; */
+      }
+
+      .callInquiry_img img {
+         width: 220px;
+         height: 140px;
+      }
+
+      .callInquiry_info {
+         margin: 0 auto;
+      }
+
+      .callInquiry_info h2 {
+         font-size: 28px;
+      }
+
+      .callInquiry_info p {
+         font-size: 17px;
+         color: rgb(153, 153, 153);
+      }
+
+      .callInquiry:hover {
+         color: rgb(249, 187, 0);
+      }
+
+      .callInquiry:hover>* {
+         transform-origin: center center;
+         transform: scale(1.1);
+         transition: 0.3s;
+      }
+
+
+
+      /* 온라인 문의 */
+      .onlineInquiry {
+         width: 50%;
+         height: 100%;
+         display: flex;
+         align-items: center;
+         /* justify-content: center; */
+      }
+
+      .onlineInquiry_info {
+         margin: 0 auto;
+      }
+
+      .onlineInquiry img {
+         width: 220px;
+         height: 140px;
+      }
+
+      .onlineInquiry h2 {
+         font-size: 28px;
+      }
+
+      .onlineInquiry p {
+         font-size: 17px;
+         color: rgb(153, 153, 153);
+      }
+
+      .onlineInquiry:hover {
+         color: rgb(249, 187, 0);
+      }
+
+      .onlineInquiry:hover>* {
+         transform-origin: center center;
+         transform: scale(1.1);
+         transition: 0.3s;
+      }
+
+      /* 마지막 박스 box5 */
+      .box5 {
+         width: 1040px;
+         height: 400px;
+         margin: 0 auto;
+         display: flex;
+      }
+
+      /* 주요 서비스 */
+      .mainService {
+         width: 50%;
+         height: 100%;
+
+      }
+
+      /* 주요 서비스1 */
+      .mainService1 {
+         padding: 10px;
+         font-size: 20px;
+      }
+
+      .button {
+         width: 100%;
+         height: 100%;
+         text-align: center;
+      }
+
+      .button>* {
+         margin-top: 30px;
+      }
+
+      .button img {
+         padding: 5px;
+      }
+
+
+
+
+
+
+      .button:hover h3 {
+         color: black;
+      }
+
+      .button:hover img {
+         background-position: center;
+         background-size: cover;
+         transform-origin: center center;
+         transform: scale(1.1);
+         transition: 0.1s;
+      }
+
+      /* 매장찾기, 행사 상품, 이벤트 */
+      .buttonWrap {
+         height: 40%;
+         border-radius: 30px;
+         display: flex;
+         padding: 5px;
+      }
+
+      .buttonWrap img {
+         width: 40px;
+         height: 40px;
+
+      }
+
+      .buttonWrap:hover {
+         box-shadow: 0px 0px 20px #ccc;
+      }
+
+      .button h3 {
+         margin-top: 10px;
+         font-size: 17px;
+         color: grey;
+      }
+
+
+      .yellowBox {
+         border: 1px solid #f9bb00;
+
+         box-sizing: border-box;
+
+      }
+   </style>
+   <script>
+
+      //검색바 onclick yellow
+      function showYellow() {
+         const customerCenter_searchBar1 = document.querySelector(".customerCenter_searchBar1");
+         customerCenter_searchBar1.style.border = "3px solid rgb(249, 187, 0";
+      }
+      function showNone() {
+         const customerCenter_searchBar1 = document.querySelector(".customerCenter_searchBar1");
+         customerCenter_searchBar1.style.border = "none";
+      }
+
+
+      // box3 (질문들)
+      //첫번째 질문 (content1)
+      function changeText1(obj) {
+
+         obj.classList.toggle("content1_box");
+
+         const content1 = document.getElementById("content1");
+      }
+      //두번째 질문 (content2)
+      function changeText2(obj) {
+
+         obj.classList.toggle("content2_box");
+
+         const content2 = document.getElementById("content2");
+      }
+
+      //세번째 질문 (content3) 
+      function changeText3(obj) {
+
+         obj.classList.toggle("content3_box");
+
+         const content3 = document.getElementById("content3");
+      }
+
+      //네번째 질문 (content4)
+      function changeText4(obj) {
+
+         obj.classList.toggle("content4_box");
+
+         const content4 = document.getElementById("content4");
+      }
+
+
+      // box5 마지막 박스
+      // 매장찾기 버튼 Active
+      function btn1(obj, index) {
+         if (index == 1) obj.src = "./project_images/customerCenter_img/iconMapActive.png";
+      }
+      function btn11(obj, index) {
+         if (index == 11) obj.src = "./project_images/customerCenter_img/iconMap.png";
+      }
+
+      // 행사상품 버튼 Active
+      function btn2(obj, index) {
+         if (index == 2) obj.src = "./project_images/customerCenter_img/iconBoxActive.png";
+      }
+      function btn22(obj, index) {
+         if (index == 22) obj.src = "./project_images/customerCenter_img/iconBox.png";
+      }
+
+      //이벤트 버튼 Active
+      function btn3(obj, index) {
+         if (index == 3) obj.src = "./project_images/customerCenter_img/iconPartyActive.png";
+      }
+      function btn33(obj, index) {
+         if (index == 33) obj.src = "./project_images/customerCenter_img/iconParty.png";
+      }
+
+      //창업상담 버튼 Active
+      function btn4(obj, index) {
+         if (index == 4) obj.src = "./project_images/customerCenter_img/iconMessageActive.png";
+      }
+      function btn44(obj, index) {
+         if (index == 44) obj.src = "./project_images/customerCenter_img/iconMessage.png";
+      }
+
+      //부동산 입지 상담 버튼 Active
+      function btn5(obj, index) {
+         if (index == 5) obj.src = "./project_images/customerCenter_img/iconMappinActive.png";
+      }
+      function btn55(obj, index) {
+         if (index == 55) obj.src = "./project_images/customerCenter_img/iconMappin.png";
+      }
+
+      //협력사 상담 버튼 Active
+      function btn6(obj, index) {
+         if (index == 6) obj.src = "./project_images/customerCenter_img/iconPhoneActive.png";
+      }
+      function btn66(obj, index) {
+         if (index == 66) obj.src = "./project_images/customerCenter_img/iconPhone.png";
+      }
+
+   </script>
+</head>
+
+<body>
+   <!-- 헤더 영역 채우기 -->
+   <div class="header_background">
+      <!-- 헤더 영역 -->
+      <header>
+         <div class="header_wrap">
+            <!-- 헤더 상단 메뉴 -->
+            <div class="header_top">
+               <ul class="header_top_menu">
+                  <li><a href="">채용안내</a></li>
+                  <li><a href="">전자 계약 시스템</a></li>
+               </ul>
+            </div>
+            <!-- 헤더 메인 메뉴 -->
+            <div class="header_main_wrap">
+               <div class="header_logo">
+                  <a href="index.html"><img src="./project_images/header&footer_img/logo.png" alt="이마트24 로고" /></a>
+               </div>
+               <ul class="header_main">
+                  <div class="submenu_background"></div>
+                  <li class="header_main_menu">
+                     <a href="brand_story.html">이마트24 소개</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="brand_story.html">브랜드 스토리</a></li>
+                        <li><a href="brand_resource.html">브랜드 리소스 센터</a></li>
+                        <li><a href="brand_gallery.html">브랜드 갤러리</a></li>
+                     </ul>
+                  </li>
+                  <li class="header_main_menu">
+                     <a href="goods_event.html">상품</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="goods_event.html">행사 상품</a></li>
+                        <li><a href="goods_different.html">차별화 상품</a></li>
+                        <li><a href="goods_fresh.html">Fresh Food</a></li>
+                     </ul>
+                  </li>
+                  <li class="header_main_menu">
+                     <a href="service_app.html">서비스</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="service_app.html">APP 서비스</a></li>
+                        <li><a href="service_life.html">생활 서비스</a></li>
+                        <li><a href="#" onclick="alert('준비되지 않았습니다');">제휴 서비스</a></li>
+                     </ul>
+                  </li>
+                  <li class="header_main_menu">
+                     <a href="event_act.html">이벤트</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="event_act.html">진행중인 이벤트</a></li>
+                        <li><a href="#" onclick="alert('준비되지 않았습니다');">종료된 이벤트</a></li>
+                     </ul>
+                  </li>
+                  <li class="header_main_menu">
+                     <a href="customerCenter.html">고객센터</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="customerCenter.html">고객센터 홈</a></li>
+                        <li><a href="customerCenter_faq.html">FAQ</a></li>
+                        <li><a href="customerCenter_online.html">온라인 문의</a></li>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </header>
+   </div>
+
+   <!-- 섹션부분 -->
+   <section>
+
+      <body>
+         <div class="customerCenter_wrap">
+            <div class="box1"> <!-- 고객센터 홈 -->
+               <h1>고객센터 홈</h1>
+               <p>고객님의 의견에 대해 귀담아 듣고 정확히 피드백하겠습니다.</p>
+
+               <!-- 검색바 -->
+               <div class="customerCenter_searchBar">
+                  <div class="customerCenter_searchBar1">
+                     <img src="https://www.emart24.co.kr/assets/assets/imgs/iconSearch.png" alt="검색아이콘">
+                     <input type="text" onfocus="showYellow()" onblur="showNone()" placeholder="궁금하신 내용을 검색해주세요.">
+                  </div>
+
+                  <!-- 검색 버튼 -->
+                  <button class="customerCenter_searchBtn" onclick="customerCenter_searchBtn()">검색</button>
+               </div>
+
+               <div class="box1-1">
+                  <ul>
+                     <li><a href="#">APP</a></li>
+                     <li><span style="color:grey">|</span></li>
+                     <li><a href="#">환불</a></li>
+                     <li><span style="color:grey">|</span></li>
+                     <li><a href="#">택배</a></li>
+                     <li><span style="color:grey">|</span></li>
+                     <li><a href="#">상품권</a></li>
+                     <li><span style="color:grey">|</span></li>
+                     <li><a href="#">매장</a></li>
+                     <li><span style="color:grey">|</span></li>
+                     <li><a href="#">영수증</a></li>
+                  </ul>
+               </div>
+            </div>
+
+
+            <!-- box2 (FAQ TOP 4) -->
+            <div class="box2">
+               <div class="faqTitle">
+                  <h1>FAQ TOP 4</h1>
+                  <button onclick="window.location.href='customerCenter_faq.html'">전체보기</button>
+                  <img src="https://www.emart24.co.kr/assets/assets/imgs/more.png" alt="Q 이미지">
+               </div>
+            </div>
+
+
+            <!-- box3 (질문들) -->
+            <div class="box3">
+
+               <!-- 첫번째 질문 (content1) -->
+               <div class="itemWrap" onclick="changeText1(this)">
+                  <div class="questionWrap">
+
+                     <img class="Q_image" src="https://www.emart24.co.kr/assets/assets/imgs/quest.png" alt="">
+                     <span>카드 프로모션의 경우 카드별 프로모션 적용이 가능한가요?</span>
+                     <img class="plus_image" src="https://www.emart24.co.kr/assets/assets/imgs/arrowDown40.png"
+                        alt="화살표 이미지">
+
+
+                  </div>
+                  <div class="content1">
+
+                     <div class="content1_img">
+                        <img src="https://www.emart24.co.kr/assets/assets/imgs/answer.png" alt="">
+                     </div>
+
+                     <div class="content1_info">
+                        네. 각각 카드사별 프로모션 적용 가능합니다.<br>같은 카드사별 2번은 적용이 불가합니다.<br><br>
+                        > 예: 행사별 행사 대상 카드가 2개인 경우 (예를 들어 현대 / 우리카드인경우)<br>
+                        행사 카드별로 행사대상금액 이상 결제 시 행사 혜택 제공 가능<br>
+                        행사별 행사 적용 대상 카드별 현대카드로 1번 + 우리카드로 1번 참여 가능<br>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- 두번째 질문 (content2) -->
+
+               <div class="itemWrap" onclick="changeText2(this)">
+                  <div class="questionWrap">
+                     <img class="Q_image" src="https://www.emart24.co.kr/assets/assets/imgs/quest.png" alt="">
+                     <span>카드 프로모션 결제 시 다른 결제수단이랑 같이 결제해도 적용 가능한가요?</span>
+                     <img class="plus_image" src="https://www.emart24.co.kr/assets/assets/imgs/arrowDown40.png"
+                        alt="화살표 이미지">
+                  </div>
+
+                  <div class="content2">
+
+                     <div class="content2_img">
+                        <img src="https://www.emart24.co.kr/assets/assets/imgs/answer.png" alt="">
+                     </div>
+
+                     <div class="content2_info">
+                        불가합니다. 행사 대상카드로만 혜택 적용 가능한 금액이상을 전액결제한 경우에만 헤택 제공 됩니다.
+                     </div>
+
+                  </div>
+               </div>
+
+
+               <!-- 세번째 질문 (content3) -->
+
+               <div class="itemWrap" onclick="changeText3(this)">
+                  <div class="questionWrap">
+                     <img class="Q_image" src="https://www.emart24.co.kr/assets/assets/imgs/quest.png" alt="">
+                     <span>카드 행사 시에도 할인과 적립이 가능한가요?</span>
+                     <img class="plus_image" src="https://www.emart24.co.kr/assets/assets/imgs/arrowDown40.png"
+                        alt="화살표 이미지">
+                  </div>
+
+                  <div class="content3">
+
+                     <div class="content3_img">
+                        <img src="https://www.emart24.co.kr/assets/assets/imgs/answer.png" alt="">
+                     </div>
+
+                     <div class="content3_info">
+                        할인 적립 가능합니다.<br>
+                        단, 금액이 조건인 행사인 경우 할인 후 금액이 조건 이상이어야지만 적용 가능합니다.
+                     </div>
+
+                  </div>
+               </div>
+
+               <!-- 네번째 질문 (content4) -->
+               <div class="itemWrap" onclick="changeText4(this)">
+                  <div class="questionWrap">
+                     <img class="Q_image" src="https://www.emart24.co.kr/assets/assets/imgs/quest.png" alt="">
+                     <span>카드 프로모션 PAY 내 등록된 카드도 적용 가능한가요?</span>
+                     <img class="plus_image" src="https://www.emart24.co.kr/assets/assets/imgs/arrowDown40.png"
+                        alt="화살표 이미지">
+                  </div>
+
+                  <div class="content4">
+
+                     <div class="content4_img">
+                        <img src="https://www.emart24.co.kr/assets/assets/imgs/answer.png" alt="">
+                     </div>
+
+                     <div class="content4_info">
+                        각 행사별 행사대상 카드라면 행사적용이 가능합니다.<br>
+                        행사 내용은 홈페이지 내 이벤트페이지 참고 부탁드립니다. <br>
+                        유의사항 내 행사제외카드 꼭 확인하시어 결제 부탁드립니다.
+                     </div>
+
+                  </div>
+               </div>
+            </div>
+
+
+            <!-- box4 (전화 문의, 온라인 문의) -->
+            <div class="box4">
+               <div class="contact">
+                  <div class="callInquiry">
+                     <div class="callInquiry_img"><img
+                           src="https://www.emart24.co.kr/assets/assets/imgs/imgTellthree.png" alt="3d 전화기"></div>
+                     <div class="callInquiry_info">
+                        <h2>전화 문의</h2>
+                        <p>FAQ로 해결되지 않았다면<br> 전화로 문의 해주세요.<br>(운영 시간: 09시~18시)</p>
+                        <p><span style="color:rgb(249, 187, 0); font-weight: bold;">고객센터 02.6916.1500</span></p>
+                     </div>
+                  </div>
+                  <div class="onlineInquiry" onclick="window.location.href='customerCenter_online.html';">
+                     <div class="onlineInquiry_img"><img
+                           src="https://www.emart24.co.kr/assets/assets/imgs/imgOnlinesmall.png" alt="3d 스마트폰"></div>
+                     <div class="onlineInquiry_info">
+                        <h2>온라인 문의</h2>
+                        <p>간단한 문의사항은<br>온라인 문의를 이용하면<br>빠르게 해결하실 수 있어요.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+
+            <!-- box5(마지막 박스) -->
+            <div class="box5">
+
+               <!-- 주요 서비스 -->
+               <div class="mainService">
+                  <div class="mainService1">
+                     <h3>주요 서비스</h3>
+                  </div>
+
+                  <div class="buttonWrap">
+                     <!-- 매장찾기, 행사 상품, 이벤트 -->
+                     <div class="button">
+                        <img src="./project_images/customerCenter_img/iconMap.png" alt="매장찾기"
+                           onmouseover="btn1( this , 1)" onmouseout="btn11(this ,11)">
+                        <h3>매장찾기</h3>
+                     </div>
+                     <div class="button" onclick="window.location.href='goods_event.html';">
+                        <img src="./project_images/customerCenter_img/iconBox.png" alt="행사 상품"
+                           onmouseover="btn2( this , 2)" onmouseout="btn22(this ,22)">
+                        <h3>행사 상품</h3>
+                     </div>
+                     <div class="button" onclick="window.location.href='event_act.html';">
+                        <img src="./project_images/customerCenter_img/iconParty.png" alt="이벤트"
+                           onmouseover="btn3( this , 3)" onmouseout="btn33(this ,33)">
+                        <h3>이벤트</h3>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- 기타 상담 및 문의 -->
+               <div class="mainService">
+                  <div class="mainService1">
+                     <h3>기타 상담 및 문의</h3>
+                  </div>
+
+                  <div class="buttonWrap">
+                     <!-- 창업상담, 부동산 입지 상담, 협력사 상담 -->
+                     <div class="button">
+                        <img src="./project_images/customerCenter_img/iconMessage.png" alt="창업상담"
+                           onmouseover="btn4( this , 4)" onmouseout="btn44(this ,44)">
+                        <h3>창업상담</h3>
+                     </div>
+                     <div class="button">
+                        <img src="./project_images/customerCenter_img/iconMappin.png" alt="부동산 입지 상담"
+                           onmouseover="btn5( this , 5)" onmouseout="btn55(this ,55)">
+                        <h3>부동산 입지 상담</h3>
+                     </div>
+                     <div class="button">
+                        <img src="./project_images/customerCenter_img/iconPhone.png" alt="협력사 상담"
+                           onmouseover="btn6( this , 6)" onmouseout="btn66(this ,66)">
+                        <h3>협력사 상담</h3>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+         </div>
+   </section>
+
+   <!-- 푸터 영역 -->
+   <footer>
+      <div class="footer-div">
+         <div class="footer-div-infos">
+            <span style="cursor: pointer;">
+               <p>개인정보 처리방침 &nbsp;|&nbsp; 고정형 영상정보기기 운영 관리 방침 &nbsp;|&nbsp; 위치기반서비스 이용약관 &nbsp;|
+                  <span style="color: #333333; font-weight: 400;">&nbsp;이용약관 &nbsp;| &nbsp;공지사항 &nbsp;| &nbsp;고객센터
+                     &nbsp;|&nbsp; CSR경영 &nbsp;| &nbsp;사이트맵</span>
+               </p>
+            </span>
+            <span style="color: #333333;">
+               <p>(주) 이마트24</p>
+            </span>
+            <span style="color: #999999; ">
+               <p>대표이사 : 송만춘 / 사업자등록번호: 105-86-92454 <br>
+                  서울특별시 성동구 성수동 2가 281-4 푸조비즈타워 / 고객센터: 02-6916-1500 / Fax: 02-6916-1430 <br>
+                  COPYRIGHT (C) EMART24.ALL RIGHT RESERVED
+               </p>
+            </span>
+         </div>
+
+         <div class="footer-right">
+            <div class="footer-familysite">
+               <p><span style="color: #333333; font-size: 13px; cursor: pointer;">패밀리사이트 +</span></p>
+            </div>
+            <div class="footer-sites">
+               <div class="sns">
+                  <a href="">
+                     <img src="./project_images/header&footer_img/youtube.png" alt="">
+                  </a>
+               </div>
+               <div class="sns">
+                  <a href="">
+                     <img src="./project_images/header&footer_img/insta.png" alt="">
+                  </a>
+               </div>
+               <div class="sns">
+                  <a href="">
+                     <img src="./project_images/header&footer_img/facebook.png" alt="">
+                  </a>
+               </div>
+               <div class="sns">
+                  <a href="">
+                     <img src="./project_images/header&footer_img/tiktok.png" alt="">
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </footer>
+</body>
+
+</html>

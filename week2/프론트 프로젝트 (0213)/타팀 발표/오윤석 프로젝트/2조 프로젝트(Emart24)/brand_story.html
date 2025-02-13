@@ -1,0 +1,2278 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title> 브랜드 스토리 - 이마트24 소개 </title>
+   <link rel="stylesheet" href="./header&footer.css">
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <!-- 헤더 & 푸터 스타일 -->
+   <style>
+      @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+      /* 기본 설정 */
+      header,
+      footer {
+         font-family: 'Noto Sans KR', sans-serif;
+      }
+
+      html,
+      body {
+         margin: 0px;
+         padding: 0px;
+         width: 100%;
+         height: 100%;
+      }
+
+      /* 헤더 영역 전체 스타일 */
+      .header_background {
+         width: 100%;
+         height: 123px;
+      }
+
+      header {
+         width: 100%;
+         margin: 0px;
+         padding: 0px;
+         position: fixed;
+         background-color: white;
+         opacity: 0.9;
+         transition: 1.5s;
+         z-index: 1000;
+      }
+
+      header:hover {
+         opacity: 1;
+         transition: 0.5s;
+      }
+
+      .header_wrap {
+         width: 1280px;
+         max-width: 1280px;
+         margin: 0px auto;
+         box-sizing: border-box;
+      }
+
+      .header_top_menu,
+      .header_main,
+      .header_sub_menu_list {
+         list-style: none;
+         padding: 0px;
+         margin: 0px;
+      }
+
+      .header_top_menu a,
+      .header_main_menu a,
+      .header_sub_menu_list a {
+         text-decoration: none;
+         color: black;
+      }
+
+      /* 헤더 상단 메뉴 스타일 */
+      .header_top {
+         padding: 8px 24px;
+      }
+
+      .header_top_menu {
+         display: flex;
+         align-items: center;
+         justify-content: flex-end;
+         font-size: 12px;
+         gap: 16px;
+      }
+
+      .header_top_menu li a {
+         color: #999999;
+      }
+
+      /* 헤더 메인 메뉴 스타일 */
+      .header_main_wrap {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         height: 90px;
+         margin: 0px;
+         /* border: 1px solid black; */
+      }
+
+      .header_main {
+         display: flex;
+         align-items: center;
+         height: 90px;
+         padding: 0px 24px;
+         margin: 0px;
+         gap: 70px;
+         font-size: 17px;
+         font-weight: 500;
+      }
+
+      .header_logo img {
+         max-width: 113px;
+      }
+
+      .header_main_menu {
+         position: relative;
+      }
+
+      .header_main_menu a {
+         font-size: 20px;
+         font-weight: 400;
+         color: #333333;
+         /* 필요 시 패딩이나 마진을 조정하여 텍스트 시작 위치를 맞춥니다 */
+         display: block;
+      }
+
+      /* 공통 서브메뉴 배경 - header_main 영역에 마우스가 올라가면 전체 배경이 보임 */
+      .submenu_background {
+         width: 100%;
+         height: 150px;
+         background-color: #4e5059dd;
+         opacity: 0;
+         transition: 0.5s;
+         pointer-events: none;
+         position: absolute;
+         top: 122px;
+         left: 0px;
+      }
+
+      .header_main:hover .submenu_background {
+         opacity: 1;
+         pointer-events: auto;
+         transition: 0.5s;
+         z-index: 800;
+      }
+
+      /* 서브메뉴 리스트 - 각 메뉴 항목의 하위 메뉴는 메인 메뉴 항목 내부에서 나타남 */
+      .header_sub_menu_list {
+         position: absolute;
+         left: 0px;
+         top: 90px;
+         display: none;
+         transition: 0.5s;
+      }
+
+      /* 서브메뉴 항목 스타일 */
+      .header_sub_menu_list a {
+         font-size: 15px;
+         padding: 4px 0px;
+         box-sizing: border-box;
+         /* 한 라인에 단어가 모두 나오도록 설정 (줄바꿈 없이) */
+         white-space: nowrap;
+      }
+
+      .header_main:hover .header_sub_menu_list {
+         display: block;
+         transition: 0.5s;
+         z-index: 900;
+      }
+
+      .header_sub_menu_list a {
+         color: #ebebeb;
+      }
+
+      .header_top_menu a:hover,
+      .header_main_menu a:hover,
+      .header_sub_menu_list a:hover {
+         color: #f9bb00;
+      }
+
+      .header_main_menu:hover>a {
+         color: #f9bb00;
+      }
+
+
+      /* 푸터 영역 전체 스타일 */
+      footer {
+         width: 100%;
+         height: 334px;
+         background-color: rgb(241, 241, 241);
+      }
+
+
+      .footer-div {
+         display: flex;
+         width: 1280px;
+         max-width: 1280px;
+         height: 100%;
+         background-color: rgb(241, 241, 241);
+         margin: 0px auto;
+         align-items: center;
+         justify-content: space-between;
+      }
+
+      /* footer 왼쪽 정보 영역 */
+      .footer-div-infos {
+         font-size: 13px;
+      }
+
+      .footer-div-infos p {
+         padding-bottom: 30px;
+      }
+
+      /* footer 오른쪽 패밀리사이트 영역 */
+      .footer-right {
+         height: 237px;
+         justify-content: space-between;
+      }
+
+
+      /* 패밀리사이트 내 아이콘 영역 */
+      .footer-sites {
+         display: flex;
+      }
+
+      .footer-familysite p {
+         text-align: end;
+         margin: 13px 0px 40px;
+      }
+
+      .sns img {
+         width: 32px;
+         height: 32px;
+         background-color: white;
+         border-radius: 50%;
+         margin-left: 8px;
+      }
+   </style>
+
+   <!-- 섹션 스타일 -->
+   <style>
+      /* 폰트 설정 */
+      @import url("https://cdn.jsdelivr.net/gh/Nyannnnnng/NEXON-Lv.2-Gothic/stylesheet.css");
+      @import url('https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Black+Han+Sans&display=swap');
+
+      @font-face {
+         font-family: 'Paperlogy-8ExtraBold';
+         src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+         font-weight: 800;
+         font-style: normal;
+      }
+
+      @font-face {
+         font-family: 'GongGothicMedium';
+         src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff') format('woff');
+         font-weight: normal;
+         font-style: normal;
+      }
+
+      /* 전역설정 */
+      * {
+         font-family: 'NEXON Lv.2 Gothic', sans-serif;
+      }
+
+      html,
+      body {
+         margin: 0px;
+         padding: 0px;
+         width: 100%;
+         height: 100%;
+      }
+
+      /* 상단 섹션 영역 */
+      .top_section_1 {
+         /* 뷰포트 높이 : 브라우저 창 높이의 100%만큼 채움 */
+         height: 100vh;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+
+         background-image: url("./project_images/brand_story_img/mainBannerBg.png");
+         background-size: cover;
+         background-position: center;
+      }
+
+      .top_section_box_1 {
+         /* border: 1px solid red; */
+         width: 100%;
+         display: flex;
+         /* flex 방향을 수직으로 설정 */
+         flex-direction: column;
+         text-align: center;
+         /* 반응형 디자인 : 1920px중 35px만큼(뷰포트 너비 기준으로) */
+         gap: calc(35 / 1920 * 100vw);
+      }
+
+      .top_section_box_1 p {
+         font-size: min(1.146vw, 22px);
+         color: #333333;
+         margin: 0px;
+      }
+
+      .top_section_title {
+         /* border: 1px solid black; */
+         width: 100%;
+         max-width: 1920px;
+         margin: 0 auto;
+
+         position: relative;
+      }
+
+      .top_section_title img {
+         /* 반응형 디자인 : 1920px중 882px만큼 */
+         width: calc(882/1920* 100%);
+         margin: 0;
+         /* border: 1px solid blue; */
+      }
+
+      #slide_img {
+         /* border: 1px solid red; */
+         width: calc(206/1920* 100%);
+         /* 회전 애니메이션 부드럽게 적용 */
+         transition: transform 0.1s ease;
+
+         position: absolute;
+         bottom: -10%;
+         left: 39.75%;
+      }
+
+      /* 다운 스크롤 버튼 */
+      .arrow_button {
+         position: absolute;
+         bottom: 97px;
+         left: 50%;
+      }
+
+      /* 위 아래로 움직이는 애니메이션 */
+      @keyframes jumpInfinite {
+         0% {
+            transform: translateY(0px);
+         }
+
+         50% {
+            transform: translateY(-20px);
+         }
+
+         100% {
+            transform: translateY(0px);
+         }
+
+      }
+
+      .arrow_button img {
+         width: 50px;
+         height: 25px;
+         cursor: pointer;
+         animation: jumpInfinite 1.5s infinite;
+         transition: 0.3s;
+      }
+
+      .arrow_button .hide {
+         opacity: 0;
+      }
+
+      .arrow_button:hover {
+         opacity: 1;
+      }
+
+      /* 상단 섹션 영역 조건부 설정 */
+      /* 화면 너비가 1024px 보다 작아졌을 때 실행 */
+      @media (max-width: 1024px) {
+         .top_section_box_1 {
+            gap: calc(20 / 375* 100vw);
+         }
+
+         .top_section_box_1 p {
+            /* clamp(최솟값, 기본값, 최대값) */
+            /* min(A, B) : A or B 중 더 작은값을 사용*/
+            font-size: clamp(min(calc(16 / 375* 100vw), 16px), calc(16 / 375* 100vw), 32px);
+         }
+
+         .top_section_title img {
+            width: calc(303 / 375* 100vw)
+         }
+
+         #slide_img {
+            width: calc(68 / 375 * 100vw);
+            left: 31.75%;
+         }
+
+      }
+
+      /* 상단 섹션2 */
+      .top_section_2 {
+         min-height: 100vh;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         margin-top: -1px;
+
+         background-image: url("./project_images/brand_story_img/sloganBg.png");
+         background-size: cover;
+         background-position: center;
+      }
+
+      .top_section_box_2 {
+         display: flex;
+         position: relative;
+      }
+
+      .sloganItemImg::before {
+         content: "";
+         position: absolute;
+         margin: 0 auto;
+         width: calc(570 / 1920* 100vw);
+         height: calc(526 / 1920* 100vw);
+         max-width: 570px;
+         max-height: 526px;
+         background: no-repeat top / contain url(./project_images/brand_story_img/sloganItemShadow.png);
+         mix-blend-mode: multiply;
+      }
+
+      .top_section_box_2 img {
+         margin: 0 auto;
+         width: calc(570 / 1920* 100vw);
+         height: calc(526 / 1920* 100vw);
+         max-width: 570px;
+         max-height: 526px;
+      }
+
+      .top_section_title_2 {
+         box-sizing: border-box;
+         padding-top: min(7.344vw, 141px);
+         padding-left: min(4.896vw, 94px);
+      }
+
+      .top_section_title_2 h2 {
+         margin: 0 0 25px 0;
+         font-family: 'Paperlogy-8ExtraBold';
+         font-weight: 900;
+         font-size: min(2.135vw, 41px);
+         line-height: 1.5;
+         color: white;
+         filter: drop-shadow(0px 0px 15px rgba(179, 133, 4, 0.5));
+      }
+
+      .top_section_title_2 p {
+         margin: 0;
+         color: #414042;
+         font-size: min(1.25vw, 24px);
+         font-weight: 500;
+         line-height: 1.8;
+      }
+
+      /* 상단 섹션2 조건부 설정 */
+      @media (max-width: 1024px) {
+         .top_section_box_2 {
+            flex-direction: column;
+         }
+
+         .top_section_box_2 img {
+            width: calc(240 / 375* 100vw);
+            height: calc(216 / 375* 100vw);
+         }
+
+         .top_section_title_2 {
+            padding-top: min(calc(82 / 375* 100vw), 82px);
+            padding-left: 0;
+         }
+
+         .top_section_title_2 h2 {
+            font-size: 40px;
+            text-align: center;
+         }
+
+         .top_section_title_2 p {
+            padding-bottom: min(calc(108 / 375* 100vw), 108px);
+            font-size: clamp(min(calc(14 / 375* 100vw), 14px), calc(14 / 375* 100vw), 28px);
+            line-height: 1.8;
+            text-align: center;
+         }
+      }
+
+      /* 브랜드 미션 */
+      .brand_mission {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+
+         position: relative;
+      }
+
+      #mission_img {
+         transform: translateX(-50%);
+         width: min(15.938vw, 306px);
+         height: 2.604vw;
+         border-top-left-radius: min(1.042vw, 20px);
+         border-top-right-radius: min(1.042vw, 20px);
+
+         position: absolute;
+         top: calc(-49 / 1920* 100vw);
+         left: 50%;
+      }
+
+      /* 미션 타이틀 */
+      .mission_title {
+         margin-top: min(12.448vw, 239px);
+         margin-bottom: min(5.729vw, 110px);
+      }
+
+      .mission_title_1 {
+         margin-bottom: min(1.302vw, 25px);
+         font-family: 'Paperlogy-8ExtraBold';
+         font-size: 36px;
+         font-size: min(1.875vw, 36px);
+         font-weight: 500;
+         letter-spacing: -0.1rem;
+      }
+
+      .mission_title_1 p {
+         margin: 0;
+         text-align: center;
+      }
+
+      .mission_title_2 {
+         text-align: center;
+      }
+
+      .mission_title_2 strong {
+         font-family: "Archivo Black", serif;
+         font-style: normal;
+         font-size: min(6.771vw, 130px);
+         line-height: 1.2;
+         letter-spacing: -0.3rem;
+      }
+
+      /* 미션 컨텐츠 */
+      .mission_content {
+         margin-bottom: min(14.115vw, 271px);
+         justify-content: center;
+         align-items: center;
+      }
+
+      .mission_content_1,
+      .mission_content_2,
+      .mission_content_3,
+      .mission_content_4,
+      .mission_content_5,
+      .mission_content_6 {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+
+      #content_img_1 {
+         width: calc(477 / 1920* 100vw);
+         height: calc(450 / 1920* 100vw);
+         max-width: 477px;
+         max-height: 450px;
+         margin-right: min(1.823vw, 35px);
+      }
+
+      #content_text_1 {
+         width: calc(670 / 1920* 100vw);
+         height: calc(303 / 1920* 100vw);
+         max-width: 670px;
+         max-height: 303px;
+      }
+
+      .mission_content_2 {
+         margin-bottom: min(3.594vw, 69px);
+      }
+
+      #content_img_2 {
+         width: calc(457 / 1920* 100vw);
+         height: calc(388 / 1920* 100vw);
+         max-width: 457px;
+         max-height: 388px;
+      }
+
+      #content_text_2 {
+         width: calc(671 / 1920* 100vw);
+         height: calc(303 / 1920* 100vw);
+         max-width: 671px;
+         max-height: 303px;
+         margin-right: min(1.823vw, 35px);
+      }
+
+      #content_img_3 {
+         width: calc(495 / 1920* 100vw);
+         height: calc(452 / 1920* 100vw);
+         max-width: 495px;
+         max-height: 452px;
+         margin-right: min(1.823vw, 35px);
+      }
+
+      #content_text_3 {
+         width: calc(674 / 1920* 100vw);
+         height: calc(305 / 1920* 100vw);
+         max-width: 674px;
+         max-height: 305px;
+      }
+
+      .mission_content_4 {
+         margin-bottom: min(1.979vw, 38px);
+      }
+
+      #content_text_4 {
+         width: calc(670 / 1920* 100vw);
+         height: calc(303 / 1920* 100vw);
+         max-width: 670px;
+         max-height: 303px;
+         margin-right: min(1.823vw, 35px);
+      }
+
+      #content_img_4 {
+         width: calc(458 / 1920* 100vw);
+         height: calc(454 / 1920* 100vw);
+         max-width: 458px;
+         max-height: 454px;
+      }
+
+      #content_img_5 {
+         width: calc(505 / 1920* 100vw);
+         height: calc(455 / 1920* 100vw);
+         max-width: 505px;
+         max-height: 455px;
+         margin-right: min(1.823vw, 35px);
+      }
+
+      #content_text_5 {
+         width: calc(671 / 1920* 100vw);
+         height: calc(303 / 1920* 100vw);
+         max-width: 671px;
+         max-height: 303px;
+      }
+
+      #content_text_6 {
+         width: calc(674 / 1920* 100vw);
+         height: calc(305 / 1920* 100vw);
+         max-width: 674px;
+         max-height: 305px;
+         margin-right: min(1.823vw, 35px);
+      }
+
+      #content_img_6 {
+         width: calc(464 / 1920* 100vw);
+         height: calc(459 / 1920* 100vw);
+         max-width: 464px;
+         max-height: 459px;
+      }
+
+      /* 미션 컨텐츠 애니메이션 */
+      .mission_content_1,
+      .mission_content_2,
+      .mission_content_3,
+      .mission_content_4,
+      .mission_content_5,
+      .mission_content_6 {
+         /* 초기 상태에서 숨김 */
+         opacity: 0;
+         /* 위에서 아래로 이동하는 효과 */
+         transform: translateY(-50px);
+         /* 부드러운 애니메이션 */
+         transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      .show {
+         opacity: 1;
+         /* 원래 위치로 돌아옴 */
+         transform: translateY(0);
+      }
+
+      /* 브랜드 에센스 */
+      .brand_essence {
+         position: relative;
+      }
+
+      #essence_img {
+         transform: translateX(-50%);
+         width: min(15.938vw, 306px);
+         height: 2.604vw;
+         border-top-left-radius: min(1.042vw, 20px);
+         border-top-right-radius: min(1.042vw, 20px);
+
+         position: absolute;
+         top: calc(-49 / 1920* 100vw);
+         left: 50%;
+      }
+
+      /* 에센스 타이틀 */
+      .essence_title {
+         display: flex;
+         justify-content: center;
+         text-align: center;
+         padding: min(9.063vw, 174px) 0;
+         background-color: #231f20;
+      }
+
+      .essence_title_1 .essence_title_2 {
+         width: calc(373 / 1920* 100vw);
+         max-width: 373px;
+         margin-right: min(0.521vw, 10px);
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+      }
+
+      .essence_title_1 h2,
+      .essence_title_2 h2 {
+         margin: 0px;
+         font-family: "Archivo Black", serif;
+         font-size: min(3.385vw, 65px);
+         color: rgb(255 183 27);
+      }
+
+      .essence_title_1 p,
+      .essence_title_2 p {
+         margin: 0px;
+         font-size: min(1.25vw, 24px);
+         line-height: 1.5;
+         letter-spacing: -1.5px;
+         white-space: nowrap;
+         color: #fff;
+         opacity: 0;
+         transform: translateY(0px);
+         transition: opacity 0.6s ease-out 0.3s, transform 0.6s ease-out 0.3s;
+      }
+
+      .line {
+         width: 0;
+         height: calc(2 / 1920* 100vw);
+         max-width: 284px;
+         max-height: 2px;
+         margin-left: min(3.75vw, 72px);
+         margin-top: min(1.198vw, 23px);
+         background-color: #ffb71b;
+         transition: width 0.6s ease-out, opacity 0.6s ease-out;
+      }
+
+      /* 에센스 타이틀 조건부 설정 */
+      .essence_title.active .line {
+         width: calc(284 / 1920 * 100vw);
+      }
+
+      .essence_title.active .essence_title_1 p,
+      .essence_title.active .essence_title_2 p {
+         opacity: 1;
+         transform: translateY(min(2.083vw, 40px));
+      }
+
+      /* 에센스 컨텐츠 */
+      .content_title_wrap {
+         width: 100%;
+         height: 100%;
+      }
+
+      .content_title {
+         padding-top: min(7.917vw, 145px);
+         padding-bottom: min(3.698vw, 71px);
+         text-align: center;
+         background-color: #ffb71b;
+      }
+
+      .content_title h2 {
+         margin: 0;
+         font-family: 'archivo black';
+         font-size: min(4.167vw, 80px);
+         font-weight: 400;
+         letter-spacing: -0.2rem;
+      }
+
+      .content_title p {
+         margin: 0;
+         padding-top: min(calc(4 / 1920* 100vw), 4px);
+         font-size: min(calc(24 / 1920* 100vw), 24px);
+         font-weight: 500;
+      }
+
+      /* 컨텐츠 내용 */
+      ul {
+         list-style: none;
+      }
+
+      .essence_content ul {
+         display: flex;
+         justify-content: center;
+         margin-top: 0px;
+         margin-bottom: min(2.813vw, 54px);
+         background-image: linear-gradient(180deg, #ffb71b 10%, #fff 10%);
+      }
+
+      .essence_content li {
+         margin-right: min(1.979vw, 38px);
+         width: calc(352 / 1920* 100vw);
+         height: calc(352 / 1920* 100vw);
+         max-width: 352px;
+         max-height: 352px;
+         border-radius: min(1.563vw, 30px);
+         outline: min(0.313vw, 6px) solid transparent;
+         overflow: hidden;
+         transition: all 0.25s ease-in;
+      }
+
+      .essence_content li:hover {
+         outline: min(0.313vw, 6px) solid #ffb71b;
+         opacity: 1;
+         background: transparent;
+      }
+
+      .essence_content li.active {
+         outline: 6px solid #ffb71b;
+         /* 선택된 이미지 강조 */
+         opacity: 1;
+         background: transparent;
+      }
+
+      .essence_content li.active img {
+         transform: scale(1.1);
+         filter: none;
+      }
+
+      .essence_content li a {
+         position: relative;
+      }
+
+      .essence_content li img {
+         display: block;
+         width: 100%;
+         height: 100%;
+         object-fit: contain;
+         border-radius: min(1.563vw, 30px);
+         object-fit: cover;
+         transition: transform 0.5s;
+         filter: contrast(0.3) brightness(1.5);
+      }
+
+      .essence_content li a:hover img {
+         transform: scale(1.1);
+         transition: transform 0.5s;
+         filter: none;
+      }
+
+      /* 호버 상태에서 이미지 변경 */
+      .essence_content li:hover .content_text img {
+         /* 이미지를 변경 */
+         content: url('./project_images/brand_story_img/arrowOn.png');
+      }
+
+      /* 액티브 상태에서 이미지 변경 */
+      .essence_content li.active .content_text img {
+         /* 이미지를 변경 */
+         content: url('./project_images/brand_story_img/arrowOn.png');
+      }
+
+      .content_text {
+         box-sizing: border-box;
+         text-shadow: 0px 0px 13px rgba(0, 0, 0, 0.75);
+         padding: 0px;
+         display: flex;
+         position: absolute;
+         bottom: min(1.042vw, 20px);
+
+         width: calc(352 / 1920* 100vw);
+         max-width: 352px;
+         padding: 0 calc(26 / 1920* 100vw);
+         justify-content: space-between;
+         align-items: center;
+      }
+
+      .essence_content li a p {
+         margin: 0;
+         font-family: "Noto Sans KR", sans-serif;
+         font-size: min(1.354vw, 26px);
+         font-weight: bold;
+         color: white;
+         z-index: 1000;
+      }
+
+      .content_text img {
+         box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.75);
+         display: block;
+         width: calc(27 / 1920* 100vw);
+         height: calc(27 / 1920* 100vw);
+         max-width: 27px;
+         max-height: 27px;
+      }
+
+      .text {
+         display: none;
+         /* 기본적으로 숨김 */
+         flex-direction: column;
+         justify-content: flex-start;
+         align-items: center;
+         height: calc(197 / 1920* 100vw);
+         max-height: 197px;
+         text-align: center;
+         animation: fadeEffect 0.25s ease-in-out;
+      }
+
+      #text_1 {
+         margin-bottom: min(6.51vw, 125px);
+      }
+
+      #text_2 {
+         margin-bottom: min(12.292vw, 236px);
+      }
+
+      .text h3 {
+         margin: 0px;
+         font-family: 'GongGothicMedium';
+         font-weight: 200;
+         font-size: min(2.396vw, 46px);
+      }
+
+      .text p {
+         font-size: min(0.938vw, 18px);
+         font-weight: 500;
+         line-height: 1.8;
+         color: #626364;
+         margin-bottom: 0px;
+      }
+
+      /* 브랜드 메세지 */
+      .brand_message {
+         position: relative;
+      }
+
+      #message_img {
+         position: absolute;
+         top: calc(-49 / 1920* 100vw);
+         left: 50%;
+         transform: translateX(-50%);
+         width: min(15.938vw, 306px);
+         height: 2.604vw;
+      }
+
+      .brand_message_1 {
+         padding-top: min(12.031vw, 231px);
+         padding-bottom: min(13.281vw, 255px);
+         padding-left: min(52.708vw, 1012px);
+         background: no-repeat top left / cover url(./project_images/brand_story_img/messageBg1.png);
+      }
+
+      .brand_message_1 h2 {
+         margin-top: 0px;
+         font-family: 'GongGothicMedium';
+         font-weight: 200;
+         font-size: min(2.8125vw, 54px);
+         line-height: 1.3;
+      }
+
+      .brand_message_1 p {
+         padding-bottom: min(1.563vw, 30px);
+         font-size: min(0.8333vw, 16px);
+         margin: 0px;
+         font-weight: 500;
+         line-height: 1.5;
+         color: #414042;
+      }
+
+      .brand_message_1 p:last-child {
+         padding-bottom: 0px;
+      }
+
+      .brand_message_2 {
+         padding-top: min(12.24vw, 235px);
+         padding-bottom: min(13.073vw, 251px);
+         padding-left: min(20.729vw, 398px);
+         background: no-repeat top left / cover url(./project_images/brand_story_img/messageBg2.png);
+      }
+
+      .brand_message_2 h2 {
+         color: #fff;
+         margin-top: 0px;
+         font-family: 'GongGothicMedium';
+         font-weight: 200;
+         font-size: min(2.8125vw, 54px);
+         line-height: 1.3;
+      }
+
+      .brand_message_2 p {
+         color: #d0d2d3;
+         margin: 0px;
+         padding-bottom: min(1.563vw, 30px);
+         font-size: min(0.8333vw, 16px);
+         font-weight: 500;
+         line-height: 1.5;
+      }
+
+      .brand_message_2 p:last-child {
+         padding-bottom: 0px;
+      }
+
+      /* 브랜드 역사 */
+      .brand_history {
+         position: relative;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         padding-top: min(11.823vw, 227px);
+         padding-bottom: min(13.958vw, 268px);
+      }
+
+      #history_img {
+         position: absolute;
+         top: calc(-49 / 1920* 100vw);
+         left: 50%;
+         transform: translateX(-50%);
+         width: min(15.938vw, 306px);
+         height: 2.604vw;
+      }
+
+      /* 히스토리 타이틀 */
+      .history_title p {
+         text-align: center;
+         margin-top: 0px;
+         font-family: 'GongGothicMedium';
+         font-weight: 200;
+         font-size: min(2.8125vw, 54px);
+         color: rgb(65 64 66);
+         line-height: 1.3;
+      }
+
+      .history_wrap {
+         display: flex;
+         flex-direction: column;
+         width: calc(1130 / 1920* 100vw);
+         max-width: 1130px;
+         margin: 0px;
+         padding-left: 0px;
+         padding-top: min(calc(67 / 1920* 100vw), 67px);
+         padding-bottom: min(7.292vw, 140px);
+      }
+
+      .history_wrap li {
+         border-bottom: 1px solid #231f20;
+      }
+
+      .history_wrap li:first-child {
+         padding-top: min(2.865vw, 55px);
+         padding-bottom: min(2.604vw, 50px);
+      }
+
+      .history_wrap h2 {
+         margin: 0px;
+         font-family: 'GongGothicMedium';
+         font-weight: 600;
+         font-size: min(2.0833vw, 40px);
+         letter-spacing: 4px;
+      }
+
+      /* 연도별 스타일 */
+      .year {
+         position: relative;
+         display: flex;
+         justify-content: space-between;
+         align-items: flex-start;
+         padding-top: min(2.865vw, 55px);
+         padding-bottom: min(2.604vw, 50px);
+         cursor: pointer;
+      }
+
+      .year h2 {
+         font-size: min(2.0833vw, 40px);
+         font-family: 'GongGothicMedium';
+         font-weight: 600;
+         margin: 0;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         width: 100%;
+      }
+
+      input[type="checkbox"]:checked+label .year h2,
+      .year:hover h2 {
+         color: rgb(255 155 21);
+      }
+
+      .history_content h3,
+      .history_content p {
+         margin: 0px;
+      }
+
+      .month {
+         display: flex;
+         padding-bottom: 20px;
+         font-size: min(1.042vw, 20px);
+         line-height: 1.8;
+         width: calc(546 / 1920* 100vw);
+         max-width: 546px;
+         margin-right: min(2.917vw, 56px);
+         transition: all 0.25s;
+      }
+
+      .month:last-child {
+         padding-bottom: 0px;
+      }
+
+      .month h3 {
+         min-width: calc(43 / 1920* 100vw);
+         max-width: 43px;
+         margin-right: min(0.781vw, 15px);
+         font-weight: 800;
+         white-space: nowrap;
+      }
+
+      .month p {
+         font-size: min(calc(20 / 1920* 100vw), 18px);
+      }
+
+      .month span {
+         padding-left: min(calc(15 / 1920* 100vw), 15px);
+         font-size: min(calc(18 / 1920* 100vw), 18px);
+         color: #626364;
+      }
+
+      .history_content img {
+         position: relative;
+         display: inline-block;
+         width: calc(14 / 1920* 100vw);
+         height: calc(14 / 1920* 100vw);
+         max-width: 14px;
+         max-height: 14px;
+         transform: rotate(0);
+         cursor: pointer;
+      }
+
+      /* 아이콘 위치 조정 */
+      .year .arrow-icon {
+         position: absolute;
+         top: min(2.604vw, 50px);
+         right: -20px;
+         width: calc(45 / 1920* 100vw);
+         height: calc(45 / 1920* 100vw);
+         max-width: 45px;
+         max-height: 45px;
+         transition: transform 0.3s ease;
+      }
+
+      /* 체크박스 */
+      input[type="checkbox"] {
+         display: none;
+      }
+
+      /* 체크되었을 때 */
+      input[type="checkbox"]:checked+label+.history_content {
+         display: inline-block;
+         max-height: 100%;
+         transition: max-height 0.3s ease;
+      }
+
+      /* 초기 상태에서는 content가 숨겨짐 */
+      .history_content {
+         max-height: 0;
+         overflow: hidden;
+         opacity: 0;
+         display: flex;
+         flex-direction: column;
+      }
+
+      input[type="checkbox"]:checked+label .year .history_content {
+         max-height: 100%;
+         opacity: 1;
+         overflow: visible;
+      }
+
+      /* 체크 여부에 따라 아이콘 변경 */
+      input[type="checkbox"]:checked+label .year .arrow-icon {
+         /* 열린 상태 */
+         content: url('./project_images/brand_story_img/text_open.png');
+      }
+
+      input[type="checkbox"]:not(:checked)+label .year .arrow-icon {
+         /* 닫힌 상태 */
+         content: url('./project_images/brand_story_img/text_close.png');
+      }
+
+      .history_btn {
+         display: flex;
+      }
+
+      .history_btn a {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         width: calc(345 / 1920* 100vw);
+         height: calc(85 / 1920* 100vw);
+         max-width: 345px;
+         max-height: 85px;
+         outline: min(0.156vw, 3px) solid #000;
+         border-radius: min(4.167vw, 80px);
+         transition: background 0.25s ease-in-out;
+      }
+
+      .history_btn a:first-child {
+         margin-right: min(5.208vw, 100px);
+      }
+
+      .history_btn img {
+         display: block;
+         width: 100%;
+         height: calc(33 / 1920* 100vw);
+         max-height: 33px;
+         object-fit: contain;
+      }
+   </style>
+   <script>
+      // 상단 섹션 이미지 슬라이드
+      const images = [
+         "./project_images/brand_story_img/title_img1.png",
+         "./project_images/brand_story_img/title_img2.png",
+         "./project_images/brand_story_img/title_img3.png",
+         "./project_images/brand_story_img/title_img4.png",
+         "./project_images/brand_story_img/title_img5.png",
+         "./project_images/brand_story_img/title_img6.png",
+         "./project_images/brand_story_img/title_img7.png",
+         "./project_images/brand_story_img/title_img8.png",
+         "./project_images/brand_story_img/title_img9.png"
+      ];
+      let index = 0;
+
+      function changeImage() {
+         const img = document.getElementById("slide_img");
+         img.style.transform = "rotateX(90deg)"; // X축 기준 90도 회전 효과
+
+         setTimeout(() => {
+            index = (index + 1) % images.length;
+            img.src = images[index];         // 이미지 변경
+            img.style.transform = "rotateX(0deg)"; // 원래 상태로 복귀
+         }, 100); // 0.1초 후 실행
+      }
+
+      setInterval(changeImage, 1100); // 1.1초마다 이미지 변경
+
+
+      // 다운 스크롤 버튼
+      $(document).ready(function () {
+         let lastScrollTop = 0;  //마지막 스크롤 위치 저장
+         // 첫 번째 섹션에서 버튼 클릭 시 두 번째 섹션으로 스크롤
+         $(".arrow_button img").click(function () {
+            $("html, body").animate(
+               { scrollTop: $(".top_section_2").offset().top, },
+               800
+            );
+         });
+
+
+         // 스크롤을 한 번만 내려도 버튼 숨기기
+         $(window).scroll(function () {
+            let currentScroll = $(this).scrollTop();
+
+            if (currentScroll > lastScrollTop) {
+               // 아래로 스크롤하면 버튼 숨기기
+               $(".arrow_button img").addClass('hide');
+            } else {
+               // 위로 스크롤하면 버튼 다시 보이게
+               $(".arrow_button img").removeClass('hide');
+            }
+
+            lastScrollTop = currentScroll;
+         });
+      });
+
+
+      // 스크롤 이벤트 감지하여 애니메이션 적용
+      document.addEventListener("scroll", function () {
+         // 모든 미션 컨텐츠 요소 가져오기
+         const elements = document.querySelectorAll(".mission_content_1, .mission_content_2, .mission_content_3, .mission_content_4, .mission_content_5, .mission_content_6");
+
+         elements.forEach((element) => {
+            const rect = element.getBoundingClientRect().top; // 요소의 화면 내 위치 가져오기
+            const windowHeight = window.innerHeight; // 현재 창의 높이
+
+            if (rect < windowHeight * 0.7) { // 화면의 80% 지점에 도달하면 활성화
+               element.classList.add("show"); // show 클래스 추가하여 애니메이션 실행
+            }
+         });
+      });
+
+
+      // 브랜드 에센스 타이틀 애니메이션
+      document.addEventListener("DOMContentLoaded", function () {
+         const essenceTitle = document.getElementById("essenceTitle");
+         const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+               if (entry.isIntersecting) {
+                  essenceTitle.classList.add("active");
+                  observer.unobserve(essenceTitle);
+               }
+            });
+         }, { threshold: 0.5 });
+         observer.observe(essenceTitle);
+      });
+
+
+      // 에센스 컨텐츠 텍스트 스크립트
+      document.addEventListener("DOMContentLoaded", function () {
+         const sections = document.querySelectorAll(".essence_content");
+
+         sections.forEach((section) => {
+            const items = section.querySelectorAll("li"); // 해당 섹션의 이미지 목록
+            const textSections = section.querySelectorAll(".text"); // 해당 섹션의 설명 텍스트
+
+            // 모든 텍스트 숨기기
+            textSections.forEach(text => text.style.display = "none");
+
+            if (items.length > 0) {
+               // 첫 번째 항목 활성화
+               items[0].classList.add("active");
+               if (textSections.length > 0) {
+                  textSections[0].style.display = "flex"; // 첫 번째 텍스트만 보이도록 설정
+               }
+            }
+
+            items.forEach((item, index) => {
+               item.addEventListener("click", function () {
+                  // 모든 li에서 'active' 제거
+                  items.forEach(li => li.classList.remove("active"));
+                  // 클릭한 요소에 'active' 추가
+                  item.classList.add("active");
+
+                  // 모든 설명 숨기기
+                  textSections.forEach(text => text.style.display = "none");
+
+                  // 해당하는 설명 표시
+                  if (textSections[index]) {
+                     textSections[index].style.display = "flex";
+                  }
+               });
+            });
+         });
+      });
+   </script>
+</head>
+
+<body>
+   <!-- 헤더 영역 채우기 -->
+   <div class="header_background">
+      <!-- 헤더 영역 -->
+      <header>
+         <div class="header_wrap">
+            <!-- 헤더 상단 메뉴 -->
+            <div class="header_top">
+               <ul class="header_top_menu">
+                  <li><a href="">채용안내</a></li>
+                  <li><a href="">전자 계약 시스템</a></li>
+               </ul>
+            </div>
+            <!-- 헤더 메인 메뉴 -->
+            <div class="header_main_wrap">
+               <div class="header_logo">
+                  <a href="index.html"><img src="./project_images/header&footer_img/logo.png" alt="이마트24 로고" /></a>
+               </div>
+               <ul class="header_main">
+                  <div class="submenu_background"></div>
+                  <li class="header_main_menu">
+                     <a href="brand_story.html">이마트24 소개</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="brand_story.html">브랜드 스토리</a></li>
+                        <li><a href="brand_resource.html">브랜드 리소스 센터</a></li>
+                        <li><a href="brand_gallery.html">브랜드 갤러리</a></li>
+                     </ul>
+                  </li>
+                  <li class="header_main_menu">
+                     <a href="goods_event.html">상품</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="goods_event.html">행사 상품</a></li>
+                        <li><a href="goods_different.html">차별화 상품</a></li>
+                        <li><a href="goods_fresh.html">Fresh Food</a></li>
+                     </ul>
+                  </li>
+                  <li class="header_main_menu">
+                     <a href="service_app.html">서비스</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="service_app.html">APP 서비스</a></li>
+                        <li><a href="service_life.html">생활 서비스</a></li>
+                        <li><a href="#" onclick="alert('준비되지 않았습니다');">제휴 서비스</a></li>
+                     </ul>
+                  </li>
+                  <li class="header_main_menu">
+                     <a href="event_act.html">이벤트</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="event_act.html">진행중인 이벤트</a></li>
+                        <li><a href="#" onclick="alert('준비되지 않았습니다');">종료된 이벤트</a></li>
+                     </ul>
+                  </li>
+                  <li class="header_main_menu">
+                     <a href="customerCenter.html">고객센터</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="customerCenter.html">고객센터 홈</a></li>
+                        <li><a href="customerCenter_faq.html">FAQ</a></li>
+                        <li><a href="customerCenter_online.html">온라인 문의</a></li>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </header>
+   </div>
+
+   <section>
+      <!-- 상단 섹션 영역 -->
+      <div class="top_section_1">
+         <div class="top_section_box_1">
+            <div>
+               <p>하루를 맛있게 일상을 멋지게</p>
+            </div>
+            <div class="top_section_title">
+               <img src="./project_images/brand_story_img/mainBannerTxt.png" alt="Delicious Idea">
+               <img id="slide_img" src="./project_images/brand_story_img/title_img1.png" alt="slide_img">
+            </div>
+         </div>
+         <!-- 아래로 내려가는 버튼 -->
+         <span class="arrow_button">
+            <img src="./project_images/brand_story_img/scrollArrow.png" alt="기본 이미지" class="down">
+         </span>
+      </div>
+
+      <div class="top_section_2">
+         <div class="top_section_box_2">
+            <div class="sloganItemImg">
+               <img src="./project_images/brand_story_img/sloganItem.png" alt="sloganItem">
+            </div>
+            <div class="top_section_title_2">
+               <h2>
+                  평범한 일상을 멋지게 바꿔주는<br>
+                  맛있는 아이디어
+               </h2>
+               <p>
+                  이마트24는 일상에 편리와 기쁨을 드리는 모두의 이웃입니다.<br>
+                  생활 속 작은 편리와 즐거움을 경험할 수 있도록<br>
+                  언제 어디서나 고객의 가장 가까이에서<br>
+                  먹고 쓰고 즐기는 일상의 모든 것을 함께합니다.
+               </p>
+            </div>
+         </div>
+      </div>
+
+      <!-- 브랜드 미션 -->
+      <div class="brand_mission">
+         <img id="mission_img" src="./project_images/brand_story_img/missionTab.png">
+         <div class="mission_title">
+            <div class="mission_title_1">
+               <p>이마트24만의 딜리셔스함을 만드는 우리의 원칙</p>
+            </div>
+            <div class="mission_title_2">
+               <strong>WE MAKE LIFE<br>DELICIOUS</strong>
+            </div>
+         </div>
+
+         <div class="mission_content">
+            <div class="mission_content_1">
+               <img id="content_img_1" src="./project_images/brand_story_img/missionImg1.png" alt="missionImg">
+               <img id="content_text_1" src="./project_images/brand_story_img/missionSpeachBubble1.png"
+                  alt="missionText">
+            </div>
+
+            <div class="mission_content_2">
+               <img id="content_text_2" src="./project_images/brand_story_img/missionSpeachBubble2.png"
+                  alt="missionText">
+               <img id="content_img_2" src="./project_images/brand_story_img/missionImg2.png" alt="missionImg">
+            </div>
+
+            <div class="mission_content_3">
+               <img id="content_img_3" src="./project_images/brand_story_img/missionImg3.png" alt="missionImg">
+               <img id="content_text_3" src="./project_images/brand_story_img/missionSpeachBubble3.png"
+                  alt="missionText">
+            </div>
+
+            <div class="mission_content_4">
+               <img id="content_text_4" src="./project_images/brand_story_img/missionSpeachBubble4.png"
+                  alt="missionText">
+               <img id="content_img_4" src="./project_images/brand_story_img/missionImg4.png" alt="missionImg">
+            </div>
+
+            <div class="mission_content_5">
+               <img id="content_img_5" src="./project_images/brand_story_img/missionImg5.png" alt="missionImg">
+               <img id="content_text_5" src="./project_images/brand_story_img/missionSpeachBubble5.png"
+                  alt="missionText">
+            </div>
+
+            <div class="mission_content_6">
+               <img id="content_text_6" src="./project_images/brand_story_img/missionSpeachBubble6.png"
+                  alt="missionText">
+               <img id="content_img_6" src="./project_images/brand_story_img/missionImg6.png" alt="missionImg">
+            </div>
+         </div>
+      </div>
+
+      <!-- 브랜드 에센스 -->
+      <div class="brand_essence">
+         <img id="essence_img" src="./project_images/brand_story_img/essenceTab.png" alt="브랜드 에센스">
+
+         <div class="essence_title" id="essenceTitle">
+            <div class="essence_title_1">
+               <h2>DELICOUS</h2>
+               <p>
+                  맛있는 상품, 기분 좋은 서비스, 멋있는 스토어 등<br>
+                  편의점으로서 고객의 '편의와 즐거움'을 추구하는 것
+               </p>
+            </div>
+            <span class="line"></span>
+            <div class="essence_title_2">
+               <h2>IDEA</h2>
+               <p>
+                  콜라보, 뉴 컨텐츠, 사업 분야 확장 등<br>
+                  이마트24가 차별화를 이끌어내야 할 '새로운 아이디어'
+               </p>
+            </div>
+         </div>
+
+         <!-- 컨텐츠 영역1 -->
+         <div class="content_title_wrap">
+            <div class="content_title">
+               <h2>DELICIOUS</h2>
+               <p>편의점(CVS) 업태의 본질에 충실한 콘텐츠</p>
+            </div>
+
+
+            <div class="essence_content">
+               <ul>
+                  <li>
+                     <a href="javascript:void(0);"> <!-- 클릭 시 이동이 안되게 막음 -->
+                        <img src="./project_images/brand_story_img/deliciousImg1.png" alt="상품">
+                        <div class="content_text">
+                           <p>상품</p>
+                           <img src="./project_images/brand_story_img/arrowOff.png" alt="버튼off">
+                        </div>
+                     </a>
+                  </li>
+
+                  <li>
+                     <a href="javascript:void(0);">
+                        <img src="./project_images/brand_story_img/deliciousImg2.png" alt="스토어">
+                        <div class="content_text">
+                           <p>스토어</p>
+                           <img src="./project_images/brand_story_img/arrowOff.png" alt="버튼off">
+                        </div>
+                     </a>
+                  </li>
+
+                  <li>
+                     <a href="javascript:void(0);">
+                        <img src="./project_images/brand_story_img/deliciousImg3.png" alt="서비스">
+                        <div class="content_text">
+                           <p>서비스</p>
+                           <img src="./project_images/brand_story_img/arrowOff.png" alt="버튼off">
+                        </div>
+                     </a>
+                  </li>
+               </ul>
+
+               <div class="text" id="text_1">
+                  <h3>상품</h3>
+                  <p>
+                     우리는 상품의 맛과 카테고리의 다양성에 집중합니다.<br>
+                     고객과 가장 가까운 곳에서 줄 서지 않고도 전문점 수준의 먹거리를 즐길 수 있게 만들고<br>
+                     다양한 구색과 합리적인 가격으로 믿고 구매할 수 있는 PL 브랜드를 구축합니다.<br>
+                     이렇듯 우리가 제공하는 '합리적인 프리미엄' 상품은 고객이 이마트24를 다시 찾을 수 밖에 없는 이유입니다.
+                  </p>
+               </div>
+
+               <div class="text" id="text_1">
+                  <h3>스토어</h3>
+                  <p>
+                     우리는 고객이 기분 좋은 공간을 설계합니다.<br>
+                     매장이 고객의 일상 속 쉼터가 되도록 편안하고 쾌적한 카페 공간을 만들고 고객의 동선에 맞춰 각종 서비스를 제공합니다.<br>
+                     이처럼 이마트24는 단순히 상품을 구매하는 곳이 아니라, 고객의 일상에 즐거운 경험을 주는 플랫폼으로써 존재합니다.
+                  </p>
+               </div>
+
+               <div class="text" id="text_1">
+                  <h3>서비스</h3>
+                  <p>
+                     우리는 때와 장소를 가리지 않고 고객의 니즈를 즉각적으로 채웁니다.<br>
+                     즉석조리, 택배, 배달, 스마트 스토어, 드론 배달 등 첨단 기술과 시스템을 기반으로 서비스의 효율과 고객의 편의에 집중합니다.<br>
+                     가장 빠르고 간편하게 고객의 일상 속 빈틈을 채우는 이마트24는 언제나 고객의 하루와 함께 합니다.
+                  </p>
+               </div>
+            </div>
+
+
+            <!-- 컨텐츠 영역2 -->
+            <div class="content_title_wrap">
+               <div class="content_title">
+                  <h2>IDEA</h2>
+                  <p>편의점(CVS)의 틀을 깨는 새로운 시도</p>
+               </div>
+
+
+               <div class="essence_content">
+                  <ul>
+                     <li>
+                        <a href="javascript:void(0);">
+                           <img src="./project_images/brand_story_img/ideaImg1.png" alt="콜라보레이션">
+                           <div class="content_text">
+                              <p>콜라보레이션</p>
+                              <img src="./project_images/brand_story_img/arrowOff.png" alt="버튼off">
+                           </div>
+                        </a>
+                     </li>
+
+                     <li>
+                        <a href="javascript:void(0);">
+                           <img src="./project_images/brand_story_img/ideaImg2.png" alt="새로운 컨텐츠">
+                           <div class="content_text">
+                              <p>새로운 컨텐츠</p>
+                              <img src="./project_images/brand_story_img/arrowOff.png" alt="버튼off">
+                           </div>
+                        </a>
+                     </li>
+
+                     <li>
+                        <a href="javascript:void(0);">
+                           <img src="./project_images/brand_story_img/ideaImg3.png" alt="온·오프라인 연계">
+                           <div class="content_text">
+                              <p>온·오프라인 연계</p>
+                              <img src="./project_images/brand_story_img/arrowOff.png" alt="버튼off">
+                           </div>
+                        </a>
+                     </li>
+                  </ul>
+
+                  <div class="text" id="text_2">
+                     <h3>콜라보레이션</h3>
+                     <p>
+                        우리는 고객에게 끊임없이 즐거운 경험을 선사합니다.<br>
+                        고객의 취향, 이슈, 트렌드를 고려하여 다양한 브랜드 및 IP 와 협업을 꾸준히 진행하면서<br>
+                        고객에게 재미있고 즐거운 순간을 만드는 일에 집중합니다.<br>
+                        언제나 색다른 즐거움과 감동을 주는 것, 이것이 이마트24가 시도하는 콜라보레이션의 목적입니다.
+                     </p>
+                  </div>
+
+                  <div class="text" id="text_2">
+                     <h3>새로운 콘텐츠</h3>
+                     <p>
+                        우리는 신선한 콘텐츠와 본 적 없는 서비스를 개발하는 데 거침없이 투자합니다.<br>
+                        스마트 스토어, 무인 매장, 드론 배달 등 고객의 일상을 편리하고 유익하게 만들기 위해<br>
+                        고객의 라이프스타일을 분석하고 객관적인 데이터를 바탕으로 정교한 시스템과 시설을 구축합니다.<br>
+                        새로운 콘텐츠와 서비스를 향한 이마트24의 탐색은 늘 ‘고객 만족’을 향합니다.
+                     </p>
+                  </div>
+
+                  <div class="text" id="text_2">
+                     <h3>온·오프라인 연계</h3>
+                     <p>
+                        우리는 온라인과 오프라인의 경계를 허물고 다양한 비즈니스 전략을 구사합니다.<br>
+                        오프라인 매장과 온라인 서비스는 긴밀하게 연결되어<br>
+                        고객의 편의를 보다 이롭게 하고 나아가 고객과의 커뮤니케이션 영역을 확장합니다.<br>
+                        이마트24 앱과 매장은 온라인과 오프라인 공간의 연계를 통한 시너지로 이마트24의 광활한 가능성을 보여줍니다.
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- 브랜드 메세지 -->
+      <div class="brand_message">
+         <img id="message_img" src="./project_images/brand_story_img/MessageTab.png">
+         <div class="brand_message_1">
+            <h2>편리함과 즐거움으로<br>고객의 하루를 완성합니다.</h2>
+            <p>
+               이마트24는 일상에 편리와 기쁨을 드리는 모두의 이웃입니다.<br>
+               우리의 미션은 매일 먹고 쓰고 즐기는 고객의 일상 속<br>
+               모든 순간마다 편리함과 즐거움을 선물하는 것입니다.
+            </p>
+            <p>
+               우리의 고객은 집 근처 50m 안에서 맛있고 신선한 맛집 도시락을 먹고<br>
+               학교 근처 50m 안에서 SNS 속 인기 스낵을 즐기고<br>
+               회사 근처 50m 안에서 시원한 맥주 한 캔을 마십니다.
+            </p>
+            <p>매일 쌓이는 작은 기쁨, 이마트24와 함께 하는 일상입니다.</p>
+         </div>
+
+         <div class="brand_message_2">
+            <h2>경영주님과 함께<br>더 나은 비전을 그립니다.</h2>
+            <p>
+               이마트24는 우리의 이웃, 경영주님과 함께 성장하는 방법을 고민합니다.<br>
+               우리의 비전은 고객의 일상에 편의와 즐거움을 전하는 브랜드로서<br>
+               오래도록 지역 사회에서 대체될 수 없는 라이프스타일 가이드가 되는 것입니다.
+            </p>
+            <p>
+               그래서 우리는 시장의 니즈에 응답하는 상품을 연구하고<br>
+               계속 머물고 싶은 차별화 공간을 설계하며<br>
+               ‘합리적인 프리미엄’의 가치를 고민합니다.
+            </p>
+            <p>오늘 하루도 경영주님과 함께 골목골목 이웃을 비추는 노란 불빛, 이마트24입니다.</p>
+         </div>
+      </div>
+
+      <!-- 브랜드 역사 -->
+      <div class="brand_history">
+         <img id="history_img" src="./project_images/brand_story_img/hisytoryTab.png">
+         <div class="history_title">
+            <p>이마트24는 오늘도<br>고객과 경영주님께 다가갑니다</p>
+         </div>
+         <ul class="history_wrap">
+            <li>
+               <h2>History</h2>
+            </li>
+            <li>
+               <input id="toggle_2023" type="checkbox">
+               <label for="toggle_2023">
+                  <div class="year">
+                     <h2>2023</h2>
+                     <img class="arrow-icon" src="./project_images/brand_story_img/text_close.png" alt="close">
+                     <div class="history_content">
+                        <div class="month">
+                           <h3>3월</h3>
+                           <p>
+                              - 상품전시회 “딜리셔스 페스티벌” 개최<br>
+                              <span>*3/8(수) ~ 10(금), 서울 양재 AT센터</span>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>8월</h3>
+                           <p>
+                              - 해외사업 진출 MOU<br>
+                              <span>*캄보디아</span>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>9월</h3>
+                           <p>
+                              - 업계 최초 간편집밥 CAT.K 추진<br>
+                              <span>*신선반찬 플랫폼기업 ‘슈퍼키친’ 콜라보</span>
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+               </label>
+            </li>
+
+            <li>
+               <input id="toggle_2022" type="checkbox">
+               <label for="toggle_2022">
+                  <div class="year">
+                     <h2>2022</h2>
+                     <img class="arrow-icon" src="./project_images/brand_story_img/text_close.png" alt="close">
+                     <div class="history_content">
+                        <div class="month">
+                           <h3>2월</h3>
+                           <p>
+                              - 싱가폴 MFA 체결<br>
+                              <span>*페이숑社</span>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>3월</h3>
+                           <p>
+                              - 업계 최단기 6000호점 오픈<br>
+                              <span>*8년 소요(CU / GS25 21년 소요)</span><br>
+                              - 新 제도 도입<br>
+                              <span>*H1(로열티, 본부임차) 타입 도입, 1호점 R문정대명점</span>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>4월</h3>
+                           <p>
+                              - 콜라보 상품 개발<br>
+                              <span>*코오롱스포츠 콜라보 24종 등</span>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>5월</h3>
+                           <p>
+                              - 스토어 컨셉 다양화<br>
+                              <span>*은행제휴 출점(KB 디지털뱅크, 분평동점), Bottle<br>Shop(CVS + 주류전문점 샵인샵, 강동ECT점) 등</span>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>6월</h3>
+                           <p>
+                              - 상반기 흑자 전환 (+9억)<br>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>10월</h3>
+                           <p>
+                              - 이마트24 APP 리뉴얼 론칭<br>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>12월</h3>
+                           <p>
+                              - 해외사업 확대<br>
+                              <span>*싱가폴 1, 2호점 오픈</span>
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+               </label>
+            </li>
+
+            <li>
+               <input id="toggle_2021" type="checkbox">
+               <label for="toggle_2021">
+                  <div class="year">
+                     <h2>2021</h2>
+                     <img class="arrow-icon" src="./project_images/brand_story_img/text_close.png" alt="close">
+                     <div class="history_content">
+                        <div class="month">
+                           <h3>1월</h3>
+                           <p>
+                              - 해외사업 TF 파견<br>
+                              <span>*말레이시아</span>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>3월</h3>
+                           <p>
+                              - 배달서비스 리뉴얼 오픈<br>
+                              <span>*요기요 MOU</span>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>4월</h3>
+                           <p>
+                              - 해외사업 진출 MOU<br>
+                              <span>*싱가폴</span>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>6월</h3>
+                           <p>
+                              - 해외사업 1호점 오픈<br>
+                              <span>*말레이시아</span>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>9월</h3>
+                           <p>
+                              - 완전무인점포 오픈<br>
+                              <span>*스마트코엑스</span>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>10월</h3>
+                           <p>
+                              - 이마트24 WAY 수립<br>
+                              <span>*Identity 확립</span><br>
+                              - 무인 주류판매 도입 확대<br>
+                              <span>*주류 무인판매 규제 샌드박스 허용</span>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>12월</h3>
+                           <p>
+                              - 퀵커머스 사업 추진<br>
+                              <span>*BSD관악센터 오픈</span>
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+               </label>
+            </li>
+
+            <li>
+               <input id="toggle_2020" type="checkbox">
+               <label for="toggle_2020">
+                  <div class="year">
+                     <h2>2020</h2>
+                     <img class="arrow-icon" src="./project_images/brand_story_img/text_close.png" alt="close">
+                     <div class="history_content">
+                        <div class="month">
+                           <h3>2월</h3>
+                           <p>
+                              - 농협 경제지주 상생협력 MOU 체결 (2/20)<br>
+                              <span>/ 차별화 전문매장 도입 (FAVE/농협)</span>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>6월</h3>
+                           <p>
+                              - 평택 新 물류센터 오픈(6월)<br>
+                              <span>*SF/ED 공동 운영</span>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>8월</h3>
+                           <p>
+                              - 업계 최단기 5000호점 오픈<br>
+                              <span>*5년 1개월 소요(CU / GS25 20년 소요)</span>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>9월</h3>
+                           <p>
+                              - 샵인샵 전문매장 오픈 (애플, 오피스디포)
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>12월</h3>
+                           <p>
+                              - 대학생활협동조합 MOU (쿱스켓)<br>
+                              <span>*캠퍼스 편의점 혁신</span>
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+               </label>
+            </li>
+
+            <li>
+               <input id="toggle_2019" type="checkbox">
+               <label for="toggle_2019">
+                  <div class="year">
+                     <h2>2019</h2>
+                     <img class="arrow-icon" src="./project_images/brand_story_img/text_close.png" alt="close">
+                     <div class="history_content">
+                        <div class="month">
+                           <h3>1월</h3>
+                           <p>
+                              - FF 전용 생산 공장 OPEN (김천)<br>
+                              <span>*2000평, 18만식/日</span><br>
+                              - 이마트24 서비스 오픈 (목포주유소 2개점)
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>2월</h3>
+                           <p>
+                              - 초저가 민생라면 출시 (민생 시리즈 도입)<br>
+                              - 차별화 전문매장 도입(주류 카테고리 킬러) FRESH,<br>수입과자 확대
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>4월</h3>
+                           <p>
+                              - 한강여의도 2점, 코엑스 6호 오픈(LAB)<br>
+                              / 부산 저온센터 오픈
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>5월</h3>
+                           <p>
+                              - 업계 최단기 4000호점 오픈<br>
+                              <span>*4년 10개월 소요(CU 18년, GS25 20년 소요)</span><br>
+                              - 부산(4월) / 남양주(5월) 센터 오픈
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>8월</h3>
+                           <p>
+                              - 창사 최초 月 흑자 실현 (+1.6억)
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>9월</h3>
+                           <p>
+                              - 양지상온센터 오픈 (11월 저온)<br>
+                              / 미래형 점포 오픈 (스마트 스토어)<br>
+                              <span>*김포 DC센터</span>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>10월</h3>
+                           <p>
+                              - 복합문화공간 2garden 오픈(대구)<br>
+                              / 차세대 점포 시스템 오픈<br>
+                              <span>*차세대 본부(20년 4월)/POS(20년8월)</span>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>12월</h3>
+                           <p>
+                              - APP 배달서비스 도입 (직영 TEST)<br>
+                              <span>*[1차] 요기요(12월) &nbsp;&nbsp;&nbsp;&nbsp;[2차] 자체 플랫폼(KIS, 20년 3월)</span>
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+               </label>
+            </li>
+
+            <li>
+               <input id="toggle_2018" type="checkbox">
+               <label for="toggle_2018">
+                  <div class="year">
+                     <h2>2018</h2>
+                     <img class="arrow-icon" src="./project_images/brand_story_img/text_close.png" alt="close">
+                     <div class="history_content">
+                        <div class="month">
+                           <h3>1월</h3>
+                           <p>
+                              - emart24 TV 런칭<br>
+                              <span>*1/15 첫 송출</span>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>3월</h3>
+                           <p>
+                              - 그룹사 통합 담배 공급 시행<br>
+                              <span>*이마트(국산)/ED(국산+외산)</span>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>4월</h3>
+                           <p>
+                              - 新제도 도입 ( 新 발주 시스템 오픈 / 新 가맹모델<br>『성과공유형』 도입 )<br>
+                              - Hybrid형 무인점포 오픈 (성수본점)<br>
+                              <span>*벤딩머신 도입</span><br>
+                              - 업계 최단기 3000호점 오픈<br>
+                              <span>*3년 9개월 소요(CU 15년, GS25 18년 소요)</span>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>5월</h3>
+                           <p>
+                              - 업계 차별화 점포 오픈<br>
+                              <span>*바리스타가 있는 편의점(코엑스3호, 해방촌)</span>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>8월</h3>
+                           <p>
+                              - 업계 차별화 점포 오픈<br>
+                              <span>*동작대교 구름/노을 라운지</span>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>9월</h3>
+                           <p>
+                              - 화성 센터 오픈 (상온 6월, 저온 9월)<br>
+                              <span>*상온 8센터, 저온 8센터</span><br>
+                              - 운영 제도 변경 ① 점포 프리미엄化(3타입 -> 2타<br>입) ② 간편송금제 시행 ③ 전문직 점장 제도
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>10월</h3>
+                           <p>
+                              - 개점 1주년(리브랜딩 1주년) / 이마트24 APP 출시
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>12월</h3>
+                           <p>
+                              - 年 매출 1조 돌파 / 부산상온센터 오픈
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+               </label>
+            </li>
+
+            <li>
+               <input id="toggle_2017" type="checkbox">
+               <label for="toggle_2017">
+                  <div class="year">
+                     <h2>2017</h2>
+                     <img class="arrow-icon" src="./project_images/brand_story_img/text_close.png" alt="close">
+                     <div class="history_content">
+                        <div class="month">
+                           <h3>2월</h3>
+                           <p>
+                              - 주류중개 면허 취득 및 중앙주류공급 개시<br>
+                              <span>*수도권/영남권 개시 -> 호남권(4월) -> 충청권 완성(6월)</span>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>4월</h3>
+                           <p>
+                              - 업계 최단기 2000호점 오픈<br>
+                              <span>*2년 9개월 소요(CU 13년 소요)</span>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>6월</h3>
+                           <p>
+                              - 무인계산대 시범운영 (전주교대)
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>7월</h3>
+                           <p>
+                              - ㈜이마트24 사명변경 / 新 BI 런칭
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>10월</h3>
+                           <p>
+                              - CVS 업계 4위 달성 (점포수)<br>
+                              <span>*이마트24 2,421점 / 미니스톱 2,418점</span><br>
+                              - 『상생혁신 공유형 편의점』 新제도 도입<br>
+                              <span>*성과공유형 페이백(10월) -> 경영주 학자금 지원(11월)</span>
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>11월</h3>
+                           <p>
+                              - 국가기관연계 상생 출점 (대한소방공제회 MOU 10월)<br>
+                              <span>*노량진로점, 사하E편한점, 노원공릉점</span>
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+               </label>
+            </li>
+
+            <li>
+               <input id="toggle_2016" type="checkbox">
+               <label for="toggle_2016">
+                  <div class="year">
+                     <h2>2016</h2>
+                     <img class="arrow-icon" src="./project_images/brand_story_img/text_close.png" alt="close">
+                     <div class="history_content">
+                        <div class="month">
+                           <h3>2월</h3>
+                           <p>
+                              - 고급 원두커피 「TAKE1」 500원 출시
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>5월</h3>
+                           <p>
+                              - 국산 담배 중앙 공급
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>7월</h3>
+                           <p>
+                              - ㈜이마트위드미 사명변경 / 新 BI 런칭
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>10월</h3>
+                           <p>
+                              - 업계 최초 新 금융 「캐시백 서비스」시범 도입
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>12월</h3>
+                           <p>
+                              - POS 매출 5,000억 달성<br>
+                              <span>*12월末 1,765점</span>
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+               </label>
+            </li>
+
+            <li>
+               <input id="toggle_2015" type="checkbox">
+               <label for="toggle_2015">
+                  <div class="year">
+                     <h2>2015</h2>
+                     <img class="arrow-icon" src="./project_images/brand_story_img/text_close.png" alt="close">
+                     <div class="history_content">
+                        <div class="month">
+                           <h3>5월</h3>
+                           <p>
+                              - 업(業)의 본질(本質) 수립 / 외산 담배 중앙 공급
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>7월</h3>
+                           <p>
+                              - KT 통신사 제휴 / No-Brand 도입 / SSG-PAY 도입
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>12월</h3>
+                           <p>
+                              - 업계 최단기 1000호점 오픈<br>
+                              <span>*12월末 1,058점 / 년매출 1,125억</span>
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+               </label>
+            </li>
+
+            <li>
+               <input id="toggle_2014" type="checkbox">
+               <label for="toggle_2014">
+                  <div class="year">
+                     <h2>2014</h2>
+                     <img class="arrow-icon" src="./project_images/brand_story_img/text_close.png" alt="close">
+                     <div class="history_content">
+                        <div class="month">
+                           <h3>2월</h3>
+                           <p>
+                              - 신세계그룹 계열 편입
+                           </p>
+                        </div>
+                        <div class="month">
+                           <h3>7월</h3>
+                           <p>
+                              - 신세계그룹 공식 편의점 사업 런칭<br>
+                              <span>*기자간담회(7/17, 조선호텔)</span>
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+               </label>
+            </li>
+
+            <li>
+               <input id="toggle_2013" type="checkbox">
+               <label for="toggle_2013">
+                  <div class="year">
+                     <h2>2013</h2>
+                     <img class="arrow-icon" src="./project_images/brand_story_img/text_close.png" alt="close">
+                     <div class="history_content">
+                        <div class="month">
+                           <h3>12월</h3>
+                           <p>
+                              - 신세계그룹 ㈜ 위드미에프에스 인수<br>
+                              <span>*인수가 20억, 87점</span>
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+               </label>
+            </li>
+         </ul>
+         <div class="history_btn">
+            <a href="brand_resource.html"><img src="./project_images/brand_story_img/brandResourceCenter.png"></a>
+            <a href="brand_gallery.html"><img src="./project_images/brand_story_img/brandGallery.png"></a>
+         </div>
+      </div>
+   </section>
+
+   <!-- 푸터 영역 -->
+   <footer>
+      <div class="footer-div">
+         <div class="footer-div-infos">
+            <span style="cursor: pointer;">
+               <p>개인정보 처리방침 &nbsp;|&nbsp; 고정형 영상정보기기 운영 관리 방침 &nbsp;|&nbsp; 위치기반서비스 이용약관 &nbsp;|
+                  <span style="color: #333333; font-weight: 400;">&nbsp;이용약관 &nbsp;| &nbsp;공지사항 &nbsp;| &nbsp;고객센터
+                     &nbsp;|&nbsp; CSR경영 &nbsp;| &nbsp;사이트맵</span>
+               </p>
+            </span>
+            <span style="color: #333333;">
+               <p>(주) 이마트24</p>
+            </span>
+            <span style="color: #999999; ">
+               <p>대표이사 : 송만춘 / 사업자등록번호: 105-86-92454 <br>
+                  서울특별시 성동구 성수동 2가 281-4 푸조비즈타워 / 고객센터: 02-6916-1500 / Fax: 02-6916-1430 <br>
+                  COPYRIGHT (C) EMART24.ALL RIGHT RESERVED
+               </p>
+            </span>
+         </div>
+
+         <div class="footer-right">
+            <div class="footer-familysite">
+               <p><span style="color: #333333; font-size: 13px; cursor: pointer;">패밀리사이트 +</span></p>
+            </div>
+            <div class="footer-sites">
+               <div class="sns">
+                  <a href="">
+                     <img src="./project_images/header&footer_img/youtube.png" alt="">
+                  </a>
+               </div>
+               <div class="sns">
+                  <a href="">
+                     <img src="./project_images/header&footer_img/insta.png" alt="">
+                  </a>
+               </div>
+               <div class="sns">
+                  <a href="">
+                     <img src="./project_images/header&footer_img/facebook.png" alt="">
+                  </a>
+               </div>
+               <div class="sns">
+                  <a href="">
+                     <img src="./project_images/header&footer_img/tiktok.png" alt="">
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </footer>
+</body>
+
+</html>

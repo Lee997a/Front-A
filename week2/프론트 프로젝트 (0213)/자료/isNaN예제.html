@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2> isNaN() : 자바스크립트 내장함수 </h2>
+
+    <p> 데이터가 숫자아닌 데이터인지를 확인하는 함수 :   NaN인지 판별해 주는 기능을 한다 </p>
+    <p> NaN인지 판별할 때는 반드시 isNaN()사용이 필수적이다</p>
+    <script>
+
+        let num = parseInt( prompt("숫자롤 입력하세요") );
+
+        //숫자가 입력되지 않으면  NaN반환 함 
+        
+
+        if( isNaN(num)  ){
+             alert("숫자로 입력해 주세요");
+        }else{
+            alert("숫자로 입력하셨습니다");
+        }
+        
+    </script>
+</body>
+</html>

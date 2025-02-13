@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title> 브랜드 리소스 - 이마트24 소개 </title>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+   <!-- 헤더 & 푸터 스타일 -->
+   <style>
+      @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+      /* 기본 설정 */
+      header,
+      footer {
+         font-family: 'Noto Sans KR', sans-serif;
+      }
+
+      html,
+      body {
+         margin: 0px;
+         padding: 0px;
+         width: 100%;
+         height: 100%;
+      }
+
+      /* 헤더 영역 전체 스타일 */
+      .header_background {
+         width: 100%;
+         height: 123px;
+      }
+
+      header {
+         width: 100%;
+         margin: 0px;
+         padding: 0px;
+         position: fixed;
+         background-color: white;
+         opacity: 0.9;
+         transition: 1.5s;
+         z-index: 1000;
+      }
+
+      header:hover {
+         opacity: 1;
+         transition: 0.5s;
+      }
+
+      .header_wrap {
+         width: 1280px;
+         max-width: 1280px;
+         margin: 0px auto;
+         box-sizing: border-box;
+      }
+
+      .header_top_menu,
+      .header_main,
+      .header_sub_menu_list {
+         list-style: none;
+         padding: 0px;
+         margin: 0px;
+      }
+
+      .header_top_menu a,
+      .header_main_menu a,
+      .header_sub_menu_list a {
+         text-decoration: none;
+         color: black;
+      }
+
+      /* 헤더 상단 메뉴 스타일 */
+      .header_top {
+         padding: 8px 24px;
+      }
+
+      .header_top_menu {
+         display: flex;
+         align-items: center;
+         justify-content: flex-end;
+         font-size: 12px;
+         gap: 16px;
+      }
+
+      .header_top_menu li a {
+         color: #999999;
+      }
+
+      /* 헤더 메인 메뉴 스타일 */
+      .header_main_wrap {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         height: 90px;
+         margin: 0px;
+         /* border: 1px solid black; */
+      }
+
+      .header_main {
+         display: flex;
+         align-items: center;
+         height: 90px;
+         padding: 0px 24px;
+         margin: 0px;
+         gap: 70px;
+         font-size: 17px;
+         font-weight: 500;
+      }
+
+      .header_logo img {
+         max-width: 113px;
+      }
+
+      .header_main_menu {
+         position: relative;
+      }
+
+      .header_main_menu a {
+         font-size: 20px;
+         font-weight: 400;
+         color: #333333;
+         /* 필요 시 패딩이나 마진을 조정하여 텍스트 시작 위치를 맞춥니다 */
+         display: block;
+      }
+
+      /* 공통 서브메뉴 배경 - header_main 영역에 마우스가 올라가면 전체 배경이 보임 */
+      .submenu_background {
+         width: 100%;
+         height: 150px;
+         background-color: #4e5059dd;
+         opacity: 0;
+         transition: 0.5s;
+         pointer-events: none;
+         position: absolute;
+         top: 123px;
+         left: 0px;
+      }
+
+      .header_main:hover .submenu_background {
+         opacity: 1;
+         pointer-events: auto;
+         transition: 0.5s;
+         z-index: 800;
+      }
+
+      /* 서브메뉴 리스트 - 각 메뉴 항목의 하위 메뉴는 메인 메뉴 항목 내부에서 나타남 */
+      .header_sub_menu_list {
+         position: absolute;
+         left: 0px;
+         top: 90px;
+         display: none;
+         transition: 0.5s;
+      }
+
+      /* 서브메뉴 항목 스타일 */
+      .header_sub_menu_list a {
+         font-size: 15px;
+         padding: 4px 0px;
+         box-sizing: border-box;
+         /* 한 라인에 단어가 모두 나오도록 설정 (줄바꿈 없이) */
+         white-space: nowrap;
+      }
+
+      .header_main:hover .header_sub_menu_list {
+         display: block;
+         transition: 0.5s;
+         z-index: 900;
+      }
+
+      .header_sub_menu_list a {
+         color: #ebebeb;
+      }
+
+      .header_top_menu a:hover,
+      .header_main_menu a:hover,
+      .header_sub_menu_list a:hover {
+         color: #f9bb00;
+      }
+
+      .header_main_menu:hover>a {
+         color: #f9bb00;
+      }
+
+
+      /* 푸터 영역 전체 스타일 */
+      footer {
+         width: 100%;
+         height: 334px;
+         background-color: rgb(241, 241, 241);
+      }
+
+
+      .footer-div {
+         display: flex;
+         width: 1280px;
+         max-width: 1280px;
+         height: 100%;
+         background-color: rgb(241, 241, 241);
+         margin: 0px auto;
+         align-items: center;
+         justify-content: space-between;
+      }
+
+      /* footer 왼쪽 정보 영역 */
+      .footer-div-infos {
+         font-size: 13px;
+      }
+
+      .footer-div-infos p {
+         padding-bottom: 30px;
+      }
+
+      /* footer 오른쪽 패밀리사이트 영역 */
+      .footer-right {
+         height: 237px;
+         justify-content: space-between;
+      }
+
+
+      /* 패밀리사이트 내 아이콘 영역 */
+      .footer-sites {
+         display: flex;
+      }
+
+      .footer-familysite p {
+         text-align: end;
+         margin: 13px 0px 40px;
+      }
+
+      .sns img {
+         width: 32px;
+         height: 32px;
+         background-color: white;
+         border-radius: 50%;
+         margin-left: 8px;
+      }
+   </style>
+   <!-- 섹션 스타일 -->
+   <style>
+      .brand-resource-wrap {
+         width: 1000px;
+         margin: 0 auto;
+      }
+
+      .brand-resource-wrap h1 {
+         margin-bottom: -5px;
+      }
+
+      #underbar {
+         position: relative;
+         width: 70px;
+         text-align: center;
+         font-weight: bold;
+         font-size: large;
+      }
+
+      #underbar::after {
+         content: "";
+         position: absolute;
+         bottom: -5px;
+         left: 50%;
+         transform: translateX(-50%);
+         width: 0px;
+         height: 2px;
+         background-color: #db8a48;
+         transition: width 0.3s ease-in-out;
+      }
+
+      #underbar:hover::after {
+         width: 100%;
+      }
+
+      .span-class {
+         font-size: 14px;
+         color: rgb(87, 87, 87);
+         font-weight: bolder;
+      }
+
+      .vawr {
+         width: 100%;
+         height: 250px;
+         background-image: url(https://www.emart24.co.kr/assets/assets/imgs/brandResourceCenter/essenceImg.png);
+         background-position: center;
+         background-size: cover;
+         border-radius: 10px;
+      }
+
+      /* .logo-formula{
+         width: 100%;
+         height: 400px;
+         background-image: url(https://www.emart24.co.kr/assets/assets/imgs/brandResourceCenter/logoImg.png);
+         background-position: center;
+         background-size: cover;
+         border-radius: 10px;
+      } */
+
+      h3 {
+         margin-top: 50px;
+      }
+
+      .download {
+         width: 150px;
+         height: 40px;
+         background-color: #ffb71b;
+         text-align: center;
+         line-height: 40px;
+         border-radius: 30px;
+      }
+
+      .download:hover {
+         cursor: pointer;
+         background-color: #ff8e14;
+
+      }
+
+      .brand-logo {
+         position: relative;
+      }
+
+      .brand-logo img {
+         width: 100%;
+      }
+
+      .brand-logo .download {
+         position: absolute;
+         right: 0px;
+         top: 50px;
+         font-weight: bold;
+      }
+
+      .brand-logo-list {
+         list-style: none;
+         display: flex;
+         /* margin: 0px; */
+         padding: 0px;
+         padding-left: 20px;
+         justify-content: space-around;
+         text-align: center;
+
+      }
+
+      .brand-logo-list li {
+         color: rgb(55, 55, 55);
+      }
+
+      .brand-logo-list li:nth-child(1) {
+         color: rgb(55, 55, 55);
+         padding-right: 15px;
+      }
+
+      .brand-logo-list img {
+         width: 300px;
+         height: 220px;
+      }
+
+      .clear-space img {
+         width: 100%;
+      }
+
+      .swiper {
+         width: 100%;
+         height: 400px;
+
+      }
+
+      .swiper img {
+         width: 100%;
+         height: 80%;
+         padding-top: 30px;
+      }
+
+      .swiper-button-prev,
+      .swiper-button-next {
+         color: #ffb71b;
+      }
+
+      .background-color-usage img {
+         width: 100%;
+         padding-top: 30px;
+      }
+
+      .two-images {
+         display: flex;
+         justify-content: space-between;
+      }
+
+      .two-images img {
+         width: 48%;
+         margin-top: 10px;
+      }
+
+      .dont {
+         display: flex;
+         flex-wrap: wrap;
+         padding-bottom: 100px;
+      }
+
+      .dont div {
+         width: 33%;
+         text-align: center;
+      }
+
+      .dont img {
+         width: 95%;
+      }
+
+      .dont p {
+         display: inline-block;
+      }
+   </style>
+</head>
+
+<body>
+   <!-- 헤더 영역 채우기 -->
+   <div class="header_background">
+      <!-- 헤더 영역 -->
+      <header>
+         <div class="header_wrap">
+            <!-- 헤더 상단 메뉴 -->
+            <div class="header_top">
+               <ul class="header_top_menu">
+                  <li><a href="">채용안내</a></li>
+                  <li><a href="">전자 계약 시스템</a></li>
+               </ul>
+            </div>
+            <!-- 헤더 메인 메뉴 -->
+            <div class="header_main_wrap">
+               <div class="header_logo">
+                  <a href="index.html"><img src="./project_images/header&footer_img/logo.png" alt="이마트24 로고" /></a>
+               </div>
+               <ul class="header_main">
+                  <div class="submenu_background"></div>
+                  <li class="header_main_menu">
+                     <a href="brand_story.html">이마트24 소개</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="brand_story.html">브랜드 스토리</a></li>
+                        <li><a href="brand_resource.html">브랜드 리소스 센터</a></li>
+                        <li><a href="brand_gallery.html">브랜드 갤러리</a></li>
+                     </ul>
+                  </li>
+                  <li class="header_main_menu">
+                     <a href="goods_event.html">상품</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="goods_event.html">행사 상품</a></li>
+                        <li><a href="goods_different.html">차별화 상품</a></li>
+                        <li><a href="goods_fresh.html">Fresh Food</a></li>
+                     </ul>
+                  </li>
+                  <li class="header_main_menu">
+                     <a href="service_app.html">서비스</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="service_app.html">APP 서비스</a></li>
+                        <li><a href="service_life.html">생활 서비스</a></li>
+                        <li><a href="#" onclick="alert('준비되지 않았습니다');">제휴 서비스</a></li>
+                     </ul>
+                  </li>
+                  <li class="header_main_menu">
+                     <a href="event_act.html">이벤트</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="event_act.html">진행중인 이벤트</a></li>
+                        <li><a href="#" onclick="alert('준비되지 않았습니다');">종료된 이벤트</a></li>
+                     </ul>
+                  </li>
+                  <li class="header_main_menu">
+                     <a href="customerCenter.html">고객센터</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="customerCenter.html">고객센터 홈</a></li>
+                        <li><a href="customerCenter_faq.html">FAQ</a></li>
+                        <li><a href="customerCenter_online.html">온라인 문의</a></li>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </header>
+   </div>
+
+   <!-- 섹션부분 -->
+   <section>
+      <div class="brand-resource-wrap">
+         <h1><img src="https://www.emart24.co.kr/assets/assets/imgs/brandResourceCenter/brandResourceCenter.png" alt="">
+         </h1>
+         <p><span style="font-size: 14px; color: rgb(55,55,55); font-weight: bold;">이마트24의 본질적인 브랜드 가치와 방향성을 정의합니다. 브랜드가
+               나아가는 길과 정체성을 제시하며 브랜드 자산(IP)을 공유합니다.</span></p>
+         <div style="margin-top: 50px; margin-bottom: -20px; text-align: center;">
+            <p id="underbar">Logo</p>
+         </div>
+         <div class="brand-essence">
+            <h3>Brand Essence</h3>
+            <p class="span-class">이마트24의 비전과 미션을 달성하기 위해 브랜드가 추구하는 핵심 키워드입니다. 브랜드 에센스는 브랜드 정체성을 전달하는 중요한 가치이자
+               기준입니다.</span></p>
+            <div class="vawr">
+            </div>
+         </div>
+         <div class="brand-logo">
+            <h3>Brand Logo</h3>
+            <p class="span-class">이마트24의 브랜드 로고입니다. 이마트24를 대표하는 아이덴티티로 브랜드 커뮤니케이션의 핵심이 되는 요소입니다. <br>
+               일관된 브랜드 아이덴티티를 보존하기 위해 기준에 명시된 컬러, 형태, 규격으로 사용해야 하며 타 요소에 의해 훼손되어선 안됩니다. <br>
+               또한 임의로 로고를 변형하는 것은 허용되지 않습니다.</p>
+            <div class="download">DOWNLOAD✈️</div>
+            <img src="https://www.emart24.co.kr/assets/assets/imgs/brandResourceCenter/logoImg.png" alt="">
+            <ul class="brand-logo-list">
+               <li>Basic Brand Logo
+                  <img src="https://www.emart24.co.kr/assets/assets/imgs/brandResourceCenter/basicBrandLogo.png" alt="">
+               </li>
+               <li>Brand Wordmark (Original)
+                  <img src="https://www.emart24.co.kr/assets/assets/imgs/brandResourceCenter/originBrandLogo.png"
+                     alt="">
+               </li>
+               <li>Brand Wordmark (Korean)
+                  <img src="https://www.emart24.co.kr/assets/assets/imgs/brandResourceCenter/koreanBrandLogo.png"
+                     alt="">
+               </li>
+            </ul>
+         </div>
+         <div class="clear-space">
+            <h3>Clear Sapce & Scale</h3>
+            <p class="span-class">공간 규정에 따라 충분한 여백을 확보해야 합니다. emart24의 ‘e’의 높이를 X라고 가정할 때, 로고 주변 사방에 0.5X만큼의 공간 확보가
+               필요합니다. <br>
+               로고의 최소사이즈는 Basic Logo / Wordmark(Original) / Wordmark(One color) 세가지 타입에 맞춰 제한한 높이 기준을 따릅니다.</p>
+            <img src="https://www.emart24.co.kr/assets/assets/imgs/brandResourceCenter/clearImg.png" alt="">
+         </div>
+         <div>
+            <h3>Logo Color Usage</h3>
+            <p class="span-class">로고 타입의 색상은 아래 명시되는 컬러를 기준으로 사용하며 일반적으로 기본 컬러 로고 사용을 권장합니다. <br>아래의 예시처럼 배경색과 명도에 따라
+               가시성이 확보되어야 합니다.</p>
+            <div class="swiper">
+               <!-- Additional required wrapper -->
+               <div class="swiper-wrapper">
+                  <div class="swiper-slide"><img
+                        src="https://www.emart24.co.kr/assets/assets/imgs/brandResourceCenter/case1.png" alt=""></div>
+                  <div class="swiper-slide"><img
+                        src="https://www.emart24.co.kr/assets/assets/imgs/brandResourceCenter/case3.png" alt=""></div>
+                  <div class="swiper-slide"><img
+                        src="https://www.emart24.co.kr/assets/assets/imgs/brandResourceCenter/case8.png" alt=""></div>
+               </div>
+               <div class="swiper-button-prev"></div>
+               <div class="swiper-button-next"></div>
+            </div>
+         </div>
+         <div class="background-color-usage">
+            <h3>Background Color Usage</h3>
+            <img src="https://www.emart24.co.kr/assets/assets/imgs/brandResourceCenter/bgColorImg.png" alt="">
+         </div>
+         <div>
+            <h3>Partnerships</h3>
+            <p class="span-class">타사와 파트너십 관계를 맺어 나란히 표기해야 할 경우, 아래 표기 방식과 여백 값 규정을 따라야 합니다. 이마트24 로고를 기준으로 <br> 파트너쉽
+               브랜드 로고의 크기를
+               조정하여 이마트24와 각각의 브랜드가 동등한 위상으로 보이는 것을 원칙으로 합니다.</p>
+            <img src="https://www.emart24.co.kr/assets/assets/imgs/brandResourceCenter/partnershipsImg1.png" alt=""
+               style="width: 100%;">
+            <div class="two-images">
+               <img src="https://www.emart24.co.kr/assets/assets/imgs/brandResourceCenter/partnershipsImg2.png" alt="">
+               <img src="https://www.emart24.co.kr/assets/assets/imgs/brandResourceCenter/partnershipsImg3.png" alt="">
+            </div>
+         </div>
+         <div>
+            <h3 style="margin-bottom: -10px;">Don't</h3>
+            <p class="span-class">브랜드 색상 사용 시 지정된 색과 사용 규정을 확인하여 브랜드 아이덴티티의 일관성을 유지할 수 있도록 합니다</p>
+            <div class="dont">
+               <div>
+                  <img src="https://www.emart24.co.kr/assets/assets/imgs/brandResourceCenter/dontImg1.png" alt="">
+                  <p class="span-class" style="margin-top: 0px;">로고의 정해진 비율을 임의로 변형하여 <br>사용하지
+                     않도록 주의합니다.</p>
+               </div>
+               <div>
+                  <img src="https://www.emart24.co.kr/assets/assets/imgs/brandResourceCenter/dontImg2.png" alt="">
+                  <p class="span-class" style="margin-top: 0px;">로고와 슬로건의 조합을 변경하지 않습니다.</p>
+               </div>
+               <div>
+                  <img src="https://www.emart24.co.kr/assets/assets/imgs/brandResourceCenter/dontImg3.png" alt="">
+                  <p class="span-class" style="margin-top: 0px;">로고 일부분이 잘리거나 가려져선 안됩니다.</p>
+               </div>
+               <div>
+                  <img src="https://www.emart24.co.kr/assets/assets/imgs/brandResourceCenter/dontImg4.png" alt="">
+                  <p class="span-class" style="margin-top: 0px;">로고의 요소들을 임의로 조합하여 사용하지<br>
+                     않도록 주의합니다.</p>
+               </div>
+               <div>
+                  <img src="https://www.emart24.co.kr/assets/assets/imgs/brandResourceCenter/dontImg5.png" alt="">
+                  <p class="span-class" style="margin-top: 0px;">로고 테두리에 과장된 효과를 적용하여<br>
+                     사용하지 않습니다.</p>
+               </div>
+               <div>
+                  <img src="https://www.emart24.co.kr/assets/assets/imgs/brandResourceCenter/dontImg6.png" alt="">
+                  <p class="span-class" style="margin-top: 0px;">로고를 임의로 비슷하게 만들어서 사용하지<br>
+                     않습니다.</p>
+               </div>
+
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- 푸터 영역 -->
+   <footer>
+      <div class="footer-div">
+         <div class="footer-div-infos">
+            <span style="cursor: pointer;">
+               <p>개인정보 처리방침 &nbsp;|&nbsp; 고정형 영상정보기기 운영 관리 방침 &nbsp;|&nbsp; 위치기반서비스 이용약관 &nbsp;|
+                  <span style="color: #333333; font-weight: 400;">&nbsp;이용약관 &nbsp;| &nbsp;공지사항 &nbsp;| &nbsp;고객센터
+                     &nbsp;|&nbsp; CSR경영 &nbsp;| &nbsp;사이트맵</span>
+               </p>
+            </span>
+            <span style="color: #333333;">
+               <p>(주) 이마트24</p>
+            </span>
+            <span style="color: #999999; ">
+               <p>대표이사 : 송만춘 / 사업자등록번호: 105-86-92454 <br>
+                  서울특별시 성동구 성수동 2가 281-4 푸조비즈타워 / 고객센터: 02-6916-1500 / Fax: 02-6916-1430 <br>
+                  COPYRIGHT (C) EMART24.ALL RIGHT RESERVED
+               </p>
+            </span>
+         </div>
+
+         <div class="footer-right">
+            <div class="footer-familysite">
+               <p><span style="color: #333333; font-size: 13px; cursor: pointer;">패밀리사이트 +</span></p>
+            </div>
+            <div class="footer-sites">
+               <div class="sns">
+                  <a href="">
+                     <img src="./project_images/header&footer_img/youtube.png" alt="">
+                  </a>
+               </div>
+               <div class="sns">
+                  <a href="">
+                     <img src="./project_images/header&footer_img/insta.png" alt="">
+                  </a>
+               </div>
+               <div class="sns">
+                  <a href="">
+                     <img src="./project_images/header&footer_img/facebook.png" alt="">
+                  </a>
+               </div>
+               <div class="sns">
+                  <a href="">
+                     <img src="./project_images/header&footer_img/tiktok.png" alt="">
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </footer>
+   <script>
+      const swiper = new Swiper('.swiper', {
+         direction: 'horizontal',
+         loop: true,
+
+         pagination: {
+            el: '.swiper-pagination',
+         },
+
+         autoplay: {
+            delay: 3000, // 3초 (3000ms)
+            disableOnInteraction: false, // 사용자 조작 후에도 자동 슬라이드 유지
+         },
+
+         navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+         },
+      });
+   </script>
+</body>
+
+</html>

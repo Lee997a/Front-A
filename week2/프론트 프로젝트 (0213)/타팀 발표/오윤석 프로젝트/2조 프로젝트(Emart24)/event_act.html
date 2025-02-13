@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title> 진행 중인 이벤트 - 이벤트 </title>
+   <!-- 헤더 & 푸터 스타일 -->
+   <style>
+      @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+      /* 기본 설정 */
+      header,
+      footer {
+         font-family: 'Noto Sans KR', sans-serif;
+      }
+
+      html,
+      body {
+         margin: 0px;
+         padding: 0px;
+         width: 100%;
+         height: 100%;
+      }
+
+      /* 헤더 영역 전체 스타일 */
+      .header_background {
+         width: 100%;
+         height: 123px;
+      }
+
+      header {
+         width: 100%;
+         margin: 0px;
+         padding: 0px;
+         position: fixed;
+         background-color: white;
+         opacity: 0.9;
+         transition: 1.5s;
+         z-index: 1000;
+      }
+
+      header:hover {
+         opacity: 1;
+         transition: 0.5s;
+      }
+
+      .header_wrap {
+         width: 1280px;
+         max-width: 1280px;
+         margin: 0px auto;
+         box-sizing: border-box;
+      }
+
+      .header_top_menu,
+      .header_main,
+      .header_sub_menu_list {
+         list-style: none;
+         padding: 0px;
+         margin: 0px;
+      }
+
+      .header_top_menu a,
+      .header_main_menu a,
+      .header_sub_menu_list a {
+         text-decoration: none;
+         color: black;
+      }
+
+      /* 헤더 상단 메뉴 스타일 */
+      .header_top {
+         padding: 8px 24px;
+      }
+
+      .header_top_menu {
+         display: flex;
+         align-items: center;
+         justify-content: flex-end;
+         font-size: 12px;
+         gap: 16px;
+      }
+
+      .header_top_menu li a {
+         color: #999999;
+      }
+
+      /* 헤더 메인 메뉴 스타일 */
+      .header_main_wrap {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         height: 90px;
+         margin: 0px;
+         /* border: 1px solid black; */
+      }
+
+      .header_main {
+         display: flex;
+         align-items: center;
+         height: 90px;
+         padding: 0px 24px;
+         margin: 0px;
+         gap: 70px;
+         font-size: 17px;
+         font-weight: 500;
+      }
+
+      .header_logo img {
+         max-width: 113px;
+      }
+
+      .header_main_menu {
+         position: relative;
+      }
+
+      .header_main_menu a {
+         font-size: 20px;
+         font-weight: 400;
+         color: #333333;
+         /* 필요 시 패딩이나 마진을 조정하여 텍스트 시작 위치를 맞춥니다 */
+         display: block;
+      }
+
+      /* 공통 서브메뉴 배경 - header_main 영역에 마우스가 올라가면 전체 배경이 보임 */
+      .submenu_background {
+         width: 100%;
+         height: 150px;
+         background-color: #4e5059dd;
+         opacity: 0;
+         transition: 0.5s;
+         pointer-events: none;
+         position: absolute;
+         top: 123px;
+         left: 0px;
+      }
+
+      .header_main:hover .submenu_background {
+         opacity: 1;
+         pointer-events: auto;
+         transition: 0.5s;
+         z-index: 800;
+      }
+
+      /* 서브메뉴 리스트 - 각 메뉴 항목의 하위 메뉴는 메인 메뉴 항목 내부에서 나타남 */
+      .header_sub_menu_list {
+         position: absolute;
+         left: 0px;
+         top: 90px;
+         display: none;
+         transition: 0.5s;
+      }
+
+      /* 서브메뉴 항목 스타일 */
+      .header_sub_menu_list a {
+         font-size: 15px;
+         padding: 4px 0px;
+         box-sizing: border-box;
+         /* 한 라인에 단어가 모두 나오도록 설정 (줄바꿈 없이) */
+         white-space: nowrap;
+      }
+
+      .header_main:hover .header_sub_menu_list {
+         display: block;
+         transition: 0.5s;
+         z-index: 900;
+      }
+
+      .header_sub_menu_list a {
+         color: #ebebeb;
+      }
+
+      .header_top_menu a:hover,
+      .header_main_menu a:hover,
+      .header_sub_menu_list a:hover {
+         color: #f9bb00;
+      }
+
+      .header_main_menu:hover>a {
+         color: #f9bb00;
+      }
+
+
+      /* 푸터 영역 전체 스타일 */
+      footer {
+         width: 100%;
+         height: 334px;
+         background-color: rgb(241, 241, 241);
+      }
+
+
+      .footer-div {
+         display: flex;
+         width: 1280px;
+         max-width: 1280px;
+         height: 100%;
+         background-color: rgb(241, 241, 241);
+         margin: 0px auto;
+         align-items: center;
+         justify-content: space-between;
+      }
+
+      /* footer 왼쪽 정보 영역 */
+      .footer-div-infos {
+         font-size: 13px;
+      }
+
+      .footer-div-infos p {
+         padding-bottom: 30px;
+      }
+
+      /* footer 오른쪽 패밀리사이트 영역 */
+      .footer-right {
+         height: 237px;
+         justify-content: space-between;
+      }
+
+
+      /* 패밀리사이트 내 아이콘 영역 */
+      .footer-sites {
+         display: flex;
+      }
+
+      .footer-familysite p {
+         text-align: end;
+         margin: 13px 0px 40px;
+      }
+
+      .sns img {
+         width: 32px;
+         height: 32px;
+         background-color: white;
+         border-radius: 50%;
+         margin-left: 8px;
+      }
+   </style>
+   <!-- 섹션 스타일 -->
+   <style>
+      /* 전역 설정 */
+      * {
+         font-family: 'Noto Sans KR', sans-serif;
+      }
+
+      body {
+         margin: 0px;
+      }
+
+      /* 기본 설정 */
+      header,
+      footer {
+         font-family: 'Noto Sans KR', sans-serif;
+      }
+
+      html,
+      body {
+         margin: 0px;
+         padding: 0px;
+         width: 100%;
+         height: 100%;
+      }
+
+      /* 섹션 영역 스타일 */
+      section {
+         background-color: #f9fafb;
+      }
+
+      .content_wrap {
+         max-width: 1040px;
+         margin: 0 auto;
+      }
+
+      .content_title {
+         /* border: 1px solid black; */
+
+         padding: 56px 0px;
+         margin-bottom: 16px;
+      }
+
+      .content_title h1 {
+
+         font-size: 48px;
+         font-weight: 700;
+         color: #333333;
+         margin-top: 0px;
+         margin-bottom: 0px;
+      }
+
+      .content_title p {
+
+         font-size: 20px;
+         font-weight: 400;
+         color: #999999;
+         margin-top: 16px;
+         margin-bottom: 0px;
+      }
+
+      .content {
+         /* height: 2785px;
+         border: 1px solid black; */
+      }
+
+      .event_wrap {
+         display: flex;
+         flex-wrap: wrap;
+         row-gap: 32px;
+         column-gap: 16px;
+         padding: 0px;
+         padding-bottom: 96px;
+         justify-content: flex-start;
+      }
+
+      .event {
+         width: 48.5%;
+         /* border: 1px solid black; */
+         padding: 0px;
+         text-decoration: none;
+      }
+
+      .event_img {
+         display: flex;
+         width: 100%;
+         height: auto;
+         margin-bottom: 16px;
+         overflow: hidden;
+         border-radius: 30px;
+         border: 3px solid transparent;
+         box-sizing: border-box;
+      }
+
+      .event img {
+         width: 100%;
+         height: 244px;
+         transition: 0.3s;
+      }
+
+      .event:hover .event_img {
+         border: 3px solid #f9bb00;
+      }
+
+      .event:hover img {
+         transform: scale(1.05);
+         transition: transform 0.4s;
+      }
+
+      .event:hover p {
+         color: #f9bb00;
+      }
+
+      .event p {
+         padding-left: 24px;
+         margin: 0px;
+         font-size: 17px;
+         font-weight: 400;
+         color: #333333;
+         line-height: 25px;
+      }
+
+      .event p span {
+         font-size: 15px;
+         font-weight: 400;
+         letter-spacing: -0.025rem;
+      }
+   </style>
+</head>
+
+<body>
+   <!-- 헤더 영역 채우기 -->
+   <div class="header_background">
+      <!-- 헤더 영역 -->
+      <header>
+         <div class="header_wrap">
+            <!-- 헤더 상단 메뉴 -->
+            <div class="header_top">
+               <ul class="header_top_menu">
+                  <li><a href="">채용안내</a></li>
+                  <li><a href="">전자 계약 시스템</a></li>
+               </ul>
+            </div>
+            <!-- 헤더 메인 메뉴 -->
+            <div class="header_main_wrap">
+               <div class="header_logo">
+                  <a href="index.html"><img src="./project_images/header&footer_img/logo.png" alt="이마트24 로고" /></a>
+               </div>
+               <ul class="header_main">
+                  <div class="submenu_background"></div>
+                  <li class="header_main_menu">
+                     <a href="brand_story.html">이마트24 소개</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="brand_story.html">브랜드 스토리</a></li>
+                        <li><a href="brand_resource.html">브랜드 리소스 센터</a></li>
+                        <li><a href="brand_gallery.html">브랜드 갤러리</a></li>
+                     </ul>
+                  </li>
+                  <li class="header_main_menu">
+                     <a href="goods_event.html">상품</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="goods_event.html">행사 상품</a></li>
+                        <li><a href="goods_different.html">차별화 상품</a></li>
+                        <li><a href="goods_fresh.html">Fresh Food</a></li>
+                     </ul>
+                  </li>
+                  <li class="header_main_menu">
+                     <a href="service_app.html">서비스</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="service_app.html">APP 서비스</a></li>
+                        <li><a href="service_life.html">생활 서비스</a></li>
+                        <li><a href="#" onclick="alert('준비되지 않았습니다');">제휴 서비스</a></li>
+                     </ul>
+                  </li>
+                  <li class="header_main_menu">
+                     <a href="event_act.html">이벤트</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="event_act.html">진행중인 이벤트</a></li>
+                        <li><a href="#" onclick="alert('준비되지 않았습니다');">종료된 이벤트</a></li>
+                     </ul>
+                  </li>
+                  <li class="header_main_menu">
+                     <a href="customerCenter.html">고객센터</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="customerCenter.html">고객센터 홈</a></li>
+                        <li><a href="customerCenter_faq.html">FAQ</a></li>
+                        <li><a href="customerCenter_online.html">온라인 문의</a></li>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </header>
+   </div>
+
+   <section>
+      <div class="content_wrap">
+         <div class="content_title">
+            <h1>진행중인 이벤트</h1>
+            <p>이마트24의 다양한 이벤트에 참여해보세요.</p>
+         </div>
+         <div class="content">
+            <div class="event_wrap">
+               <a class="event" href="#">
+                  <div class="event_img">
+                     <img src="./project_images/event_act_img/event_img1.png" alt="이벤트1">
+                  </div>
+                  <p>
+                     <span>2025.02.01 ~ 2025.02.28</span>
+                     <br>
+                     2월 상상의끝(매장) 이벤트
+                  </p>
+               </a>
+               <a class="event" href="#">
+                  <div class="event_img">
+                     <img src="./project_images/event_act_img/event_img2.png" alt="이벤트2">
+                  </div>
+                  <p>
+                     <span>2025.02.01 ~ 2025.02.28</span>
+                     <br>
+                     2월 돈아낄팁 이벤트
+                  </p>
+               </a>
+               <a class="event" href="#">
+                  <div class="event_img">
+                     <img src="./project_images/event_act_img/event_img3.png" alt="이벤트3">
+                  </div>
+                  <p>
+                     <span>2025.02.01 ~ 2025.02.28</span>
+                     <br>
+                     2월 릴 디바이스 이벤트
+                  </p>
+               </a>
+               <a class="event" href="#">
+                  <div class="event_img">
+                     <img src="./project_images/event_act_img/event_img4.png" alt="이벤트4">
+                  </div>
+                  <p>
+                     <span>2025.02.01 ~ 2025.02.28</span>
+                     <br>
+                     2월 생일턱 커피쏨 이벤트
+                  </p>
+               </a>
+               <a class="event" href="#">
+                  <div class="event_img">
+                     <img src="./project_images/event_act_img/event_img5.png" alt="이벤트5">
+                  </div>
+                  <p>
+                     <span>2025.02.01 ~ 2025.02.28</span>
+                     <br>
+                     2월 빗썸 연합 생일파티 이벤트
+                  </p>
+               </a>
+               <a class="event" href="#">
+                  <div class="event_img">
+                     <img src="./project_images/event_act_img/event_img6.png" alt="이벤트6">
+                  </div>
+                  <p>
+                     <span>2025.02.01 ~ 2025.02.14</span>
+                     <br>
+                     2월 발렌타인데이 할인 이벤트
+                  </p>
+               </a>
+               <a class="event" href="#">
+                  <div class="event_img">
+                     <img src="./project_images/event_act_img/event_img7.png" alt="이벤트7">
+                  </div>
+                  <p>
+                     <span>2025.02.01 ~ 2025.02.09</span>
+                     <br>
+                     2월 아트몬서트 2탄 이벤트
+                  </p>
+               </a>
+               <a class="event" href="#">
+                  <div class="event_img">
+                     <img src="./project_images/event_act_img/event_img8.png" alt="이벤트8">
+                  </div>
+                  <p>
+                     <span>2025.02.01 ~ 2025.02.28</span>
+                     <br>
+                     2월 KBL 이벤트
+                  </p>
+               </a>
+               <a class="event" href="#">
+                  <div class="event_img">
+                     <img src="./project_images/event_act_img/event_img9.png" alt="이벤트9">
+                  </div>
+                  <p>
+                     <span>2025.02.01 ~ 2025.02.28</span>
+                     <br>
+                     2월 창립기념일 갓성비 신상품 3종 이벤트
+                  </p>
+               </a>
+               <a class="event" href="#">
+                  <div class="event_img">
+                     <img src="./project_images/event_act_img/event_img10.png" alt="이벤트10">
+                  </div>
+                  <p>
+                     <span>2025.01.24 ~ 2025.01.31</span>
+                     <br>
+                     1월 LGU+ 알뜰폰 제휴 이벤트
+                  </p>
+               </a>
+               <a class="event" href="#">
+                  <div class="event_img">
+                     <img src="./project_images/event_act_img/event_img11.png" alt="이벤트11">
+                  </div>
+                  <p>
+                     <span>2025.01.09 ~ 2025.02.23</span>
+                     <br>
+                     1월 비밀번호 변경 캠페인 이벤트
+                  </p>
+               </a>
+               <a class="event" href="#">
+                  <div class="event_img">
+                     <img src="./project_images/event_act_img/event_img12.png" alt="이벤트12">
+                  </div>
+                  <p>
+                     <span>2025.01.16 ~ 2025.02.28</span>
+                     <br>
+                     1월 고석현 셰프 콜라보 이벤트
+                  </p>
+               </a>
+               <a class="event" href="#">
+                  <div class="event_img">
+                     <img src="./project_images/event_act_img/event_img13.png" alt="이벤트13">
+                  </div>
+                  <p>
+                     <span>2025.01.21 ~ 2025.02.28</span>
+                     <br>
+                     1월 모두의마블 이벤트
+                  </p>
+               </a>
+               <a class="event" href="#">
+                  <div class="event_img">
+                     <img src="./project_images/event_act_img/event_img14.png" alt="이벤트14">
+                  </div>
+                  <p>
+                     <span>2025.01.09 ~ 2025.03.08</span>
+                     <br>
+                     1월 미르2 이벤트
+                  </p>
+               </a>
+               <a class="event" href="#">
+                  <div class="event_img">
+                     <img src="./project_images/event_act_img/event_img15.png" alt="이벤트15">
+                  </div>
+                  <p>
+                     <span>2024.11.01 ~ 2025.02.28</span>
+                     <br>
+                     2월 신한 쏠페이 이벤트
+                  </p>
+               </a>
+               <a class="event" href="#">
+                  <div class="event_img">
+                     <img src="./project_images/event_act_img/event_img16.png" alt="이벤트16">
+                  </div>
+                  <p>
+                     <span>2024.03.27 ~ 2025.12.31</span>
+                     <br>
+                     배달비 무료 이벤트
+                  </p>
+               </a>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- 푸터 영역 -->
+   <footer>
+      <div class="footer-div">
+         <div class="footer-div-infos">
+            <span style="cursor: pointer;">
+               <p>개인정보 처리방침 &nbsp;|&nbsp; 고정형 영상정보기기 운영 관리 방침 &nbsp;|&nbsp; 위치기반서비스 이용약관 &nbsp;|
+                  <span style="color: #333333; font-weight: 400;">&nbsp;이용약관 &nbsp;| &nbsp;공지사항 &nbsp;| &nbsp;고객센터
+                     &nbsp;|&nbsp; CSR경영 &nbsp;| &nbsp;사이트맵</span>
+               </p>
+            </span>
+            <span style="color: #333333;">
+               <p>(주) 이마트24</p>
+            </span>
+            <span style="color: #999999; ">
+               <p>대표이사 : 송만춘 / 사업자등록번호: 105-86-92454 <br>
+                  서울특별시 성동구 성수동 2가 281-4 푸조비즈타워 / 고객센터: 02-6916-1500 / Fax: 02-6916-1430 <br>
+                  COPYRIGHT (C) EMART24.ALL RIGHT RESERVED
+               </p>
+            </span>
+         </div>
+
+         <div class="footer-right">
+            <div class="footer-familysite">
+               <p><span style="color: #333333; font-size: 13px; cursor: pointer;">패밀리사이트 +</span></p>
+            </div>
+            <div class="footer-sites">
+               <div class="sns">
+                  <a href="">
+                     <img src="./project_images/header&footer_img/youtube.png" alt="">
+                  </a>
+               </div>
+               <div class="sns">
+                  <a href="">
+                     <img src="./project_images/header&footer_img/insta.png" alt="">
+                  </a>
+               </div>
+               <div class="sns">
+                  <a href="">
+                     <img src="./project_images/header&footer_img/facebook.png" alt="">
+                  </a>
+               </div>
+               <div class="sns">
+                  <a href="">
+                     <img src="./project_images/header&footer_img/tiktok.png" alt="">
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </footer>
+</body>
+
+</html>

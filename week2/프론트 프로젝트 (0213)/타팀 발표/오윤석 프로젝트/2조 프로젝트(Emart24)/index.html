@@ -1,0 +1,1837 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 메인 - 이마트 24 </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <style>
+        @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+        /* 기본 설정 */
+        header,
+        footer {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        html {
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 헤더 영역 전체 스타일 */
+        .header_background {
+            width: 100%;
+            height: 123px;
+        }
+
+        header {
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+            position: fixed;
+            background-color: white;
+            opacity: 0.9;
+            transition: 1.5s;
+            z-index: 1000;
+        }
+
+        header:hover {
+            opacity: 1;
+            transition: 0.5s;
+        }
+
+        .header_wrap {
+            width: 1280px;
+            max-width: 1280px;
+            margin: 0px auto;
+            box-sizing: border-box;
+        }
+
+        .header_top_menu,
+        .header_main,
+        .header_sub_menu_list {
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .header_top_menu a,
+        .header_main_menu a,
+        .header_sub_menu_list a {
+            text-decoration: none;
+            color: black;
+        }
+
+        /* 헤더 상단 메뉴 스타일 */
+        .header_top {
+            padding: 8px 24px;
+        }
+
+        .header_top_menu {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            font-size: 12px;
+            gap: 16px;
+        }
+
+        .header_top_menu li a {
+            color: #999999;
+        }
+
+        /* 헤더 메인 메뉴 스타일 */
+        .header_main_wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+            margin: 0px;
+            /* border: 1px solid black; */
+        }
+
+        .header_main {
+            display: flex;
+            align-items: center;
+            height: 90px;
+            padding: 0px 24px;
+            margin: 0px;
+            gap: 70px;
+            font-size: 17px;
+            font-weight: 500;
+        }
+
+        .header_logo img {
+            max-width: 113px;
+        }
+
+        .header_main_menu {
+            position: relative;
+        }
+
+        .header_main_menu a {
+            font-size: 20px;
+            font-weight: 400;
+            color: #333333;
+            /* 필요 시 패딩이나 마진을 조정하여 텍스트 시작 위치를 맞춥니다 */
+            display: block;
+        }
+
+        /* 공통 서브메뉴 배경 - header_main 영역에 마우스가 올라가면 전체 배경이 보임 */
+        .submenu_background {
+            width: 100%;
+            height: 150px;
+            background-color: #4e5059dd;
+            opacity: 0;
+            transition: 0.5s;
+            pointer-events: none;
+            position: absolute;
+            top: 123px;
+            left: 0px;
+        }
+
+        .header_main:hover .submenu_background {
+            opacity: 1;
+            pointer-events: auto;
+            transition: 0.5s;
+            z-index: 800;
+        }
+
+        /* 서브메뉴 리스트 - 각 메뉴 항목의 하위 메뉴는 메인 메뉴 항목 내부에서 나타남 */
+        .header_sub_menu_list {
+            position: absolute;
+            left: 0px;
+            top: 90px;
+            display: none;
+            transition: 0.5s;
+        }
+
+        /* 서브메뉴 항목 스타일 */
+        .header_sub_menu_list a {
+            font-size: 15px;
+            padding: 4px 0px;
+            box-sizing: border-box;
+            /* 한 라인에 단어가 모두 나오도록 설정 (줄바꿈 없이) */
+            white-space: nowrap;
+        }
+
+        .header_main:hover .header_sub_menu_list {
+            display: block;
+            transition: 0.5s;
+            z-index: 900;
+        }
+
+        .header_sub_menu_list a {
+            color: #ebebeb;
+        }
+
+        .header_top_menu a:hover,
+        .header_main_menu a:hover,
+        .header_sub_menu_list a:hover {
+            color: #f9bb00;
+        }
+
+        .header_main_menu:hover>a {
+            color: #f9bb00;
+        }
+
+
+        /* 푸터 영역 전체 스타일 */
+        footer {
+            width: 100%;
+            height: 334px;
+            background-color: rgb(241, 241, 241);
+        }
+
+
+        .footer-div {
+            display: flex;
+            width: 1600px;
+            max-width: 1280px;
+            height: 100%;
+            background-color: rgb(241, 241, 241);
+            margin: 0px auto;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* footer 왼쪽 정보 영역 */
+        .footer-div-infos {
+            font-size: 13px;
+        }
+
+        .footer-div-infos p {
+            padding-bottom: 30px;
+        }
+
+        /* footer 오른쪽 패밀리사이트 영역 */
+        .footer-right {
+            height: 237px;
+            justify-content: space-between;
+        }
+
+
+        /* 패밀리사이트 내 아이콘 영역 */
+        .footer-sites {
+            display: flex;
+        }
+
+        .footer-familysite p {
+            text-align: end;
+            margin: 13px 0px 40px;
+        }
+
+        .sns img {
+            width: 32px;
+            height: 32px;
+            background-color: white;
+            border-radius: 50%;
+            margin-left: 8px;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f8f8f8;
+            padding: 20px;
+            width: 100%;
+        }
+
+        /* 배너 Swiper 스타일 */
+        .banner-swiper {
+            width: 80%;
+            height: 500px;
+            z-index: 1;
+            margin-bottom: 50px;
+            overflow: hidden;
+        }
+
+        .banner-slide img {
+            width: 100%;
+            height: 480px;
+            border-radius: 0px 0px 50px 50px;
+        }
+
+        .banner-buttons {
+            position: absolute;
+            left: 400px;
+            top: 600px;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 50px;
+            z-index: 9999;
+            align-items: center;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 10px 0px rgb(104, 104, 104);
+        }
+
+        .banner-button-prev,
+        .banner-button-next {
+            width: 40px;
+            height: 40px;
+            background: rgb(193, 193, 193);
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        /* 상품 Swiper 스타일 */
+        .container {
+            display: flex;
+            gap: 20px;
+            padding-top: 100px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .category-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-right: 50px;
+        }
+
+        .category-buttons button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #f7f7f7;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 0px 0px 0px 20px;
+            height: 50px;
+        }
+
+        .category-buttons button.active {
+            background-color: #ffb20a;
+            color: white;
+        }
+
+        .product-swiper-container {
+            display: none;
+            width: 800px;
+            height: 400px;
+
+            overflow: hidden;
+        }
+
+        .product-swiper-container.active {
+            display: block;
+        }
+
+        .product-slide img {
+            width: 140px;
+            height: 150px;
+            margin-top: 50px;
+        }
+
+        .product-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            overflow: hidden;
+        }
+
+        .sort-label {
+            position: relative;
+            border-radius: 10px;
+            border: 1px solid rgb(155, 155, 155);
+            height: 330px;
+        }
+
+        .sort-label:hover {
+            border: 3px solid rgb(249, 187, 0);
+        }
+
+        .sort-label img {
+            height: 150px;
+            width: 150px;
+        }
+
+        .lable-each {
+            position: absolute;
+            background: rgb(255, 255, 255);
+            color: rgb(183, 183, 183);
+            padding: 3px 6px;
+            border: 1px solid rgb(40, 40, 40);
+            border-radius: 8px 8px 0px 8px;
+            font-size: 12px;
+            top: 5px;
+            left: 10px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인페이지 나</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+        integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"
+        integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+        window.addEventListener("load", function () {
+            new Swiper('.emartStory_gallery .swiper', {
+                slidesPerView: 3,
+                spaceBetween: 50,
+                centeredSlides: true,
+                loop: true,
+                autoplay: {
+                    delay: 3000
+                },
+                speed: 2000, // 슬라이드 전환 속도 (1000ms = 1초)
+                navigation: {
+                    nextEl: '.emartStory_gallery .swiper-button-next',
+                    prevEl: '.emartStory_gallery .swiper-button-prev',
+                }
+            });
+        });
+    </script>
+
+    <style>
+        .Wrap {
+            width: 1280px;
+            margin: 0 auto;
+        }
+
+        /* 창업 안내 시작 */
+        .startingGuide_wrap {
+            /* border: 1px solid black; */
+            background: linear-gradient(90deg, #fece6a 7.62%, rgba(254, 207, 106, 0.591) 1280px, #fff);
+            width: 110%;
+            height: 748px;
+            /* border-radius: 512px 0px 0px 192px; */
+            border-radius: 64px 0px 0px 192px;
+            transition: 0.5s;
+            margin: 50px 0px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        /*  */
+        .startingGuide_wrap.show {
+            opacity: 1;
+            transform: translateY(-10%);
+        }
+
+        /*  */
+
+        .startingGuide_wrap>div {
+            margin-top: 10px;
+        }
+
+        .startingGuide_wrap1 {
+            height: 130px;
+            width: 330px;
+            padding: 50px;
+            margin-left: 50px;
+        }
+
+        .startingGuide_title h1 {
+            font-size: 38px;
+            font-weight: 600;
+        }
+
+        .startingGuide_title h2 {
+            font-size: 16px;
+            font-weight: 400;
+            color: #333333;
+        }
+
+        .startingGuide_boxWrap {
+            height: 500px;
+            width: 67%;
+            display: flex;
+            justify-content: center;
+            box-sizing: border-box;
+            padding: 10px;
+            margin-left: 80px;
+            gap: 30px;
+        }
+
+        /* 첫번째 박스 (창업 가이드) */
+        .startingGuide_box1 {
+            background-color: white;
+            width: 340px;
+            height: 380px;
+            margin: 0 auto;
+            box-sizing: border-box;
+            border-radius: 25px;
+            padding: 24px;
+            box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
+            position: relative;
+            transition: 0.2s ease-in-out;
+        }
+
+        .startingGuide_box11 {
+            width: 100%;
+            height: 20%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .startingGuide_box11 h1 {
+            height: 100%;
+            width: 80%;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+
+        }
+
+        .startingGuide_box11 img {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .startingGuide_box111 h2 {
+            height: 20%;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .startingGuide_box111 img {
+            height: 60%;
+            width: 100%;
+            transition: 1s;
+        }
+
+        .startingGuide_box1:hover .startingGuide_box111 img {
+            animation: shiningUpDown 1s infinite;
+        }
+
+        .startingGuide_box1:hover {
+            transform: translateY(-5px);
+        }
+
+        @keyframes shiningUpDown {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* 두번째 박스 (창업 설명회) */
+        .startingGuide_box2 {
+            background-color: white;
+            width: 340px;
+            height: 380px;
+            margin: 0 auto;
+            box-sizing: border-box;
+            border-radius: 25px;
+            padding: 24px;
+            box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
+            position: relative;
+            transition: 0.2s ease-in-out;
+        }
+
+        .startingGuide_box22 {
+            width: 100%;
+            height: 20%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .startingGuide_box22 h1 {
+            height: 100%;
+            width: 80%;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+
+        }
+
+        .startingGuide_box22 img {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .startingGuide_box222 h2 {
+            height: 20%;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .startingGuide_box222 img {
+            height: 40%;
+            width: 85%;
+            transition: 1s;
+        }
+
+        .startingGuide_box2:hover {
+            transform: translateY(-5px);
+        }
+
+        @keyframes shiningUpDown {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .eCalendar {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+
+        .eCalendar1 {
+            z-index: 1;
+        }
+
+        .eCalendar2 {
+            z-index: 2;
+        }
+
+        .eCalendar3 {
+            z-index: 3;
+            animation-delay: 1s;
+        }
+
+
+        .startingGuide_box2:hover .eCalendar2 {
+            animation: eCalendarDownAndFade 1.5s infinite;
+        }
+
+        .startingGuide_box2:hover .eCalendar3 {
+            animation: eCalendarDownAndFade 1.5s infinite;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes eCalendarDownAndFade {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            50% {
+                transform: translateY(20px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+        }
+
+        /* 세번째 박스(창업 상담) */
+        .startingGuide_box3 {
+            background-color: white;
+            width: 340px;
+            height: 380px;
+            margin: 0 auto;
+            box-sizing: border-box;
+            border-radius: 25px;
+            padding: 24px;
+            box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
+            position: relative;
+            transition: 0.2s ease-in-out;
+        }
+
+        .startingGuide_box33 {
+            width: 100%;
+            height: 20%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .startingGuide_box33 h1 {
+            height: 100%;
+            width: 80%;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+
+        }
+
+        .startingGuide_box33 img {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .startingGuide_box333 h2 {
+            height: 20%;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .startingGuide_box333 img {
+            height: 60%;
+            width: 100%;
+            transition: 1s;
+        }
+
+        .startingGuide_box3:hover .startingGuide_box333 img {
+            animation: shiningUpDown 2s infinite;
+        }
+
+        .startingGuide_box3:hover {
+            transform: translateY(-5px);
+        }
+
+        @keyframes shiningUpDown {
+            0% {
+                transform: translateY(0);
+                /* 처음 위치 */
+            }
+
+            50% {
+                transform: translateY(10px);
+                /* 아래로 10px 이동 */
+            }
+
+            100% {
+                transform: translateY(0);
+                /* 원래 위치로 돌아옴 */
+            }
+        }
+
+        /* 창업 안내 끝  */
+
+        /* 매장찾기 시작 */
+        .findShopWrap {
+            width: 1280px;
+            height: 434px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 50px 0px;
+        }
+
+        .findShopWrap>* {
+            margin: 0 auto;
+        }
+
+        .findShop {
+            width: 733px;
+            height: 334px;
+        }
+
+        .findShopTitle h1 {
+            font-size: 48px;
+            width: 733px;
+            height: 100%;
+        }
+
+        .findShop_searchBar {
+            width: 733px;
+        }
+
+        .findShop_BtnImg {
+            border: 2.2px solid #F9BB00;
+            border-radius: 8px 8px 8px 32px;
+            display: flex;
+            align-items: center;
+            width: 733px;
+            height: 70px;
+        }
+
+        .findShop_BtnImg img {
+            width: 54px;
+            height: 54px;
+            margin-right: 0px;
+        }
+
+        .findShop_searchBar input {
+            width: 733px;
+            height: 65px;
+            border-radius: 8px 8px 8px 32px;
+            outline: none;
+            border: none;
+            padding: 1px 2px 1px 24px;
+            font-size: 18px;
+            color: #ccc;
+        }
+
+        /* 버튼 (24시간, 택배, ATM, 와인, 커피) */
+        .findShop_searchBtn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .findShop_searchBtn button {
+            outline: none;
+            border-radius: 16px 0px 16px 16px;
+            background-color: #EBEBEB;
+            color: #333333;
+            font-size: 15px;
+            font-weight: bold;
+            /* margin: 100px 0px 10px 0px; */
+        }
+
+        .findShop_searchBtn button:hover {
+            transition: 0.25s;
+            background-color: rgb(249, 187, 0);
+        }
+
+        .findShop_searchBtn>button {
+            width: 134px;
+            height: 41px;
+            margin: 0 auto;
+            border: none;
+        }
+
+
+
+        /* 움직이는 이미지(지도, 핀) */
+        .findShopImg {
+            width: 415px;
+            height: 334px;
+            position: relative;
+        }
+
+        .findShopImg1 {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+
+        .findShopImg2 {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: moveUpDown 1.5s infinite;
+            z-index: 999;
+        }
+
+        @keyframes moveUpDown {
+            0% {
+                transform: translate(-50%, -50%);
+            }
+
+            50% {
+                transform: translate(-50%, -55%);
+            }
+
+            100% {
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        /* 매장찾기 끝  */
+
+        /* 다운로드 하세요! 시작 */
+        .appService_wrap {
+            width: 150%;
+            display: flex;
+            align-items: center;
+            margin: 100px 0px 40px -630px;
+            background: linear-gradient(270deg, rgb(242, 242, 242) 5.25%, rgba(245, 244, 243, 0.45) 1280px, rgb(255, 255, 255));
+            /* border: 1px solid black; */
+            border-radius: 0px 256px 64px 0px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .appService_wrap.show1 {
+            opacity: 1;
+            transform: translateY(-10%);
+        }
+
+        .appService_img {
+            width: 50%;
+            height: 762px;
+            position: relative;
+        }
+
+        .appService_img img {
+            height: 100%;
+            position: absolute;
+            right: -350px;
+        }
+
+        .appService_info {
+            width: 50%;
+            height: 378px;
+            text-align: center;
+            margin-left: 150px;
+
+        }
+
+        .appService_info1 h2 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #f9bb00;
+            margin: 0;
+            padding: 10px 0px 20px 0px;
+        }
+
+        .appService_info2 h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 0;
+            padding: 10px;
+        }
+
+        /* 자세히 보기 버튼 */
+        .appService_info3 {
+            width: 100%;
+            height: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            position: relative;
+            margin-top: 26px;
+        }
+
+        .appService_info3 button {
+            /*자세히 보기 버튼*/
+            font-size: 15px;
+            font-weight: bold;
+            border: none;
+            background-color: rgba(255, 255, 255, 0);
+            color: #333333;
+        }
+
+        .appService_info3 img {
+            /* 자세히 보기 옆 + 이미지 */
+            width: 24px;
+            height: 24px;
+        }
+
+        .appService_info3 button:hover {
+            color: rgb(249, 187, 0);
+        }
+
+
+        /* 앱 다운로드 버튼 */
+        .appService_info4 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .appService_info4Btn {
+            border: none;
+            width: 196px;
+            height: 58px;
+            padding: 8px 24px;
+            border-radius: 8px;
+            background-color: rgb(249, 187, 0);
+            margin-top: 50px;
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .appService_info4Btn img {
+            width: 16px;
+            height: 16px;
+            padding: 5px;
+        }
+
+        .appService_info4Btn h1 {
+            font-size: 16px;
+            font-weight: 500;
+            font-weight: bold;
+        }
+
+        .appService_info4Btn:hover {
+            transform: scale(0.95);
+            transition: 0.2s;
+            border-radius: 12px;
+        }
+
+        /* 다운로드 하세요! 끝  */
+
+        /* 이마트24 STORY 시작*/
+        .emartStory_wrap {
+            /*.Wrap*/
+            width: 1280px;
+            display: flex;
+            margin: 100px 0px;
+        }
+
+        .emartStory_info {
+            width: 25%;
+            height: 500px;
+            /* border: 1px solid blue; */
+            padding-top: 24px;
+        }
+
+        .emartStory_info h1 {
+            font-size: 48px;
+            font-weight: 300;
+            /* border: 1px solid black; */
+            margin: 0 auto;
+        }
+
+        .emartStory_info h2 {
+            font-size: 48px;
+            font-weight: 700;
+            /* border: 1px solid black; */
+            margin: 0 auto;
+        }
+
+        .emartStory_info h3 {
+            margin-top: 12px;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            color: #f9bb00;
+        }
+
+        .snsLink img {
+            width: 36px;
+            height: 36px;
+        }
+
+        .snsLink {
+            position: relative;
+
+        }
+
+        .snsLink ul {
+            position: absolute;
+            left: 0px;
+            list-style: none;
+            padding: 0px;
+            display: flex;
+            /* border: 1px solid black; */
+        }
+
+        .snsLink li {
+            padding: 5px;
+        }
+
+        .emartStory_gallery {
+            width: 75%;
+            height: 100%;
+            /* border: 1px solid green; */
+            overflow: hidden;
+        }
+
+        /*  */
+        .swiper {
+            width: 100%;
+            height: 500px;
+            margin: 0 auto;
+            /* border:1px solid green; */
+            display: flex;
+            padding: 5px;
+        }
+
+        .swiper-wrapper {
+            /* border:1px solid  black; */
+            border-radius: 10px;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            /* border: 1px solid black; */
+            border-radius: 10px;
+        }
+
+
+        .emartStory_galleryImg {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            transition: 1s;
+        }
+
+        .emartStory_galleryImg:hover {
+            /* color: #f9bb00; */
+            border: 3px solid #f9bb00;
+            transform: scale(1.05)
+        }
+
+        /* 이마트24 STORY 끝  */
+
+        /* 공지사항 시작 */
+        .noticeWrap {
+            /*공지사항 전체 wrap*/
+            width: 1040px;
+            height: 213px;
+            padding: 32px 32px 40px 32px;
+            border-radius: 32px;
+            background-color: #fff;
+            box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            margin-bottom: 200px;
+            /* border: 1px solid black; */
+        }
+
+        .noticeTitleWrap {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+
+        .noticeTitleWrap h2 {
+            font-size: 20px;
+            color: black;
+        }
+
+        .noticeTitleWrap span {
+            font-size: 15px;
+            color: #333333;
+            padding: 5px;
+        }
+
+        .noticeTitleWrap img {
+            width: 24ox;
+            height: 24px;
+        }
+
+        .noticeBtn {
+            /*전체보기 버튼*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+        }
+
+        .noticeBtn span {
+            font-weight: bold;
+        }
+
+        .noticeBtn:hover span {
+            color: #f9bb00;
+        }
+
+        /* 공지사항 내용  */
+        .noticeInfo1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.5s;
+        }
+
+        /* 공지사항 내용 (h2, span) */
+        .noticeInfo1 h2 {
+            color: #999999;
+            font-size: 15px;
+        }
+
+        .noticeInfo1 span {
+            color: #999999;
+            font-size: 15px;
+        }
+
+        .noticeInfo1:hover h2 {
+            color: #F9BB00;
+        }
+
+        .noticeInfo1:hover span {
+            color: #F9BB00;
+        }
+
+        /* 공지사항 끝 */
+    </style>
+
+    <script>
+        // 매장찾기 시작
+        //검색바 onclick yellow되는거 
+        function showYellow() {
+            const findShop_BtnImg = document.querySelector(".findShop_BtnImg");
+            findShop_BtnImg.style.border = "4px solid rgb(249, 187, 0)";
+        }
+        function showNone() {
+            const findShop_BtnImg = document.querySelector(".findShop_BtnImg");
+            findShop_BtnImg.style.border = "2px solid rgb(249, 187, 0)";
+        }
+        // 매장찾기 끝
+    </script>
+</head>
+
+<body>
+    <!-- 헤더 영역 채우기 -->
+    <div class="header_background">
+        <!-- 헤더 영역 -->
+        <header>
+            <div class="header_wrap">
+                <!-- 헤더 상단 메뉴 -->
+                <div class="header_top">
+                    <ul class="header_top_menu">
+                        <li><a href="">채용안내</a></li>
+                        <li><a href="">전자 계약 시스템</a></li>
+                    </ul>
+                </div>
+                <!-- 헤더 메인 메뉴 -->
+                <div class="header_main_wrap">
+                    <div class="header_logo">
+                        <a href="index.html"><img src="./project_images/header&footer_img/logo.png"
+                                alt="이마트24 로고" /></a>
+                    </div>
+                    <ul class="header_main">
+                        <div class="submenu_background"></div>
+                        <li class="header_main_menu">
+                            <a href="brand_story.html">이마트24 소개</a>
+                            <ul class="header_sub_menu_list">
+                                <li><a href="brand_story.html">브랜드 스토리</a></li>
+                                <li><a href="brand_resource.html">브랜드 리소스 센터</a></li>
+                                <li><a href="brand_gallery.html">브랜드 갤러리</a></li>
+                            </ul>
+                        </li>
+                        <li class="header_main_menu">
+                            <a href="goods_event.html">상품</a>
+                            <ul class="header_sub_menu_list">
+                                <li><a href="goods_event.html">행사 상품</a></li>
+                                <li><a href="goods_different.html">차별화 상품</a></li>
+                                <li><a href="goods_fresh.html">Fresh Food</a></li>
+                            </ul>
+                        </li>
+                        <li class="header_main_menu">
+                            <a href="service_app.html">서비스</a>
+                            <ul class="header_sub_menu_list">
+                                <li><a href="service_app.html">APP 서비스</a></li>
+                                <li><a href="service_life.html">생활 서비스</a></li>
+                                <li><a href="#" onclick="alert('준비되지 않았습니다');">제휴 서비스</a></li>
+                            </ul>
+                        </li>
+                        <li class="header_main_menu">
+                            <a href="event_act.html">이벤트</a>
+                            <ul class="header_sub_menu_list">
+                                <li><a href="event_act.html">진행중인 이벤트</a></li>
+                                <li><a href="#" onclick="alert('준비되지 않았습니다');">종료된 이벤트</a></li>
+                            </ul>
+                        </li>
+                        <li class="header_main_menu">
+                            <a href="customerCenter.html">고객센터</a>
+                            <ul class="header_sub_menu_list">
+                                <li><a href="customer_center.html">고객센터 홈</a></li>
+                                <li><a href="customer_FAQ.html">FAQ</a></li>
+                                <li><a href="customer_QA.html">온라인 문의</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+    </div>
+    <!-- 배너 Swiper -->
+    <div class="banner-swiper">
+        <div class="swiper-wrapper banner-swiper-wrapper">
+            <div class="swiper-slide banner-slide"><img src="https://emart24.co.kr/image/MjE4Mzkw" alt=""></div>
+            <div class="swiper-slide banner-slide"><img src="https://emart24.co.kr/image/MjE4NDcz" alt=""></div>
+            <div class="swiper-slide banner-slide"><img src="https://emart24.co.kr/image/MjE4NTY0" alt=""></div>
+            <div class="swiper-slide banner-slide"><img src="https://emart24.co.kr/image/MjE4NDAw" alt=""></div>
+            <div class="swiper-slide banner-slide"><img src="https://emart24.co.kr/image/MjE2NjE5" alt=""></div>
+        </div>
+        <div class="banner-buttons">
+            <div class="banner-button-prev"><</div>
+            <div class="slide-index"></div>
+            <div class="banner-button-next">></div>
+        </div>
+    </div>
+
+    <!-- 상품 Swiper -->
+    <div class="container">
+        <div class="category-buttons">
+            <h1>2월 행사 상품</h1>
+            <button class="category-btn active" data-target="swiper-1plus1">1+1</button>
+            <button class="category-btn" data-target="swiper-2plus1">2+1</button>
+            <button class="category-btn" data-target="swiper-new">신상품</button>
+        </div>
+
+        <div class="product-swiper-container active" id="swiper-1plus1">
+            <div class="product-swiper">
+                <!-- swiper div -->
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide product-slide">
+                        <div class="sort-label">
+                            <p class="lable-each">1+1</p>
+                            <img src="https://msave.emart24.co.kr/cmsbo/upload/nHq/plu_image/500x500/4902430243070.JPG"
+                                alt="">
+                            <p>헤드앤숄더)쿨멘솔550ml <br><span style="color: #F95A00;">14,900 원</span></p>
+                        </div>
+                        <div class="sort-label">
+                            <p class="lable-each">1+1</p>
+                            <img src="https://msave.emart24.co.kr/cmsbo/upload/nHq/plu_image/500x500/8801042718142.JPG"
+                                alt="">
+                            <p>려)함빛극손상케어샴푸 <br>400ml <br><span style="color: #F95A00;">14,000 원</span></p>
+                        </div>
+                        <div class="sort-label">
+                            <p class="lable-each">1+1</p>
+                            <img src="https://msave.emart24.co.kr/cmsbo/upload/nHq/plu_image/500x500/8809451339279.JPG"
+                                alt="">
+                            <p>시코르)헤이브라이트닝<br>마스크팩(1P) <br><span style="color: #F95A00;">3,000 원</span></p>
+                        </div>
+
+                        <div class="sort-label">
+                            <p class="lable-each">1+1</p>
+                            <img src="https://msave.emart24.co.kr/cmsbo/upload/nHq/plu_image/500x500/8809451339286.JPG"
+                                alt="">
+                            <p>시코르)헤이모이스처라이징 <br>마스크팩(1P) <br><span style="color: #F95A00;">14,900 원</span></p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide product-slide">
+                        <div class="sort-label">
+                            <p class="lable-each">1+1</p>
+                            <img src="https://msave.emart24.co.kr/cmsbo/upload/nHq/plu_image/500x500/8801051060157.JPG"
+                                alt="">
+                            <p>죽염)잇몸고치약120g <br><span style="color: #F95A00;">7,900 원</span></p>
+                        </div>
+                        <div class="sort-label">
+                            <p class="lable-each">1+1</p>
+                            <img src="https://msave.emart24.co.kr/cmsbo/upload/nHq/plu_image/500x500/8801046846087.JPG"
+                                alt="">
+                            <p>페리오)치약토탈7120g <br><span style="color: #F95A00;">4,300 원</span></p>
+                        </div>
+                        <div class="sort-label">
+                            <p class="lable-each">1+1</p>
+                            <img src="https://msave.emart24.co.kr/cmsbo/upload/nHq/plu_image/500x500/8801046057216.JPG"
+                                alt="">
+                            <p>2080)칫솔오리지날탄력모 <br><span style="color: #F95A00;">2,800 원</span></p>
+                        </div>
+
+                        <div class="sort-label">
+                            <p class="lable-each">1+1</p>
+                            <img src="https://msave.emart24.co.kr/cmsbo/upload/nHq/plu_image/500x500/8801051057577.JPG"
+                                alt="">
+                            <p>프로폴리스)에너지플러스<br>샴푸1000ml<br><span style="color: #F95A00;">16,900 원</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-swiper-container" id="swiper-2plus1">
+            <div class="product-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide product-slide">
+                        <div class="sort-label">
+                            <p class="lable-each">2+1</p>
+                            <img src="https://msave.emart24.co.kr/cmsbo/upload/nHq/plu_image/500x500/7702018085897.JPG"
+                                alt="">
+                            <p>질레트)프로글라이드 플렉스볼면도날2입 <br><span style="color: #F95A00;">25,600 원</span></p>
+                        </div>
+                        <div class="sort-label">
+                            <p class="lable-each">2+1</p>
+                            <img src="https://msave.emart24.co.kr/cmsbo/upload/nHq/plu_image/500x500/8801008006351.JPG"
+                                alt="">
+                            <p>뉴트로지나)훼이셜젤 클렌져100ml<br><span style="color: #F95A00;">7,100 원</span></p>
+                        </div>
+                        <div class="sort-label">
+                            <p class="lable-each">2+1</p>
+                            <img src="https://msave.emart24.co.kr/cmsbo/upload/nHq/plu_image/500x500/8801008002858.JPG"
+                                alt="">
+                            <p style="display: inline-block; padding-top: 20px;">존슨스)베이비로션<br><span
+                                    style="color: #F95A00;">6,000 원</span></p>
+                        </div>
+                        <div class="sort-label">
+                            <p class="lable-each">2+1</p>
+                            <img src="https://msave.emart24.co.kr/cmsbo/upload/nHq/plu_image/500x500/8801008004876.JPG"
+                                alt="">
+                            <p>뉴트로지나)데일리립밤4g<br><span style="color: #F95A00;">5,100 원</span></p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide product-slide">
+                        <div class="sort-label">
+                            <p class="lable-each">2+1</p>
+                            <img src="https://msave.emart24.co.kr/cmsbo/upload/nHq/plu_image/500x500/8801008700174.JPG"
+                                alt="">
+                            <p>리스테린)쿨민트250ml<br><span style="color: #F95A00;">5,000 원</span></p>
+                        </div>
+                        <div class="sort-label">
+                            <p class="lable-each">2+1</p>
+                            <img src="https://msave.emart24.co.kr/cmsbo/upload/nHq/plu_image/500x500/8809551064262.JPG"
+                                alt="">
+                            <p>하림)밥이보약하루양갱(애견)관절56g<br><span style="color: #F95A00;">4,400 원</span></p>
+                        </div>
+                        <div class="sort-label">
+                            <p class="lable-each">2+1</p>
+                            <img src="https://msave.emart24.co.kr/cmsbo/upload/nHq/plu_image/500x500/8801051057638.JPG"
+                                alt="">
+                            <p>페리오)46cm마우스스프레이6.2ml<br><span style="color: #F95A00;">4,200 원</span></p>
+                        </div>
+                        <div class="sort-label">
+                            <p class="lable-each">2+1</p>
+                            <img src="https://msave.emart24.co.kr/cmsbo/upload/nHq/plu_image/500x500/8801047642268.JPG"
+                                alt="">
+                            <p>동원)뉴트리플랜흰살참치와닭가슴살160g<br><span style="color: #F95A00;">1,800 원</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-swiper-container" id="swiper-new">
+            <div class="product-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide product-slide">
+                        <div class="sort-label">
+                            <p class="lable-each">new</p>
+                            <img src="https://msave.emart24.co.kr/cmsbo/upload/nHq/plu_image/500x500/8801047647874.JPG"
+                                alt="">
+                            <p>동원)튜나프로틴스참치 70g*5입<br><span style="color: #F95A00;">4,000 원</span></p>
+                        </div>
+                        <div class="sort-label">
+                            <p class="lable-each">new</p>
+                            <img src="https://msave.emart24.co.kr/cmsbo/upload/nHq/plu_image/500x500/8801047647881.JPG"
+                                alt="">
+                            <p>동원)튜나프로틴스참치&닭가슴살 70g*5입<br><span style="color: #F95A00;">4,000 원</span></p>
+                        </div>
+                        <div class="sort-label">
+                            <p class="lable-each">new</p>
+                            <img src="https://msave.emart24.co.kr/cmsbo/upload/nHq/plu_image/500x500/8851393000205.JPG"
+                                alt="">
+                            <p>애묘)템테이션담백연어맛75g<br><span style="color: #F95A00;">4,200 원</span></p>
+                        </div>
+                        <div class="sort-label">
+                            <p class="lable-each">new</p>
+                            <img src="https://msave.emart24.co.kr/cmsbo/upload/nHq/plu_image/500x500/8809729090499.JPG"
+                                alt="">
+                            <p>더쎄를라잇)깡맥주오리지널500ml<br><span style="color: #F95A00;">3,500 원</span></p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide product-slide">
+                        <div class="sort-label">
+                            <p class="lable-each">new</p>
+                            <img src="https://msave.emart24.co.kr/cmsbo/upload/nHq/plu_image/500x500/8806379938942.JPG"
+                                alt="">
+                            <p>24FW)따뜻한접이식왕귀마개<br><span style="color: #F95A00;">6,900 원</span></p>
+                        </div>
+                        <div class="sort-label">
+                            <p class="lable-each">new</p>
+                            <img src="https://msave.emart24.co.kr/cmsbo/upload/nHq/plu_image/500x500/8806379938966.JPG"
+                                alt="">
+                            <p>24FW)따뜻한넥워머<br><span style="color: #F95A00;">6,900 원</span></p>
+                        </div>
+                        <div class="sort-label">
+                            <p class="lable-each">new</p>
+                            <img src="https://msave.emart24.co.kr/cmsbo/upload/nHq/plu_image/500x500/5410228141303.JPG"
+                                alt="">
+                            <p>오비)스텔라330ml<br><span style="color: #F95A00;">3,500 원</span></p>
+                        </div>
+                        <div class="sort-label">
+                            <p class="lable-each">new</p>
+                            <img src="https://msave.emart24.co.kr/cmsbo/upload/nHq/plu_image/500x500/5410228256939.JPG"
+                                alt="">
+                            <p>오비)호가든병330ml<br><span style="color: #F95A00;">2,800 원</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let slideRealIndex;
+
+        const banner_swiper = new Swiper('.banner-swiper', {
+            loop: true,
+            autoplay: { delay: 2500, disableOnInteraction: false },
+            navigation: {
+                nextEl: '.banner-button-next',
+                prevEl: '.banner-button-prev',
+            },
+            on: {
+                slideChange: function () {
+                    console.log("현재 슬라이드 인덱스:", this.realIndex);
+                    slideRealIndex = this.realIndex
+                    let slideIndex = document.querySelector(".slide-index")
+                    slideIndex.innerHTML = slideRealIndex + 1;
+                }
+            }
+        });
+
+
+        //창업안내 스크롤 시 보이는 시작
+        document.addEventListener("DOMContentLoaded", function () {
+            const guideWrap = document.querySelector(".startingGuide_wrap");
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        guideWrap.classList.add("show");
+                    } else {
+                        guideWrap.classList.remove("show");
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer.observe(guideWrap);
+        });
+        //창업안내 스크롤 시 보이는 끝 
+
+        //앱 다운로드 스크롤 시 보이는 시작
+        document.addEventListener("DOMContentLoaded", function () {
+            const guideWrap1 = document.querySelector(".appService_wrap");
+
+            const observer1 = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        guideWrap1.classList.add("show1");
+                    } else {
+                        guideWrap1.classList.remove("show1");
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer1.observe(guideWrap1);
+        });
+        //앱 다운로드 스크롤 시 보이는 끝
+    </script>
+
+    <!-- 나 시작 -->
+    <div class="Wrap"> <!--전체 wrap -->
+
+        <!-- 창업 안내 시작 -->
+        <div class="startingGuide_wrap">
+            <div class="startingGuide_wrap1">
+                <div class="startingGuide_title">
+                    <h1>창업 안내</h1>
+                    <h2>이마트24의 스마트한 창업설계를 받아보세요.</h2>
+                </div>
+            </div>
+
+            <div class="startingGuide_boxWrap">
+                <!-- 첫번째 박스 -->
+                <div class="startingGuide_box1">
+                    <div class="startingGuide_box11">
+                        <h1>창업 가이드</h1>
+                        <img src="https://emart24.co.kr/assets/assets/imgs/circleArrows.png" alt="->">
+                    </div>
+                    <div class="startingGuide_box111">
+                        <h2>이마트24는 경영주님과<br>협력적 가치를 공유합니다.</h2>
+                        <img src="https://emart24.co.kr/assets/assets/imgs/idea.png" alt="전구">
+                    </div>
+                </div>
+
+
+                <!-- 두번째 박스 -->
+                <div class="startingGuide_box2">
+                    <div class="startingGuide_box22">
+                        <h1>창업 설명회</h1>
+                        <img src="https://emart24.co.kr/assets/assets/imgs/circleArrows.png" alt="->">
+                    </div>
+                    <div class="startingGuide_box222">
+                        <h2>경영주와 함께 하는<br>창업 설명회를 신청하세요.</h2>
+                        <img src="https://emart24.co.kr/assets/assets/imgs/calender3d.png" class="eCalendar eCalendar1"
+                            alt="e달력">
+                        <img src="https://emart24.co.kr/assets/assets/imgs/calenderCoins3d.png"
+                            class="eCalendar eCalendar2" alt="동전2개">
+                        <img src="https://emart24.co.kr/assets/assets/imgs/calenderCoin3d.png"
+                            class="eCalendar eCalendar3" alt="동전1개">
+                    </div>
+                </div>
+
+
+                <!-- 세번째 박스 -->
+                <div class="startingGuide_box3">
+                    <div class="startingGuide_box33">
+                        <h1>창업 상담</h1>
+                        <img src="https://emart24.co.kr/assets/assets/imgs/circleArrows.png" alt="->">
+                    </div>
+                    <div class="startingGuide_box333">
+                        <h2>창업 전문 컨설턴트의<br>상담을 받아보세요.</h2>
+                        <img src="https://emart24.co.kr/assets/assets/imgs/chatBubble.png" alt="e말풍선">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- 창업 안내 끝 -->
+
+        <!-- 매장찾기 시작 -->
+        <div class="findShopWrap">
+            <div class="findShop"> <!-- 매장찾기 왼쪽부분 -->
+                <div class="findShopTitle">
+                    <h1>매장찾기</h1>
+                </div>
+
+
+                <div class="findShop_searchBar">
+                    <div class="findShop_BtnImg">
+                        <input type="text" onfocus="showYellow()" onblur="showNone()" placeholder="매장명을 검색해주세요">
+                        <img src="https://emart24.co.kr/assets/assets/imgs/searchYellow.png" alt="검색아이콘">
+                    </div>
+
+                    <div class="findShop_searchBtn"> <!-- 버튼 (24시간, 택배, ATM, 와인, 커피) -->
+                        <button class="findShop_searchBtn1">24시간</button>
+                        <button class="findShop_searchBtn2">택배</button>
+                        <button class="findShop_searchBtn3">ATM</button>
+                        <button class="findShop_searchBtn4">와인</button>
+                        <button class="findShop_searchBtn5">커피</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="findShopImg"> <!-- 매장찾기 오른쪽부분 -->
+                <img class="findShopImg1" src="https://emart24.co.kr/assets/assets/imgs/mapPaper.png" alt="지도">
+                <img class="findShopImg2" src="https://emart24.co.kr/assets/assets/imgs/mapPin.png" alt="핀">
+            </div>
+        </div>
+        <!-- 매창찾기 끝 -->
+
+        <!-- 다운로드 하세요! 시작 -->
+        <div class="Wrap">
+            <div class="appService_wrap"> <!-- 이마트24 APP 다운로드 하세요! -->
+
+                <div class="appService_img"> <!-- 왼쪽 이미지 -->
+                    <img src="https://emart24.co.kr/assets/assets/imgs/mainAppImage.png" alt="모바일앱 이미지">
+                </div>
+
+                <div class="appService_info"> <!-- 오른쪽 정보들 -->
+                    <div class="appService_info1"> <!-- 다양한 서비스와 혜택~ -->
+                        <h2>다양한 서비스와 혜택이 가득한</h2>
+                    </div>
+
+                    <div class="appService_info2"> <!-- 이마트24 APP 지금~ -->
+                        <h1>이마트24 APP</h1>
+                        <h1>지금 다운로드 하세요!</h1>
+                    </div>
+
+                    <div class="appService_info3"> <!-- 자세히 보기 버튼 -->
+                        <button onclick="window.location.href='service_app.html'">자세히 보기</button>
+                        <img onclick="window.location.href='service_app.html'"
+                            src="https://www.emart24.co.kr/assets/assets/imgs/more.png" alt="+ 이미지">
+                    </div>
+
+                    <div class="appService_info4"> <!-- 앱 다운로드 버튼 -->
+                        <button class="appService_info4Btn" onclick="appService_info4Btn()">
+                            <img src="https://emart24.co.kr/assets/assets/imgs/downLoadIcon.png" alt="앱 다운로드">
+                            <h1>앱 다운로드</h1>
+                        </button>
+                    </div>
+                </div>
+            </div> <!-- 이마트24 APP 다운로드 하세요! -->
+        </div>
+        <!-- 다운로드 하세요! 끝 -->
+
+        <!-- 이마트24 STORY 시작 -->
+        <div class="emartStory_wrap"> <!-- 이마트스토리 전체 wrap -->
+            <div class="emartStory_info"> <!-- 이마트스토리 정보 -->
+                <h1>이마트24</h1>
+                <h2>STORY</h2>
+                <h3>이마트24의 다양한 스토리를 확인해 보세요.</h3>
+                <div class="snsLink">
+                    <ul>
+                        <li> <!-- 유튜브 -->
+                            <a href="https://www.youtube.com/channel/UCSQ0lVqv57JVw1lOdJ2vTVA?view_as=subscriber"
+                                target="_blank">
+                                <img src="./project_images/header&footer_img/youtube.png" alt="유튜브">
+                            </a>
+                        </li>
+
+                        <li><!-- 인스타그램 -->
+                            <a href="https://www.instagram.com/emart24_official/" target="_blank">
+                                <img src="./project_images/header&footer_img/insta.png" alt="인스타그램">
+                            </a>
+                        </li>
+
+                        <li> <!-- 페이스북 -->
+                            <a href="https://www.facebook.com/emart24.official" target="_blank">
+                                <img src="./project_images/header&footer_img/facebook.png" alt="페이스북">
+                            </a>
+                        </li>
+                        <li> <!-- 틱톡 -->
+                            <a href="https://www.tiktok.com/@emart24_official" target="_blank">
+                                <img src="./project_images/header&footer_img/tiktok.png" alt="틱톡">
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="emartStory_gallery"> <!-- 이마트스토리 갤러리 -->
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide"> <img class="emartStory_galleryImg"
+                                src="https://emart24.co.kr/image/MTQxNDYw"></div>
+                        <div class="swiper-slide"> <img class="emartStory_galleryImg"
+                                src="https://emart24.co.kr/image/MTQxNDU4"></div>
+                        <div class="swiper-slide"> <img class="emartStory_galleryImg"
+                                src="https://emart24.co.kr/image/MTQxNDU2"></div>
+                        <div class="swiper-slide"> <img class="emartStory_galleryImg"
+                                src="https://emart24.co.kr/image/MTM2NDQw"></div>
+                        <div class="swiper-slide"> <img class="emartStory_galleryImg"
+                                src="https://emart24.co.kr/image/MTM2NDM5"></div>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div> <!-- 이마트스토리 갤러리 -->
+        </div>
+
+        <!-- 공지사항 시작 -->
+        <div class="noticeWrap"> <!-- 공지사항 전체 wrap -->
+            <div class="noticeTitleWrap"> <!-- 공지사항 wrap -->
+                <h2>공지사항</h2>
+                <div class="noticeBtn" onclick="window.location.href='customer_FAQ.html'">
+                    <span>전체보기</span>
+                    <img src="https://www.emart24.co.kr/assets/assets/imgs/more.png" alt="+ 이미지">
+                </div>
+            </div> <!-- 공지사항 wrap -->
+
+            <div class="noticeInfo"> <!-- 공지사항 내용 -->
+                <div class="noticeInfo1">
+                    <div>
+                        <h2>기준일 설정 공고</h2>
+                    </div>
+                    <div><span>2024.12.16</span></div>
+                    <!-- <div><h2 style="color:#999999; font-size:15px">기준일 설정 공고</h2></div>
+                    <div><span style="color:#999999; font-size:15px">2024.12.16</span></div> -->
+                </div>
+                <div class="noticeInfo1">
+                    <div>
+                        <h2>신세계포인트 적립 변경 안내</h2>
+                    </div>
+                    <div><span>2024.03.29</span></div>
+                    <!-- <div><h2 style="color:#999999; font-size:15px">신세계포인트 적립 변경 안내</h2></div>
+                    <div><span style="color:#999999; font-size:15px">2024.03.29</span></div> -->
+                </div>
+                <div class="noticeInfo1">
+                    <div>
+                        <h2>2023년(제 18기) 결산공고</h2>
+                    </div>
+                    <div><span>2024.03.27</span></div>
+                    <!-- <div><h2 style="color:#999999; font-size:15px">2023년(제 18기) 결산공고</h2></div>
+                    <div><span style="color:#999999; font-size:15px">2024.03.27</span></div> -->
+                </div>
+            </div> <!-- 공지사항 내용 -->
+        </div> <!-- 공지사항 전체 wrap -->
+        <!-- 공지사항 끝 -->
+    </div>
+    <!-- 푸터 영역 -->
+    <footer>
+        <div class="footer-div">
+            <div class="footer-div-infos">
+                <span style="cursor: pointer;">
+                    <p>개인정보 처리방침 &nbsp;|&nbsp; 고정형 영상정보기기 운영 관리 방침 &nbsp;|&nbsp; 위치기반서비스 이용약관 &nbsp;|
+                        <span style="color: #333333; font-weight: 400;">&nbsp;이용약관 &nbsp;| &nbsp;공지사항 &nbsp;|
+                            &nbsp;고객센터
+                            &nbsp;|&nbsp; CSR경영 &nbsp;| &nbsp;사이트맵</span>
+                    </p>
+                </span>
+                <span style="color: #333333;">
+                    <p>(주) 이마트24</p>
+                </span>
+                <span style="color: #999999; ">
+                    <p>대표이사 : 송만춘 / 사업자등록번호: 105-86-92454 <br>
+                        서울특별시 성동구 성수동 2가 281-4 푸조비즈타워 / 고객센터: 02-6916-1500 / Fax: 02-6916-1430 <br>
+                        COPYRIGHT (C) EMART24.ALL RIGHT RESERVED
+                    </p>
+                </span>
+            </div>
+
+            <div class="footer-right">
+                <div class="footer-familysite">
+                    <p><span style="color: #333333; font-size: 13px; cursor: pointer;">패밀리사이트 +</span></p>
+                </div>
+                <div class="footer-sites">
+                    <div class="sns">
+                        <a href="">
+                            <img src="./header&footer_img/youtube.png" alt="">
+                        </a>
+                    </div>
+                    <div class="sns">
+                        <a href="">
+                            <img src="./header&footer_img/insta.png" alt="">
+                        </a>
+                    </div>
+                    <div class="sns">
+                        <a href="">
+                            <img src="./header&footer_img/facebook.png" alt="">
+                        </a>
+                    </div>
+                    <div class="sns">
+                        <a href="">
+                            <img src="./header&footer_img/tiktok.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <style>
+        .swiper-button-next {
+            color: #ccc;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            padding: 5px;
+        }
+
+        .swiper-button-prev {
+            color: #ccc;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: rgb(203, 120, 120);
+        }
+    </style>
+    <script>
+        new Swiper('.banner-swiper', {
+            loop: true,
+            autoplay: { delay: 2500, disableOnInteraction: false },
+            navigation: {
+                nextEl: '.banner-button-next',
+                prevEl: '.banner-button-prev',
+            }
+        });
+
+        document.querySelectorAll(".category-btn").forEach(button => {
+            button.addEventListener("click", () => {
+                document.querySelectorAll(".category-btn").forEach(btn => btn.classList.remove("active"));
+                button.classList.add("active");
+
+                document.querySelectorAll(".product-swiper-container").forEach(swiper => swiper.classList.remove("active"));
+                document.getElementById(button.dataset.target).classList.add("active");
+
+                new Swiper(`#${button.dataset.target} .product-swiper`, {
+                    loop: true,
+                    autoplay: true
+                });
+            });
+        });
+
+        document.querySelectorAll(".product-swiper").forEach(swiperEl => {
+            new Swiper(swiperEl, { loop: true, autoplay: true });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>서비스 - APP 서비스</title>
+    <style>
+        @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+        /* 기본 스타일: html, body의 여백 제거 및 스크롤 숨김 */
+        /* 전역설정 */
+        * {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        /* 헤더 영역 전체 스타일 */
+        .header_background {
+            width: 100%;
+            height: 123px;
+        }
+
+        header {
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+            position: fixed;
+            background-color: white;
+            opacity: 0.9;
+            transition: 1.5s;
+            z-index: 1000;
+        }
+
+        header:hover {
+            opacity: 1;
+            transition: 0.5s;
+        }
+
+        .header_wrap {
+            width: 1280px;
+            max-width: 1280px;
+            margin: 0px auto;
+            box-sizing: border-box;
+        }
+
+        .header_top_menu,
+        .header_main,
+        .header_sub_menu_list {
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .header_top_menu a,
+        .header_main_menu a,
+        .header_sub_menu_list a {
+            text-decoration: none;
+            color: black;
+        }
+
+        /* 헤더 상단 메뉴 스타일 */
+        .header_top {
+            padding: 8px 24px;
+        }
+
+        .header_top_menu {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            font-size: 12px;
+            gap: 16px;
+        }
+
+        .header_top_menu li a {
+            color: #999999;
+        }
+
+        /* 헤더 메인 메뉴 스타일 */
+        .header_main_wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+            margin: 0px;
+            /* border: 1px solid black; */
+        }
+
+        .header_main {
+            display: flex;
+            align-items: center;
+            height: 90px;
+            padding: 0px 24px;
+            margin: 0px;
+            gap: 70px;
+            font-size: 17px;
+            font-weight: 500;
+        }
+
+        .header_logo img {
+            max-width: 113px;
+        }
+
+        .header_main_menu {
+            position: relative;
+        }
+
+        .header_main_menu a {
+            font-size: 20px;
+            font-weight: 400;
+            color: #333333;
+            /* 필요 시 패딩이나 마진을 조정하여 텍스트 시작 위치를 맞춥니다 */
+            display: block;
+        }
+
+        /* 공통 서브메뉴 배경 - header_main 영역에 마우스가 올라가면 전체 배경이 보임 */
+        .submenu_background {
+            width: 100%;
+            height: 150px;
+            background-color: #4e5059dd;
+            opacity: 0;
+            transition: 0.5s;
+            pointer-events: none;
+            position: absolute;
+            top: 122px;
+            left: 0px;
+        }
+
+        .header_main:hover .submenu_background {
+            opacity: 1;
+            pointer-events: auto;
+            transition: 0.5s;
+            z-index: 800;
+        }
+
+        /* 서브메뉴 리스트 - 각 메뉴 항목의 하위 메뉴는 메인 메뉴 항목 내부에서 나타남 */
+        .header_sub_menu_list {
+            position: absolute;
+            left: 0px;
+            top: 90px;
+            display: none;
+            transition: 0.5s;
+        }
+
+        /* 서브메뉴 항목 스타일 */
+        .header_sub_menu_list a {
+            font-size: 15px;
+            padding: 4px 0px;
+            box-sizing: border-box;
+            /* 한 라인에 단어가 모두 나오도록 설정 (줄바꿈 없이) */
+            white-space: nowrap;
+        }
+
+        .header_main:hover .header_sub_menu_list {
+            display: block;
+            transition: 0.5s;
+            z-index: 900;
+        }
+
+        .header_sub_menu_list a {
+            color: #ebebeb;
+        }
+
+        .header_top_menu a:hover,
+        .header_main_menu a:hover,
+        .header_sub_menu_list a:hover {
+            color: #f9bb00;
+        }
+
+        .header_main_menu:hover>a {
+            color: #f9bb00;
+        }
+
+
+        /* 푸터 영역 전체 스타일 */
+        footer {
+            width: 100%;
+            height: 334px;
+            background-color: rgb(241, 241, 241);
+        }
+
+
+        .footer-div {
+            display: flex;
+            width: 1280px;
+            max-width: 1280px;
+            height: 100%;
+            background-color: rgb(241, 241, 241);
+            margin: 0px auto;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* footer 왼쪽 정보 영역 */
+        .footer-div-infos {
+            font-size: 13px;
+        }
+
+        .footer-div-infos p {
+            padding-bottom: 30px;
+        }
+
+        /* footer 오른쪽 패밀리사이트 영역 */
+        .footer-right {
+            height: 237px;
+            justify-content: space-between;
+        }
+
+
+        /* 패밀리사이트 내 아이콘 영역 */
+        .footer-sites {
+            display: flex;
+        }
+
+        .footer-familysite p {
+            text-align: end;
+            margin: 13px 0px 40px;
+        }
+
+        .sns img {
+            width: 32px;
+            height: 32px;
+            background-color: white;
+            border-radius: 50%;
+            margin-left: 8px;
+        }
+
+        /* 컨테이너: 한 화면(100vh) 크기로 설정하고, 부드러운 이동을 위한 transition 적용 */
+        .container {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            transition: transform 0.7s ease-in-out;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        /* 각 페이지: 100vh 크기에 중앙 정렬, 배경색은 인라인 스타일로 지정 */
+        .page {
+            width: 100%;
+            height: 100vh;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .title_wrap {
+            position: relative;
+            gap: 24px;
+            width: 600px;
+            height: 155px;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+        }
+
+        .mainTitle {
+            width: 100%;
+            margin: 0px;
+            text-align: left;
+            font-family: "Noto Sans KR", sans-serif;
+            font-size: 38px;
+            font-weight: 500;
+            color: #333333;
+        }
+
+        .page1 .mainTitle {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .subTitle {
+            width: 100%;
+            margin: 0px;
+            text-align: left;
+            font-family: "Noto Sans KR", sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+            color: #333333;
+        }
+
+        .page1 .subTitle {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .page2,
+        .page4 {
+            background-color: rgb(249, 250, 251);
+        }
+
+        /* 1페이지 */
+        .page1 .title_wrap {
+            top: 12%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: white;
+        }
+
+        /* 2페이지 */
+        .page2 .title_wrap {
+            top: 45%;
+            left: 20%;
+            transform: translateY(-50%);
+        }
+
+        /* 3페이지 */
+        .page3 .title_wrap {
+            top: 45%;
+            left: 65%;
+            transform: translateY(-50%);
+        }
+
+        /* 4페이지 */
+        .page4 .title_wrap {
+            top: 45%;
+            left: 16%;
+            transform: translateY(-50%);
+        }
+
+        /* 제목 */
+        .title_wrap h1 {
+            position: absolute;
+            bottom: 0;
+            font-size: 38px;
+            line-height: 1.5;
+            font-weight: 500;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        /* 이동 및 회전할 이미지: 화면 중앙에 고정 */
+        #movingImage {
+            position: fixed;
+            width: 66vh;
+            top: 81.53vh;
+            left: 49.97vw;
+            transform: translate(-50%, -50%) rotate(0deg);
+            transition: transform 0.7s ease-in-out;
+        }
+
+        #movingImage {
+            filter: drop-shadow(0px 4px 64px #f9bb00);
+        }
+
+        .vewrFooter_wrap {
+            height: auto;
+            width: 100%;
+            margin-bottom: 32px;
+            padding-top: 196px;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(249, 250, 251);
+        }
+
+        /* 다운로드 */
+        .vewrFooter {
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            width: 1280px;
+            height: 136px;
+            margin: 0 auto;
+            padding: 32px 94px;
+            box-sizing: border-box;
+
+            border-radius: 32px;
+            background-color: #ffd65c;
+        }
+
+        /* 왼쪽 */
+        .left {
+            display: flex;
+            justify-content: space-between;
+            justify-content: center;
+            align-items: center;
+
+            width: 350px;
+            height: 80px;
+        }
+
+        /* 이미지 */
+        .vewrFooter img {
+            width: 75px;
+            height: 75px;
+        }
+
+        .left h1
+
+        /* 텍스트 */
+            {
+            width: 250px;
+            height: 50px;
+            font-size: 36px;
+        }
+
+        /* 다운로드 버튼 */
+        .downloadButton {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 200px;
+            height: 80px;
+            border-radius: 8px;
+
+            background-color: white;
+        }
+
+        /* 이미지 */
+        .downloadButton img {
+            width: 50px;
+            height: 50px;
+        }
+
+        /* 텍스트 */
+        .downloadButton h1 {
+            font-size: 16px;
+        }
+
+        .downloadButton:hover {
+            border: 2px solid #f9bb00;
+        }
+
+        .img_wrap img {
+            position: fixed;
+            width: 400px;
+            height: auto;
+            /* 처음에는 완전히 투명 */
+            opacity: 0;
+            /* 부드러운 페이드 효과 */
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* 이미지가 나타날 때 */
+        .img_wrap img.show {
+            opacity: 1;
+            /* 점점 선명하게 */
+        }
+
+        #page1_img {
+            width: auto;
+            height: 66.48vh;
+            top: 87.04vh;
+            left: 50vw;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        #page2_img {
+            width: auto;
+            height: 65.56vh;
+            top: 63.89vh;
+            left: 71.35vw;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        #page3_img {
+            width: auto;
+            height: 66.02vh;
+            top: 63.89vh;
+            left: 36.98vw;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        #page4_img {
+            width: auto;
+            height: 66.2vh;
+            top: 63.89vh;
+            left: 71.35vw;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        /* 키프레임 애니메이션 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -250px);
+                /* 기존 위치에서 아래 */
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+                /* 원래 위치 유지 */
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translate(-550px, -50%);
+                /* 왼쪽에서 등장 */
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+                /* 원래 위치 유지 */
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translate(-150px, -50%);
+                /* 오른쪽에서 등장 */
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+                /* 원래 위치 유지 */
+            }
+        }
+
+        /* 애니메이션 적용 */
+        .img_wrap img.show {
+            opacity: 1;
+        }
+
+
+        /* 공통 애니메이션 적용 */
+        #page1_img.show {
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        #page2_img.show {
+            animation: fadeInRight 0.5s ease-out;
+        }
+
+        #page3_img.show {
+            animation: fadeInLeft 0.5s ease-out;
+        }
+
+        #page4_img.show {
+            animation: fadeInRight 0.5s ease-out;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 헤더 영역 채우기 -->
+    <div class="header_background">
+        <!-- 헤더 영역 -->
+        <header>
+            <div class="header_wrap">
+                <!-- 헤더 상단 메뉴 -->
+                <div class="header_top">
+                    <ul class="header_top_menu">
+                        <li><a href="">채용안내</a></li>
+                        <li><a href="">전자 계약 시스템</a></li>
+                    </ul>
+                </div>
+                <!-- 헤더 메인 메뉴 -->
+                <div class="header_main_wrap">
+                    <div class="header_logo">
+                        <a href="index.html"></a><img src="./project_images/header&footer_img/logo.png"
+                            alt="이마트24 로고" /></a>
+                    </div>
+                    <ul class="header_main">
+                        <div class="submenu_background"></div>
+                        <li class="header_main_menu">
+                            <a href="brand_story.html">이마트24 소개</a>
+                            <ul class="header_sub_menu_list">
+                                <li><a href="brand_story.html">브랜드 스토리</a></li>
+                                <li><a href="brand_resource.html">브랜드 리소스 센터</a></li>
+                                <li><a href="brand_gallery.html">브랜드 갤러리</a></li>
+                            </ul>
+                        </li>
+                        <li class="header_main_menu">
+                            <a href="goods_event.html">상품</a>
+                            <ul class="header_sub_menu_list">
+                                <li><a href="goods_event.html">행사 상품</a></li>
+                                <li><a href="goods_different.html">차별화 상품</a></li>
+                                <li><a href="goods_fresh.html">Fresh Food</a></li>
+                            </ul>
+                        </li>
+                        <li class="header_main_menu">
+                            <a href="service_app.html">서비스</a>
+                            <ul class="header_sub_menu_list">
+                                <li><a href="service_app.html">APP 서비스</a></li>
+                                <li><a href="service_life.html">생활 서비스</a></li>
+                                <li><a href="#" onclick="alert('준비되지 않았습니다');">제휴 서비스</a></li>
+                            </ul>
+                        </li>
+                        <li class="header_main_menu">
+                            <a href="event_act.html">이벤트</a>
+                            <ul class="header_sub_menu_list">
+                                <li><a href="event_act.html">진행중인 이벤트</a></li>
+                                <li><a href="#" onclick="alert('준비되지 않았습니다');">종료된 이벤트</a></li>
+                            </ul>
+                        </li>
+                        <li class="header_main_menu">
+                            <a href="customerCenter.html">고객센터</a>
+                            <ul class="header_sub_menu_list">
+                                <li><a href="customer_center.html">고객센터 홈</a></li>
+                                <li><a href="customer_faq.html">FAQ</a></li>
+                                <li><a href="customer_QA.html">온라인 문의</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <!-- 페이지 컨테이너 (5페이지) -->
+    <div class="container">
+        <div class="page page1" style="background-color: black;">
+            <div class="title_wrap">
+                <h2 class="subTitle"> 이마트24 APP </h2>
+                <h1 class="mainTitle"> 다양한 서비스와 혜택이 가득한 <br>
+                    이마트24 앱을 만나보세요! </h1>
+            </div>
+        </div>
+        <div class="page page2">
+            <div class="title_wrap">
+                <h2 class="subTitle"> 예약픽업 </h2>
+                <h1 class="mainTitle"> 인기상품 미리 예약하고 <br>
+                    원하는 매장에서 픽업! </h1>
+            </div>
+        </div>
+        <div class="page page3">
+            <div class="title_wrap">
+                <h2 class="subTitle"> 오늘 픽업 </h2>
+                <h1 class="mainTitle"> 지금 주문하고 <br>
+                    퇴근길에 빠르게 픽업! </h1>
+            </div>
+        </div>
+        <div class="page page4">
+            <div class="title_wrap">
+                <h2 class="subTitle"> 바로 배달 </h2>
+                <h1 class="mainTitle">어디서나 주문하면 <br>
+                    집 앞으로 바로배달 </h1>
+            </div>
+        </div>
+        <div class="vewrFooter_wrap">
+            <div class="vewrFooter">
+                <!-- 왼쪽 -->
+                <div class="left">
+                    <img src="./project_images/service_app_img/app_Icon.png">
+                    <h1> APP 다운로드 </h1>
+                </div>
+
+                <!-- 다운로드 버튼 -->
+                <div class="downloadButton">
+                    <img src="./project_images/service_app_img/downloadIcon.png">
+                    <h1> APP 다운로드 </h1>
+                </div>
+            </div>
+        </div>
+        <!-- 푸터 영역 -->
+        <footer>
+            <div class="footer-div">
+                <div class="footer-div-infos">
+                    <span style="cursor: pointer;">
+                        <p>개인정보 처리방침 &nbsp;|&nbsp; 고정형 영상정보기기 운영 관리 방침 &nbsp;|&nbsp; 위치기반서비스 이용약관 &nbsp;|
+                            <span style="color: #333333; font-weight: 400;">&nbsp;이용약관 &nbsp;| &nbsp;공지사항 &nbsp;|
+                                &nbsp;고객센터
+                                &nbsp;|&nbsp; CSR경영 &nbsp;| &nbsp;사이트맵</span>
+                        </p>
+                    </span>
+                    <span style="color: #333333;">
+                        <p>(주) 이마트24</p>
+                    </span>
+                    <span style="color: #999999; ">
+                        <p>대표이사 : 송만춘 / 사업자등록번호: 105-86-92454 <br>
+                            서울특별시 성동구 성수동 2가 281-4 푸조비즈타워 / 고객센터: 02-6916-1500 / Fax: 02-6916-1430 <br>
+                            COPYRIGHT (C) EMART24.ALL RIGHT RESERVED
+                        </p>
+                    </span>
+                </div>
+
+                <div class="footer-right">
+                    <div class="footer-familysite">
+                        <p><span style="color: #333333; font-size: 13px; cursor: pointer;">패밀리사이트 +</span></p>
+                    </div>
+                    <div class="footer-sites">
+                        <div class="sns">
+                            <a href="">
+                                <img src="./project_images/header&footer_img/youtube.png" alt="">
+                            </a>
+                        </div>
+                        <div class="sns">
+                            <a href="">
+                                <img src="./project_images/header&footer_img/insta.png" alt="">
+                            </a>
+                        </div>
+                        <div class="sns">
+                            <a href="">
+                                <img src="./project_images/header&footer_img/facebook.png" alt="">
+                            </a>
+                        </div>
+                        <div class="sns">
+                            <a href="">
+                                <img src="./project_images/header&footer_img/tiktok.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+    <!-- 이동할 이미지 -->
+    <img id="movingImage" src="./project_images/service_app_img/appRadius.png">
+
+    <!-- 이미지 -->
+    <div class="img_wrap">
+        <img id="page1_img" src="./project_images/service_app_img/1페이지.png">
+        <img id="page2_img" src="./project_images/service_app_img/2페이지.png">
+        <img id="page3_img" src="./project_images/service_app_img/3페이지.png">
+        <img id="page4_img" src="./project_images/service_app_img/4페이지.png">
+    </div>
+
+
+    <script>
+        let currentPage = 0; // 현재 페이지 (0부터 시작)
+        const maxPage = 5; // 총 5페이지 (0 ~ 5) <- 기존 4에서 5로 변경
+        let isScrolling = false; // 연속 스크롤 방지를 위한 플래그
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+
+        // 각 페이지에 따른 이미지 이동 및 회전 좌표 설정
+        const positions = [
+            { x: `0vw`, y: `0vh`, rotate: 0 },  // 1페이지
+            { x: `${(357 / vw) * 100}vw`, y: `0vh`, rotate: 90 },   // 2페이지
+            { x: `${(-355 / vw) * 100}vw`, y: `${(160 / vh) * 100}vh`, rotate: 180 },   // 3페이지
+            { x: `${(357 / vw) * 100}vw`, y: `0vh`, rotate: 600 },  // 4페이지
+            { x: `${(400 / vw) * 100}vw`, y: `${(-2000 / vh) * 100}vh`, rotate: 600 }  // 5페이지
+        ];
+
+        const container = document.querySelector(".container");
+        const image = document.getElementById("movingImage");
+
+        // 페이지별 이미지 가져오기
+        const pageImages = [
+            document.getElementById("page1_img"),
+            document.getElementById("page2_img"),
+            document.getElementById("page3_img"),
+            document.getElementById("page4_img")
+        ];
+
+        // 모든 이미지를 숨기는 함수
+        function hideAllImages() {
+            pageImages.forEach(img => img.style.display = "none");
+        }
+
+        // 페이지 변경 시 올바른 이미지만 표시하는 함수
+        function showCurrentImage() {
+            hideAllImages(); // 모든 이미지를 숨김
+
+            if (currentPage >= 0 && currentPage < pageImages.length) {
+                setTimeout(() => {
+                    let img = pageImages[currentPage];
+                    img.style.display = "block"; // 이미지 표시
+                    img.classList.add("show"); // 애니메이션 트리거
+                }, 550); // 0.55초 딜레이
+            }
+        }
+
+        // 초기 실행 (1페이지 이미지 보이게 설정)
+        showCurrentImage();
+
+        window.addEventListener("wheel", function (e) {
+            e.preventDefault(); // 기본 스크롤 동작 방지
+
+            if (isScrolling) return; // 스크롤 중이면 무시
+
+            let direction = e.deltaY > 0 ? 1 : -1; // 스크롤 방향
+
+            // 페이지 범위 내에서 이동 (기존 maxPage - 1 → maxPage)
+            if ((direction === 1 && currentPage < maxPage - 1) || (direction === -1 && currentPage > 0)) {
+                currentPage += direction;
+
+                // 마지막 페이지일 때 이동 거리 조정 (100vh -> 예를 들어 91vh로 변경)
+                const moveDistance = (currentPage === maxPage - 1) ? currentPage * 91 : currentPage * 100;
+
+                // 컨테이너 이동
+                container.style.transform = `translate3d(0, -${moveDistance}vh, 0)`;
+
+                // 이미지 이동 및 회전
+                const pos = positions[currentPage];
+                image.style.transform = `translate(-50%, -50%) translate(${pos.x}, ${pos.y}) rotate(${pos.rotate}deg)`;
+
+                // 현재 페이지에 맞는 이미지 표시
+                showCurrentImage();
+
+                // 마지막 페이지에서는 이미지 숨김
+                if (currentPage === 4) {
+                    image.style.opacity = 0;
+                    image.style.visibility = "hidden";
+                } else {
+                    image.style.opacity = 1;
+                    setTimeout(() => image.style.visibility = "visible", 400);
+                }
+
+                isScrolling = true;
+                setTimeout(() => isScrolling = false, 700); // 0.7초 후 다시 스크롤 가능
+            }
+        }, { passive: false });
+
+    </script>
+</body>
+
+</html>

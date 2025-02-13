@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title> Fresh Food - 상품 정보 </title>
+   <!-- 헤더 & 푸터 스타일 -->
+   <style>
+      @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+      /* 기본 설정 */
+      header,
+      footer {
+         font-family: 'Noto Sans KR', sans-serif;
+      }
+
+      html,
+      body {
+         margin: 0px;
+         padding: 0px;
+         width: 100%;
+         height: 100%;
+      }
+
+      /* 헤더 영역 전체 스타일 */
+      .header_background {
+         width: 100%;
+         height: 123px;
+      }
+
+      header {
+         width: 100%;
+         margin: 0px;
+         padding: 0px;
+         position: fixed;
+         background-color: white;
+         opacity: 0.9;
+         transition: 1.5s;
+         z-index: 1000;
+      }
+
+      header:hover {
+         opacity: 1;
+         transition: 0.5s;
+      }
+
+      .header_wrap {
+         width: 1280px;
+         max-width: 1280px;
+         margin: 0px auto;
+         box-sizing: border-box;
+      }
+
+      .header_top_menu,
+      .header_main,
+      .header_sub_menu_list {
+         list-style: none;
+         padding: 0px;
+         margin: 0px;
+      }
+
+      .header_top_menu a,
+      .header_main_menu a,
+      .header_sub_menu_list a {
+         text-decoration: none;
+         color: black;
+      }
+
+      /* 헤더 상단 메뉴 스타일 */
+      .header_top {
+         padding: 8px 24px;
+      }
+
+      .header_top_menu {
+         display: flex;
+         align-items: center;
+         justify-content: flex-end;
+         font-size: 12px;
+         gap: 16px;
+      }
+
+      .header_top_menu li a {
+         color: #999999;
+      }
+
+      /* 헤더 메인 메뉴 스타일 */
+      .header_main_wrap {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         height: 90px;
+         margin: 0px;
+         /* border: 1px solid black; */
+      }
+
+      .header_main {
+         display: flex;
+         align-items: center;
+         height: 90px;
+         padding: 0px 24px;
+         margin: 0px;
+         gap: 70px;
+         font-size: 17px;
+         font-weight: 500;
+      }
+
+      .header_logo img {
+         max-width: 113px;
+      }
+
+      .header_main_menu {
+         position: relative;
+      }
+
+      .header_main_menu a {
+         font-size: 20px;
+         font-weight: 400;
+         color: #333333;
+         /* 필요 시 패딩이나 마진을 조정하여 텍스트 시작 위치를 맞춥니다 */
+         display: block;
+      }
+
+      /* 공통 서브메뉴 배경 - header_main 영역에 마우스가 올라가면 전체 배경이 보임 */
+      .submenu_background {
+         width: 100%;
+         height: 150px;
+         background-color: #4e5059dd;
+         opacity: 0;
+         transition: 0.5s;
+         pointer-events: none;
+         position: absolute;
+         top: 123px;
+         left: 0px;
+      }
+
+      .header_main:hover .submenu_background {
+         opacity: 1;
+         pointer-events: auto;
+         transition: 0.5s;
+         z-index: 800;
+      }
+
+      /* 서브메뉴 리스트 - 각 메뉴 항목의 하위 메뉴는 메인 메뉴 항목 내부에서 나타남 */
+      .header_sub_menu_list {
+         position: absolute;
+         left: 0px;
+         top: 90px;
+         display: none;
+         transition: 0.5s;
+      }
+
+      /* 서브메뉴 항목 스타일 */
+      .header_sub_menu_list a {
+         font-size: 15px;
+         padding: 4px 0px;
+         box-sizing: border-box;
+         /* 한 라인에 단어가 모두 나오도록 설정 (줄바꿈 없이) */
+         white-space: nowrap;
+      }
+
+      .header_main:hover .header_sub_menu_list {
+         display: block;
+         transition: 0.5s;
+         z-index: 900;
+      }
+
+      .header_sub_menu_list a {
+         color: #ebebeb;
+      }
+
+      .header_top_menu a:hover,
+      .header_main_menu a:hover,
+      .header_sub_menu_list a:hover {
+         color: #f9bb00;
+      }
+
+      .header_main_menu:hover>a {
+         color: #f9bb00;
+      }
+
+
+      /* 푸터 영역 전체 스타일 */
+      footer {
+         width: 100%;
+         height: 334px;
+         background-color: rgb(241, 241, 241);
+      }
+
+
+      .footer-div {
+         display: flex;
+         width: 1280px;
+         max-width: 1280px;
+         height: 100%;
+         background-color: rgb(241, 241, 241);
+         margin: 0px auto;
+         align-items: center;
+         justify-content: space-between;
+      }
+
+      /* footer 왼쪽 정보 영역 */
+      .footer-div-infos {
+         font-size: 13px;
+      }
+
+      .footer-div-infos p {
+         padding-bottom: 30px;
+      }
+
+      /* footer 오른쪽 패밀리사이트 영역 */
+      .footer-right {
+         height: 237px;
+         justify-content: space-between;
+      }
+
+
+      /* 패밀리사이트 내 아이콘 영역 */
+      .footer-sites {
+         display: flex;
+      }
+
+      .footer-familysite p {
+         text-align: end;
+         margin: 13px 0px 40px;
+      }
+
+      .sns img {
+         width: 32px;
+         height: 32px;
+         background-color: white;
+         border-radius: 50%;
+         margin-left: 8px;
+      }
+   </style>
+   <!-- 섹션 스타일 -->
+   <style>
+      /* 섹션 */
+      section {
+         width: 1000px;
+         margin: 50px auto;
+
+         font-size: 15px;
+      }
+
+
+
+      /* 배너 */
+      .banner {
+         width: 100%;
+         margin: 20px auto;
+      }
+
+      .banner h1
+
+      /* 제목 */
+         {
+         margin: 0;
+         font-size: 48px;
+      }
+
+      .banner p
+
+      /* 설명 */
+         {
+         margin: 0;
+         font-size: 20px;
+         color: #999999;
+      }
+
+
+
+      /* 검색창 */
+      .search {
+         display: flex;
+         justify-content: space-between;
+
+         width: 100%;
+         height: 35px;
+      }
+
+      /* 검색바 */
+      .search_bar {
+         display: flex;
+
+         width: 75%;
+         height: 35px;
+
+         background-color: white;
+         border: 1px solid #4e5059;
+         border-radius: 8px;
+      }
+
+      .search_bar:focus-within {
+         border: 1px solid #f9bb00;
+      }
+
+      .search_img
+
+      /* 이미지 */
+         {
+         width: 35px;
+         height: 35px;
+
+         background-image: url("./project_images/search.png");
+         background-size: cover;
+         background-position: center;
+      }
+
+      .search_bar input
+
+      /* 입력창 */
+         {
+         width: 700px;
+         height: 30px;
+         margin: 0 auto;
+         border: none;
+      }
+
+      .search_bar input:focus {
+         border: none;
+         outline: none;
+      }
+
+      /* 버튼 */
+      .search button {
+         width: 24%;
+         height: 100%;
+         border-radius: 8px;
+
+         background-color: #f9bb00;
+         border: none;
+      }
+
+      .search button:hover {
+         width: 24%;
+         height: 100%;
+
+         color: white;
+      }
+
+
+
+      /* 상품 목록 */
+      .itemBox_wrap {
+         width: 100%;
+         margin: 20px;
+      }
+
+      .itemBox {
+         width: 100%;
+      }
+
+      .itemBox2,
+      .itemBox3 {
+         display: none;
+      }
+
+      /* 리스트 */
+      .itemBox ul {
+         width: 100%;
+         height: 400px;
+         margin: 0;
+         padding: 0;
+
+         display: flex;
+      }
+
+      .itemBox ul li {
+         position: relative;
+         list-style: none;
+
+         width: 25%;
+         margin: 20px;
+         padding: 20px;
+         box-sizing: border-box;
+         border-radius: 8px;
+
+         background-color: white;
+         border: 1px solid #ebebeb;
+
+         text-align: center;
+      }
+
+      /* 이미지 */
+      .itemBox ul li img {
+         width: 80%;
+         height: 200px;
+      }
+
+
+
+      /* 페이지 이동 */
+      .pages {
+         width: 100%;
+         height: 20px;
+
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+
+      /* 페이지 목록 */
+      .pages ul {
+         width: 100%;
+         height: 100%;
+
+         list-style: none;
+
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+
+      .pages ul li {
+         width: 20px;
+         height: 100%;
+         margin: 10px;
+
+         color: #999999;
+      }
+
+      .pages ul li:hover {
+         color: #f9bb00;
+      }
+
+      .pages ul .now {
+         color: #f9bb00;
+      }
+   </style>
+   <script>
+      // 현재 페이지 (초기값: 1페이지)
+      let currentPage = 1;
+
+      function updatePage() {
+         // 모든 페이지 번호 색상 초기화
+         document.getElementById("page1").style.color = "#999999";
+         document.getElementById("page2").style.color = "#999999";
+         document.getElementById("page3").style.color = "#999999";
+
+         // 현재 페이지 색상 변경
+         document.getElementById(`page${currentPage}`).style.color = "#f9bb00";
+
+         // 모든 상품 목록 숨기기
+         document.querySelector(".itemBox1").style.display = "none";
+         document.querySelector(".itemBox2").style.display = "none";
+         document.querySelector(".itemBox3").style.display = "none";
+
+         // 현재 페이지에 해당하는 상품 목록만 표시
+         document.querySelector(`.itemBox${currentPage}`).style.display = "block";
+      }
+
+      // 이전 페이지로 이동
+      function page_front_go() {
+         if (currentPage > 1) {
+            currentPage--;
+            updatePage();
+         }
+      }
+
+      // 다음 페이지로 이동
+      function page_back_go() {
+         if (currentPage < 3) {
+            currentPage++;
+            updatePage();
+         }
+      }
+
+      // 특정 페이지로 이동
+      function page1_go() {
+         currentPage = 1;
+         updatePage();
+      }
+      function page2_go() {
+         currentPage = 2;
+         updatePage();
+      }
+      function page3_go() {
+         currentPage = 3;
+         updatePage();
+      }
+
+      // 페이지 초기 로딩 시 1페이지 표시
+      updatePage();
+   </script>
+</head>
+
+<body>
+   <!-- 헤더 영역 채우기 -->
+   <div class="header_background">
+      <!-- 헤더 영역 -->
+      <header>
+         <div class="header_wrap">
+            <!-- 헤더 상단 메뉴 -->
+            <div class="header_top">
+               <ul class="header_top_menu">
+                  <li><a href="">채용안내</a></li>
+                  <li><a href="">전자 계약 시스템</a></li>
+               </ul>
+            </div>
+            <!-- 헤더 메인 메뉴 -->
+            <div class="header_main_wrap">
+               <div class="header_logo">
+                  <a href="index.html"><img src="./project_images/header&footer_img/logo.png" alt="이마트24 로고" /></a>
+               </div>
+               <ul class="header_main">
+                  <div class="submenu_background"></div>
+                  <li class="header_main_menu">
+                     <a href="brand_story.html">이마트24 소개</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="brand_story.html">브랜드 스토리</a></li>
+                        <li><a href="brand_resource.html">브랜드 리소스 센터</a></li>
+                        <li><a href="brand_gallery.html">브랜드 갤러리</a></li>
+                     </ul>
+                  </li>
+                  <li class="header_main_menu">
+                     <a href="goods_event.html">상품</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="goods_event.html">행사 상품</a></li>
+                        <li><a href="goods_different.html">차별화 상품</a></li>
+                        <li><a href="goods_fresh.html">Fresh Food</a></li>
+                     </ul>
+                  </li>
+                  <li class="header_main_menu">
+                     <a href="service_app.html">서비스</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="service_app.html">APP 서비스</a></li>
+                        <li><a href="service_life.html">생활 서비스</a></li>
+                        <li><a href="#" onclick="alert('준비되지 않았습니다');">제휴 서비스</a></li>
+                     </ul>
+                  </li>
+                  <li class="header_main_menu">
+                     <a href="event_act.html">이벤트</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="event_act.html">진행중인 이벤트</a></li>
+                        <li><a href="#" onclick="alert('준비되지 않았습니다');">종료된 이벤트</a></li>
+                     </ul>
+                  </li>
+                  <li class="header_main_menu">
+                     <a href="customerCenter.html">고객센터</a>
+                     <ul class="header_sub_menu_list">
+                        <li><a href="customerCenter.html">고객센터 홈</a></li>
+                        <li><a href="customerCenter_faq.html">FAQ</a></li>
+                        <li><a href="customerCenter_online.html">온라인 문의</a></li>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </header>
+   </div>
+
+   <!-- 섹션 영역 -->
+   <section>
+      <!-- 배너 -->
+      <div class="banner">
+         <h1>
+            Fresh Food
+         </h1>
+         <p>
+            이마트24의 신선하고 다양한 Fresh Food를 소개합니다.
+         </p>
+      </div>
+
+      <!-- 검색 -->
+      <div class="search">
+         <!-- 검색 바 -->
+         <div class="search_bar">
+            <div class="search_img">
+               <!-- 이미지 -->
+            </div>
+            <input type="text" placeholder="상품명을 입력해주세요">
+         </div>
+         <button> 검색 </button>
+      </div>
+
+      <!-- 상품 목록 -->
+      <div class="itemBox_wrap">
+         <div class="itemBox itemBox1">
+            <ul>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page1/1.짜장면.jfif">
+                  <hr>
+                  상상_2900짜장면 <br> <br>
+                  <span style="color: #f95a00;">2900원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page1/2.해물파전.jfif">
+                  <hr>
+                  미샛)철판오징어해물파전 <br> <br>
+                  <span style="color: #f95a00;">3900원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page1/3.치즈핫도그.jfif">
+                  <hr>
+                  팡마니)치즈X2핫도그 <br> <br>
+                  <span style="color: #f95a00;">3600원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page1/4.삼각김밥.jfif">
+                  <hr>
+                  상상_900삼각(햄베이컨참치) <br> <br>
+                  <span style="color: #f95a00;">900원</span>
+               </li>
+            </ul>
+            <ul>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page1/5.치킨샐러드.jfif">
+                  <hr>
+                  삼립)로우핏훈제치킨샐러드 <br> <br>
+                  <span style="color: #f95a00;">3800원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page1/6.리얼새우버거.jfif">
+                  <hr>
+                  그린)리얼새우버거 <br> <br>
+                  <span style="color: #f95a00;">3900원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page1/7.철판오징어김치전.jfif">
+                  <hr>
+                  미샛)철판오징어김치전 <br> <br>
+                  <span style="color: #f95a00;">3900원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page1/8.양문비프버터치즈버거.jfif">
+                  <hr>
+                  흑백_양문비프버터치즈버거 <br> <br>
+                  <span style="color: #f95a00;">3800원</span>
+               </li>
+            </ul>
+            <ul>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page1/9.떡만둣국.jfif">
+                  <hr>
+                  모마_소불고기떡만둣국정찬 <br> <br>
+                  <span style="color: #f95a00;">5900원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page1/10.모듬전.jfif">
+                  <hr>
+                  대정)모마_떡만둣국&모듬전세트 <br> <br>
+                  <span style="color: #f95a00;">5900원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page1/11.김볶삼김.jfif">
+                  <hr>
+                  햄김치볶음밥삼각 <br> <br>
+                  <span style="color: #f95a00;">1300원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page1/12.두부샐러드.jfif">
+                  <hr>
+                  삼립)로우핏두부텐더샐러드 <br> <br>
+                  <span style="color: #f95a00;">3800원</span>
+               </li>
+            </ul>
+            <ul>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page1/13.콩불구이샐러드.jfif">
+                  <hr>
+                  삼립)로우핏콩불구이샐러드 <br> <br>
+                  <span style="color: #f95a00;">3800원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page1/14.포테이토치즈버거.jfif">
+                  <hr>
+                  삼립)한돈포테이토치즈버거 <br> <br>
+                  <span style="color: #f95a00;">3800원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page1/15.김치제육.jfif">
+                  <hr>
+                  김치제육덮밥 <br> <br>
+                  <span style="color: #f95a00;">3900원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page1/16.닭가슴살김밥.jfif">
+                  <hr>
+                  F45_닭가슴살샐러드김밥 <br> <br>
+                  <span style="color: #f95a00;">4200원</span>
+               </li>
+            </ul>
+            <ul>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page1/17.샌드위치.jfif">
+                  <hr>
+                  요거트크림딸기&귤샌드위치 <br> <br>
+                  <span style="color: #f95a00;">2300원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page1/18.리조또.jfif">
+                  <hr>
+                  이지쿡)흑백_고추장크림리조또 <br> <br>
+                  <span style="color: #f95a00;">2300원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page1/19.고추장찌개.jfif">
+                  <hr>
+                  흑백_고씨네고추장찌개정식 <br> <br>
+                  <span style="color: #f95a00;">2300원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page1/20.도시락.jfif">
+                  <hr>
+                  미르2_매콤닭갈비&돈까스도시락 <br> <br>
+                  <span style="color: #f95a00;">2300원</span>
+               </li>
+            </ul>
+         </div>
+
+         <div class="itemBox itemBox2">
+            <ul>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page2/1.불고기도시락.jfif">
+                  <hr>
+                  미르2_푸짐한제육&불고기도시락 <br> <br>
+                  <span style="color: #f95a00;">5500원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page2/2.김치삼겹살도시락.jfif">
+                  <hr>
+                  미르2_고깃집김치삼겹살도시락 <br> <br>
+                  <span style="color: #f95a00;">5300원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page2/3.맥앤치즈불고기버거.jfif">
+                  <hr>
+                  삼립)맥앤치즈불고기버거 <br> <br>
+                  <span style="color: #f95a00;">3800원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page2/4.찰리오징어버거.jfif">
+                  <hr>
+                  그린)칠리오징어버거 <br> <br>
+                  <span style="color: #f95a00;">3600원</span>
+               </li>
+            </ul>
+            <ul>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page2/5.쉬림프타코랩.jfif">
+                  <hr>
+                  스윗)쉬림프타코랩 <br> <br>
+                  <span style="color: #f95a00;">4300원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page2/6.풀드포크타코랩.jfif">
+                  <hr>
+                  스윗)풀드포크타코랩 <br> <br>
+                  <span style="color: #f95a00;">4300원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page2/7.치킨살샌드위치.jfif">
+                  <hr>
+                  팡마니)통밀칠리치킨살샌드위치 <br> <br>
+                  <span style="color: #f95a00;">3600원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page2/8.단호박샐러드.jfif">
+                  <hr>
+                  F45_닭가슴살&단호박샐러드 <br> <br>
+                  <span style="color: #f95a00;">5000원</span>
+               </li>
+            </ul>
+            <ul>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page2/9.닭가슴살샌드위치.jfif">
+                  <hr>
+                  F45_상큼유자닭가슴살샌드위치 <br> <br>
+                  <span style="color: #f95a00;">3600원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page2/10.두부유부초밥.jfif">
+                  <hr>
+                  F45_두부유부초밥(참깨닭가슴살) <br> <br>
+                  <span style="color: #f95a00;">3900원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page2/11.두부유부초밥샐러드.jfif">
+                  <hr>
+                  F45_두부유부초밥&샐러드 <br> <br>
+                  <span style="color: #f95a00;">4800원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page2/12.오징어먹물크림파스타.jfif">
+                  <hr>
+                  오징어먹물크림파스타 <br> <br>
+                  <span style="color: #f95a00;">4900원</span>
+               </li>
+            </ul>
+            <ul>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page2/13.추억의옛날도시락.jfif">
+                  <hr>
+                  추억의옛날도시락 <br> <br>
+                  <span style="color: #f95a00;">3900원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page2/14.닭가슴살고구마샐러드.jfif">
+                  <hr>
+                  삼립)통닭가슴살고구마샐러드 <br> <br>
+                  <span style="color: #f95a00;">5500원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page2/15.닭가슴살견과류샐러드.jfif">
+                  <hr>
+                  삼립)통닭가슴살견과류샐러드 <br> <br>
+                  <span style="color: #f95a00;">5500원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page2/16.닭가슴살타코랩.jfif">
+                  <hr>
+                  스윗)닭가슴살타코랩 <br> <br>
+                  <span style="color: #f95a00;">3900원</span>
+               </li>
+            </ul>
+            <ul>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page2/17.불고기타코랩.jfif">
+                  <hr>
+                  스윗)불고기타코랩 <br> <br>
+                  <span style="color: #f95a00;">3900원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page2/18.소시지타코랩.jfif">
+                  <hr>
+                  스윗)소시지타코랩 <br> <br>
+                  <span style="color: #f95a00;">3900원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page2/19.반반유부초밥.jfif">
+                  <hr>
+                  반반유부초밥(매콤제육&불고기) <br> <br>
+                  <span style="color: #f95a00;">3900원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page2/20.알감자버터구이.jfif">
+                  <hr>
+                  세아)알감자버터구이 <br> <br>
+                  <span style="color: #f95a00;">3900원</span>
+               </li>
+            </ul>
+         </div>
+
+         <div class="itemBox itemBox3">
+            <ul>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page3/1.순두부열라면.jfif">
+                  <hr>
+                  상품명 토핑라면정식(순두부열라면&밥) <br> <br>
+                  <span style="color: #f95a00;">4900원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page3/2.오징어김밥.jfif">
+                  <hr>
+                  불오징어김밥 <br> <br>
+                  <span style="color: #f95a00;">3500원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page3/3.상상김밥.jfif">
+                  <hr>
+                  상상_1900김밥 <br> <br>
+                  <span style="color: #f95a00;">1900원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page3/4.상상비빔밥.jfif">
+                  <hr>
+                  상상_3600비빔밥 <br> <br>
+                  <span style="color: #f95a00;">3600원</span>
+               </li>
+            </ul>
+            <ul>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page3/5.에그포테이토샌드위치.jfif">
+                  <hr>
+                  에그포테이토샌드위치 <br> <br>
+                  <span style="color: #f95a00;">3300원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page3/6.통밀햄포테이토샌드위치.jfif">
+                  <hr>
+                  통밀햄포테이토샌드위치 <br> <br>
+                  <span style="color: #f95a00;">3600원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page3/7.베이컨체다할라피뇨버거.jfif">
+                  <hr>
+                  잭슨_베이컨체다할라피뇨버거 <br> <br>
+                  <span style="color: #f95a00;">3800원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page3/8.근본샌드위치.jfif">
+                  <hr>
+                  근본B.E.L.T샌드위치 <br> <br>
+                  <span style="color: #f95a00;">2500원</span>
+               </li>
+            </ul>
+            <ul>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page3/9.숯불갈비양념버거.jfif">
+                  <hr>
+                  한돈숯불갈비양념버거 <br> <br>
+                  <span style="color: #f95a00;">3800원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page3/10.칠리치즈버거.jfif">
+                  <hr>
+                  한돈칠리치즈버거 <br> <br>
+                  <span style="color: #f95a00;">3800원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page3/11.에그디럭스버거.jfif">
+                  <hr>
+                  스테이크에그디럭스버거 <br> <br>
+                  <span style="color: #f95a00;">3500원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page3/12.스크램블샌드위치.jfif">
+                  <hr>
+                  버터갈릭스크램블샌드위치 <br> <br>
+                  <span style="color: #f95a00;">2800원</span>
+               </li>
+            </ul>
+            <ul>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page3/13.케이준치킨햄샌드위치.jfif">
+                  <hr>
+                  뉴빅케이준치킨햄샌드위치 <br> <br>
+                  <span style="color: #f95a00;">2800원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page3/14.프리미엄에그샌드.jfif">
+                  <hr>
+                  프리미엄햄에그샌드 <br> <br>
+                  <span style="color: #f95a00;">2500원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page3/15.상하이스파이시버거.jfif">
+                  <hr>
+                  상하이스파이시버거 <br> <br>
+                  <span style="color: #f95a00;">2500원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_page3_img/16.빅더블치즈버거.jfif">
+                  <hr>
+                  빅더블치즈버거 <br> <br>
+                  <span style="color: #f95a00;">3500원</span>
+               </li>
+            </ul>
+            <ul>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page3/17. 에그프랜치토스트.jfif">
+                  <hr>
+                  치킨&에그프렌치토스트 <br> <br>
+                  <span style="color: #f95a00;">3500원</span>
+               </li>
+               <li>
+                  <img src="./project_images/goods_fresh_img/page3/18. 블루베리크림샌드위치.jfif">
+                  <hr>
+                  덴드요_블루베리크림샌드위치 <br> <br>
+                  <span style="color: #f95a00;">2800원</span>
+               </li>
+               <li class="none">
+               </li>
+               <li class="none">
+               </li>
+            </ul>
+         </div>
+      </div>
+
+      <div class="pages">
+         <ul>
+            <li id="page_front" onclick="page_front_go()">
+               < </li>
+            <li class="now" id="page1" onclick="page1_go()">
+               1
+            </li>
+            <li id="page2" onclick="page2_go()">
+               2
+            </li>
+            <li id="page3" onclick="page3_go()">
+               3
+            </li>
+            <li id="page_back" onclick="page_back_go()">
+               >
+            </li>
+         </ul>
+      </div>
+   </section>
+
+   <!-- 푸터 영역 -->
+   <footer>
+      <div class="footer-div">
+         <div class="footer-div-infos">
+            <span style="cursor: pointer;">
+               <p>개인정보 처리방침 &nbsp;|&nbsp; 고정형 영상정보기기 운영 관리 방침 &nbsp;|&nbsp; 위치기반서비스 이용약관 &nbsp;|
+                  <span style="color: #333333; font-weight: 400;">&nbsp;이용약관 &nbsp;| &nbsp;공지사항 &nbsp;| &nbsp;고객센터
+                     &nbsp;|&nbsp; CSR경영 &nbsp;| &nbsp;사이트맵</span>
+               </p>
+            </span>
+            <span style="color: #333333;">
+               <p>(주) 이마트24</p>
+            </span>
+            <span style="color: #999999; ">
+               <p>대표이사 : 송만춘 / 사업자등록번호: 105-86-92454 <br>
+                  서울특별시 성동구 성수동 2가 281-4 푸조비즈타워 / 고객센터: 02-6916-1500 / Fax: 02-6916-1430 <br>
+                  COPYRIGHT (C) EMART24.ALL RIGHT RESERVED
+               </p>
+            </span>
+         </div>
+
+         <div class="footer-right">
+            <div class="footer-familysite">
+               <p><span style="color: #333333; font-size: 13px; cursor: pointer;">패밀리사이트 +</span></p>
+            </div>
+            <div class="footer-sites">
+               <div class="sns">
+                  <a href="">
+                     <img src="./project_images/header&footer_img/youtube.png" alt="">
+                  </a>
+               </div>
+               <div class="sns">
+                  <a href="">
+                     <img src="./project_images/header&footer_img/insta.png" alt="">
+                  </a>
+               </div>
+               <div class="sns">
+                  <a href="">
+                     <img src="./project_images/header&footer_img/facebook.png" alt="">
+                  </a>
+               </div>
+               <div class="sns">
+                  <a href="">
+                     <img src="./project_images/header&footer_img/tiktok.png" alt="">
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </footer>
+</body>
+
+</html>

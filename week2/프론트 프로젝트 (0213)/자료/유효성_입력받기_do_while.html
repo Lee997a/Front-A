@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        
+        //점수를 입력받는데 0~100 사이의 값을 받도록 한다 
+        //잘못되면 계속 입력받게 한다
+
+ 
+        let kor;
+        do{
+          
+            kor  = parseInt( prompt("국어점수입력"));
+
+            if( kor <0  || kor >100)         {
+                alert("올바른 점수를 입력 하세요");
+            }
+
+        }
+        while( kor <0  || kor>100  );
+
+
+    
+        alert("점수가 올바르게 입력되었습니다 " + kor);
+    </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style> 
+
+
+
+        /*초기 css*/
+
+        ul{
+            list-style: none;
+            margin: 0px;
+            padding: 0;
+        }
+
+
+        /* 헤더 고정 */
+        header{
+            height: 300px;
+            width: 100%;            
+            background-color: antiquewhite;
+            position: fixed;           
+        }
+
+
+        /*헤더기준 오른쪽에 붙이기 */
+    
+        .menu{
+            display: flex;
+            width: 900px;
+
+            position: absolute;
+            top:100px;
+            right: 0; 
+           
+        }
+        
+        /*상위메뉴 */
+        
+        .item{
+            margin: 10px;
+            width: 200px;
+
+            position: relative;
+            border: 1px solid black;
+           
+        }
+
+        /* 하위 숨김메뉴  */
+        .hiddenmenu {
+            width: 100%;
+            display: none;
+            position: absolute;
+
+            left: 0;
+            border: 1px solid black;
+        }
+
+
+        .menu:hover .hiddenmenu{
+            display: block;
+        }
+
+        .menu:hover  .inner{
+            
+            background-color: gray;
+            opacity: 0.5;
+            pointer-events: auto; /* 메뉴에 호버 이벤트 활성화 */
+           
+        }
+
+        .menu .inner{                 
+            width: 100%;
+            height: 300px;
+            /*position: absolute;*/
+            position: fixed;
+            width: 100%;
+            left: 0;            
+            opacity: 0 ;
+            transition: 0.5s;
+            margin-top: 50px;
+            pointer-events: none; /* 회색 배경에 호버 이벤트 무시 */
+       
+
+        }
+
+        .name{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+
+        <ul class="menu">
+            <div class="inner"></div>
+            <li class="item">
+                <div class="name">232</div>
+                <ul class="hiddenmenu">
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </li>
+            <li class="item">
+                <div class="name">232</div>
+                <ul class="hiddenmenu">
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </li>
+            <li class="item">
+                <div class="name">232</div>
+                <ul class="hiddenmenu">
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+
+   
+    
+</body>
+</html>
